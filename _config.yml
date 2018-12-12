@@ -105,7 +105,7 @@ analytics:
 author:
   name             : ""
   avatar           : "img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : ""
+  bio              : "Data Scientist"
   location         : "Pangyo, South Korea"
   email            : "mcwooil2@gmail.com"
   links:
