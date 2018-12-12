@@ -103,7 +103,7 @@ analytics:
 
 # Site Author
 author:
-  name             : ""
+  name             : "Wooil Jeong"
   avatar           : "img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data Scientist"
   location         : "Pangyo, South Korea"
