@@ -5,9 +5,12 @@ title: "About"
 author_profile: true
 ---
 
+
+
 ## Currently
 
-* Data Scientist at TWIM Corp. - (2018.04 ~ )
+- Data Scientist at TWIM Corp. - (2018.04 ~ )
+
 
 ## Education
 
@@ -17,3 +20,5 @@ author_profile: true
 | Dankook University | Bachelor of Communications (2018) |
 | Gyeonggi-do | Gyeonggi Big Data Expert Course (Analysis) (2017) |
 | Dankook University | Dankook Human Resources Academy (2016) |
+
+## What I Did
