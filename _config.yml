@@ -104,7 +104,7 @@ analytics:
 # Site Author
 author:
   name             : "Wooil Jeong"
-  avatar           : "img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "assets/img/img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data-science, Statistics, Big-history, Economy, Psychology, Hiphop"
   location         : "Pangyo, South Korea"
   email            : "mcwooil2@gmail.com"
@@ -290,5 +290,3 @@ defaults:
       comments: true
       share: true
       related: true
-      
-
