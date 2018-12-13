@@ -6,9 +6,11 @@ author_profile: true
 ---
 
 ## Currently
+
 * Data Scientist at TWIM Corp. - (2018.04 ~ )
 
 ## Education
+
 | Name | Description |
 | ---- | ----------- |
 | Dankook University | Bachelor of Statistics (2018) |
