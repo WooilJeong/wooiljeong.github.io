@@ -425,6 +425,11 @@
    Wide Pages
    ========================================================================== */
 
+a {
+  color: black;
+}
+
+
   .wide {
   .archive {
     @include breakpoint($large) {
