@@ -106,7 +106,7 @@
   }
 
   a {
-    color: black;
+    color: #fff;
     text-decoration: none;
   }
 }
@@ -425,12 +425,6 @@
    Wide Pages
    ========================================================================== */
 
-a {
-  color: black;
-  text-decoration: none;
-}
-
-
   .wide {
   .archive {
     @include breakpoint($large) {
@@ -441,4 +435,10 @@ a {
       padding-right: 0;
     }
   }
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
 }
