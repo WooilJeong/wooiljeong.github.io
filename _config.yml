@@ -62,7 +62,7 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
 search                   : true # true, false (default)
-search_full_content      : # true, false (default)
+search_full_content      : true # true, false (default)
 search_provider          : # lunr (default), algolia, google
 algolia:
   application_id         : # YOUR_APPLICATION_ID
@@ -106,7 +106,7 @@ author:
   name             : "Wooil Jeong"
   avatar           : "assets/img/img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data-science, Statistics, Big-history, Economy, Psychology, Hiphop"
-  location         : "Pangyo, South Korea"
+  location         : "Republic of Korea"
   email            : "mcwooil2@gmail.com"
   links:
     - label: "Email"
