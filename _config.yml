@@ -105,7 +105,7 @@ analytics:
 author:
   name             : "Wooil Jeong"
   avatar           : "assets/img/img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data-science, Statistics, Big-history, Economy, Psychology, Hiphop"
+  bio              : ""
   location         : "Republic of Korea"
   email            : "mcwooil2@gmail.com"
   links:
