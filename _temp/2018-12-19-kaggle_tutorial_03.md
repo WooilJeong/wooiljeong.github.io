@@ -5,7 +5,6 @@ categories: Tutorial
 tags: Kaggle
 ---
 ## Step 3 : Random Forest로 예측 성능 높이기
-**1) **
-**2) **
-**3) **
-**4) **
+**1) A Random Forest analysis in Python**
+**2) Interpreting and Comparing**
+**3) Conclude and Submit**
