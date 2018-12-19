@@ -7,8 +7,6 @@ tags: Kaggle
 ## Step 1 : 파이썬으로 시작하기
 캐글에 입문할 때 흔히 접하게 되는 대회 중 하나인 '타이타닉 대회'를 다루도록 한다. 이 대회의 문제를 해결하기 위해 파이썬과 머신러닝 기법이 사용되므로 간단한 예제를 살펴본다.
 
-
-
 **1) 변수 정의 및 출력**
 
 ```python
@@ -20,6 +18,8 @@ print(x)
 y = 6 * 9
 print(y)
 ```
+
+<br>
 
 **2) Pandas로 데이터 가져오기**
 
@@ -41,6 +41,7 @@ print(train.head())
 print(test.head())
 ```
 
+<br>
 
 **3) Data 이해하기**
 
@@ -54,6 +55,8 @@ test.describe()
 train.shape
 test.shape
 ```
+
+<br>
 
 **4) Rose vs Jack 혹은 여성 vs 남성**
 
@@ -103,6 +106,8 @@ print(train["Survived"][train["Sex"]=='male'].value_counts(normalize=True))
 print(train["Survived"][train["Sex"]=='female'].value_counts(normalize=True))
 ```
 
+<br>
+
 **5) 나이(Age)는 주요한 변수인가?**
 
 생존에 영향을 줄 수 있는 또다른 변수는 나이(Age)다. 어린이들을 먼저 구조할 수 있기 때문에 어린이인지 아닌지를 의미하는 범주형 변수 ```Child```를 만들어 볼 수 있다. ```Child```가 1이라는 값을 가지면 나이가 18세 미만이고 0이라는 값을 가지면 나이가 18세 이상을 의미하는 식이다.
@@ -140,6 +145,7 @@ train["Survived"][train["Child"]==0].value_counts(normalize=True)
 ```
 어른의 경우 생존 비율이 64%로 어린이의 경우 생존 비율 54% 더 높게 나타난 것을 확인할 수 있다.
 
+<br>
 
 **6) '성별'로 예측하기**
 
@@ -160,8 +166,9 @@ print(test_one["Survived"])
 ```
 성별을 기준으로 '남성'은 사망, '여성'은 생존으로 예측하는 모델을 테스트 데이터 셋에 적용하여 'Survived' 변수와 각 관측치에 해당하는 값을 생성하였다.
 
+<br>
 
-
+**참고**
 
 [캐글 튜토리얼](https://www.datacamp.com/community/open-courses/kaggle-python-tutorial-on-machine-learning)
 [파이썬 튜토리얼](https://www.datacamp.com/courses/intro-to-python-for-data-science)
