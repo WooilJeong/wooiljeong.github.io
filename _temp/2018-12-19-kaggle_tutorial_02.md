@@ -5,7 +5,10 @@ categories: Tutorial
 tags: Kaggle
 ---
 ## Step 2 : Decision Trees로 예측하기
-**1) **
-**2) **
-**3) **
-**4) **
+**1) Intro to decision trees**
+**2) Cleaning and Formatting your Data**
+**3) Creating your first decision tree**
+**4) Interpreting your decision tree**
+**5) Predict and submit to Kaggle**
+**6) Overfitting and how to control it**
+**7) Feature-engineering for our Titanic data set**
