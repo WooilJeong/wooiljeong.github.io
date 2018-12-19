@@ -99,36 +99,36 @@ print(train["Survived"][train["Sex"]=='female'].value_counts(normalize=True))
 ```
 
 **5) 나이(Age)는 주요한 변수인가?**
-생존에 영향을 줄 수 있는 또다른 변수는 나이(Age)다. 어린이들을 먼저 구조할 수 있기 때문에 어린이인지 아닌지를 의미하는 범주형 변수 ```child```를 만들어 볼 수 있다. ```child```가 1이라는 값을 가지면 나이가 18세 미만이고 0이라는 값을 가지면 나이가 18세 이상을 의미하는 식이다.
+생존에 영향을 줄 수 있는 또다른 변수는 나이(Age)다. 어린이들을 먼저 구조할 수 있기 때문에 어린이인지 아닌지를 의미하는 범주형 변수 ```Child```를 만들어 볼 수 있다. ```Child```가 1이라는 값을 가지면 나이가 18세 미만이고 0이라는 값을 가지면 나이가 18세 이상을 의미하는 식이다.
 
 이 새로운 변수를 추가하기 위해서 두 가지를 해야한다. 하나는 새 컬럼을 생성하고, 나머지 하나는 탑승자들의 나이에 근거해 각 관측치(Row) 별로 값을 주는 것이다.
 
 파이썬에서는 다음과 같이 판다스를 이용하여 쉽게 새로운 컬럼을 생성할 수 있다.
 
 ```Python
-train["child"] = 0
+train["Child"] = 0
 ```
-`train`이라는 데이터프레임에 `child`라는 컬럼을 생성하고 모든 관측치에 0값을 주는 코드이다.
+`train`이라는 데이터프레임에 `Child`라는 컬럼을 생성하고 모든 관측치에 0값을 주는 코드이다.
 
 탑승자들의 나이에 근거해 값을 설정하기 위해서 ```[]``` 연산자 안에서 'boolean test'를 해야한다.
 
 ```Python
-train["child"][train['Age']<18]=1
+train["Child"][train['Age']<18]=1
 ```
-학습 데이터 셋에서 나이(Age)가 18세 미만인 사람들의 ```child``` 변수에 해당하는 값으로 1을 할당한다.
+학습 데이터 셋에서 나이(Age)가 18세 미만인 사람들의 ```Child``` 변수에 해당하는 값으로 1을 할당한다.
 
 ```Python
-train["child"].value_counts()
+train["Child"].value_counts()
 # 0 : 778명 (18세 이상)
 # 1 : 113명 (18세 미만)
 ```
 학습 데이터 셋 내에 18세 미만의 어린이 113명과 18세 이상의 어른 778명이 존재함을 알 수 있다.
 
 ```Python
-train["Survived"][train["child"]==1].value_counts(normalize=True)
+train["Survived"][train["Child"]==1].value_counts(normalize=True)
 # 1 : 0.54 (생존한 어린이 비율)
 # 0 : 0.46 (사망한 어린이 비율)
-train["Survived"][train["child"]==0].value_counts(normalize=True)
+train["Survived"][train["Child"]==0].value_counts(normalize=True)
 # 1 : 0.64 (생존한 어른 비율)
 # 0 : 0.36 (사망한 어른 비율)
 ```
@@ -139,6 +139,21 @@ train["Survived"][train["child"]==0].value_counts(normalize=True)
 위 내용을 종합하면 학습 데이터 셋에서 여성의 생존 비율은 50% 보다 크고, 남성의 생존 비율은 50% 보다 작다는 것을 알았다. 따라서 이와 같은 정보를 이용해 생존 가능성을 예측할 수 있는 모델을 가지게 되었다. 바로 테스트 데이터 셋의 모든 여성은 생존할 것이고, 그 밖의 모든 남성은 사망할 것이라고 예측하는 것이다.
 
 이와 같은 예측을 검증하기 위해서 테스트 데이터 셋을 사용한다. 학습 데이터 셋과 달리 테스트 데이터 셋에는 ```Survived``` 컬럼이 없다. 예측된 값을 사용해 해당 컬럼을 추가하여 업로드하면 Kaggle 에서는 이 값을 실제 값과 비교하여 모델 예측 성능에 대한 점수를 부여한다.
+
+```Python
+# 테스트 데이터 셋 복사
+test_one = test
+
+# 'Survived' 변수의 값을 모든 관측치에 대해 0으로 부여
+test_one["Survived"] = 0
+
+# 테스트 데이터 셋의 여성에 한해 'Survived' 변수의 값을 1로 변경 및 결과 출력
+test_one["Survived"][test_one["Sex"]=="female"] = 1
+print(test_one["Survived"])
+```
+성별을 기준으로 '남성'은 사망, '여성'은 생존으로 예측하는 모델을 테스트 데이터 셋에 적용하여 'Survived' 변수와 각 관측치에 해당하는 값을 생성하였다.
+
+
 
 
 [캐글 튜토리얼](https://www.datacamp.com/community/open-courses/kaggle-python-tutorial-on-machine-learning)
