@@ -10,7 +10,8 @@ tags: Kaggle
 
 
 **1) 변수 정의 및 출력**
-```Python
+
+```python
 # x = 4 * 3 를 정의하고, x 를 출력
 x = 4 * 3
 print(x)
@@ -24,7 +25,7 @@ print(y)
 
 타이타닉 호가 침몰했을 때, 배에 탑승하고 있던 2,224명의 승객과 승무원 중 1,502명이 사망했다. 영화 '타이타닉'을 참고하면 배에 탑승하고 있던 사람들은 저마다 침몰에서 생존할 가능성이 달랐을 것이라고 추측할 수 있다. 파이썬과 머신러닝 기법을 이용하여 사람들의 생존 확률을 예측하는 방법을 탐색해 볼 것이다. 이를 위해 우선 Pandas를 이용하여 파이썬 환경에 학습 데이터 셋과 테스트 데이터 셋을 불러와야한다. 학습 데이터 셋은 모델을 만들 때 사용하며, 테스트 데이터 셋은 모델을 검증할 때 사용한다. 데이터 셋은 웹에 ```csv``` 파일 형식으로 저장되어 있다. 파일 주소는 아래 코드 안에 문자 형식으로 준비되어 있다. Pandas의 ```read_csv()```메소드로 데이터를 불러올 수 있다.
 
-```Python
+```python
 # Pandas 라이브러리 임포트하기
 import pandas as pd
 
@@ -47,7 +48,7 @@ print(test.head())
 
 학습 및 테스트 데이터 셋은 ```train```, ```test```변수로 사용할 수 있으며 다음과 같이 ```.describe()```, ```.shape```메소드를 적용해 볼 수 있다.
 
-```Python
+```python
 train.describe()
 test.describe()
 train.shape
@@ -58,7 +59,7 @@ test.shape
 
 학습 데이터 셋에서 얼마나 많은 사람들이 생존했는지를 파악하려면 ```value_counts()```메소드를 사용하면 된다. ```[]```표기를 이용하면 관심있는 컬럼을 선택할 수 있다.
 
-```Python
+```python
 # 빈도
 train["Survived"].value_counts()
 # 0: 549명
@@ -75,14 +76,14 @@ train["Survived"].value_counts(normalize = True)
 
 좀 더 깊이 들어가면, 생존 컬럼의 부분 집합에 대해서도 빈도, 비율 계산을 적용할 수 있다. 예를 들어, 성별이 생존에 주요한 변수인지를 확인하려면 ```.value_counts()``` 메소드를 이용하여 생존한 남성과 여성의 수에 대한 양방향 비교 방법을 적용할 수 있다.
 
-```Python
+```python
 train["Survived"][train["Sex"] == 'male'].value_counts()
 train["Survived"][train["Sex"] == 'female'].value_counts()
 ```
 
 비율을 구하기 위해서는 ```normalize = True``` 옵션을 ```.value_counts()``` 메소드에 추가하면 된다.
 
-```Python
+```python
 # 생존자 vs 사망자
 print(train["Survived"].value_counts())
 
@@ -110,26 +111,26 @@ print(train["Survived"][train["Sex"]=='female'].value_counts(normalize=True))
 
 파이썬에서는 다음과 같이 판다스를 이용하여 쉽게 새로운 컬럼을 생성할 수 있다.
 
-```Python
+```python
 train["Child"] = 0
 ```
 `train`이라는 데이터프레임에 `Child`라는 컬럼을 생성하고 모든 관측치에 0값을 주는 코드이다.
 
 탑승자들의 나이에 근거해 값을 설정하기 위해서 ```[]``` 연산자 안에서 'boolean test'를 해야한다.
 
-```Python
+```python
 train["Child"][train['Age']<18]=1
 ```
 학습 데이터 셋에서 나이(Age)가 18세 미만인 사람들의 ```Child``` 변수에 해당하는 값으로 1을 할당한다.
 
-```Python
+```python
 train["Child"].value_counts()
 # 0 : 778명 (18세 이상)
 # 1 : 113명 (18세 미만)
 ```
 학습 데이터 셋 내에 18세 미만의 어린이 113명과 18세 이상의 어른 778명이 존재함을 알 수 있다.
 
-```Python
+```python
 train["Survived"][train["Child"]==1].value_counts(normalize=True)
 # 1 : 0.54 (생존한 어린이 비율)
 # 0 : 0.46 (사망한 어린이 비율)
@@ -146,7 +147,7 @@ train["Survived"][train["Child"]==0].value_counts(normalize=True)
 
 이와 같은 예측을 검증하기 위해서 테스트 데이터 셋을 사용한다. 학습 데이터 셋과 달리 테스트 데이터 셋에는 ```Survived``` 컬럼이 없다. 예측된 값을 사용해 해당 컬럼을 추가하여 업로드하면 Kaggle 에서는 이 값을 실제 값과 비교하여 모델 예측 성능에 대한 점수를 부여한다.
 
-```Python
+```python
 # 테스트 데이터 셋 복사
 test_one = test
 
