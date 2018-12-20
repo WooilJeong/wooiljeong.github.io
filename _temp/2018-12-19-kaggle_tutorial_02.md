@@ -65,18 +65,35 @@ my_tree = tree.DecisionTreeClassifier()
 my_tree = my_tree.fit(features, target)
 ```
 
-의사결정나무의 결과를 빠르게 확인하는 한 가지 방법은 포함된 특징들의 중요도를 보는 것이다. 이는 나무 객체의 속성 ```.feature_importance_```에 대한 요청에 의해 수행된다. 또 다른 빠른 측도는 ```features_one```과 ```target```를 인수로하는 ```.score()``` 함수를 이용한
+의사결정나무의 결과를 빠르게 확인하는 한 가지 방법은 포함된 특징들의 중요도를 보는 것이다. 이는 나무 객체의 ```.feature_importance_``` 속성을 요청하여 수행된다. 또 다른 빠른 결과 확인 측도는 ```features_one```과 ```target```를 인수로 하는 ```.score()``` 함수를 사용해 계산할 수 있는 평균 정확도가 있다.
+
+```python
+# 목표와 특징 넘파이 배열 생성 : target, features_one
+target = train["Survived"].values
+features_one = train[["Pclass", "Sex", "Age", "Fare"]].values
+
+# 의사결정나무 적합시키기 : my_tree_one
+my_tree_one = tree.DecisionTreeClassifier()
+my_tree_one = my_tree_one.fit(features_one, target)
+
+# 의사결정나무에 포함된 특징들의 중요도와 스코어
+print(my_tree_one.feature_importances_)
+# 결과 : [0.12063997 0.31274009 0.22489714 0.3417228 ]
+print(my_tree_one.score(features_one, target))
+# 결과 : 0.9775533108866442
+```
 
 <br>
 
 **4) 의사결정나무(Decision Trees) 해석하기**
 
-
+의사결정나무의 결과를 해석할 때 ```feature_importance_``` 속성을 사용하면 포함시키는 예측 변수의 의미를 간단하게 이해할 수 있다. 의사결정나무에 기반할 때, 어떤 변수가 배에 탑승한 사람들의 생존 여부에 가장 큰 영향을 주는지 알아 볼 것이다. 위 예에서 'Fare' 변수의 중요도가 0.34로 비교군 중 가장 높아 생존 여부에 가장 큰 영향을 주었다는 것을 알 수 있다.
 
 
 <br>
 
 **5) 예측하고 캐글에 제출하기**
+
 
 
 
@@ -91,6 +108,16 @@ my_tree = my_tree.fit(features, target)
 <br>
 
 **7) 타이타닉 데이터 셋을 위한 Feature Engineering**
+
+
+
+
+
+
+
+
+
+
 
 
 
