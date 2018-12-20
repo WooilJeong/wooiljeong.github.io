@@ -53,8 +53,19 @@ print(train["Embarked"])
 
 **3) 의사결정나무(Decision Trees) 만들기**
 
+의사결정나무를 만들기 위해 ```scikit-learn```과 ```numpy``` 라이브러리를 사용할 것이다. ```scikit-learn```은 ```DecisionTreeClassifier``` 클래스로부터 ```tree``` 객체를 만드는데 사용된다. 우리가 사용할 메소드는 입력으로 ```numpy``` 배열을 취한다. 그러므로 미리 정의된```DataFrame```으로부터 이를 만들어야한다. 의사결정나무를 만들기 위해서는 다음이 필요하다.
 
+- ```target``` : 학습 데이터의 목표/반응을 담고 있는 1차원 넘파이 배열 (ex. 'Survived')
+- ```features``` : 학습 데이터의 특징/변수를 담고 있는 다차원 넘파이 배열 (ex. 'Sex', 'Age')
 
+```python
+target = train["Survived"].values
+features = train[["Sex", "Age"]].values
+my_tree = tree.DecisionTreeClassifier()
+my_tree = my_tree.fit(features, target)
+```
+
+의사결정나무의 결과를 빠르게 확인하는 한 가지 방법은 포함된 특징들의 중요도를 보는 것이다. 이는 나무 객체의 속성 ```.feature_importance_```에 대한 요청에 의해 수행된다. 또 다른 빠른 측도는 ```features_one```과 ```target```를 인수로하는 ```.score()``` 함수를 이용한
 
 <br>
 
