@@ -11,6 +11,37 @@ tags: Python Plotly
 
 ## 설치
 
+플로틀리 파이썬 패키지를 설치하려면, 다음과 같이 터미널에서 패키지 매니저 ```pip``` 명령어를 사용해야 한다.
+
+```bash
+pip install plotly
+```
+
+플로틀리 파이썬 패키지는 자주 업데이트 되기 때문에 다음 명령어를 사용해 최신 버전으로 업데이트해주도록 한다.
+
+```bash
+pip install plotly --upgrade
+```
 
 
-##
+## 온라인 플로팅을 위한 초기 작업
+
+
+
+## 온라인 플롯 프라이버시
+
+
+
+## Special Instructions for Chart Studio Enterprise Users
+
+
+
+## 플로팅 온라인 시작하기
+
+
+
+## 오프라인 플로팅을 위한 초기 작업
+
+
+
+## 추가 예제
