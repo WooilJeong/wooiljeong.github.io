@@ -3,6 +3,9 @@ title: "플로틀리 튜토리얼 (Plotly Tutorial)-파이썬 시각화를 위�
 date: 2018-12-21 20:00:00 -0400
 categories: Tutorial
 tags: Python Plotly
+header:
+  overlay_image: /assets/img/wallpaper.jpg
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
 ## 플로틀리(Plotly)
 
