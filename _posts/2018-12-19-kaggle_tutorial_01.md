@@ -3,6 +3,9 @@ title: "캐글 튜토리얼 01 (Kaggle Tutorial)-파이썬(Python)으로 시작�
 date: 2018-12-19 20:00:00 -0400
 categories: Tutorial
 tags: Kaggle
+header:
+  overlay_image: /assets/img/wallpaper.jpg
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
 ## Step 1 : 파이썬으로 시작하기
 캐글에 입문할 때 흔히 접하게 되는 대회 중 하나인 '타이타닉 대회'를 다루도록 한다. 이 대회의 문제를 해결하기 위해 파이썬과 머신러닝 기법이 사용되므로 간단한 예제를 살펴본다.
