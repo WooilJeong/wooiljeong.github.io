@@ -102,8 +102,10 @@ trace1 = go.Scatter(
 data = [trace0, trace1]
 
 py.plot(data, filename = 'basic-line', auto_open=True)
+
+## 그래프를 새 창에서 출력
 ```
-<iframe width="650" height="300" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
+
 
 ```python
 import plotly.plotly as py
@@ -125,7 +127,15 @@ trace1 = go.Scatter(
 data = [trace0, trace1]
 
 py.iplot(data, filename = 'basic-line')
+
+# 그래프를 주피터 노트북 상에 출력
 ```
+
+* 그래프 출력 예시
+
+<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
+
+
 [iPython 노트북 문서](https://plot.ly/ipython-notebooks/)에서 더 많은 예제를 확인할 수 있고, 자세한 정보는 ```py.iplot()``` docstring을 확인하면 된다.
 
 ```python
