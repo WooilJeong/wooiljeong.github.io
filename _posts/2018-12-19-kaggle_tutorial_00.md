@@ -36,9 +36,7 @@ header:
 - 파이썬과 R 기초 (Python and R basics)
 
 
-<iframe width="640" height="360" src="https://youtu.be/9xoqXVjBEF8"  
- frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>  
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9xoqXVjBEF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 <br>
