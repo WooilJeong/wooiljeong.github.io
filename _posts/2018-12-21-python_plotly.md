@@ -100,7 +100,6 @@ data = [trace0, trace1]
 
 py.plot(data, filename = 'basic-line', auto_open=True)
 
-## 출력 결과 : u'https://plot.ly/~PythonPlotBot/27'
 ```
 
 ```python
