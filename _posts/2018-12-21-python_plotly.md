@@ -131,11 +131,6 @@ py.iplot(data, filename = 'basic-line')
 # 그래프를 주피터 노트북 상에 출력
 ```
 
-* 그래프 출력 예시
-
-<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
-
-
 [iPython 노트북 문서](https://plot.ly/ipython-notebooks/)에서 더 많은 예제를 확인할 수 있고, 자세한 정보는 ```py.iplot()``` docstring을 확인하면 된다.
 
 ```python
@@ -143,6 +138,10 @@ import plotly.plotly as py
 help(py.iplot)
 ```
 
+* 그래프 출력 예시
+
+<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
+<br>
 
 **matplotlib** 구문을 사용하여 플롯 그래프를 만들 수도 있다. [matplotlib 문서](https://plot.ly/matplotlib/)에서 더 자세한 사항을 확인 할 수 있다.
 
@@ -198,6 +197,11 @@ plotly.offline.iplot({
 import plotly
 help(plotly.offline.iplot)
 ```
+
+* 그래프 출력 예시
+
+<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/2.embed"></iframe>
+<br>
 
 플로팅 오프라인으로 파이썬 플로틀리를 사용하는 더 많은 예제는 [오프라인 문서](https://plot.ly/python/offline/)를 참조하면 된다.
 
