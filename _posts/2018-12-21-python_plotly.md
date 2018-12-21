@@ -99,7 +99,6 @@ trace1 = go.Scatter(
 data = [trace0, trace1]
 
 py.plot(data, filename = 'basic-line', auto_open=True)
-
 ```
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
 
