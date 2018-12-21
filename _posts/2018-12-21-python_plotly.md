@@ -8,6 +8,7 @@ tags: Python Plotly
 
 플로틀리(Plotly)는 캐나다 퀘벡 몬트리올에 본사를 두고있는 컴퓨팅 기술 회사로 온라인 데이터 분석 및 시각화 툴을 개발하고 있다. 플로틀리는 Python, R, MATLAB, Perl, Julia, Arduino 및 REST 용 과학 그래프 라이브러리 뿐만 아니라 개인 및 협업을 위한 온라인 그래프, 분석 및 통계 툴도 제공한다. 본 튜토리얼에서는 파이썬(Python) 환경에서 온라인 플로팅을 위한 [플로틀리 공식 사이트](https://plot.ly/python/getting-started/#initialization-for-online-plotting)의 설명을 한국어로 번역하고, 이를 실습해 볼 것이다.
 
+<br>
 
 ## 설치
 
@@ -23,6 +24,7 @@ pip install plotly
 pip install plotly --upgrade
 ```
 
+<br>
 
 ## 온라인 플로팅을 위한 초기화
 
@@ -49,6 +51,7 @@ plotly.tools.set_credentials_file(username='DemoAccount', api_key='lr1c37zw81')
 }
 ```
 
+<br>
 
 ## 온라인 플롯 프라이버시
 
@@ -70,7 +73,7 @@ plotly.tools.set_config_file(world_readable=False,
 
 프라이버시 설정에 대한 더 많은 예제는 [Python privacy documentation](https://plot.ly/python/privacy/)을 참고하면 된다.
 
-
+<br>
 
 ## 플로팅 온라인 시작하기
 
@@ -131,6 +134,7 @@ help(py.iplot)
 
 **matplotlib** 구문을 사용하여 플롯 그래프를 만들 수도 있다. [matplotlib 문서](https://plot.ly/matplotlib/)에서 더 자세한 사항을 확인 할 수 있다.
 
+<br>
 
 ## 오프라인 플로팅을 위한 초기 작업
 
@@ -185,23 +189,8 @@ help(plotly.offline.iplot)
 
 플로팅 오프라인으로 파이썬 플로틀리를 사용하는 더 많은 예제는 [오프라인 문서](https://plot.ly/python/offline/)를 참조하면 된다.
 
+<br>
+
 ## 추가 예제
 
 플로틀리를 파이썬으로 사용하기위한 예제와 튜토리얼은 다음 [링크](https://plot.ly/python/)를 확인하면 된다.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.
