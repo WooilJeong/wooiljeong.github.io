@@ -3347,7 +3347,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_60_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_60_0.png)
 
 
 
@@ -3364,7 +3364,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_61_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_61_0.png)
 
 
 
@@ -3381,7 +3381,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_62_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_62_0.png)
 
 
 
@@ -3398,7 +3398,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_63_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_63_0.png)
 
 
 
@@ -3415,7 +3415,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_64_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_64_0.png)
 
 
 
@@ -3432,7 +3432,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_65_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_65_0.png)
 
 
 ### Scatter-plot
@@ -3445,7 +3445,7 @@ plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_67_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_67_0.png)
 
 
 
@@ -3456,7 +3456,7 @@ plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_68_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_68_0.png)
 
 
 
@@ -3467,7 +3467,7 @@ plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_69_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_69_0.png)
 
 
 ## year_month
@@ -3489,7 +3489,7 @@ plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-jupyter_test/2018-12-28-jupyter_test/output_72_0.png)
+![png](/assets/img/post_img/2018-12-28-jupyter_test/output_72_0.png)
 
 
 
