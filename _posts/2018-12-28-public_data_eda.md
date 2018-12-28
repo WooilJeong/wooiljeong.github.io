@@ -8,7 +8,6 @@ header:
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
 
-
 # 부동산 데이터 탐색
 * 단독다가구(매매)
 
@@ -3393,8 +3392,8 @@ plt.figure(1, figsize=(10, 6))
 plt.title("FAR 별 주택(단독, 다가구) 평균 거래 금액(단위:만원)",size=20)
 plt.xlabel("FAR", size=16)
 plt.ylabel("평균거래금액(만원)", size=16)
-plt.bar(data.index,data["price"],facecolor="red", alpha=0.5, width=0.2)
-plt.xticks(rotation=45)
+plt.bar(data.index, data["price"],facecolor="red", alpha=0.5, width=0.4,)
+plt.xticks([0,1],("1미만","1이상"))
 plt.grid(True)
 ```
 
@@ -3410,8 +3409,8 @@ plt.figure(1, figsize=(10, 6))
 plt.title("FAR 별 단독주택 평균 거래 금액(단위:만원)",size=20)
 plt.xlabel("FAR", size=16)
 plt.ylabel("평균거래금액(만원)", size=16)
-plt.bar(data.index,data["price"],facecolor="orange", alpha=0.5, width=0.2)
-plt.xticks(rotation=45)
+plt.bar(data.index,data["price"],facecolor="orange", alpha=0.5, width=0.4,)
+plt.xticks([0,1],("1미만","1이상"))
 plt.grid(True)
 ```
 
@@ -3427,8 +3426,8 @@ plt.figure(1, figsize=(10, 6))
 plt.title("FAR 별 다가구주택 평균 거래 금액(단위:만원)",size=20)
 plt.xlabel("FAR", size=16)
 plt.ylabel("평균거래금액(만원)", size=16)
-plt.bar(data.index,data["price"],facecolor="blue", alpha=0.5, width=0.2)
-plt.xticks(rotation=45)
+plt.bar(data.index,data["price"],facecolor="blue", alpha=0.5, width=0.4,)
+plt.xticks([0,1],("1미만","1이상"))
 plt.grid(True)
 ```
 
@@ -3441,34 +3440,73 @@ plt.grid(True)
 
 ```python
 data=df
+
+plt.figure(1, figsize=(10, 6))
+plt.title("Scatter-Plot (GFA, Price)",size=20)
+plt.xlabel("GFA", size=16)
+plt.ylabel("평균거래금액(만원)", size=16)
+
 plt.scatter(data["GFA"], data["price"], facecolor="orange", alpha=0.3)
-plt.xscale("log")
+#plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_67_0.png)
+
+
+    <matplotlib.collections.PathCollection at 0x222db0339b0>
+
+
+
+
+![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_67_1.png)
 
 
 
 ```python
 data=df
+
+plt.figure(1, figsize=(10, 6))
+plt.title("Scatter-Plot (land_area, Price)",size=20)
+plt.xlabel("land_area", size=16)
+plt.ylabel("평균거래금액(만원)", size=16)
+
 plt.scatter(data["land_area"], data["price"],facecolor="orange", alpha=0.3)
-plt.xscale("log")
+#plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_68_0.png)
+
+
+    <matplotlib.collections.PathCollection at 0x222db032390>
+
+
+
+
+![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_68_1.png)
 
 
 
 ```python
 data=df
+
+plt.figure(1, figsize=(10, 6))
+plt.title("Scatter-Plot (FAR Index, Price)",size=20)
+plt.xlabel("FAR Index", size=16)
+plt.ylabel("평균거래금액(만원)", size=16)
+
 plt.scatter(data["GFA"]/data["land_area"], data["price"],facecolor="orange", alpha=0.3)
-plt.xscale("log")
+#plt.xscale("log")
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_69_0.png)
+
+
+    <matplotlib.collections.PathCollection at 0x222db4582b0>
+
+
+
+
+![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_69_1.png)
 
 
 ## year_month
@@ -3476,81 +3514,22 @@ plt.xscale("log")
 
 ```python
 data=df.groupby(["year_month"])[["price"]].mean().sort_values(by=['year_month'], axis=0, ascending=True)
-```
+data.index=data.index.astype("category")
 
+objects = list(data.index)
+y_pos = np.arange(len(objects))
 
-```python
 plt.figure(1, figsize=(10, 6))
 plt.title("계약년월 별 주택 평균 거래 금액(단위:만원)",size=20)
 plt.xlabel("계약년월", size=16)
 plt.ylabel("평균거래금액(만원)", size=16)
-plt.bar(data.index,data["price"],facecolor="blue", alpha=0.5)
-plt.xticks(rotation=45)
+plt.plot(y_pos, data["price"], alpha=0.5, color="red")
+plt.xticks(y_pos,objects,rotation=90)
 plt.grid(True)
 ```
 
 
-![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_72_0.png)
-
-
-
-```python
-data.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>price</th>
-    </tr>
-    <tr>
-      <th>year_month</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>201512</th>
-      <td>36976.200000</td>
-    </tr>
-    <tr>
-      <th>201601</th>
-      <td>35814.201696</td>
-    </tr>
-    <tr>
-      <th>201602</th>
-      <td>37197.702386</td>
-    </tr>
-    <tr>
-      <th>201603</th>
-      <td>36187.884465</td>
-    </tr>
-    <tr>
-      <th>201604</th>
-      <td>37489.123676</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
+![png](/assets/img/post_img/2018-12-28-public_data_eda_files/2018-12-28-public_data_eda_71_0.png)
 
 
 
