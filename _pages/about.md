@@ -25,5 +25,8 @@ header:
 
 ## Contact
 
-e-mail : mcwooil2@gmail.com    
-github : http://www.github.com/wooiljeong
+**e-mail**    
+mcwooil2@gmail.com
+
+**github**    
+http://www.github.com/wooiljeong
