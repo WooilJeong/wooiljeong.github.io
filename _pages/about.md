@@ -9,6 +9,7 @@ header:
 ---
 
 ## Currently
+
 | Job Title | Department   | Company   | Periods           |
 | --------- | ------------ | --------- | ----------------- |
 | Engineer  | Bigdata team | TWIM Corp.| 2018.04 ~ Present |
