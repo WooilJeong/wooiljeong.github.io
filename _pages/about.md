@@ -27,8 +27,8 @@ header:
 
 ## Contact
 
-**E-mail**    
+**E-mail Address**    
 mcwooil2@gmail.com
 
-**Github**    
-http://www.github.com/wooiljeong
+**Github Link**    
+[wooiljeong](http://www.github.com/wooiljeong)
