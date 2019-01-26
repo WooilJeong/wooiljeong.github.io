@@ -24,4 +24,7 @@ header:
 | Gyeonggi-do | Gyeonggi Big Data Expert Course (Analysis) (2017) |
 | Dankook University | Dankook Human Resources Academy (2016) |
 
-## What I Did
+## Contact
+
+email : mcwooil2@gmail.com
+github : http://www.github.com/wooiljeong
