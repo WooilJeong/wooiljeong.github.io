@@ -9,24 +9,25 @@ header:
 ---
 
 ## Currently
-
-Engineer / Bigdata team / TWIM Corp. (2018.04 ~ )
+| Job Title | Department   | Company   | Periods           |
+| --------- | ------------ | --------- | ----------------- |
+| Engineer  | Bigdata team | TWIM Corp.| 2018.04 ~ Present |
 
 
 ## Education
 
-| Name | Description |
-| ---- | ----------- |
-| Dankook University | Bachelor of Statistics (2018) |
-| Dankook University | Bachelor of Communications (2018) |
-| Gyeonggi-do | Gyeonggi Big Data Expert Course (Analysis) (2017) |
-| Dankook University | Dankook Human Resources Academy (2016) |
+| Name | Description | Year |
+| ---- | ----------- |----- |
+| Dankook University | Bachelor of Statistics | 2018 |
+| Dankook University | Bachelor of Communications | 2018 |
+| Gyeonggi-do | Gyeonggi Big Data Expert Course (Analysis) | 2017 |
+| Dankook University | Dankook Human Resources Academy | 2016 |
 
 
 ## Contact
 
-**e-mail**    
+**E-mail**    
 mcwooil2@gmail.com
 
-**github**    
+**Github**    
 http://www.github.com/wooiljeong
