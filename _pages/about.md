@@ -10,7 +10,7 @@ header:
 
 ## Currently
 
-Data Scientist at TWIM Corp. - (2018.04 ~ )
+Engineer / Bigdata team / TWIM Corp. (2018.04 ~ )
 
 
 ## Education
