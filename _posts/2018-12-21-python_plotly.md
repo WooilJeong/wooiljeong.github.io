@@ -5,7 +5,7 @@ categories: Tutorial
 tags: Python Plotly
 header:
   overlay_image: /assets/img/wallpaper.jpg
-  overlay_filter: 0.3 # same as adding an opacity of 0.5 to a black background
+  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 ## 인터렉티브 데이터 시각화 툴 플로틀리(Plotly)
 
