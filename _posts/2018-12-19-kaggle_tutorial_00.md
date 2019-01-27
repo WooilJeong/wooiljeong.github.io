@@ -1,13 +1,13 @@
 ---
-title: "캐글 튜토리얼 00 (Kaggle Tutorial)-캐글/타이타닉/파이썬/머신러닝"
-date: 2018-12-19 20:00:00 -0400
+title: "캐글(Kaggle) 튜토리얼 00"
+date: 2018-12-19 00:00:00 -0000
 categories: Tutorial
 tags: Kaggle
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
-## Step 0 : 캐글 관련 배경지식
+## Step 0 : 캐글(Kaggle) 관련 배경지식
 
 **1) 캐글(Kaggle)**
 
