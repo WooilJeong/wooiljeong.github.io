@@ -1,13 +1,13 @@
 ---
-title: "캐글 튜토리얼 03 (Kaggle Tutorial)-랜덤 포레스트(Random Forest)로 예측 성능 높이기"
-date: 2018-12-19 20:00:00 -0400
+title: "캐글(Kaggle) 튜토리얼 03"
+date: 2018-12-19 00:00:00 -0000
 categories: Tutorial
 tags: Kaggle
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
-## Step 3 : Random Forest로 예측 성능 높이기
+## Step 3 : 랜덤포레스트(Random Forest)로 예측하기
 
 **1) 파이썬으로 랜덤 포레스트 분석하기**
 
