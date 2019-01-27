@@ -5,7 +5,7 @@ categories: Tutorial
 tags: Kaggle
 header:
   overlay_image: /assets/img/wallpaper.jpg
-  overlay_filter: 0.3 # same as adding an opacity of 0.5 to a black background
+  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 ## Step 3 : 랜덤포레스트(Random Forest)로 예측하기
 
