@@ -1,6 +1,6 @@
 ---
-title: "퀀들(Quandl) 데이터 수집 파이썬 튜토리얼"
-date: 2019-01-18 20:00:00 -0400
+title: "퀀들(Quandl) 데이터 수집 튜토리얼"
+date: 2019-01-18 00:00:00 -0000
 categories: Tutorial
 tags: Python Quandl
 header:
