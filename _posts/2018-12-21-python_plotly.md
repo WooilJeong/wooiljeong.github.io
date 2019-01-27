@@ -1,6 +1,6 @@
 ---
-title: "플로틀리 튜토리얼 (Plotly Tutorial)-파이썬 시각화를 위한 오픈소스 라이브러리"
-date: 2018-12-21 20:00:00 -0400
+title: "플로틀리(Plotly) 튜토리얼"
+date: 2018-12-21 00:00:00 -0000
 categories: Tutorial
 tags: Python Plotly
 header:
