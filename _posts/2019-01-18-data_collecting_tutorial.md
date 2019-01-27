@@ -5,7 +5,7 @@ categories: Tutorial
 tags: Python Quandl
 header:
   overlay_image: /assets/img/wallpaper.jpg
-  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
+  overlay_filter: 0.3 # same as adding an opacity of 0.5 to a black background
 ---
 
 ## 퀀들(Quandl) API를 이용한 금융 데이터 수집 튜토리얼
