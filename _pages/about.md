@@ -18,7 +18,7 @@ header:
 
 | Contents   | Organization   | Year   | References |
 | ------------------- | -------------- | ------ | ------ |
-| 한국동서발전 발전산업 빅데이터 분석 AI 활용 공모전(트랙1) 우수상  | 충남창조경제혁신센터장 | 2019 | [**관련기사**](https://www.mk.co.kr/news/view/business/2019/03/156522/) |
+| 발전산업 빅데이터 분석 AI 활용 공모전(트랙1) 우수상  | 충남창조경제혁신센터장 | 2019 | [**관련기사**](https://www.mk.co.kr/news/view/business/2019/03/156522/) |
 | 경기 빅데이터 전문가과정(분석) 우수 프로젝트상  | 경기콘텐츠진흥원 원장 | 2017 | [**관련기사**](http://www.enewstoday.co.kr/news/articleView.html?idxno=1102589) |
 
 ## Contribution
