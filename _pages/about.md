@@ -21,7 +21,12 @@ header:
 | 발전산업 빅데이터 분석 AI 활용 공모전(트랙1) 우수상  | 충남창조경제혁신센터장 | 2019 | [**관련기사**](https://www.mk.co.kr/news/view/business/2019/03/156522/) |
 | 경기 빅데이터 전문가과정(분석) 우수 프로젝트상  | 경기콘텐츠진흥원 원장 | 2017 | [**관련기사**](http://www.enewstoday.co.kr/news/articleView.html?idxno=1102589) |
 
+## Contribution
 
+| Contents   | Work | References     |
+| ---------- | ---------- | ---------- |
+| Stanford CS229(Machine Learning) VIP cheatsheets- Probabilities and Statistics	 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/refresher-probability.md) |
+| Stanford CS229(Machine Learning) VIP cheatsheets- ML tips and tricks		 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/cheatsheet-machine-learning-tips-and-tricks.md) |
 
 ## Education
 
