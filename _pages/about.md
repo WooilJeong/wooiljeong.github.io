@@ -25,8 +25,8 @@ header:
 
 | Contents   | Work | References     |
 | ---------- | ---------- | ---------- |
-| Stanford CS229(Machine Learning) VIP cheatsheets- Probabilities and Statistics	 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/refresher-probability.md) |
-| Stanford CS229(Machine Learning) VIP cheatsheets- ML tips and tricks		 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/cheatsheet-machine-learning-tips-and-tricks.md) |
+| 스탠포드대학교 CS229 VIP cheatsheets-Probabilities and Statistics	 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/refresher-probability.md) |
+| 스탠포드대학교 CS229 VIP cheatsheets-ML tips and tricks		 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/cheatsheet-machine-learning-tips-and-tricks.md) |
 
 ## Education
 
