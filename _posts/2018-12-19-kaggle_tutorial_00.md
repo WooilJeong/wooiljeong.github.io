@@ -12,7 +12,9 @@ header:
 **1) 캐글(Kaggle)**
 
 <center>
+
 ![Kaggle img](https://www.kaggle.com/static/images/site-logo.png)
+
 </center>
 
 [캐글(Kaggle)](https://www.kaggle.com/)은 2010년 설립된 예측모델 및 분석 대회 플랫폼이다. 기업 및 단체에서 데이터와 해결과제를 등록하면, 데이터 과학자들이 이를 해결하는 모델을 개발하고 경쟁한다. 2017년 3월 구글에 인수되었다.
@@ -20,9 +22,14 @@ header:
 
 <br>
 
+
 **2) 타이타닉 대회(Titinic Competition)**
 
+<center>
+
 ![Titinic img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/270px-RMS_Titanic_3.jpg)
+
+</center>
 
 [타이타닉(Titinic) 대회](https://www.kaggle.com/c/titanic)는 캐글에 소개된 대회 중 하나이다. 데이터 사이언스 혹은 머신러닝을 처음 시작하거나 캐글 예측 대회에 대한 쉬운 이해가 필요할 때 시작하기 좋은 대회라고 소개되어 있다.
 
@@ -37,15 +44,21 @@ header:
 - 이진 분류 (Binary Classification)
 - 파이썬과 R 기초 (Python and R basics)
 
+<center>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9xoqXVjBEF8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+</center>
 
 <br>
 
 **3) 파이썬(Python)**
 
+<center>
+
 ![Python img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/240px-Python_logo_and_wordmark.svg.png)
+
+</center>
 
 파이썬(Python)은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, 플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어이다. 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus〉에서 따온 것이다.
 
