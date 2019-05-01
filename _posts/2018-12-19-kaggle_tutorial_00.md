@@ -11,7 +11,9 @@ header:
 
 **1) 캐글(Kaggle)**
 
+<center>
 ![Kaggle img](https://www.kaggle.com/static/images/site-logo.png)
+</center>
 
 [캐글(Kaggle)](https://www.kaggle.com/)은 2010년 설립된 예측모델 및 분석 대회 플랫폼이다. 기업 및 단체에서 데이터와 해결과제를 등록하면, 데이터 과학자들이 이를 해결하는 모델을 개발하고 경쟁한다. 2017년 3월 구글에 인수되었다.
 
