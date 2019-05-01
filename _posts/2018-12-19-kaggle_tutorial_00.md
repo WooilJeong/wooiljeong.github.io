@@ -23,11 +23,8 @@ header:
 
 **2) 타이타닉 대회(Titinic Competition)**
 
-<center>
-
 ![Titinic img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/270px-RMS_Titanic_3.jpg){: .center}
 
-</center>
 
 [타이타닉(Titinic) 대회](https://www.kaggle.com/c/titanic)는 캐글에 소개된 대회 중 하나이다. 데이터 사이언스 혹은 머신러닝을 처음 시작하거나 캐글 예측 대회에 대한 쉬운 이해가 필요할 때 시작하기 좋은 대회라고 소개되어 있다.
 
