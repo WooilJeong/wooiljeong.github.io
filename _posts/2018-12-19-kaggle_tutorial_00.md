@@ -25,7 +25,7 @@ header:
 
 <center>
 
-![Titinic img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/270px-RMS_Titanic_3.jpg)
+![Titinic img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/RMS_Titanic_3.jpg/270px-RMS_Titanic_3.jpg){: .center}
 
 </center>
 
@@ -52,11 +52,8 @@ header:
 
 **3) 파이썬(Python)**
 
-<center>
+![Python img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/240px-Python_logo_and_wordmark.svg.png){: .center}
 
-![Python img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/240px-Python_logo_and_wordmark.svg.png)
-
-</center>
 
 파이썬(Python)은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, 플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어이다. 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus〉에서 따온 것이다.
 
