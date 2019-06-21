@@ -66,3 +66,17 @@ header:
 머신러닝의 핵심은 표현(representation)과 일반화(generalization)에 있다. 표현이란 데이터의 평가이며, 일반화란 아직 알 수 없는 데이터에 대한 처리이다. 이는 전산 학습 이론 분야이기도 하다. 다양한 머신러닝의 응용이 존재한다. 문자 인식은 이를 이용한 가장 잘 알려진 사례이다.
 
 앞으로 진행할 튜토리얼에서 여러 머신러닝 알고리즘들 중에서 의사결정나무(Decision Trees)와 랜덤 포레스트(Random Forest) 알고리즘을 이용한 예측 방법을 적용해 타이타닉 대회의 생존율 예측 문제를 간단한 수준에서 풀어 볼 것이다.
+
+
+
+<!-- 구글 애드센스 -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div align="center" style="margin: 1em 0;">
+<ins class="adsbygoogle"
+     style="display:block; border-bottom: initial;"
+     data-ad-client="ca-pub-5083146661516357"
+     data-ad-format="auto"></ins>
+</div>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
