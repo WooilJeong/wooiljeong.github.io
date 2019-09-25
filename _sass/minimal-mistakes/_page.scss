@@ -15,7 +15,7 @@
   animation-delay: 0.15s;
 
   @include breakpoint($x-large) {
-    max-width: $x-large;
+    max-width: $max-width;
   }
 }
 
@@ -517,14 +517,4 @@
       padding-right: 0;
     }
   }
-}
-
-
-
-.page {
-  font-size: 18px; /* 16 is the default increase if you want it larger */
-}
-
-.archive {
-  font-size: 18px; /* 16 is the default increase if you want it larger */
 }
