@@ -34,6 +34,17 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+
+        <!-- 구글 애드센스 시작 -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-5083146661516357",
+                  enable_page_level_ads: true
+             });
+        </script>
+        <!-- 구글 애드센스 끝 -->
+
         {% if page.toc %}
           <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
             <nav class="toc">
