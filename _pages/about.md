@@ -12,7 +12,7 @@ header:
 
 | Job Title | Department   | Company   | Periods           |
 | --------- | ------------ | --------- | ----------------- |
-| 연구원  | 빅데이터팀 | TWIM Corp.| 2018.04 ~  |
+| 연구원    | 빅데이터팀     | TWIM Corp.| 2018.04 ~ 2019.10 |
 
 ## Awards
 
