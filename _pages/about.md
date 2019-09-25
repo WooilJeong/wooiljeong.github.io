@@ -45,4 +45,4 @@ header:
 mcwooil2@gmail.com
 
 **Github Link**    
-[wooiljeong](http://www.github.com/wooiljeong)
+[WooilJeong](http://www.github.com/wooiljeong)
