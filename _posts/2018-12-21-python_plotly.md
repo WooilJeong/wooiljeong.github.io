@@ -210,17 +210,3 @@ help(plotly.offline.iplot)
 ## 추가 예제
 
 플로틀리를 파이썬으로 사용하기위한 예제와 튜토리얼은 다음 [링크](https://plot.ly/python/)를 확인하면 된다.
-
-
-
-<!-- 구글 애드센스 -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<div align="center" style="margin: 1em 0;">
-<ins class="adsbygoogle"
-     style="display:block; border-bottom: initial;"
-     data-ad-client="ca-pub-5083146661516357"
-     data-ad-format="auto"></ins>
-</div>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>

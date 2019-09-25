@@ -177,17 +177,3 @@ print(test_one["Survived"])
 [캐글 튜토리얼](https://www.datacamp.com/community/open-courses/kaggle-python-tutorial-on-machine-learning)
 [파이썬 튜토리얼](https://www.datacamp.com/courses/intro-to-python-for-data-science)
 [Pandas 기초](https://doorbw.tistory.com/172)
-
-
-
-<!-- 구글 애드센스 -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<div align="center" style="margin: 1em 0;">
-<ins class="adsbygoogle"
-     style="display:block; border-bottom: initial;"
-     data-ad-client="ca-pub-5083146661516357"
-     data-ad-format="auto"></ins>
-</div>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>

@@ -323,17 +323,3 @@ df_oil.plot(color="black")
 
 
 지금까지 퀀들(Quandl) API를 통해 금융 데이터 수집, 시각화 및 저장하는 과정을 소개해드렸습니다. 궁금하신 점이 있으시면 자유롭게 글로 남겨주시면 감사하겠습니다.
-
-
-
-<!-- 구글 애드센스 -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<div align="center" style="margin: 1em 0;">
-<ins class="adsbygoogle"
-     style="display:block; border-bottom: initial;"
-     data-ad-client="ca-pub-5083146661516357"
-     data-ad-format="auto"></ins>
-</div>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>

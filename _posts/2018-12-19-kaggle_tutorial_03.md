@@ -77,16 +77,3 @@ The most important feature was "Age", but it was more significant for "my_forest
 ```
 정답은 2)
 ```
-
-
-<!-- 구글 애드센스 -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<div align="center" style="margin: 1em 0;">
-<ins class="adsbygoogle"
-     style="display:block; border-bottom: initial;"
-     data-ad-client="ca-pub-5083146661516357"
-     data-ad-format="auto"></ins>
-</div>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
