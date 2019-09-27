@@ -1,3 +1,4 @@
+
 ---
 title: "ADP필기 R을 활용한 데이터 분석 01"
 date: 2019-09-27 00:00:00 -0000
@@ -40,57 +41,24 @@ z <- c(TRUE, FALSE, TRUE)            # 논리 연산자 벡터
 
 # (참고) '=', '<-' : 우측 값을 좌측 변수에 할당
 
-x
-y
-z
+print(x)
+print(y)
+print(z)
 ```
 
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>10</li>
-	<li>24</li>
-	<li>40</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>'사과'</li>
-	<li>'바나나'</li>
-	<li>'오렌지'</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>TRUE</li>
-	<li>FALSE</li>
-	<li>TRUE</li>
-</ol>
-
+    [1]  1 10 24 40
+    [1] "사과"   "바나나" "오렌지"
+    [1]  TRUE FALSE  TRUE
 
 
 
 ```R
 xy = c(x,y)        # 벡터와 벡터 결합하여 새로운 벡터 생성
 
-xy
+print(xy)
 ```
 
-
-<ol class=list-inline>
-	<li>'1'</li>
-	<li>'10'</li>
-	<li>'24'</li>
-	<li>'40'</li>
-	<li>'사과'</li>
-	<li>'바나나'</li>
-	<li>'오렌지'</li>
-</ol>
-
+    [1] "1"      "10"     "24"     "40"     "사과"   "바나나" "오렌지"
 
 
 2) 행렬
@@ -100,30 +68,18 @@ xy
 mx = matrix(c(1,2,3,4,5,6), ncol=2)                 # 컬럼이 3개인 행렬(디폴트 열기준)
 mx2 = matrix(c(1,2,3,4,5,6), ncol=2, byrow=TRUE)    # 컬럼이 3개인 행렬(행기준)
 
-mx
-mx2
+print(mx)
+print(mx2)
 ```
 
-
-<table>
-<tbody>
-	<tr><td>1</td><td>4</td></tr>
-	<tr><td>2</td><td>5</td></tr>
-	<tr><td>3</td><td>6</td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<tbody>
-	<tr><td>1</td><td>2</td></tr>
-	<tr><td>3</td><td>4</td></tr>
-	<tr><td>5</td><td>6</td></tr>
-</tbody>
-</table>
-
+         [,1] [,2]
+    [1,]    1    4
+    [2,]    2    5
+    [3,]    3    6
+         [,1] [,2]
+    [1,]    1    2
+    [2,]    3    4
+    [3,]    5    6
 
 
 rbind : 행 추가, cbind : 열 추가
@@ -133,32 +89,19 @@ rbind : 행 추가, cbind : 열 추가
 r1 = c(10, 10)
 c1 = c(20, 20, 20)
 
-rbind(mx, r1)
-cbind(mx2, c1)
+print(rbind(mx, r1))
+print(cbind(mx2, c1))
 ```
 
-
-<table>
-<tbody>
-	<tr><th scope=row></th><td> 1</td><td> 4</td></tr>
-	<tr><th scope=row></th><td> 2</td><td> 5</td></tr>
-	<tr><th scope=row></th><td> 3</td><td> 6</td></tr>
-	<tr><th scope=row> r1</th><td> 10</td><td> 10</td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th scope=col></th><th scope=col></th><th scope=col>c1</th></tr></thead>
-<tbody>
-	<tr><td>1 </td><td>2 </td><td>20</td></tr>
-	<tr><td>3 </td><td>4 </td><td>20</td></tr>
-	<tr><td>5 </td><td>6 </td><td>20</td></tr>
-</tbody>
-</table>
-
+       [,1] [,2]
+          1    4
+          2    5
+          3    6
+    r1   10   10
+             c1
+    [1,] 1 2 20
+    [2,] 3 4 20
+    [3,] 5 6 20
 
 
 3) 데이터프레임
@@ -170,21 +113,15 @@ car = c("kia", "hyundai", "kia", "toyota", "lexus")
 marriage = c(FALSE, FALSE, FALSE, TRUE, TRUE)
 
 df = data.frame(income, car, marriage)
-df
+print(df)
 ```
 
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>100    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>200    </td><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><td>150    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>300    </td><td>toyota </td><td> TRUE  </td></tr>
-	<tr><td>900    </td><td>lexus  </td><td> TRUE  </td></tr>
-</tbody>
-</table>
-
+      income     car marriage
+    1    100     kia    FALSE
+    2    200 hyundai    FALSE
+    3    150     kia    FALSE
+    4    300  toyota     TRUE
+    5    900   lexus     TRUE
 
 
 **외부 데이터 불러오기**
@@ -201,50 +138,38 @@ data2 <- read.csv("dataset.csv", header = TRUE)
 
 
 ```R
-data1
+print(data1)
 ```
 
-
-<table>
-<thead><tr><th scope=col>no</th><th scope=col>income</th></tr></thead>
-<tbody>
-	<tr><td> 1      </td><td>50000000</td></tr>
-	<tr><td> 2      </td><td>45000000</td></tr>
-	<tr><td> 3      </td><td>40000000</td></tr>
-	<tr><td> 4      </td><td>35000000</td></tr>
-	<tr><td> 5      </td><td>30000000</td></tr>
-	<tr><td> 6      </td><td>25000000</td></tr>
-	<tr><td> 7      </td><td>20000000</td></tr>
-	<tr><td> 8      </td><td>15000000</td></tr>
-	<tr><td> 9      </td><td>10000000</td></tr>
-	<tr><td>10      </td><td> 5000000</td></tr>
-</tbody>
-</table>
-
+       no   income
+    1   1 50000000
+    2   2 45000000
+    3   3 40000000
+    4   4 35000000
+    5   5 30000000
+    6   6 25000000
+    7   7 20000000
+    8   8 15000000
+    9   9 10000000
+    10 10  5000000
 
 
 
 ```R
-data2
+print(data2)
 ```
 
-
-<table>
-<thead><tr><th scope=col>no</th><th scope=col>income</th></tr></thead>
-<tbody>
-	<tr><td> 1      </td><td>50000000</td></tr>
-	<tr><td> 2      </td><td>45000000</td></tr>
-	<tr><td> 3      </td><td>40000000</td></tr>
-	<tr><td> 4      </td><td>35000000</td></tr>
-	<tr><td> 5      </td><td>30000000</td></tr>
-	<tr><td> 6      </td><td>25000000</td></tr>
-	<tr><td> 7      </td><td>20000000</td></tr>
-	<tr><td> 8      </td><td>15000000</td></tr>
-	<tr><td> 9      </td><td>10000000</td></tr>
-	<tr><td>10      </td><td> 5000000</td></tr>
-</tbody>
-</table>
-
+       no   income
+    1   1 50000000
+    2   2 45000000
+    3   3 40000000
+    4   4 35000000
+    5   5 30000000
+    6   6 25000000
+    7   7 20000000
+    8   8 15000000
+    9   9 10000000
+    10 10  5000000
 
 
 **R의 기초 함수**
@@ -254,108 +179,35 @@ data2
 
 ```R
 # 1을 3회 반복
-rep(1, 3)
+print(rep(1, 3))
 
 # 1에서 3까지 연속된 수
-seq(1, 3)
+print(seq(1, 3))
 
 # 1에서 3까지 연속된 수
-1:3
+print(1:3)
 
 # 1에서 11까지 공차가 2인 등차수열
-seq(1, 11, by=2)
+print(seq(1, 11, by=2))
 
 # 1에서 11까지 항이 6개인 등차수열
-seq(1, 11, length=6)
+print(seq(1, 11, length=6))
 
 # 1에서 11까지 항이 8개인 등차수열
-seq(1, 11, length=8)
+print(seq(1, 11, length=8))
 
 # 2에서 5까지 연속된 수를 각 3회 반복
-rep(2:5, 3)
+print(rep(2:5, 3))
 ```
 
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>3</li>
-	<li>5</li>
-	<li>7</li>
-	<li>9</li>
-	<li>11</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>3</li>
-	<li>5</li>
-	<li>7</li>
-	<li>9</li>
-	<li>11</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2.42857142857143</li>
-	<li>3.85714285714286</li>
-	<li>5.28571428571429</li>
-	<li>6.71428571428571</li>
-	<li>8.14285714285714</li>
-	<li>9.57142857142857</li>
-	<li>11</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-</ol>
-
+    [1] 1 1 1
+    [1] 1 2 3
+    [1] 1 2 3
+    [1]  1  3  5  7  9 11
+    [1]  1  3  5  7  9 11
+    [1]  1.000000  2.428571  3.857143  5.285714  6.714286  8.142857  9.571429
+    [8] 11.000000
+     [1] 2 3 4 5 2 3 4 5 2 3 4 5
 
 
 2) 기초적인 수치 계산
@@ -363,91 +215,19 @@ rep(2:5, 3)
 
 ```R
 a = 1:10
-a
-a + a
-a - a
-a * a
-a / a
+
+print(a)
+print(a + a)
+print(a - a)
+print(a * a)
+print(a / a)
 ```
 
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
-	<li>7</li>
-	<li>8</li>
-	<li>9</li>
-	<li>10</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>2</li>
-	<li>4</li>
-	<li>6</li>
-	<li>8</li>
-	<li>10</li>
-	<li>12</li>
-	<li>14</li>
-	<li>16</li>
-	<li>18</li>
-	<li>20</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-	<li>0</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>4</li>
-	<li>9</li>
-	<li>16</li>
-	<li>25</li>
-	<li>36</li>
-	<li>49</li>
-	<li>64</li>
-	<li>81</li>
-	<li>100</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-	<li>1</li>
-</ol>
-
+     [1]  1  2  3  4  5  6  7  8  9 10
+     [1]  2  4  6  8 10 12 14 16 18 20
+     [1] 0 0 0 0 0 0 0 0 0 0
+     [1]   1   4   9  16  25  36  49  64  81 100
+     [1] 1 1 1 1 1 1 1 1 1 1
 
 
 
@@ -455,26 +235,13 @@ a / a
 a = c(2,7,3)    # 열벡터
 b = t(a)        # 행벡터
 
-a
-b
+print(a)
+print(b)
 ```
 
-
-<ol class=list-inline>
-	<li>2</li>
-	<li>7</li>
-	<li>3</li>
-</ol>
-
-
-
-
-<table>
-<tbody>
-	<tr><td>2</td><td>7</td><td>3</td></tr>
-</tbody>
-</table>
-
+    [1] 2 7 3
+         [,1] [,2] [,3]
+    [1,]    2    7    3
 
 
 
@@ -567,7 +334,7 @@ sum(a)
 median(a)
 
 # a의 로그값
-log(a)
+print(log(a))
 
 # a와 a의 공분산
 cov(a, a)
@@ -602,20 +369,8 @@ cor(a, log(a))
 5.5
 
 
-
-<ol class=list-inline>
-	<li>0</li>
-	<li>0.693147180559945</li>
-	<li>1.09861228866811</li>
-	<li>1.38629436111989</li>
-	<li>1.6094379124341</li>
-	<li>1.79175946922805</li>
-	<li>1.94591014905531</li>
-	<li>2.07944154167984</li>
-	<li>2.19722457733622</li>
-	<li>2.30258509299405</li>
-</ol>
-
+     [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+     [8] 2.0794415 2.1972246 2.3025851
 
 
 
@@ -652,41 +407,16 @@ summary(a)
 
 ```R
 b = c("a", "b", "c", "d", "e")
-b[1]
-b[-2]
-b[c(-2,-3)]
-b[c(2,3)]
+print(b[1])
+print(b[-2])
+print(b[c(-2,-3)])
+print(b[c(2,3)])
 ```
 
-
-'a'
-
-
-
-<ol class=list-inline>
-	<li>'a'</li>
-	<li>'c'</li>
-	<li>'d'</li>
-	<li>'e'</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>'a'</li>
-	<li>'d'</li>
-	<li>'e'</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>'b'</li>
-	<li>'c'</li>
-</ol>
-
+    [1] "a"
+    [1] "a" "c" "d" "e"
+    [1] "a" "d" "e"
+    [1] "b" "c"
 
 
 2) 행렬/데이터 프레임 형태의 변수
@@ -698,134 +428,50 @@ car = c("kia", "hyundai", "kia", "toyota", "lexus")
 marriage = c(FALSE, FALSE, FALSE, TRUE, TRUE)
 
 df = data.frame(income, car, marriage)
-df
+print(df)
 ```
 
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>100    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>200    </td><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><td>150    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>300    </td><td>toyota </td><td> TRUE  </td></tr>
-	<tr><td>900    </td><td>lexus  </td><td> TRUE  </td></tr>
-</tbody>
-</table>
-
+      income     car marriage
+    1    100     kia    FALSE
+    2    200 hyundai    FALSE
+    3    150     kia    FALSE
+    4    300  toyota     TRUE
+    5    900   lexus     TRUE
 
 
 
 ```R
-df[2,2]
-df[-1]
-df[-2]
-df[-3]
-df[-1,-1]
-df[2,]
-df[,2]
+print(df[2,2])
+print(df[-1])
+print(df[-2])
+print(df[-1,-1])
+print(df[2,])
+print(df[,2])
 ```
 
-
-hyundai
-<details>
-	<summary style=display:list-item;cursor:pointer>
-		<strong>Levels</strong>:
-	</summary>
-	<ol class=list-inline>
-		<li>'hyundai'</li>
-		<li>'kia'</li>
-		<li>'lexus'</li>
-		<li>'toyota'</li>
-	</ol>
-</details>
-
-
-
-<table>
-<thead><tr><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>toyota </td><td> TRUE  </td></tr>
-	<tr><td>lexus  </td><td> TRUE  </td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>100  </td><td>FALSE</td></tr>
-	<tr><td>200  </td><td>FALSE</td></tr>
-	<tr><td>150  </td><td>FALSE</td></tr>
-	<tr><td>300  </td><td> TRUE</td></tr>
-	<tr><td>900  </td><td> TRUE</td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>car</th></tr></thead>
-<tbody>
-	<tr><td>100    </td><td>kia    </td></tr>
-	<tr><td>200    </td><td>hyundai</td></tr>
-	<tr><td>150    </td><td>kia    </td></tr>
-	<tr><td>300    </td><td>toyota </td></tr>
-	<tr><td>900    </td><td>lexus  </td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th></th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><th scope=row>2</th><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><th scope=row>3</th><td>kia    </td><td>FALSE  </td></tr>
-	<tr><th scope=row>4</th><td>toyota </td><td> TRUE  </td></tr>
-	<tr><th scope=row>5</th><td>lexus  </td><td> TRUE  </td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th></th><th scope=col>income</th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><th scope=row>2</th><td>200    </td><td>hyundai</td><td>FALSE  </td></tr>
-</tbody>
-</table>
-
-
-
-
-<ol class=list-inline>
-	<li>kia</li>
-	<li>hyundai</li>
-	<li>kia</li>
-	<li>toyota</li>
-	<li>lexus</li>
-</ol>
-
-<details>
-	<summary style=display:list-item;cursor:pointer>
-		<strong>Levels</strong>:
-	</summary>
-	<ol class=list-inline>
-		<li>'hyundai'</li>
-		<li>'kia'</li>
-		<li>'lexus'</li>
-		<li>'toyota'</li>
-	</ol>
-</details>
+    [1] hyundai
+    Levels: hyundai kia lexus toyota
+          car marriage
+    1     kia    FALSE
+    2 hyundai    FALSE
+    3     kia    FALSE
+    4  toyota     TRUE
+    5   lexus     TRUE
+      income marriage
+    1    100    FALSE
+    2    200    FALSE
+    3    150    FALSE
+    4    300     TRUE
+    5    900     TRUE
+          car marriage
+    2 hyundai    FALSE
+    3     kia    FALSE
+    4  toyota     TRUE
+    5   lexus     TRUE
+      income     car marriage
+    2    200 hyundai    FALSE
+    [1] kia     hyundai kia     toyota  lexus  
+    Levels: hyundai kia lexus toyota
 
 
 **반복 구문과 조건문**
@@ -839,22 +485,10 @@ for (i in 1:9){
   a[i] = i * i
 }
 
-a
+print(a)
 ```
 
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>4</li>
-	<li>9</li>
-	<li>16</li>
-	<li>25</li>
-	<li>36</li>
-	<li>49</li>
-	<li>64</li>
-	<li>81</li>
-</ol>
-
+    [1]  1  4  9 16 25 36 49 64 81
 
 
 
@@ -901,26 +535,11 @@ for (i in 1:length(StatScore)){
 
 }
 
-over90
+print(over90)
 cat("90점을 넘은 사람의 수는 ", sum(over90), "명 입니다.", sep="")
 ```
 
-
-<ol class=list-inline>
-	<li>0</li>
-	<li>1</li>
-	<li>0</li>
-	<li>1</li>
-	<li>0</li>
-	<li>0</li>
-	<li>1</li>
-	<li>0</li>
-	<li>0</li>
-	<li>1</li>
-</ol>
-
-
-
+     [1] 0 1 0 1 0 0 1 0 0 1
     90점을 넘은 사람의 수는 4명 입니다.
 
 **사용자 정의 함수**
@@ -936,11 +555,13 @@ addto = function (a) {
   print(isum)
 }
 
-addto(10)
-addto(100)
+print(addto(10))
+print(addto(100))
 ```
 
     [1] 55
+    [1] 55
+    [1] 5050
     [1] 5050
 
 
@@ -953,40 +574,13 @@ addto(100)
 number = 1:10
 alphabet = c("a", "b", "c")
 
-paste(number, alphabet)
-paste(number, alphabet, sep=" to the ")
+print(paste(number, alphabet))
+print(paste(number, alphabet, sep=" to the "))
 ```
 
-
-<ol class=list-inline>
-	<li>'1 a'</li>
-	<li>'2 b'</li>
-	<li>'3 c'</li>
-	<li>'4 a'</li>
-	<li>'5 b'</li>
-	<li>'6 c'</li>
-	<li>'7 a'</li>
-	<li>'8 b'</li>
-	<li>'9 c'</li>
-	<li>'10 a'</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>'1 to the a'</li>
-	<li>'2 to the b'</li>
-	<li>'3 to the c'</li>
-	<li>'4 to the a'</li>
-	<li>'5 to the b'</li>
-	<li>'6 to the c'</li>
-	<li>'7 to the a'</li>
-	<li>'8 to the b'</li>
-	<li>'9 to the c'</li>
-	<li>'10 to the a'</li>
-</ol>
-
+     [1] "1 a"  "2 b"  "3 c"  "4 a"  "5 b"  "6 c"  "7 a"  "8 b"  "9 c"  "10 a"
+     [1] "1 to the a"  "2 to the b"  "3 to the c"  "4 to the a"  "5 to the b"
+     [6] "6 to the c"  "7 to the a"  "8 to the b"  "9 to the c"  "10 to the a"
 
 
 2) substr
@@ -996,22 +590,14 @@ paste(number, alphabet, sep=" to the ")
 substr("BigDataAnalysis", 1, 4)
 
 country = c("Korea", "Japan", "China", "Singapore", "Russia")
-substr(country, 1, 3)
+print(substr(country, 1, 3))
 ```
 
 
 'BigD'
 
 
-
-<ol class=list-inline>
-	<li>'Kor'</li>
-	<li>'Jap'</li>
-	<li>'Chi'</li>
-	<li>'Sin'</li>
-	<li>'Rus'</li>
-</ol>
-
+    [1] "Kor" "Jap" "Chi" "Sin" "Rus"
 
 
 3) 자료형 데이터 구조 변환
@@ -1144,59 +730,40 @@ marriage = c(FALSE, FALSE, FALSE, TRUE, TRUE)
 
 df = data.frame(income, car, marriage)
 
-df              # income 숫자형 벡터, car 문자형 벡터, marriage 논리형 벡터
-as.matrix(df)   # matrix 변환 후 모든 컬럼 문자형 벡터화
+print(df)              # income 숫자형 벡터, car 문자형 벡터, marriage 논리형 벡터
+print(as.matrix(df))   # matrix 변환 후 모든 컬럼 문자형 벡터화
 ```
 
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>100    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>200    </td><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><td>150    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>300    </td><td>toyota </td><td> TRUE  </td></tr>
-	<tr><td>900    </td><td>lexus  </td><td> TRUE  </td></tr>
-</tbody>
-</table>
-
-
-
-
-<table>
-<thead><tr><th scope=col>income</th><th scope=col>car</th><th scope=col>marriage</th></tr></thead>
-<tbody>
-	<tr><td>100    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>200    </td><td>hyundai</td><td>FALSE  </td></tr>
-	<tr><td>150    </td><td>kia    </td><td>FALSE  </td></tr>
-	<tr><td>300    </td><td>toyota </td><td>TRUE   </td></tr>
-	<tr><td>900    </td><td>lexus  </td><td>TRUE   </td></tr>
-</tbody>
-</table>
-
+      income     car marriage
+    1    100     kia    FALSE
+    2    200 hyundai    FALSE
+    3    150     kia    FALSE
+    4    300  toyota     TRUE
+    5    900   lexus     TRUE
+         income car       marriage
+    [1,] "100"  "kia"     "FALSE"
+    [2,] "200"  "hyundai" "FALSE"
+    [3,] "150"  "kia"     "FALSE"
+    [4,] "300"  "toyota"  "TRUE"  
+    [5,] "900"  "lexus"   "TRUE"  
 
 
 4) 문자열을 날짜로 변환
 
 
 ```R
-Sys.Date()     # 오늘 날짜
+print(Sys.Date())     # 오늘 날짜
+
 a = '2019-07-08'
 b = '07/08/2019'
-as.Date(a)
-as.Date(b, format = "%m/%d/%Y")
+
+print(as.Date(a))
+print(as.Date(b, format = "%m/%d/%Y"))
 ```
 
-
-<time datetime="2019-09-27">2019-09-27</time>
-
-
-
-<time datetime="2019-07-08">2019-07-08</time>
-
-
-
-<time datetime="2019-07-08">2019-07-08</time>
+    [1] "2019-09-28"
+    [1] "2019-07-08"
+    [1] "2019-07-08"
 
 
 5) 날짜를 문자열로 변환
@@ -1209,15 +776,15 @@ format(Sys.Date(), format="%m/%d/%Y")
 ```
 
 
-'2019-09-27'
+'2019-09-28'
 
 
 
-'2019-09-27'
+'2019-09-28'
 
 
 
-'09/27/2019'
+'09/28/2019'
 
 
 **format 함수로 날자 정보 추출**
@@ -1233,7 +800,7 @@ format(Sys.Date(), '%Y')             # 네자리 숫자로 연도
 ```
 
 
-'금'
+'토'
 
 
 
@@ -1245,7 +812,7 @@ format(Sys.Date(), '%Y')             # 네자리 숫자로 연도
 
 
 
-'27'
+'28'
 
 
 
@@ -1273,7 +840,6 @@ plot(df$Sepal.Length, df$Petal.Length) # 꽃받침 길이와 꽃잎 길이 산�
 
 
 ![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_58_0.png)
-
 
 
 
