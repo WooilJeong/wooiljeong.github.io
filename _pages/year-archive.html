@@ -3,6 +3,9 @@ layout: archive
 permalink: /year-archive/
 title: "Posts by Year"
 author_profile: true
+header:
+  overlay_image: /assets/img/wallpaper.jpg
+  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'"  %}
 {% for year in postsByYear %}
