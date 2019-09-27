@@ -46,7 +46,7 @@ z
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>10</li>
 	<li>24</li>
@@ -56,7 +56,7 @@ z
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'사과'</li>
 	<li>'바나나'</li>
 	<li>'오렌지'</li>
@@ -65,7 +65,7 @@ z
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>TRUE</li>
 	<li>FALSE</li>
 	<li>TRUE</li>
@@ -81,7 +81,7 @@ xy
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'1'</li>
 	<li>'10'</li>
 	<li>'24'</li>
@@ -276,7 +276,7 @@ rep(2:5, 3)
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>1</li>
 	<li>1</li>
@@ -285,7 +285,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2</li>
 	<li>3</li>
@@ -294,7 +294,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2</li>
 	<li>3</li>
@@ -303,7 +303,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>3</li>
 	<li>5</li>
@@ -315,7 +315,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>3</li>
 	<li>5</li>
@@ -327,7 +327,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2.42857142857143</li>
 	<li>3.85714285714286</li>
@@ -341,7 +341,7 @@ rep(2:5, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>2</li>
 	<li>3</li>
 	<li>4</li>
@@ -371,7 +371,7 @@ a / a
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2</li>
 	<li>3</li>
@@ -387,7 +387,7 @@ a / a
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>2</li>
 	<li>4</li>
 	<li>6</li>
@@ -403,7 +403,7 @@ a / a
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>0</li>
 	<li>0</li>
 	<li>0</li>
@@ -419,7 +419,7 @@ a / a
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>4</li>
 	<li>9</li>
@@ -435,7 +435,7 @@ a / a
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>1</li>
 	<li>1</li>
@@ -460,7 +460,7 @@ b
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>2</li>
 	<li>7</li>
 	<li>3</li>
@@ -603,7 +603,7 @@ cor(a, log(a))
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>0</li>
 	<li>0.693147180559945</li>
 	<li>1.09861228866811</li>
@@ -663,7 +663,7 @@ b[c(2,3)]
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'a'</li>
 	<li>'c'</li>
 	<li>'d'</li>
@@ -673,7 +673,7 @@ b[c(2,3)]
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'a'</li>
 	<li>'d'</li>
 	<li>'e'</li>
@@ -682,7 +682,7 @@ b[c(2,3)]
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'b'</li>
 	<li>'c'</li>
 </ol>
@@ -732,7 +732,7 @@ hyundai
 	<summary style=display:list-item;cursor:pointer>
 		<strong>Levels</strong>:
 	</summary>
-	<ol class=list-inline>
+	<ol class=nav>
 		<li>'hyundai'</li>
 		<li>'kia'</li>
 		<li>'lexus'</li>
@@ -807,7 +807,7 @@ hyundai
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>kia</li>
 	<li>hyundai</li>
 	<li>kia</li>
@@ -819,7 +819,7 @@ hyundai
 	<summary style=display:list-item;cursor:pointer>
 		<strong>Levels</strong>:
 	</summary>
-	<ol class=list-inline>
+	<ol class=nav>
 		<li>'hyundai'</li>
 		<li>'kia'</li>
 		<li>'lexus'</li>
@@ -843,7 +843,7 @@ a
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>4</li>
 	<li>9</li>
@@ -906,7 +906,7 @@ cat("90점을 넘은 사람의 수는 ", sum(over90), "명 입니다.", sep="")
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>0</li>
 	<li>1</li>
 	<li>0</li>
@@ -958,7 +958,7 @@ paste(number, alphabet, sep=" to the ")
 ```
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'1 a'</li>
 	<li>'2 b'</li>
 	<li>'3 c'</li>
@@ -974,7 +974,7 @@ paste(number, alphabet, sep=" to the ")
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'1 to the a'</li>
 	<li>'2 to the b'</li>
 	<li>'3 to the c'</li>
@@ -1004,7 +1004,7 @@ substr(country, 1, 3)
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>'Kor'</li>
 	<li>'Jap'</li>
 	<li>'Chi'</li>
@@ -1063,7 +1063,7 @@ as.factor(x)      # 팩터
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2</li>
 	<li>3</li>
@@ -1075,7 +1075,7 @@ as.factor(x)      # 팩터
 
 
 
-<ol class=list-inline>
+<ol class=nav>
 	<li>1</li>
 	<li>2</li>
 	<li>3</li>
@@ -1088,7 +1088,7 @@ as.factor(x)      # 팩터
 	<summary style=display:list-item;cursor:pointer>
 		<strong>Levels</strong>:
 	</summary>
-	<ol class=list-inline>
+	<ol class=nav>
 		<li>'1'</li>
 		<li>'2'</li>
 		<li>'3'</li>
