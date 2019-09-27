@@ -12,11 +12,17 @@ main:
   - title: "Data Science"
     url: /data-science/
 
+  - title: "Tutorial"
+    url: /tutorial/
+
   - title: "Python"
     url: /python/
 
   - title: "R"
     url: /r/
+
+  - title: "ETC"
+    url: /etc/
 
   # - title: "Category"
   #   url: /categories/
