@@ -797,11 +797,11 @@ plot(df$Sepal.Length, df$Petal.Length) # 꽃받침 길이와 꽃잎 길이 산�
 ```
 
 
-![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_58_0.png)
+![png](/assets/img/post_img/2019-09-28-adp_analysis_01/output_58_0.png)
 
 
 
-![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_58_1.png)
+![png](/assets/img/post_img/2019-09-28-adp_analysis_01/output_58_1.png)
 
 
 2) 산점도 행렬(Scatter Plot Matrix)
@@ -815,7 +815,7 @@ pairs(df[1:4],
 ```
 
 
-![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_60_0.png)
+![png](/assets/img/post_img/2019-09-28-adp_analysis_01/output_60_0.png)
 
 
 3) 히스토그램과 상자그림(Histogram and Box-Plot)
@@ -828,11 +828,11 @@ boxplot(StatScore)
 ```
 
 
-![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_62_0.png)
+![png](/assets/img/post_img/2019-09-28-adp_analysis_01/output_62_0.png)
 
 
 
-![png](/assets/img/post_img/2019-09-27-adp_analysis_01/output_62_1.png)
+![png](/assets/img/post_img/2019-09-28-adp_analysis_01/output_62_1.png)
 
 
 ## Reference
