@@ -10,8 +10,6 @@ header:
 
 ## 아이패드로 주피터 노트북 사용하기
 
-> 아이패드로 주피터 서버 접속 예시
-
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_01/img_01.PNG)
 
 
