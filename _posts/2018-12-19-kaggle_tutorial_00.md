@@ -12,7 +12,7 @@ header:
 **1) 캐글(Kaggle)**
 
 
-![Kaggle img](https://www.kaggle.com/static/images/site-logo.png){: .center}
+![Kaggle img](https://www.kaggle.com/static/images/site-logo.png){: .align-center}
 
 
 [캐글(Kaggle)](https://www.kaggle.com/)은 2010년 설립된 예측모델 및 분석 대회 플랫폼이다. 기업 및 단체에서 데이터와 해결과제를 등록하면, 데이터 과학자들이 이를 해결하는 모델을 개발하고 경쟁한다. 2017년 3월 구글에 인수되었다.
@@ -49,7 +49,7 @@ header:
 
 **3) 파이썬(Python)**
 
-![Python img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/240px-Python_logo_and_wordmark.svg.png){: .center}
+![Python img](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Python_logo_and_wordmark.svg/240px-Python_logo_and_wordmark.svg.png){: .align-center}
 
 
 파이썬(Python)은 1991년 프로그래머인 귀도 반 로섬(Guido van Rossum)이 발표한 고급 프로그래밍 언어로, 플랫폼 독립적이며 인터프리터식, 객체지향적, 동적 타이핑(dynamically typed) 대화형 언어이다. 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus〉에서 따온 것이다.

@@ -280,7 +280,7 @@ df_silver["USD"].plot(color="silver")
 
 
 
-![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_14_1.png)
+![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_14_1.png){: .align-center}
 
 
 # 국제 구리 가격
@@ -300,7 +300,7 @@ df_copper["Settle"].plot(color="darkred")
 
 
 
-![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_16_1.png)
+![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_16_1.png){: .align-center}
 
 
 # 국제 원유 가격
@@ -319,7 +319,7 @@ df_oil.plot(color="black")
 
 
 
-![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_18_1.png)
+![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_18_1.png){: .align-center}
 
 
 지금까지 퀀들(Quandl) API를 통해 금융 데이터 수집, 시각화 및 저장하는 과정을 소개해드렸습니다. 궁금하신 점이 있으시면 자유롭게 글로 남겨주시면 감사하겠습니다.
