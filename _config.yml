@@ -290,3 +290,5 @@ defaults:
       comments: true
       share: true
       related: true
+      toc_ads: true      # 사이드바 광고 추가
+      toc_sticky: true   # 사이드바 광고 추가
