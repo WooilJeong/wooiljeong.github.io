@@ -140,10 +140,10 @@ cbind(mx2, c1)
 
 <table>
 <tbody>
-	<tr><th scope=row></th><td> 1</td><td> 4</td></tr>
-	<tr><th scope=row></th><td> 2</td><td> 5</td></tr>
-	<tr><th scope=row></th><td> 3</td><td> 6</td></tr>
-	<tr><th scope=row> r1</th><td>10</td><td> 10</td></tr>
+	<tr><th scope=row> </th><td> 1</td><td> 4</td></tr>
+	<tr><th scope=row> </th><td> 2</td><td> 5</td></tr>
+	<tr><th scope=row> </th><td> 3</td><td> 6</td></tr>
+	<tr><th scope=row> r1</th><td> 10</td><td> 10</td></tr>
 </tbody>
 </table>
 
