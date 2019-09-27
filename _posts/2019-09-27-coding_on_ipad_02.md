@@ -14,6 +14,10 @@ header:
 
 <br>
 
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_logo.PNG){: .align-center height="300px" width="300px"}
+
+<br>
+
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_intro.PNG){: .align-center}
 
 <br><br>
