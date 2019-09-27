@@ -12,6 +12,7 @@ header:
 
 데이터 과학을 공부하면서 유용한 사이트를 정리한 글입니다. 더 유용한 사이트를 댓글로 알려주시면 확인 후 리스트에 반영하도록 하겠습니다.
 
+
 ## 데이터 사이언스 학습 플랫폼
 
 - [에드위드](https://www.edwith.org/)
@@ -36,6 +37,12 @@ header:
 
 - [생활코딩](https://opentutorials.org/course/1)
 - [한입에 쏙 파이썬-왼손코딩](https://www.youtube.com/playlist?list=PLGPF8gvWLYyontH0PECIUFFUdvATXWQEL)
+
+
+## 파이썬 관련 정보
+
+- [PyCon KR 2019](https://www.youtube.com/playlist?list=PLZPhyNeJvHRlECdmkJ7M8konKB0NhBfve)
+- [PyCon KR 2018](https://www.youtube.com/playlist?list=PLZPhyNeJvHRmnMr5yucZ9Eu-yVhjRRsOM)
 
 
 ## 기타
