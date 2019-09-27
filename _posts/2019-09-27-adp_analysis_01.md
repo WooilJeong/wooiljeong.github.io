@@ -605,83 +605,42 @@ print(substr(country, 1, 3))
 ```R
 x = matrix(c(1,2,3,4,5,6), ncol=2)
 
-as.data.frame(x)  # 데이터프레임
-as.list(x)        # 리스트
-as.matrix(x)      # 행렬
-as.vector(x)      # 벡터
-as.factor(x)      # 팩터
+print(as.data.frame(x))  # 데이터프레임
+print(as.list(x))        # 리스트
+print(as.matrix(x))      # 행렬
+print(as.vector(x))      # 벡터
+print(as.factor(x))      # 팩터
 ```
 
+      V1 V2
+    1  1  4
+    2  2  5
+    3  3  6
+    [[1]]
+    [1] 1
 
-<table>
-<thead><tr><th scope=col>V1</th><th scope=col>V2</th></tr></thead>
-<tbody>
-	<tr><td>1</td><td>4</td></tr>
-	<tr><td>2</td><td>5</td></tr>
-	<tr><td>3</td><td>6</td></tr>
-</tbody>
-</table>
+    [[2]]
+    [1] 2
 
+    [[3]]
+    [1] 3
 
+    [[4]]
+    [1] 4
 
+    [[5]]
+    [1] 5
 
-<ol>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
-</ol>
+    [[6]]
+    [1] 6
 
-
-
-
-<table>
-<tbody>
-	<tr><td>1</td><td>4</td></tr>
-	<tr><td>2</td><td>5</td></tr>
-	<tr><td>3</td><td>6</td></tr>
-</tbody>
-</table>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
-</ol>
-
-
-
-
-<ol class=list-inline>
-	<li>1</li>
-	<li>2</li>
-	<li>3</li>
-	<li>4</li>
-	<li>5</li>
-	<li>6</li>
-</ol>
-
-<details>
-	<summary style=display:list-item;cursor:pointer>
-		<strong>Levels</strong>:
-	</summary>
-	<ol class=list-inline>
-		<li>'1'</li>
-		<li>'2'</li>
-		<li>'3'</li>
-		<li>'4'</li>
-		<li>'5'</li>
-		<li>'6'</li>
-	</ol>
-</details>
+         [,1] [,2]
+    [1,]    1    4
+    [2,]    2    5
+    [3,]    3    6
+    [1] 1 2 3 4 5 6
+    [1] 1 2 3 4 5 6
+    Levels: 1 2 3 4 5 6
 
 
 
