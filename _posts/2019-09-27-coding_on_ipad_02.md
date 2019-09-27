@@ -14,7 +14,7 @@ header:
 
 <br>
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_intro.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_intro.PNG){: .center-image }
 
 <br><br>
 
@@ -30,7 +30,7 @@ header:
 > ipconfig
 ```
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_01.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_01.PNG){: .center-image }
 
 제 PC의 경우 ```IPv4주소```는 192.168.0.3 이고, ```기본 게이트웨이```는 192.168.0.1 임을 확인했습니다.
 
@@ -38,7 +38,7 @@ header:
 
 IPTIME의 기본 설정 페이지 접속 주소는 위 기본 게이트웨이 주소와 같습니다. 크롬과 같은 웹 브라우저를 실행 후 해당 주소(http://192.168.0.1)를 입력하여 접속하면 설정 페이지가 출력됩니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_02.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_02.PNG){: .center-image }
 
 IPTIME 공유기 초기 로그인 이름은 ```admin```이고, 로그인 암호도 ```admin```입니다. 만약, 계정 정보가 기억나지 않으신다면 IPTIME 초기화 후 다음 과정을 진행하시면 됩니다.
 
@@ -46,19 +46,19 @@ IPTIME 공유기 초기 로그인 이름은 ```admin```이고, 로그인 암호�
 
 로그인 후 ```관리도구```를 클릭합니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_03.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_03.PNG){: .center-image }
 
 <br>
 
 왼쪽 메뉴에서 ```고급설정``` - ```NAT/라우터 관리``` - ```포트포워드 설정```으로 이동합니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_04.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_04.PNG){: .center-image }
 
 <br>
 
 오른쪽 창에 ```새규칙 추가```를 클릭 후 하단 설정창에서 이전에 구축한 주피터 서버 아이피 및 포트번호를 입력하여 추가합니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_05.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_05.PNG){: .center-image }
 
 
 <br><br>
@@ -72,14 +72,14 @@ DDNS(Dynamic DNS)는 쉽게 말해 유동적으로 변하는 서버의 IP주소�
 
 IPTIME ```관리도구```에서 ```고급 설정``` - ```특수기능``` - ```DDNS 설정```으로 이동합니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_06.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_06.PNG){: .center-image }
 
 <br>
 
 
 호스트 이름은 ```hostname.iptime.org``` 형식으로 임의로 정하면 됩니다. ID는 이메일 주소 형식으로 입력하면 됩니다. DDNS 등록을 마치면 정의한 호스트 이름으로 외부에서도 접속할 수 있습니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_07.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_07.PNG){: .center-image }
 
 
 이제 주피터 서버를 실행해둔 후에 카페와 같은 외부에서 위에서 정의한 ```호스트 이름:포트번호 예: http://hostname.iptime.org:8888``` 로 접속할 수 있습니다.
@@ -89,21 +89,21 @@ IPTIME ```관리도구```에서 ```고급 설정``` - ```특수기능``` - ```DD
 
 포트 포워딩, DDNS 설정을 완료했음에도 불구하고, 주피터 서버 접속이 어려운 경우에는 방화벽이 문제일 수 있습니다. 이 경우 ```cmd```를 실행시킨 후 ```WF.msc```를 입력하여 방화벽 고급 설정을 열어줍니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_08.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_08.PNG){: .center-image }
 
 <br>
 
 왼쪽 메뉴에서 ```인바운드 규칙```을 클릭합니다. 이어서 오른쪽 메뉴에서 ```새 규칙```을 클릭합니다. 이어서 다음과 같이 설정을 진행합니다.
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_09.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_09.PNG){: .center-image }
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_10.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_10.PNG){: .center-image }
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_11.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_11.PNG){: .center-image }
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_12.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_12.PNG){: .center-image }
 
-![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_13.PNG)
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_13.PNG){: .center-image }
 
 <br>
 
