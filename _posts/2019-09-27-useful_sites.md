@@ -30,7 +30,6 @@ header:
 
 - [캐글](https://www.kaggle.com)
 - [데이콘](https://dacon.io/)
-- [빅콘테스트](https://www.bigcontest.or.kr/)
 
 
 ## 프로그래밍 강의
