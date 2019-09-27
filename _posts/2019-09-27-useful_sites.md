@@ -33,10 +33,10 @@ header:
 - [빅콘테스트](https://www.bigcontest.or.kr/)
 
 
-## 프로그래밍 강의 플랫폼
+## 프로그래밍 강의
 
 - [생활코딩](https://opentutorials.org/course/1)
-
+- [한입에 쏙 파이썬-왼손코딩](https://www.youtube.com/playlist?list=PLGPF8gvWLYyontH0PECIUFFUdvATXWQEL)
 
 ## 기타
 - [회계1](https://opentutorials.org/module/3483)
