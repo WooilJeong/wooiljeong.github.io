@@ -37,6 +37,27 @@ IPTIME의 기본 설정 페이지 접속 주소는 위 기본 게이트웨이 �
 
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_02.PNG)
 
+IPTIME 공유기 초기 로그인 이름은 ```admin```이고, 로그인 암호도 ```admin```입니다. 만약, 계정 정보가 기억나지 않으신다면 IPTIME 초기화 후 다음 과정을 진행하시면 됩니다.
+
+<br>
+
+로그인 후 ```관리도구```를 클릭합니다.
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_03.PNG)
+
+<br>
+
+왼쪽 메뉴에서 ```고급설정``` - ```NAT/라우터 관리``` - ```포트포워드 설정```으로 이동합니다.
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_04.PNG)
+
+<br>
+
+오른쪽 창에 ```새규칙 추가```를 클릭 후 하단 설정창에서 이전에 구축한 주피터 서버 아이피 및 포트번호를 입력하여 추가합니다.
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_05.PNG)
+
+
 
 
 <br><br>
