@@ -19,8 +19,8 @@ header:
 
 > 필요한 준비물은 다음과 같습니다.
 
-- iptime 공유기가 설치된 Server PC (집에 있는 데스크탑 PC(Windows 10 pro) 사용)
-- 인터넷이 가능한 아이패드 프로 10.5
+- Server - Anaconda, IPTIME 공유기 설치된 PC (가정용 Desktop PC(Win 10 Pro) 사용)
+- Client - 아이패드 프로 10.5 (일반 노트북 및 스마트폰도 가능)
 
 <br><br>
 
