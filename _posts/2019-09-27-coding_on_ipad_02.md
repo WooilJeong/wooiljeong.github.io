@@ -82,12 +82,29 @@ IPTIME ```관리도구```에서 ```고급 설정``` - ```특수기능``` - ```DD
 이제 주피터 서버를 실행해둔 후에 카페와 같은 외부에서 위에서 정의한 ```호스트 이름:포트번호 예: http://hostname.iptime.org:8888``` 로 접속할 수 있습니다.
 
 
+## 방화벽 해제
 
+포트 포워딩, DDNS 설정을 완료했음에도 불구하고, 주피터 서버 접속이 어려운 경우에는 방화벽이 문제일 수 있습니다. 이 경우 ```cmd```를 실행시킨 후 ```WF.msc```를 입력하여 방화벽 고급 설정을 열어줍니다.
 
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_08.PNG)
 
+<br>
 
+왼쪽 메뉴에서 ```인바운드 규칙```을 클릭합니다. 이어서 오른쪽 메뉴에서 ```새 규칙```을 클릭합니다. 이어서 다음과 같이 설정을 진행합니다.
 
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_09.PNG)
 
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_10.PNG)
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_11.PNG)
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_12.PNG)
+
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_02/img_13.PNG)
+
+<br>
+
+여기까지 성공하셨다면 이제 인터넷이 가능한 외부 장소 어디에서도 아이패드를 통해 원격지의 주피터 서버에 접속하여 데이터 분석 등 파이썬 코딩을 하실 수 있습니다.
 
 
 
