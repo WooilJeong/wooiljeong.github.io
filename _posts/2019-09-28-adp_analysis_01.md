@@ -2,7 +2,7 @@
 title: "[ADP필기] R을 활용한 데이터 분석 01"
 date: 2019-09-28 00:00:00 -0000
 categories: R
-tags: R ADP
+tags: ADP
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background

@@ -1,8 +1,8 @@
 ---
-title: "퀀들(Quandl) 데이터 수집 튜토리얼"
+title: "파이썬 퀀들(Quandl) 금융 데이터 수집"
 date: 2019-01-18 00:00:00 -0000
-categories: Tutorial
-tags: Python Quandl
+categories: Python
+tags: Quandl
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background

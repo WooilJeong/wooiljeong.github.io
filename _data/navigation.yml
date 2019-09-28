@@ -9,17 +9,14 @@ main:
   - title: "Idea"
     url: /idea/
 
-  - title: "Data Science"
-    url: /data-science/
-
-  - title: "Tutorial"
-    url: /tutorial/
-
   - title: "Python"
     url: /python/
 
   - title: "R"
     url: /r/
+
+  # - title: "WEB"
+  #   url: /web/
 
   - title: "ETC"
     url: /etc/

@@ -2,7 +2,7 @@
 title: "데이터 과학 학습에 유용한 사이트 정리"
 date: 2019-09-27 00:00:00 -0000
 categories: ETC # Data Science / Tutorial / Python / R / ETC
-tags: useful
+tags: Useful
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
