@@ -35,6 +35,8 @@ import quandl
 quandl.ApiConfig.api_key="your_key"
 ```
 
+<br><br>
+
 ## 국제 금 가격
 
 퀀들에서 국제 금 가격 데이터를 불러오기 위해 퀀들에서 "gold"를 검색합니다. ```London Bullion Market Association``` 영역에서 ```LBMA/GOLD```이 퀀들 API에 사용할 ```ticker```값 입니다. 아래 코드와 같이 ```df_gold```에 퀀들 API를 이용해 ```2007-01-01``` 부터 ```2019-01-16``` 까지의 국제 금 가격 데이터를 할당합니다.
@@ -45,7 +47,9 @@ quandl.ApiConfig.api_key="your_key"
 df_gold = quandl.get("LBMA/GOLD", trim_start="2007-01-01", trim_end="2019-01-16")
 ```
 
-이제 ```df_gold```에 할당된 국제 금 가격 데이터의 양 극단 값을 살펴보겠습니다.
+<br>
+
+이제 ```df_gold```에 할당된 국제 금 가격 데이터셋을 살펴보겠습니다.
 
 
 ```python
@@ -236,6 +240,8 @@ df_gold.tail()
 </div>
 
 
+<br>
+
 
 데이터의 컬럼 중 ```USD (AM)```의 시간에 따른 국제 금 가격 그래프를 그려보겠습니다.
 
@@ -264,6 +270,8 @@ df_gold.to_csv("<저장할 경로>/gold_070101_190116.csv", sep=',', index = Tru
 
 국제 금 가격 데이터를 수집, 시각화 및 저장한 방법을 그대로 응용하면 다음과 같이 국제 은 가격, 국제 구리 가격 및 국제 원유 가격 데이터 역시 쉽게 수집할 수 있습니다.
 
+<br><br>
+
 # 국제 은 가격
 
 
@@ -282,6 +290,7 @@ df_silver["USD"].plot(color="silver")
 
 ![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_14_1.png){: .align-center}
 
+<br><br>
 
 # 국제 구리 가격
 
@@ -303,6 +312,8 @@ df_copper["Settle"].plot(color="darkred")
 ![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_16_1.png){: .align-center}
 
 
+<br><br>
+
 # 국제 원유 가격
 
 
@@ -322,4 +333,4 @@ df_oil.plot(color="black")
 ![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_18_1.png){: .align-center}
 
 
-지금까지 퀀들(Quandl) API를 통해 금융 데이터 수집, 시각화 및 저장하는 과정을 소개해드렸습니다. 궁금하신 점이 있으시면 자유롭게 글로 남겨주시면 감사하겠습니다.
+지금까지 파이썬 퀀들(Quandl) API를 통해 금융 데이터를 수집하여 시각화 및 저장하는 과정을 알아봤습니다.
