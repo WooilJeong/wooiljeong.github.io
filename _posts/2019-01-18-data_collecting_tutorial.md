@@ -252,7 +252,7 @@ df_gold["USD (AM)"].plot(color="gold")
 
 
 
-![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_9_1.png)
+![png](/assets/img/post_img/2019-01-18-data_collecting_tutorial/output_9_1.png){: .align-center}
 
 
 위와 같이 얻은 국제 금 가격 데이터를 ```CSV```파일로 저장하는 코드는 다음과 같습니다.
