@@ -34,7 +34,7 @@ header:
 
 명령 프롬프트 ('```CTRL``` + ```R``` - ```cmd```) 실행 후  다음 명령어를 입력합니다.
 
-```
+```bash
 > jupyter notebook --generate-config
 ```
 
@@ -44,7 +44,7 @@ header:
 
 이어서 주피터 서버에 설정할 비밀번호를 생성하기 위해 다음 명령어를 입력합니다.
 
-```
+```bash
 > iPython
 In [1]: from notebook.auth import passwd
 In [2]: passwd()
@@ -56,7 +56,7 @@ Verify passwd: (사용할 비밀번호 입력(예:wooil))
 
 위와 같이 명령어를 차례대로 입력하면 다음과 같이 사용할 비밀번호가 암호화 됩니다. 따옴표 안의 암호화된 비밀번호를 복사합니다.
 
-```
+```bash
 Out[2]: 'sha1:675e46664694:2917c374febf1fa1091bd6ddaf9029fbefc229cf'
 ```
 
@@ -73,7 +73,7 @@ Out[2]: 'sha1:675e46664694:2917c374febf1fa1091bd6ddaf9029fbefc229cf'
 
 여기까지 설정을 마쳤다면 기본적인 주피터 서버 설정이 완료된 것입니다. 이제 명령 프롬프트에서 주피터 서버를 실행해봅시다.
 
-```
+```bash
 > jupyter notebook
 ```
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_01/img_02.PNG)

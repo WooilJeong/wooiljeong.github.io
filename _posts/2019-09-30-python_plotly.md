@@ -1,6 +1,6 @@
 ---
 title: "파이썬 플로틀리(Plotly) 데이터 시각화"
-date: 2018-12-21 00:00:00 -0000
+date: 2019-09-30 00:00:00 -0000
 categories: Python
 tags: Plotly
 header:
@@ -9,19 +9,23 @@ header:
 ---
 ## 인터렉티브 데이터 시각화 툴 플로틀리(Plotly)
 
-플로틀리(Plotly)는 캐나다 퀘벡 몬트리올에 본사를 두고있는 컴퓨팅 기술 회사로 온라인 데이터 분석 및 시각화 툴을 개발하고 있다. 플로틀리는 Python, R, MATLAB, Perl, Julia, Arduino 및 REST 용 과학 그래프 라이브러리 뿐만 아니라 개인 및 협업을 위한 온라인 그래프, 분석 및 통계 툴도 제공한다. 본 튜토리얼에서는 파이썬(Python) 환경에서 온라인 플로팅을 위한 [플로틀리 공식 사이트](https://plot.ly/python/getting-started/#initialization-for-online-plotting)의 설명을 한국어로 번역하고, 이를 실습해 볼 것이다.
+![PNG](/assets/img/post_img/2019-09-30-python_plotly/img_plotly_logo.PNG){: .align-center height="300px" width="300px"}
+
+
+플로틀리(Plotly)는 캐나다 퀘벡 몬트리올에 본사를 두고있는 컴퓨팅 기술 회사로 온라인 데이터 분석 및 시각화 툴을 개발하고 있습니다. 플로틀리는 Python, R, MATLAB, Perl, Julia, Arduino 및 REST 용 과학 그래프 라이브러리 뿐만 아니라 개인 및 협업을 위한 온라인 그래프, 분석 및 통계 툴도 제공하고 있다고 합니다. 이번 포스팅에서는 [플로틀리 공식 사이트](https://plot.ly/python/getting-started/#initialization-for-online-plotting)의 설명을 토대로 파이썬(Python) 환경에서의 온라인 플로팅 방법에 대해 알아보도록 하겠습니다.
 
 <br>
 
 ## 설치
 
-플로틀리 파이썬 패키지를 설치하려면, 다음과 같이 터미널에서 패키지 매니저 ```pip``` 명령어를 사용해야 한다.
+다음과 같이 터미널에서 ```pip``` 명령어를 통해 플로틀리 패키지를 설치합니다.
+(아나콘다와 같은 파이썬 환경이 설치되어 있는 것을 가정하고 설명을 진행하겠습니다.)
 
 ```bash
 pip install plotly
 ```
 
-플로틀리 파이썬 패키지는 자주 업데이트 되기 때문에 다음 명령어를 사용해 최신 버전으로 업데이트해주도록 한다.
+플로틀리 파이썬 패키지는 자주 업데이트 되기 때문에 다음 명령어를 사용해 최신 버전으로 업데이트해주도록 합니다.
 
 ```bash
 pip install plotly --upgrade
