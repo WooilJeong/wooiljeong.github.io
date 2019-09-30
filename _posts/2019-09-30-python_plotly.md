@@ -146,7 +146,7 @@ help(py.iplot)
 
 * 그래프 출력 예시
 
-<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>
+<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/0.embed"></iframe>{: .align-center}
 <br>
 
 **matplotlib** 구문을 사용하여 플롯 그래프를 만들 수도 있습니다. [matplotlib 문서](https://plot.ly/matplotlib/)에서 더 자세한 사항을 확인 할 수 있습니다.
@@ -207,7 +207,7 @@ help(plotly.offline.iplot)
 
 * 그래프 출력 예시
 
-<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/2.embed"></iframe>
+<iframe width="600" height="400" frameborder="0" scrolling="no" src="//plot.ly/~WooilJeong/2.embed"></iframe>{: .align-center}
 <br>
 
 플로팅 오프라인으로 파이썬 플로틀리를 사용하는 더 많은 예제는 [오프라인 문서](https://plot.ly/python/offline/)를 참조하시면 됩니다.
