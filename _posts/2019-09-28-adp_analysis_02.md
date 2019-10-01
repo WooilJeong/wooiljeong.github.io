@@ -1150,3 +1150,8 @@ boxplot(y)
 
 
 ![png](/assets/img/post_img/2019-09-28-adp_analysis_02/output_85_0.png)
+
+
+## Reference
+
+[데이터 분석 전문가 가이드](http://www.yes24.com/Product/Goods/29430751)
