@@ -22,7 +22,7 @@ getwd()
 'C:/Users/wooil/Documents/GitHub/ADP'
 
 
-## 제1절 R 기초
+> ## 제1절 R 기초
 
 **R의 데이터 구조**  
 
