@@ -1,5 +1,5 @@
 ---
-title: "파이썬 퀀들(Quandl) 금융 데이터 수집"
+title: "퀀들(Quandl) - 파이썬 금융데이터 수집"
 date: 2019-01-18 00:00:00 -0000
 categories: Python
 tags: Quandl

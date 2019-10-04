@@ -1,5 +1,5 @@
 ---
-title: "파이썬 플로틀리(Plotly) 데이터 시각화"
+title: "플로틀리(Plotly) - 파이썬 데이터 시각화"
 date: 2019-09-30 00:00:00 -0000
 categories: Python
 tags: Plotly
