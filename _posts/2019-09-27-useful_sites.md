@@ -39,6 +39,7 @@ header:
 - [한입에 쏙 파이썬-왼손코딩](https://www.youtube.com/playlist?list=PLGPF8gvWLYyontH0PECIUFFUdvATXWQEL)
 - [TEAMLAB X Inflearn 파이썬 입문 강좌](https://www.youtube.com/playlist?list=PLBHVuYlKEkUJcXrgVu-bFx-One095BJ8I)
 
+
 ## 파이썬 관련 정보
 
 - [PyCon KR 2019](https://www.youtube.com/playlist?list=PLZPhyNeJvHRlECdmkJ7M8konKB0NhBfve)
