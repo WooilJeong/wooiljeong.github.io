@@ -1,5 +1,5 @@
 ---
-title: "ADP필기 - R 데이터 분석 01"
+title: "ADP필기 - 데이터 분석 (R기초) 01"
 date: 2019-09-28 00:00:00 -0000
 categories: R
 tags: ADP
