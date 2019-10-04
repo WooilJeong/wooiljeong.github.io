@@ -1,5 +1,5 @@
 ---
-title: "캐글(Kaggle) 튜토리얼 02"
+title: "캐글(Kaggle) - 튜토리얼 02"
 date: 2018-12-19 00:00:00 -0000
 categories: ETC
 tags: Kaggle
