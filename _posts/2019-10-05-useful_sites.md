@@ -1,6 +1,6 @@
 ---
 title: "데이터 과학 학습에 유용한 사이트 정리"
-categories: ETC # Data Science / Tutorial / Python / R / ETC
+categories: Idea
 tags: Useful
 header:
   overlay_image: /assets/img/wallpaper.jpg
@@ -9,7 +9,7 @@ header:
 
 > ## 소개
 
-데이터 과학을 공부하면서 유용한 사이트를 정리한 글입니다. 더 유용한 사이트를 댓글로 알려주시면 확인 후 리스트에 반영하도록 하겠습니다.
+데이터 과학을 공부하면서 유용한 사이트를 정리한 글입니다. 
 
 
 ## 데이터 사이언스 학습 플랫폼
