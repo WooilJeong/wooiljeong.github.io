@@ -1,6 +1,6 @@
 ---
+layout: post
 title: "ADP필기 - R 데이터 분석 (통계 분석) 04"
-date: 2019-09-28 00:00:00 -0000
 categories: R
 tags: ADP
 header:

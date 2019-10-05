@@ -1,6 +1,6 @@
 ---
+layout: post
 title: "데이터 과학 학습에 유용한 사이트 정리"
-date: 2019-09-27 00:00:00 -0000
 categories: ETC # Data Science / Tutorial / Python / R / ETC
 tags: Useful
 header:
@@ -8,7 +8,7 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-## 소개
+> ## 소개
 
 데이터 과학을 공부하면서 유용한 사이트를 정리한 글입니다. 더 유용한 사이트를 댓글로 알려주시면 확인 후 리스트에 반영하도록 하겠습니다.
 

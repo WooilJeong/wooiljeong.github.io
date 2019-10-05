@@ -1,13 +1,13 @@
 ---
+layout: post
 title: "플로틀리(Plotly) - 파이썬 데이터 시각화"
-date: 2019-09-30 00:00:00 -0000
 categories: Python
 tags: Plotly
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
-## 인터렉티브 데이터 시각화 툴 플로틀리(Plotly)
+> # 인터렉티브 데이터 시각화 툴 플로틀리(Plotly)
 
 ![PNG](/assets/img/post_img/2019-09-30-python_plotly/img_plotly_logo.PNG){: .align-center height="300px" width="300px"}
 
