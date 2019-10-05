@@ -3,7 +3,7 @@ title: "데이터 과학 학습에 유용한 사이트 정리"
 categories: Idea
 tags: Data
 header:
-  overlay_image: /assets/img/wallpaper.jpg
+  overlay_image: /assets/img/wallpapers/data_science.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
