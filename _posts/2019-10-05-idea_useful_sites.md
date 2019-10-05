@@ -4,7 +4,7 @@ categories: Idea
 tags: Data
 header:
   overlay_image: /assets/img/wallpapers/data_science.jpg
-  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
+  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
 ---
 
 > ## 소개
