@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "ADP필기 - R 데이터 분석 (기초 통계) 03"
 categories: R
 tags: ADP

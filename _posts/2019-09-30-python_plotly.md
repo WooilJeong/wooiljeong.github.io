@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "플로틀리(Plotly) - 파이썬 데이터 시각화"
 categories: Python
 tags: Plotly

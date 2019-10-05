@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "데이터 과학 학습에 유용한 사이트 정리"
 categories: ETC # Data Science / Tutorial / Python / R / ETC
 tags: Useful

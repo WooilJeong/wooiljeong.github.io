@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "퀀들(Quandl) - 파이썬 금융 데이터 수집"
 categories: Python
 tags: Quandl

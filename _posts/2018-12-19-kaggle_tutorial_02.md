@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "캐글(Kaggle) - 튜토리얼 02"
 categories: ETC
 tags: Kaggle

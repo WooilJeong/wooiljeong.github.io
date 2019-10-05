@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "ADP필기 - R 데이터 분석 (R기초) 01"
 categories: R
 tags: ADP

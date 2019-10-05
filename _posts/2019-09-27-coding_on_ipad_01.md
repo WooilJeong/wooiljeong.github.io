@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "아이패드로 주피터 노트북 사용하기 01"
 categories: ETC
 tags: Jupyter
