@@ -15,8 +15,8 @@ main:
   - title: "R"
     url: /r/
 
-  # - title: "WEB"
-  #   url: /web/
+  - title: "WEB"
+    url: /web/
 
   - title: "ETC"
     url: /etc/
