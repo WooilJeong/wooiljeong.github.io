@@ -1,7 +1,7 @@
 ---
 title: "실무를 위한 데이터 분석가에게 필요한 것들"
-categories: Python
-tags: Folium
+categories: Idea
+tags: Data
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
