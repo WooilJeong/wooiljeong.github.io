@@ -37,6 +37,7 @@ header:
 - [생활코딩](https://opentutorials.org/course/1)
 - [한입에 쏙 파이썬-왼손코딩](https://www.youtube.com/playlist?list=PLGPF8gvWLYyontH0PECIUFFUdvATXWQEL)
 - [TEAMLAB X Inflearn 파이썬 입문 강좌](https://www.youtube.com/playlist?list=PLBHVuYlKEkUJcXrgVu-bFx-One095BJ8I)
+- [초보개발자를 위한 BigData Engineer](https://www.youtube.com/playlist?list=PLEOnZ6GeucBVvIKMSdobyB5EtXgPzrnxE)
 
 
 ## 파이썬 관련 정보
