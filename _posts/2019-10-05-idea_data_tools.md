@@ -3,7 +3,7 @@ title: "데이터 분석 실무에 꼭 필요한 개발 툴 정리"
 categories: Idea
 tags: Data
 header:
-  overlay_image: /assets/img/wallpaper.jpg
+  overlay_image: /assets/img/wallpapers/collaboration.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
