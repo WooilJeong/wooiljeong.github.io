@@ -1,7 +1,7 @@
 ---
-title: "WEB"
-layout: category-web
-permalink: /web/
+title: "Server"
+layout: category-server
+permalink: /server/
 author_profile: false
 header:
   overlay_image: /assets/img/wallpaper.jpg
