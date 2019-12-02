@@ -6,17 +6,17 @@ main:
   - title: "Archive"
     url: /year-archive/
 
-  - title: "Idea"
-    url: /idea/
-
   - title: "Python"
     url: /python/
 
   - title: "R"
     url: /r/
 
-  - title: "WEB"
-    url: /web/
+  - title: "Server"
+    url: /server/
+
+  - title: "Idea"
+    url: /idea/
 
   - title: "ETC"
     url: /etc/
