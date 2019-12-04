@@ -706,6 +706,32 @@ df_sum_agg
 
 <br>
 
+
+## 전체 코드 정리
+
+```python
+import PublicDataReader as pdr
+
+# Open API 서비스 키 초기화
+serviceKey = "<< OPEN API SERVICE KEY HERE >>"
+Apt = pdr.AptTransactionReader(serviceKey)
+
+# 지역코드 검색기
+df_code = Apt.CodeFinder("분당구")
+
+# 특정 월 아파트매매 실거래 자료 수집기
+df = Apt.DataReader("41135", "201911")
+
+# 특정 기간 아파트매매 실거래 자료 수집기
+df_sum = Apt.DataCollector("41135", "2019-01", "2019-11")
+
+# 법정동 별 아파트매매 실거래 자료 요약 통계량 확인하기
+df_agg = Apt.Agg(df)
+df_sum_agg = Apt.Agg(df_sum)
+```
+
+<br>
+
 ## Open Source Project
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
