@@ -11,16 +11,21 @@ header:
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
 
-
 [공공 데이터 포털](https://www.data.go.kr/)에서는 2019년 12월 4일 현재 총 3,254건에 이르는 다양한 오픈 API 서비스를 제공하고 있습니다. 저도 부동산이나 상권 분석을 할 때, 오픈 API 서비스를 이용해 데이터를 수집하여 분석에 활용하고 있습니다. 다만, 서비스를 이용하려면 `Requests`, `BeautifulSoup` 등의 파이썬 라이브러리를 통해 크롤링하는 코드를 작성해야한다는 번거로움이 있습니다.  
+
+<br>
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_01.png){: .align-center}
 
 이런 수고로움을 줄이기 위해, 단 코드 3줄(라이브러리 불러오기, API 서비스키 등록하기, 데이터 수집하기)만으로 손쉽게 공공 데이터 포털의 데이터를 `Pandas`의 `DataFrame`형태로 가져올 수 있는 라이브러리 `PublicDataReader`를 만들어 보았습니다.  
 
+<br>
+
 현재는 '[국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)' 중 '**아파트매매 실거래자료**'의 데이터를 수집하는 기능까지 개발하였습니다. 추후 오픈 API 활용 신청 건수가 높은 서비스들을 대상으로 기능을 추가해나갈 예정입니다. 오픈소스 프로젝트이니 개발에 참여해주실 분들은 연락주시면 감사하겠습니다!
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_02.jpg){: .align-center}
+
+<br>
 
 ## Python 라이브러리 PublicDataReader 설치하기
 
@@ -33,6 +38,8 @@ pip install PublicDataReader
 ```
 pip install PublicDataReader --upgrade
 ```
+
+<br>
 
 ## PublicDataReader 임포트하기
 
@@ -52,6 +59,8 @@ import PublicDataReader as pdr
 serviceKey = "<< OPEN API SERVICE KEY HERE >>"
 ```
 
+<br>
+
 ## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
 
 다음과 같이 아파트매매 실거래 자료를 수집할 `Apt` 수집기를 만들어줍니다. 위에서 정의한 `serviceKey`를 다음과 같이 입력해줍니다.
@@ -60,6 +69,8 @@ serviceKey = "<< OPEN API SERVICE KEY HERE >>"
 ```python
 Apt = pdr.AptTransactionReader(serviceKey)
 ```
+
+<br>
 
 ## 주소 검색을 통해 지역코드 검색하기
 
@@ -126,7 +137,7 @@ df_code.head()
 </table>
 </div>
 
-
+<br>
 
 ## 특정 월의 아파트매매 실거래 데이터 불러오기
 
@@ -235,7 +246,7 @@ df.head()
 </table>
 </div>
 
-
+<br>
 
 ## 특정 기간 동안의 아파트매매 실거래 데이터 불러오기
 
@@ -357,11 +368,13 @@ df_sum.head()
 </table>
 </div>
 
-
+<br>
 
 ## (부가 기능) 간단한 요약 통계량 확인하기
 
 수집된 데이터를 동 별로 집계할 수 있는 기능이 있습니다. 법정동 별 중앙값, 평균값, 최솟값, 최댓값, 표준편차, 거래량를 확인할 수 있습니다. `Apt.Agg()`에 수집한 데이터 `df`를 입력하면 결과를 `Pandas`의 `DataFrame`형태로 반환합니다.
+
+<br>
 
 ### 특정 월(2019년 11월) 분당구 법정동 별 요약 통계량
 
@@ -526,7 +539,7 @@ df_agg
 </table>
 </div>
 
-
+<br>
 
 ### 특정 기간(2019년 1월 ~ 2019년 11월) 분당구 법정동 별 요약 통계량
 
@@ -691,7 +704,7 @@ df_sum_agg
 </table>
 </div>
 
-
+<br>
 
 ## Open Source Project
 
