@@ -1,5 +1,5 @@
 ---
-title: "PublicDataReader - 크롤링없이 공공데이터포털 Open API 사용하기 01"
+title: "PublicDataReader - 파이썬 공공데이터 수집 라이브러리 01"
 categories: Python
 tags: PublicDataReader
 header:
@@ -7,7 +7,7 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-> # 아파트매매 실거래자료 데이터 수집하기
+# 아파트매매 실거래자료 데이터 수집하기
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
 
