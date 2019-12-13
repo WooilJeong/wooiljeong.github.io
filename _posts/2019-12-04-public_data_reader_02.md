@@ -9,6 +9,8 @@ header:
 
 # 한국환경공단 미세먼지 데이터 수집하기
 
+<br>
+
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
 
 <br>
@@ -18,6 +20,7 @@ header:
 - [01 국토교통부 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
 - [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 
+<br>
 
 [공공 데이터 포털](https://www.data.go.kr/)에서는 2019년 12월 4일 현재 총 3,254건에 이르는 다양한 오픈 API 서비스를 제공하고 있습니다. 저도 부동산이나 상권 분석을 할 때, 오픈 API 서비스를 이용해 데이터를 수집하여 분석에 활용하고 있습니다. 다만, 서비스를 이용하려면 `Requests`, `BeautifulSoup` 등의 파이썬 라이브러리를 통해 크롤링하는 코드를 작성해야한다는 번거로움이 있습니다.  
 
