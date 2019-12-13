@@ -13,6 +13,13 @@ header:
 
 <br>
 
+### 아이패드 주피터 사용 관련 글 목록
+
+- [아이패드로 주피터 노트북 사용하기 01](https://wooiljeong.github.io/etc/coding_on_ipad_01/)
+- [아이패드로 주피터 노트북 사용하기 02](https://wooiljeong.github.io/etc/coding_on_ipad_02/)
+
+<br>
+
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_01/img_logo.PNG){: .align-center height="300px" width="300px"}
 
 <br>
@@ -116,6 +123,13 @@ IPTIME ```관리도구```에서 ```고급 설정``` - ```특수기능``` - ```DD
 
 여기까지 성공하셨다면 이제 인터넷이 가능한 외부 장소 어디에서도 아이패드를 통해 원격지의 주피터 서버에 접속하여 데이터 분석 등 파이썬 코딩을 하실 수 있습니다.
 
+
+<br>
+
+### 아이패드 주피터 사용 관련 글 목록
+
+- [아이패드로 주피터 노트북 사용하기 01](https://wooiljeong.github.io/etc/coding_on_ipad_01/)
+- [아이패드로 주피터 노트북 사용하기 02](https://wooiljeong.github.io/etc/coding_on_ipad_02/)
 
 
 

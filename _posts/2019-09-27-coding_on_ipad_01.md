@@ -13,6 +13,14 @@ header:
 
 <br>
 
+### 아이패드 주피터 사용 관련 글 목록
+
+- [아이패드로 주피터 노트북 사용하기 01](https://wooiljeong.github.io/etc/coding_on_ipad_01/)
+- [아이패드로 주피터 노트북 사용하기 02](https://wooiljeong.github.io/etc/coding_on_ipad_02/)
+
+
+<br>
+
 ![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_01/img_logo.PNG){: .align-center height="300px" width="300px"}
 
 <br>
@@ -86,3 +94,11 @@ Out[2]: 'sha1:675e46664694:2917c374febf1fa1091bd6ddaf9029fbefc229cf'
 <br>
 
 이제 아이패드와 같은 클라이언트가 서버와 같은 인터넷 망에 연결되어 있다면, 웹 브라우저 상에서 위에서 설정한 ```ip주소:포트번호 (예:https://192.168.0.3:8888)```로 접속이 가능합니다. 만약, 내부 망에서만 접속할 것이 아니라 카페 등 외부에서도 원격지의 주피터 서버에 접속하여 작업하고 싶다면 원격 접속 설정을 진행하시면 됩니다. 관련 내용은 '[아이패드로 주피터 노트북 사용하기 02](https://wooiljeong.github.io/tutorial/coding_on_ipad_02/)' 에서 확인하실 수 있습니다.
+
+
+<br>
+
+### 아이패드 주피터 사용 관련 글 목록
+
+- [아이패드로 주피터 노트북 사용하기 01](https://wooiljeong.github.io/etc/coding_on_ipad_01/)
+- [아이패드로 주피터 노트북 사용하기 02](https://wooiljeong.github.io/etc/coding_on_ipad_02/)
