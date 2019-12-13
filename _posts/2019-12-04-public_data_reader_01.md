@@ -1,5 +1,5 @@
 ---
-title: "PublicDataReader - 파이썬 공공데이터 수집 라이브러리 01"
+title: "PublicDataReader - 아파트매매 실거래 데이터 수집하기"
 categories: Python
 tags: PublicDataReader
 header:
@@ -7,9 +7,17 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-# 아파트매매 실거래자료 데이터 수집하기
+# 국토교통부 아파트매매 실거래 데이터 수집하기
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
+
+<br>
+
+### PublicDataReader 관련 글 목록
+
+- [01 국토교통부 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+
 
 [공공 데이터 포털](https://www.data.go.kr/)에서는 2019년 12월 4일 현재 총 3,254건에 이르는 다양한 오픈 API 서비스를 제공하고 있습니다. 저도 부동산이나 상권 분석을 할 때, 오픈 API 서비스를 이용해 데이터를 수집하여 분석에 활용하고 있습니다. 다만, 서비스를 이용하려면 `Requests`, `BeautifulSoup` 등의 파이썬 라이브러리를 통해 크롤링하는 코드를 작성해야한다는 번거로움이 있습니다.  
 
@@ -21,7 +29,7 @@ header:
 
 <br>
 
-현재는 '[국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)' 중 '**아파트매매 실거래자료**'의 데이터를 수집하는 기능까지 개발하였습니다. 추후 오픈 API 활용 신청 건수가 높은 서비스들을 대상으로 기능을 추가해나갈 예정입니다. 오픈소스 프로젝트이니 개발에 참여해주실 분들은 연락주시면 감사하겠습니다!
+그럼 지금부터 '[국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)' 중 '**아파트매매 실거래자료**' 데이터를 쉽게 수집하는 방법에 대해 소개해드리겠습니다.
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_02.jpg){: .align-center}
 
@@ -732,6 +740,35 @@ df_sum_agg = Apt.Agg(df_sum)
 
 <br>
 
+## (부록) 아파트매매 실거래 상세 자료
+
+국토교통부는 공공데이터포털에 위에서 소개한 아파트매매 실거래 데이터 제공 서비스 외에도 상세 자료 제공 서비스도 운영하고 있습니다. 이와 같이 부가적인 정보도 함께 조회하고자 할 경우에는 아래와 같이 `AptTransactionReader` 대신 `AptDetailReader`로 조회하시면 됩니다.
+
+```python
+import PublicDataReader as pdr
+
+# Open API 서비스 키 초기화
+serviceKey = "<< OPEN API SERVICE KEY HERE >>"
+Apt = pdr.AptDetailReader(serviceKey)
+
+# 지역코드 검색기
+df_code = Apt.CodeFinder("분당구")
+
+# 특정 월 아파트매매 실거래 상세 자료 수집기
+df = Apt.DataReader("41135", "201911")
+
+# 특정 기간 아파트매매 실거래 상세 자료 수집기
+df_sum = Apt.DataCollector("41135", "2019-01", "2019-11")
+
+# 법정동 별 아파트매매 실거래 상세 자료 요약 통계량 확인하기
+df_agg = Apt.Agg(df)
+df_sum_agg = Apt.Agg(df_sum)
+```
+
+
+<br>
+
+
 ## Open Source Project
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
@@ -740,3 +777,10 @@ df_sum_agg = Apt.Agg(df_sum)
 `PublicDataReader`는 파이썬 오픈소스 프로젝트로 개발하고 있습니다. 크롤링 코드 작성과 같은 데이터 활용의 번거로움을 줄이고자 시작하게 되었습니다. 실제 활용시 발생하는 오류나 개선 사항 등 피드백을 남겨주시면 적극 반영하도록 하겠습니다. 또한, 이 프로젝트에 참여하고자 하시는 분들은 언제든지 연락주시면 감사하겠습니다.
 
 **Email : wooil@kakao.com**
+
+<br>
+
+### PublicDataReader 관련 글 목록
+
+- [01 국토교통부 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
