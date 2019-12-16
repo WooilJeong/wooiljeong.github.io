@@ -13,128 +13,130 @@ header:
 
 ## 표준 라이브러리
 
-- os
+- **os**
 
-- shutil
+- **shutil**
 
-- glob
+- **glob**
 
-- sys
+- **sys**
 
-- re
+- **re**
 
-- math
+- **math**
 
-- random
+- **random**
 
-- datetime
+- **datetime**
 
-- zlib
+- **zlib**
 
-- timeit
+- **timeit**
 
 
 ## 수치해석
 
-- NumPy
+- **NumPy**
 
-- scipy
+- **scipy**
 
-- sympy
+- **sympy**
 
 
 ## 데이터 수집
-- BeautifulSoup  
+
+- **BeautifulSoup**  
 [크롤링(Crawling) - YES24 베스트셀러 데이터 수집 01](https://wooiljeong.github.io/python/yes24_crawling_01/)  
 [크롤링(Crawling) - YES24 베스트셀러 데이터 수집 02](https://wooiljeong.github.io/python/yes24_crawling_02/)  
 [크롤링(Crawling) - YES24 베스트셀러 데이터 수집 03](https://wooiljeong.github.io/python/yes24_crawling_03/)
 
-- Selenium
+- **Selenium**
 
-- Quandl  
+- **Quandl**  
 [퀀들(Quandl) - 파이썬 금융 데이터 수집](https://wooiljeong.github.io/python/data_collecting_tutorial/)
 
-- PublicDataReader - 공공 데이터 수집  
+- **PublicDataReader**
 [PublicDataReader - 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)  
 [PublicDataReader - 미세먼지 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 
 
 ## 데이터 탐색 및 전처리
 
-- Pandas
+- **Pandas**
 
-- MDP
+- **MDP**
 
-- Orange
+- **Orange**
 
 
 ## 데이터 시각화
-- matplotlib
 
-- seaborn
+- **matplotlib**
 
-- plotly  
+- **seaborn**
+
+- **plotly**  
 [플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)
 
-- folium  
+- **folium**  
 [Folium - 스타벅스와 이디야 입지 시각화](https://wooiljeong.github.io/python/python_folium/)
 
-- bokeh
+- **bokeh**  
 
 
 ## 이미지 처리
 
-- pilow
+- **pilow**
 
-- scikit-image
+- **scikit-image**
 
-- OpenCV
+- **OpenCV**
 
 
 ## 자연어 처리
 
-- KoNLP
+- **KoNLP**
 
-- NLTK
+- **NLTK**
 
-- Gensim
+- **Gensim**
 
 
 ## 음향신호 처리
 
-- PyAudio-Analysis
+- **PyAudio-Analysis**
 
-- LibRosa
+- **LibRosa**
 
 
 ## 시계열 분석
-- Statsmodels
+- **Statsmodels**
 
-- Filterpy
+- **Filterpy**
 
-- Hmmlearn
+- **Hmmlearn**
 
 
 ## 머신러닝
 
-- Scikit-Learn
+- **Scikit-Learn**
 
 ## 딥러닝 프레임워크
 
-- TensorFlow
+- **TensorFlow**
 
-- PyTorch
+- **PyTorch**
 
-- Keras
+- **Keras**
 
 
 ## 확률 모델
 
-- LibPGM
+- **LibPGM**
 
-- Pgmpy
+- **Pgmpy**
 
 
 ## 베이지안 모델
 
-- pyMC3
+- **pyMC3**
