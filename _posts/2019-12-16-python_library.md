@@ -64,6 +64,8 @@ header:
 
 - **Pandas**
 
+- **modin**
+
 - **MDP**
 
 - **Orange**
