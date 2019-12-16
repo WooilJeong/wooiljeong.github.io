@@ -1,7 +1,7 @@
 ---
 title: "데이터 과학을 위한 파이썬 라이브러리 모음"
 categories: Python
-tags: Python, Data Science
+tags: Python, Data
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
