@@ -55,7 +55,7 @@ header:
 - **Quandl**  
 [퀀들(Quandl) - 파이썬 금융 데이터 수집](https://wooiljeong.github.io/python/data_collecting_tutorial/)
 
-- **PublicDataReader**
+- **PublicDataReader**  
 [PublicDataReader - 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)  
 [PublicDataReader - 미세먼지 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 
