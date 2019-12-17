@@ -27,8 +27,9 @@ header:
 
 | Contents   | Work | References     |
 | ---------- | ---------- | ---------- |
-| 스탠포드대학교 CS229 VIP cheatsheets-Probabilities and Statistics	 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/refresher-probability.md) |
-| 스탠포드대학교 CS229 VIP cheatsheets-ML tips and tricks		 | 한글번역 | [**링크**](https://github.com/shervinea/cheatsheet-translation/blob/master/ko/cheatsheet-machine-learning-tips-and-tricks.md) |
+| 스탠포드대학교 CS230 cheatsheets-Recurrent neural networks		 | 한글번역 | [**링크**](https://stanford.edu/~shervine/l/ko/teaching/cs-230/cheatsheet-recurrent-neural-networks) |
+| 스탠포드대학교 CS229 cheatsheets-Probabilities and Statistics	 | 한글번역 | [**링크**](https://stanford.edu/~shervine/l/ko/teaching/cs-229/refresher-probabilities-statistics) |
+| 스탠포드대학교 CS229 cheatsheets-ML tips and tricks		 | 한글번역 | [**링크**](https://stanford.edu/~shervine/l/ko/teaching/cs-229/cheatsheet-machine-learning-tips-and-tricks) |
 
 ## Education
 
