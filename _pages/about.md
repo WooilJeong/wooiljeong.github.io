@@ -8,6 +8,9 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
+![jpg](/assets/img/profile.jpg){: .align-center height="300px" width="300px"}
+
+
 ## Currently
 
 | Job Title | Department   | Company   | Periods           |
