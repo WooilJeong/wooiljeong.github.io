@@ -13,25 +13,7 @@ header:
 
 ## 표준 라이브러리
 
-- **os**
-
-- **shutil**
-
-- **glob**
-
-- **sys**
-
-- **re**
-
-- **math**
-
-- **random**
-
-- **datetime**
-
-- **zlib**
-
-- **timeit**
+- **os**,  **shutil**, **glob**, **sys**,  **math**, **random**, **datetime**,  **zlib**, **timeit**
 
 
 ## 수치해석
