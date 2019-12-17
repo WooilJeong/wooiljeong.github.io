@@ -8,7 +8,7 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-# I AM WHO I AM
+# Data Scientist & Engineer
 
 ![jpg](/assets/img/profile.jpg){height="250px" width="250px"}
 
