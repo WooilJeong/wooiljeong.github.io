@@ -43,8 +43,8 @@ header:
 
 ## Contact
 
-**E-mail Address**    
-mcwooil2@gmail.com
+**E-mail**    
+wooil@kakao.com
 
-**Github Link**    
+**Github**    
 [WooilJeong](http://www.github.com/wooiljeong)
