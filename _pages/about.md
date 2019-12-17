@@ -10,7 +10,7 @@ header:
 
 # Data Scientist & Engineer
 
-![jpg](/assets/img/profile.jpg){height="250px" width="250px"}
+![jpg](/assets/img/profile.jpg){: height="250px" width="250px"}
 
 
 ## Currently
