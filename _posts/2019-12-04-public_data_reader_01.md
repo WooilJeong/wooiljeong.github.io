@@ -17,7 +17,7 @@ header:
 
 ### PublicDataReader 관련 글 목록
 
-- [01 국토교통부 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [01 국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
 - [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 
 <br>
@@ -785,5 +785,5 @@ df_sum_agg = Apt.Agg(df_sum)
 
 ### PublicDataReader 관련 글 목록
 
-- [01 국토교통부 아파트매매 실거래 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [01 국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
 - [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
