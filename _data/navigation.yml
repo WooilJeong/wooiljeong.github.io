@@ -21,6 +21,9 @@ main:
   - title: "Idea"
     url: /idea/
 
+  - title: "Bigdata"
+    url: /bigdata/
+
   - title: "ETC"
     url: /etc/
 
