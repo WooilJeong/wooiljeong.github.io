@@ -15,11 +15,11 @@ main:
   - title: "Server"
     url: /server/
 
-  - title: "Web"
-    url: /web/
-
-  - title: "Idea"
-    url: /idea/
+  # - title: "Web"
+  #   url: /web/
+  #
+  # - title: "Idea"
+  #   url: /idea/
 
   - title: "Bigdata"
     url: /bigdata/
