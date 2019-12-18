@@ -1,5 +1,5 @@
 ---
-title: "PublicDataReader - 아파트매매 실거래 데이터 수집하기"
+title: "PublicDataReader - 부동산 데이터 수집하기"
 categories: Python
 tags: PublicDataReader
 header:
