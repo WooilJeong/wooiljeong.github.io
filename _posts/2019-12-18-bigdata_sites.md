@@ -27,5 +27,5 @@ header:
 **분석**  
 데이터가 저장된 컴퓨터에서 데이터를 분석하고 그 결과를 합침
 
-- [The Ultimate Hands-On Hadoop - Tame your Big Data! - Frank Kane](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) - Udemy Hadoop 강의(유료)  
+- [The Ultimate Hands-On Hadoop / Frank Kane](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) - Udemy Hadoop 강의(**유료**)  
 MapReduce, HDFS, Spark, Flink, Hive, HBase, MongoDB, Cassandra, Kafka 등
