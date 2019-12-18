@@ -13,7 +13,7 @@ header:
 
 ## Hadoop - 빅데이터의 저장과 분석을 위한 분산 컴퓨팅 솔루션
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HCR1ILMROfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>{: .align-center height="300px" width="300px"}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/HCR1ILMROfI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 **빅데이터**  
 한 대의 컴퓨터로는 저장하거나 연산하기 어려운 규모의 거대 데이터

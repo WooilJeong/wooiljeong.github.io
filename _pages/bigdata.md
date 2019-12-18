@@ -1,6 +1,6 @@
 ---
 title: "Bigdata"
-layout: category-idea
+layout: category-bigdata
 permalink: /bigdata/
 author_profile: false
 header:
