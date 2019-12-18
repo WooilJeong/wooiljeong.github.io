@@ -39,5 +39,5 @@ header:
 
 ## 강의
 
-- [The Ultimate Hands-On Hadoop / Frank Kane](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) - Udemy Hadoop 강의(**유료**)  
+- [The Ultimate Hands-On Hadoop / Frank Kane](https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/) - Udemy Hadoop 강의 (**유료**)  
 MapReduce, HDFS, Spark, Flink, Hive, HBase, MongoDB, Cassandra, Kafka 등
