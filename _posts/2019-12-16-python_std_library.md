@@ -116,6 +116,8 @@ os.system('touch old_nm.csv')
 os.rename('old_nm.csv', 'new_nm.csv')
 ```
 
+<br>
+
 ## shutil
 
 - 파일 복사 기능
@@ -138,7 +140,7 @@ shutil.copy('new_nm.csv', 'new_nm_copy.csv')
     'new_nm_copy.csv'
 
 
-
+<br>
 ## glob
 
 - 디렉토리 내 파일 목록 확인 기능
@@ -164,7 +166,7 @@ file_list
      '/Users/wooil/github/test/Blog/Data/data_03.csv']
 
 
-
+<br>
 ## sys
 
 
@@ -230,7 +232,7 @@ os.popen('python test.py apple').read()
     'apple\n'
 
 
-
+<br>
 ## math
 
 - 스칼라 연산 등 가벼운 계산 시 사용.
@@ -275,7 +277,7 @@ np.cos(b)
     array([-0.9899925 ,  0.96017029, -0.91113026])
 
 
-
+<br>
 ## random
 
 - 난수 생성 기능
@@ -358,7 +360,7 @@ plt.show()
 
 ![PNG](/assets/img/post_img/2019-12-16-python_std_library/output_51_0.png)
 
-
+<br>
 ## datetime
 
 
