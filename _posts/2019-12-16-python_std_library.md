@@ -1,5 +1,5 @@
 ---
-title: "데이터 과학을 위한 파이썬 라이브러리 모음"
+title: "python 표준 라이브러리 소개"
 categories: Python
 tags: Python
 header:

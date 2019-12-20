@@ -13,7 +13,8 @@ header:
 
 ## 표준 라이브러리
 
-- **os**,  **shutil**, **glob**, **sys**,  **math**, **random**, **datetime**,  **zlib**, **timeit**
+- **os**,  **shutil**, **glob**, **sys**,  **math**, **random**, **datetime**  
+[python 표준 라이브러리 소개](https://wooiljeong.github.io/python/python_std_library/)
 
 
 ## 수치해석
