@@ -11,11 +11,13 @@ header:
 
 AWS EC2 우분투 프리티어 인스턴스에 주피터 서버를 구축하여, 언제 어디서나 접속가능한 데이터 분석 환경을 만들어보겠습니다.
 
+<br>
 
 ## Environment
 
 - OS : macOS Mojave 10.14.6 ver
 
+<br>
 
 ## AWS 프리티어 인스턴스 생성
 
@@ -58,7 +60,6 @@ AWS EC2 우분투 프리티어 인스턴스에 주피터 서버를 구축하여,
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_07.png){: .align-center}
 
 새 키 페어 생성을 선택하고, 키 페어 이름을 입력합니다.
-
 
 <br>
 
@@ -107,7 +108,6 @@ ssh -i jupyter.pem ubuntu@퍼블릭ip주소
 
 <br>
 
-
 ## 아나콘다 배포판 다운로드
 
 ```bash
@@ -154,6 +154,8 @@ sudo chown -R ubuntu:ubuntu anaconda3
 ```
 ubuntu 유저에게 `anaconda3` 디렉토리에 대한 권한을 넘겨줍니다.
 
+<br>
+
 ## 가상환경 생성
 
 ```bash
@@ -165,6 +167,8 @@ conda create -n venv python=3.7 anaconda
 source activate venv
 ```
 가상환경 `venv`를 활성화합니다.
+
+<br>
 
 ## 주피터 서버 구축
 
@@ -209,19 +213,29 @@ c.NotebookApp.ip = 'EC2 Private IP Address'
 c.NotebookApp.port = '8888'
 c.NotebookApp.notebook_dir = '/home/ubuntu/project'
 
+<br>
 
 ## AWS EC2 포트 개방
 
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_15.png){: .align-center}
 
+<br>
+
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_16.png){: .align-center}
+
+<br>
 
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_17.png){: .align-center}
 
+<br>
+
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_18.png){: .align-center}
+
+<br>
 
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_19.png){: .align-center}
 
+<br>
 
 
 ## 주피터 서버 실행
