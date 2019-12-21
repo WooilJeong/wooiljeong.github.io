@@ -110,27 +110,44 @@ ssh -i jupyter.pem ubuntu@퍼블릭ip주소
 <br>
 
 
-## 아나콘다 배포판 설치
-
-우분투 EC2에 접속한 상태에서 아나콘다 배포판을 설치합니다.  
-(**2019.10 python 3.7 for linux** 버전을 기준으로 합니다.)
+## 아나콘다 배포판 다운로드
 
 ```bash
 wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
 ```
 
-## 아나콘다 설치
+우분투 EC2에 접속한 상태에서 아나콘다 배포판을 설치합니다.  
+(**2019.10 python 3.7 for linux** 버전을 기준으로 합니다.)
+
+<br>
+
+## 아나콘다 배포판 설치
 
 ```bash
 sudo bash Anaconda3-2019.10-Linux-x86_64.sh
 ```
 
+license term 에 동의(yes) 후 설치를 완료합니다.
+
+<br>
+
 ## 아나콘다 path 설정
 
+```bash
 nano ~/.bashrc
+```
+
+```
 export PATH=/home/ubuntu/anaconda3/bin:$PATH
+```
+위 내용을 가장 하단부에 입력 후  
+`ctrl`+`x`입력 - `y`입력 - `Enter`입력 하여 빠져나옵니다.
+
+```bash
 source .bashrc
-conda list
+conda info --envs
+```
+콘다 정보가 정상적으로 출력된다면 아나콘다 배포판 설치가 완료된 것입니다.
 
 
 ## 주피터 서버 구축
