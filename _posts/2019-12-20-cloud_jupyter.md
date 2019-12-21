@@ -210,10 +210,12 @@ nano jupyter_notebook_config.py
 ```
 아래와 같이 설정할 파라미터를 찾고 주석(#)을 제거한 뒤 설정값을 입력합니다. 설정을 마친 후 nano를 빠져나옵니다. 단, ip는 퍼블릭이 아닌 프라이빗 ip를 입력합니다.
 
+```
 c.NotebookApp.password = '복사한 sha1 암호'
 c.NotebookApp.ip = 'EC2 Private IP Address'
 c.NotebookApp.port = '8888'
 c.NotebookApp.notebook_dir = '/home/ubuntu/project'
+```
 
 <br>
 
