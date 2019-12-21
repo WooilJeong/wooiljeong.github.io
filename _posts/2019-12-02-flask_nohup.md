@@ -1,7 +1,7 @@
 ---
 title: "Flask - nohup으로 백그라운드 실행하기"
 categories: Server
-tags: Flask, nohup
+tags: Flask
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
