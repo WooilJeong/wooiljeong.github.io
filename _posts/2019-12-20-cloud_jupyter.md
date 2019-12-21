@@ -92,8 +92,6 @@ AWS EC2 우분투 프리티어 인스턴스에 주피터 서버를 구축하여,
 
 <br>
 
-
-
 ## SSH 접속
 
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_13.png){: .align-center}
@@ -137,6 +135,8 @@ license term 에 동의(yes) 후 설치를 완료합니다.
 nano ~/.bashrc
 ```
 
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_14.png){: .align-center}
+
 ```
 export PATH=/home/ubuntu/anaconda3/bin:$PATH
 ```
@@ -149,19 +149,89 @@ conda info --envs
 ```
 콘다 정보가 정상적으로 출력된다면 아나콘다 배포판 설치가 완료된 것입니다.
 
+```bash
+sudo chown -R ubuntu:ubuntu anaconda3
+```
+ubuntu 유저에게 `anaconda3` 디렉토리에 대한 권한을 넘겨줍니다.
+
+## 가상환경 생성
+
+```bash
+conda create -n venv python=3.7 anaconda
+```
+가상환경 `venv`를 생성합니다.
+
+```bash
+source activate venv
+```
+가상환경 `venv`를 활성화합니다.
 
 ## 주피터 서버 구축
-https://wooiljeong.github.io/etc/coding_on_ipad_01/
+
+```bash
+jupyter notebook --generate-config
+```
+
+`.jupyter`디렉토리와 `.jupyter/jupyter_notebook_config.py`설쩡 파일이 생성됩니다.
 
 
-## 콘다 가상환경 생성
-conda create -n wooil python=3.7 anaconda
+```bash
+cd .jupyter
+ipython
+```
+디렉토리 이동 후 `ipython`을 실행합니다.
 
-에러시 다음 코드 실행
-sudo chown -R username /path/to/anaconda3
+```bash
+from notebook.auth import passwd
+passwd()
+```
 
-## 주피터 익스텐션 설치
-conda install -c conda-forge jupyter_contrib_nbextensions
+패스워드를 입력하고, 결과로 나온 암호를 복사해둡니다.
 
-## autopep8 설치
-pip install autopep8
+```
+'sha1:390d90....'
+```
+
+```bash
+exit()
+```
+
+`ipython`을 빠져나옵니다.
+
+
+```bash
+nano jupyter_notebook_config.py
+```
+아래와 같이 설정할 파라미터를 찾고 주석(#)을 제거한 뒤 설정값을 입력합니다. 설정을 마친 후 nano를 빠져나옵니다. 단, ip는 퍼블릭이 아닌 프라이빗 ip를 입력합니다.
+
+c.NotebookApp.password = '복사한 sha1 암호'
+c.NotebookApp.ip = 'EC2 Private IP Address'
+c.NotebookApp.port = '8888'
+c.NotebookApp.notebook_dir = '/home/ubuntu/project'
+
+
+## AWS EC2 포트 개방
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_15.png){: .align-center}
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_16.png){: .align-center}
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_17.png){: .align-center}
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_18.png){: .align-center}
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_19.png){: .align-center}
+
+
+
+## 주피터 서버 실행
+
+```bash
+cd ~
+mkdir project
+jupyter notebook
+```
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_20.png){: .align-center}
+
+주피터 서버 구축이 완료되었습니다.
