@@ -9,7 +9,14 @@ header:
 
 # AWS EC2 Ubuntu에 주피터 서버 구축하기
 
+![PNG](/assets/img/post_img/2019-09-27-coding_on_ipad_01/img_logo.PNG){: .align-center height="300px" width="300px"}
+
+
 AWS EC2 우분투 프리티어 인스턴스에 주피터 서버를 구축하여, 언제 어디서나 접속가능한 데이터 분석 환경을 만들어보겠습니다.
+
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_ec2.png){: .align-center}
+
 
 <br>
 
