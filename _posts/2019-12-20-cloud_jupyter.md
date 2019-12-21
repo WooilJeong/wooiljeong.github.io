@@ -98,7 +98,14 @@ AWS EC2 우분투 프리티어 인스턴스에 주피터 서버를 구축하여,
 
 ![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_13.png){: .align-center}
 
-최초 접속 시 종종 Permission 관련 에러가 발생하기도 합니다. 따라서 `sudo chmod 600 jupyter.pem`을 통해 키페어의 권한을 올려준 뒤 ssh접속을 시도합니다.
+```bash
+sudo chmod 600 jupyter.pem
+ssh -i jupyter.pem ubuntu@퍼블릭ip주소
+```
+
+터미널 실행 후 위 명령어를 입력하여 생성한 우분투 인스턴스에 접속합니다.  
+
+최초 접속 시 종종 Permission 관련 에러가 발생하기도 합니다. 따라서 `sudo chmod 600 jupyter.pem`을 통해 키페어의 권한을 올려준 뒤 접속을 시도한 것입니다.
 
 <br>
 
