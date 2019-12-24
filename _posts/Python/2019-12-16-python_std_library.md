@@ -1,7 +1,7 @@
 ---
 title: "python 표준 라이브러리 소개"
 categories: Python
-tags: Python
+tags: Reference
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background

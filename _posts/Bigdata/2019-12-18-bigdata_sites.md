@@ -1,7 +1,7 @@
 ---
 title: "빅데이터 처리 기술 관련 사이트 모음"
 categories: Bigdata
-tags: Bigdata
+tags: Reference
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
