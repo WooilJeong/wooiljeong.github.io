@@ -49,6 +49,7 @@ header:
 
 - **pdpipe**  
 [pdpipe - Pandas DataFrame 전처리 자동화 01](https://wooiljeong.github.io/python/pdpipe_01/)
+[pdpipe - Pandas DataFrame 전처리 자동화 02](https://wooiljeong.github.io/python/pdpipe_02/)
 
 - **modin**
 
