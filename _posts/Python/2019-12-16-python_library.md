@@ -47,6 +47,8 @@ header:
 
 - **Pandas**
 
+- **pdpipe**
+
 - **modin**
 
 - **MDP**
