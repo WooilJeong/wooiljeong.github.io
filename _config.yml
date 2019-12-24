@@ -12,7 +12,7 @@
 remote_theme : mmistakes/minimal-mistakes
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "contrast" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "air" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "ko-KR"
@@ -104,10 +104,10 @@ analytics:
 # Site Author
 author:
   name             : "Wooil"
-  avatar           : "assets/img/img.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "assets/img/profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Data Scientist"
   location         : "Republic of Korea"
-  email            : "mcwooil2@gmail.com"
+  email            : "wooil@kakao.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
