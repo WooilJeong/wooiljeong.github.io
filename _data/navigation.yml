@@ -19,7 +19,7 @@ main:
     url: /bigdata/
 
   - title: "Review"
-    url: /Review/
+    url: /review/
 
   - title: "ETC"
     url: /etc/
