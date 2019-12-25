@@ -15,20 +15,25 @@ main:
   - title: "Server"
     url: /server/
 
-  # - title: "Web"
-  #   url: /web/
-  #
-  # - title: "Idea"
-  #   url: /idea/
-
   - title: "Bigdata"
     url: /bigdata/
+
+  - title: "Review"
+    url: /Review/
 
   - title: "ETC"
     url: /etc/
 
+
+
+  # - title: "Web"
+  #   url: /web/
+
+  # - title: "Idea"
+  #   url: /idea/
+
   # - title: "Category"
   #   url: /categories/
-  #
+
   # - title: "Tag"
   #   url: /tags/
