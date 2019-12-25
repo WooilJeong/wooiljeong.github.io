@@ -68,7 +68,7 @@ header:
 [플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)
 
 - **folium**  
-[Folium - 스타벅스와 이디야 입지 시각화](https://wooiljeong.github.io/python/python_folium/)
+[folium - 스타벅스와 이디야 입지 시각화](https://wooiljeong.github.io/python/folium/)
 
 - **bokeh**  
 
