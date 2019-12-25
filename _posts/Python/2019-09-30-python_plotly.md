@@ -15,6 +15,12 @@ header:
 
 <br>
 
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
+
+<br>
+
 ## 설치
 
 다음과 같이 터미널에서 ```pip``` 명령어를 통해 플로틀리 패키지를 설치합니다.
@@ -216,3 +222,9 @@ help(plotly.offline.iplot)
 ## 추가 예제
 
 플로틀리를 파이썬으로 사용하기위한 예제와 튜토리얼은 다음 [링크](https://plot.ly/python/)를 확인하면 됩니다.
+
+<br>
+
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)

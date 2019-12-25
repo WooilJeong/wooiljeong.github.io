@@ -19,6 +19,7 @@ header:
 
 - [01 국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
 - [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
 <br>
 
@@ -773,3 +774,4 @@ df.head()
 
 - [01 국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
 - [02 한국환경공단 대기오염 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)

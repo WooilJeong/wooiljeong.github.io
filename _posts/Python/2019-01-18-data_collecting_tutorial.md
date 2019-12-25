@@ -11,6 +11,10 @@ header:
 
 이번 튜토리얼에서는 파이썬(Python) 환경에서 ```퀀들(Quandl) API```를 이용해 다양한 금융 데이터를 수집하는 방법에 대해 다뤄보겠습니다. 데이터를 수집한 뒤에는 간단한 시각화도 진행해보겠습니다. 끝으로 수집한 데이터를 CSV파일 형태로 저장하는 방법에 대해서도 소개해드리겠습니다.
 
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
+
 
 ## 퀀들(Quandl)이란?
 
@@ -333,3 +337,8 @@ df_oil.plot(color="black")
 
 
 지금까지 파이썬 퀀들(Quandl) API를 통해 금융 데이터를 수집하여 시각화 및 저장하는 과정을 알아봤습니다.
+
+
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)

@@ -9,6 +9,19 @@ header:
 
 # 파이썬 표준 라이브러리 소개
 
+- OS
+- shutil
+- glob
+- sys
+- math
+- random
+- datetime
+
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
+
+
 ## os
 
 - 시스템 환경벼수 확인, 디렉토리 설정, 시스템 명령어 실행 등
@@ -405,3 +418,8 @@ print(d)
     12/20/2019
     <class 'str'>
     2019-12-20
+
+
+## 더 많은 파이썬 라이브러리 관련 정보
+
+- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
