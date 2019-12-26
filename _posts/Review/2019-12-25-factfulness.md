@@ -9,7 +9,7 @@ header:
 
 # 팩트풀니스
 
-![JPG](/assets/img/post_img/2019-12-25-Factfulness/img_logo.jpg){: .align-center}
+![JPG](/assets/img/post_img/2019-12-25-factfulness/img_logo.jpg){: .align-center}
 
 <br>
 
