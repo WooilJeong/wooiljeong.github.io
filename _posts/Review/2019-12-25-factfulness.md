@@ -9,12 +9,17 @@ header:
 
 # 팩트풀니스
 
+![JPEG](/assets/img/post_img/2019-12-25-Factfulness/img_logo.jpg){: .align-center}
+
+<br>
 
 ## 인터렉티브 시각화 자료
 
 <iframe src="//www.gapminder.org/tools/?embedded=true#$state$time$value=2018&delay:100;;&chart-type=bubbles" style="width: 100%; height: 500px; margin: 0 0 0 0; border: 1px solid grey;" allowfullscreen></iframe>
 
 2차원 평면에 '소득', '수명', '인구 수', '지역(대륙)' 그리고 '시간(년도)'에 이르는 5차원의 정보를 집약한 점이 매우 인상적이다. 대부분의 국가들이 단 시간에 폭발적으로 성장을 향해 변화하는 모습이 직관적으로 나타난다.
+
+<br>
 
 ## 간극 본능
 
