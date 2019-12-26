@@ -12,6 +12,9 @@ main:
   - title: "R"
     url: /r/
 
+  - title: "ML"
+    url: /ml/
+
   - title: "Server"
     url: /server/
 
