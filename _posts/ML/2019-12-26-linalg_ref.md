@@ -18,6 +18,7 @@ header:
 **지코 콜터(Zico Kolter)의 선형대수학 소개 자료**  
 [pdf - Linear Algebra Review and Reference](http://www.cs.cmu.edu/~zkolter/course/15-884/linalg-review.pdf)
 
+<br>
 
 ## 한국어 선형대수학 강의
 
