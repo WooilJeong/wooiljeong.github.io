@@ -23,4 +23,4 @@ header:
 ## 한국어 선형대수학 강의
 
 **인공지능을 위한 선형대 / 주재걸 교수**  
-[edwith 링크](edwith.org/linearalgebra4ai)
+[edwith 링크](https://www.edwith.org/linearalgebra4ai)
