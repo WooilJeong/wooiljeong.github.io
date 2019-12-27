@@ -23,7 +23,7 @@ header:
 
 <br>
 
-## Docker 설치
+## 도커 설치하기
 
 ![PNG](/assets/img/post_img/2019-12-27-docker_mac/img_01.png){: .align-center}
 
@@ -59,3 +59,226 @@ header:
 ![PNG](/assets/img/post_img/2019-12-27-docker_mac/img_06.png){: .align-center}
 
 터미널 실행 후 `docker run hello-world` 명령어를 입력해서 `hello from Docker!`가 출력되면 도커 설치가 완료된 것입니다.
+
+<br>
+
+## 도커 컨테이너 만들고 접속하기
+
+```bash
+docker pull ubuntu
+```
+도커 컨테이너를 만들기 위해 리눅스 OS 중에서 Ubuntu 이미지를 받아오겠습니다.
+
+<br>
+
+```bash
+docker images
+```
+저장된 Ubuntu 도커 이미지를 목록에서 확인합니다. 도커 컨테이너 목록은 `docker ps`로 확인합니다.
+
+<br>
+
+```bash
+docker run -t -i -p 8888:8888 ubuntu
+```
+`run` 명령어를 통해 도커 컨테이너를 `생성 - 실행 - 접속` 합니다.
+
+-t : tty를 활성화하여 bash 쉘을 사용  
+-i : 상호 입출력
+
+<br>
+
+## 컨테이너에 주피터 노트북 설치하기
+
+### 패키지 설치
+
+```bash
+apt-get update
+
+apt-get install -y sudo net-tools nano wget
+```
+패키지들을 설치합니다.
+
+### 패스워드 설정
+
+```bash
+passwd root
+```
+루트 비밀번호 : root
+
+### 사용자 계정 생성
+
+```bash
+adduser ubuntu
+```
+ubuntu 비밀번호 : ubuntu
+
+```bash
+nano /etc/sudoers
+```
+`# User privilege specification` 항목의 root계정 아래에 다음을 입력합니다.
+
+```
+ubuntu    ALL=(ALL:ALL) ALL
+```
+
+입력 후 `CTRL + X` - `Y` - `ENTER` 를 통해 빠져나옵니다.
+
+```bash
+su - ubuntu
+```
+ubuntu 계정으로 접속합니다.
+
+
+## 도커에 주피터 서버 구축하기
+
+### 아나콘다 배포판 다운로드
+```bash
+wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
+```
+
+우분투 EC2에 접속한 상태에서 아나콘다 배포판을 설치합니다.  
+(**2019.10 python 3.7 for linux** 버전을 기준으로 합니다.)
+
+<br>
+
+### 아나콘다 배포판 설치
+
+```bash
+bash Anaconda3-2019.10-Linux-x86_64.sh
+```
+
+license term 에 동의(yes) 후 설치를 완료합니다.
+
+<br>
+
+### 아나콘다 path 설정
+
+```bash
+nano ~/.bashrc
+```
+
+![PNG](/assets/img/post_img/2019-12-20-cloud_jupyter/img_14.png){: .align-center}
+
+```
+export PATH=/home/ubuntu/anaconda3/bin:$PATH
+```
+위 내용을 가장 하단부에 입력 후  
+`ctrl`+`x`입력 - `y`입력 - `Enter`입력 하여 빠져나옵니다.
+
+```bash
+source .bashrc
+conda info --envs
+```
+콘다 정보가 정상적으로 출력된다면 아나콘다 배포판 설치가 완료된 것입니다.
+
+### 주피터 서버 구축
+
+```bash
+jupyter notebook --generate-config
+```
+
+`.jupyter`디렉토리와 `.jupyter/jupyter_notebook_config.py`설쩡 파일이 생성됩니다.
+
+
+```bash
+cd .jupyter
+ipython
+```
+디렉토리 이동 후 `ipython`을 실행합니다.
+
+```bash
+from notebook.auth import passwd
+passwd()
+```
+
+패스워드에 `jupyter`를 입력하고, 결과로 나온 암호를 복사해둡니다.
+
+```
+'sha1:0b94bc192464:c83224b882342aa109f2e78ffe9096cae0ac38e6'
+```
+
+```bash
+exit()
+```
+
+`ipython`을 빠져나옵니다.
+
+
+```bash
+nano jupyter_notebook_config.py
+```
+아래와 같이 설정할 파라미터를 찾고 주석(#)을 제거한 뒤 설정값을 입력합니다. 설정을 마친 후 nano를 빠져나옵니다. 단, ip주소는 `ifconfig` 명령을 틍해 확인합니다.
+```
+c.NotebookApp.password = '복사한 sha1 암호'
+c.NotebookApp.ip = '도커 컨테이너 IP 주소'
+c.NotebookApp.notebook_dir = '/home/ubuntu/project'
+c.NotebookApp.allow_root = True
+c.NotebookApp.open_browser = False
+```
+
+<br>
+
+```bash
+cd ~
+mkdir project
+jupyter notebook
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## 도커 내부 쉘에서 나가기
+
+도커 내부 쉘에서 나가는 방법은 두 가지가 있습니다. 도커 컨테이너를 종료하고 나가는 방법과 컨테이너를 종료하지 않고 나가는 방법이 있습니다.
+
+### 컨테이너 종료 후 나가기
+
+- `exit`
+- `CRTL` + `D`
+
+### 컨테이너 종료하지 않고 나가기
+
+- `CTRL` + `P`, `Q`
+- 재접속 시 `docker attach "컨테이너 ID"`혹은 "컨테이너 NAMES"
+
+<br>
+
+## 도커 이미지 배포하기
+
+
+<br>
+
+## 배포한 도커 이미지 다운로드하기
+
+
+<br>
+
+## 도커에 데이터 분석 관련 github 프로젝트 다운로드하기
+
+
+<br>
+
+## net-tools 설치 없이 외부에서 도커 컨테이너 IP주소 확인하기
+
+```bash
+docker inspect "컨테이너 ID" 혹은 "컨테이너 NAMES" | grep IPAddress
+```
+
+```bash
+# 실행 결과
+
+"SecondaryIPAddresses": null,
+"IPAddress": "172.17.0.2",
+"IPAddress": "172.17.0.2",
+```
+
+`docker ps` 명령으로 컨테이너 ID를 확인한 후 IP주소를 찾으면 됩니다.
