@@ -11,8 +11,6 @@ header:
 
 ![PNG](/assets/img/post_img/2019-12-27-docker_mac/img_logo.png){: .align-center height="300px" width="300px"}
 
-<br>
-
 ![PNG](/assets/img/post_img/2019-12-27-docker_mac/img_tf.png){: .align-center height="300px" width="300px"}
 
 딥러닝과 같은 데이터 분석 환경을 구축하려면 파이썬, 라이브러리 등의 버전을 확인해가며 설치해야하고, 주피터 노트북과 같은 에디터에 대한 설정을 해야합니다. 이렇게 매번 새로 환경을 구축하는 번거로움을 줄이기 위해서 Mac에 도커를 설치해봤습니다. Docker는 컨테이너 기반의 가상화 시스템이라고 합니다. 즉, 데이터 분석 환경이 미리 구축된 도커 이미지를 사용해 번거로운 환경 구축 작업을 최소화하는데 목적이 있습니다.
