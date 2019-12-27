@@ -251,11 +251,12 @@ conda install tensorflow
 
 - `exit`
 - `CRTL` + `D`
+- 생성한 컨테이너에 접속 시 `docker start "컨테이너 ID" 혹은 "컨테이너 NAMES"` 후 `docker attach "컨테이너 ID" 혹은 "컨테이너 NAMES"`
 
 ### 컨테이너 종료하지 않고 나가기
 
 - `CTRL` + `P`, `Q`
-- 재접속 시 `docker attach "컨테이너 ID"`혹은 "컨테이너 NAMES"
+- 재접속 시 `docker attach "컨테이너 ID" 혹은 "컨테이너 NAMES"`
 
 <br>
 
