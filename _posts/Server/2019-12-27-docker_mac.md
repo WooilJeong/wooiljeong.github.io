@@ -269,9 +269,9 @@ docker commit <옵션> <컨테이너 이름> <이미지 이름>:<태그>
 -m : 이미지 생성과 관련된 로그 메세지를 지정함
 
 ```bash
-docker commit -a "Wooil Jeong <wooil@kakao.com>" -m "Jupyter Server" great_swartz ubuntu/jupyter:0.1
+docker commit -a "Wooil Jeong <wooil@kakao.com>" -m "Jupyter Server" great_swartz jupyter:0.1
 ```
-도커 이미지 `ubuntu/jupyter:0.1`를 생성했습니다.
+도커 이미지 `jupyter:0.1`를 생성했습니다.
 
 <br>
 
@@ -287,7 +287,7 @@ docker tag [push할 image ID or name] [docker hub ID]/[image name]:[version]
 ```
 
 ```bash
-docker tag cc0e0be49423 mcwooil/jupyter:0.1
+docker tag 038c7f815911 mcwooil/jupyter:0.1
 docker push mcwooil/jupyter
 ```
 
