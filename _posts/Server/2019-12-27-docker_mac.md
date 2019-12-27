@@ -85,6 +85,7 @@ docker run -t -i -p 8888:8888 ubuntu
 
 -t : tty를 활성화하여 bash 쉘을 사용  
 -i : 상호 입출력
+-p 8888:8888 : 포트 설정
 
 <br>
 
@@ -94,8 +95,7 @@ docker run -t -i -p 8888:8888 ubuntu
 
 ```bash
 apt-get update
-
-apt-get install -y sudo net-tools nano wget
+apt-get install -y sudo net-tools nano wget build-essential
 ```
 패키지들을 설치합니다.
 
@@ -137,7 +137,7 @@ ubuntu 계정으로 접속합니다.
 wget https://repo.anaconda.com/archive/Anaconda3-2019.10-Linux-x86_64.sh
 ```
 
-우분투 EC2에 접속한 상태에서 아나콘다 배포판을 설치합니다.  
+도커 컨테이너에 아나콘다 배포판을 설치합니다.  
 (**2019.10 python 3.7 for linux** 버전을 기준으로 합니다.)
 
 <br>
@@ -225,16 +225,23 @@ mkdir project
 jupyter notebook
 ```
 
+호스트에서 `localhost:8888`로 접속하면 주피터 노트북이 활성화됩니다.
 
+### 주피터 익스텐션 설치
 
+```bash
+conda install -c conda-forge jupyter_contrib_nbextensions
+```
+주피터 노트북 확장 프로그램을 설치합니다.
 
+### Tensorflow 설치
 
+```bash
+conda install tensorflow
+```
+텐서플로우를 설치합니다. (현재 2.0 버전)
 
-
-
-
-
-
+<br>
 
 ## 도커 내부 쉘에서 나가기
 
@@ -252,18 +259,37 @@ jupyter notebook
 
 <br>
 
+## 도커 이미지 생성하기
+
+```bash
+docker commit <옵션> <컨테이너 이름> <이미지 이름>:<태그>
+```
+
+-a : 이미지를 작성한 작성자 이름을 지정함
+-m : 이미지 생성과 관련된 로그 메세지를 지정함
+
+```bash
+docker commit -a "Wooil Jeong <wooil@kakao.com>" -m "Jupyter Server" great_swartz ubuntu/jupyter:0.1
+```
+도커 이미지 `ubuntu/jupyter:0.1`를 생성했습니다.
+
+<br>
+
 ## 도커 이미지 배포하기
 
+```bash
+docker login
+```
+도커에 로그인을 합니다.
 
-<br>
+```bash
+docker tag [push할 image ID or name] [docker hub ID]/[image name]:[version]
+```
 
-## 배포한 도커 이미지 다운로드하기
-
-
-<br>
-
-## 도커에 데이터 분석 관련 github 프로젝트 다운로드하기
-
+```bash
+docker tag cc0e0be49423 mcwooil/jupyter:0.1
+docker push mcwooil/jupyter
+```
 
 <br>
 
