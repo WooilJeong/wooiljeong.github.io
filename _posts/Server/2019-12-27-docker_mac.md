@@ -95,7 +95,7 @@ docker run -t -i -p 8888:8888 ubuntu
 
 ```bash
 apt-get update
-apt-get install -y sudo net-tools nano wget build-essential
+apt-get install -y sudo net-tools nano wget git-core
 ```
 패키지들을 설치합니다.
 
