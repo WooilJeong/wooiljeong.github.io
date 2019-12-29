@@ -302,7 +302,7 @@ docker tag a052db62c77e mcwooil/jupyter:0.1
 docker push mcwooil/jupyter
 ```
 
-[도커 허브](https://hub.docker.com/repository/docker/mcwooil/jupyter)에 배포가 완료되었습니다.
+[도커 허브](https://hub.docker.com/layers/mcwooil/jupyter/0.1/images/sha256-c72006e7f573e6e034c16abfddcd3cbd5a7996a72068701372e3389672208b39)에 배포가 완료되었습니다.
 
 <br>
 
