@@ -65,7 +65,7 @@ header:
 ## 도커 컨테이너 만들고 접속하기
 
 ```bash
-docker pull ubuntu
+docker pull ubuntu:18.04
 ```
 도커 컨테이너를 만들기 위해 리눅스 OS 중에서 Ubuntu 이미지를 받아오겠습니다.
 
@@ -79,7 +79,7 @@ docker images
 <br>
 
 ```bash
-docker run -t -i -p 8888:8888 ubuntu
+docker run -t -i -p 8888:8888 ubuntu:18.04
 ```
 `run` 명령어를 통해 도커 컨테이너를 `생성 - 실행 - 접속` 합니다.
 
@@ -152,6 +152,15 @@ license term 에 동의(yes) 후 설치를 완료합니다.
 
 <br>
 
+```bash
+rm -rf Anaconda3-2019.10-Linux-x86_64.sh
+```
+
+설치가 완료되면 설치 파일을 제거합니다.
+
+
+<br>
+
 ### 아나콘다 path 설정
 
 ```bash
@@ -167,10 +176,10 @@ export PATH=/home/ubuntu/anaconda3/bin:$PATH
 `ctrl`+`x`입력 - `y`입력 - `Enter`입력 하여 빠져나옵니다.
 
 ```bash
-source .bashrc
+source ~/.bashrc
 conda info --envs
 ```
-콘다 정보가 정상적으로 출력된다면 아나콘다 배포판 설치가 완료된 것입니다.
+콘다 환경 정보가 출력된다면, 아나콘다 path 설정이 완료된 것입니다.
 
 ### 주피터 서버 구축
 
@@ -231,6 +240,7 @@ jupyter notebook
 
 ```bash
 conda install -c conda-forge jupyter_contrib_nbextensions
+pip install autopep8
 ```
 주피터 노트북 확장 프로그램을 설치합니다.
 
@@ -270,9 +280,9 @@ docker commit <옵션> <컨테이너 이름> <이미지 이름>:<태그>
 -m : 이미지 생성과 관련된 로그 메세지를 지정함
 
 ```bash
-docker commit -a "Wooil Jeong <wooil@kakao.com>" -m "Jupyter Server" great_swartz jupyter:0.1
+docker commit -a "Wooil Jeong <wooil@kakao.com>" -m "Jupyter Server" laughing_goldstine jupyter:0.1
 ```
-도커 이미지 `jupyter:0.1`를 생성했습니다.
+도커 이미지 `jupyter:0.1`를 생성했습니다. `laughing_goldstine`은 컨테이너 이름입니다.
 
 <br>
 
@@ -284,28 +294,22 @@ docker login
 도커에 로그인을 합니다.
 
 ```bash
-docker tag [push할 image ID or name] [docker hub ID]/[image name]:[version]
+docker tag <push할 이미지 ID 혹은 이름> <도커 허브 ID>/<이미지 이름>:<태그>
 ```
 
 ```bash
-docker tag 038c7f815911 mcwooil/jupyter:0.1
+docker tag a052db62c77e mcwooil/jupyter:0.1
 docker push mcwooil/jupyter
 ```
 
+[도커 허브](https://hub.docker.com/repository/docker/mcwooil/jupyter)에 배포가 완료되었습니다.
+
 <br>
 
-## net-tools 설치 없이 외부에서 도커 컨테이너 IP주소 확인하기
+## 배포한 도커 이미지 다운받기
 
 ```bash
-docker inspect "컨테이너 ID" 혹은 "컨테이너 NAMES" | grep IPAddress
+docker pull mcwooil/jupyter:0.1
 ```
 
-```bash
-# 실행 결과
-
-"SecondaryIPAddresses": null,
-"IPAddress": "172.17.0.2",
-"IPAddress": "172.17.0.2",
-```
-
-`docker ps` 명령으로 컨테이너 ID를 확인한 후 IP주소를 찾으면 됩니다.
+아나콘다, 주피터 확장 프로그램, 텐서플로우 등이 설치된 도커 이미지를 자유롭게 사용할 수 있게 되었습니다.
