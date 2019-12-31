@@ -58,7 +58,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_6_0.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_6_0.png){: .align-center}
 
 
 ### y_data
@@ -87,7 +87,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_10_0.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_10_0.png){: .align-center}
 
 
 Let's mix the noise into the straight line created above.
@@ -109,7 +109,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_14_0.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_14_0.png){: .align-center}
 
 <br>
 
@@ -183,7 +183,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_1.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_1.png){: .align-center}
 
 
 
@@ -192,7 +192,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_3.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_3.png){: .align-center}
 
 
 
@@ -201,7 +201,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_5.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_5.png){: .align-center}
 
 
 
@@ -210,7 +210,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_7.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_7.png){: .align-center}
 
 
 
@@ -219,7 +219,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_9.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_9.png){: .align-center}
 
 
 
@@ -228,7 +228,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_11.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_20_11.png){: .align-center}
 
 
 
@@ -247,7 +247,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_22_0.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_22_0.png){: .align-center}
 
 
 <br>
@@ -315,7 +315,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_1.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_1.png){: .align-center}
 
 
 
@@ -324,7 +324,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_3.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_3.png){: .align-center}
 
 
 
@@ -333,7 +333,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_5.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_5.png){: .align-center}
 
 
 
@@ -342,7 +342,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_7.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_7.png){: .align-center}
 
 
 
@@ -351,7 +351,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_9.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_9.png){: .align-center}
 
 
 
@@ -360,7 +360,7 @@ for i in range(1000+1):
 
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_11.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_29_11.png){: .align-center}
 
 
 
@@ -377,4 +377,4 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_30_0.png)
+![PNG](/assets/img/post_img/2019-12-30-tf_learning/output_30_0.png){: .align-center}

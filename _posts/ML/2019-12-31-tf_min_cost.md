@@ -122,7 +122,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-31-tf_min_cost/output_12_0.png)
+![PNG](/assets/img/post_img/2019-12-31-tf_min_cost/output_12_0.png){: .align-center}
 
 
 ## How to define Cost Function in TensorFlow 2.0
@@ -200,7 +200,7 @@ plt.show()
 ```
 
 
-![PNG](/assets/img/post_img/2019-12-31-tf_min_cost/output_18_0.png)
+![PNG](/assets/img/post_img/2019-12-31-tf_min_cost/output_18_0.png){: .align-center}
 
 
 ## Gradient Descent
