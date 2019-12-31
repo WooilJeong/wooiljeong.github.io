@@ -8,7 +8,7 @@ header:
 ---
 # Simple Linear Regression in TensorFlow 2.0
 
-[view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/01%20Simple%20Linear%20Regression%20in%20TensorFlow%202.0.ipynb)
+[view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/01%20Simple%20Linear%20Regression.ipynb)
 
 We will explore the learning concept of machine learning with a simple linear regression model.
 

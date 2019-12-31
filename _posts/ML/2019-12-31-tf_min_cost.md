@@ -8,7 +8,7 @@ header:
 ---
 # How to minimize cost in Linear Regression Model
 
-[view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/02%20How%20to%20minimize%20cost%20in%20Linear%20Regression%20Model.ipynb)
+[view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/02%20Linear%20Regression%20and%20How%20to%20minimize%20cost.ipynb)
 
 We will define a cost function in a simple linear regression model and minimize the cost value.
 
