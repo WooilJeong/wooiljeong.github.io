@@ -24,7 +24,7 @@ For simplicity, we will assume hypothesis with zero intercept.
 ## Cost
 
 $$
-cost(W) = {1 \over m} {\sum_{n=1}^m} (Wx_i-y_i)^2
+cost(W) = {1 \over m} {\sum_{i=1}^m} (Wx_i-y_i)^2
 $$
 
 The cost function is defined as the mean of the squared difference between the hypothesis and the y-values.
@@ -206,11 +206,11 @@ plt.show()
 ## Gradient Descent
 
 $$
-cost(W) = {1 \over m} {\sum_{n=1}^m} (Wx_i-y_i)^2
+cost(W) = {1 \over m} {\sum_{i=1}^m} (Wx_i-y_i)^2
 $$
 
 $$
-W:=W-\alpha{1\over m} {\sum_{n=1}^m} (Wx_i-y_i) x_i
+W:=W-\alpha{1\over m} {\sum_{i=1}^m} (Wx_i-y_i) x_i
 $$
 
 ```python
