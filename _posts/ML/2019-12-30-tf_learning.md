@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
-## Simple Linear Regression in TensorFlow 2.0
+# Simple Linear Regression in TensorFlow 2.0
 
 [view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/01%20Simple%20Linear%20Regression%20in%20TensorFlow%202.0.ipynb)
 
