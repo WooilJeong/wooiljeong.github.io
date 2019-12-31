@@ -1,5 +1,5 @@
 ---
-title: "TF2.0 - Linear Regression and How to minimize cost"
+title: "TF2.0 - 02.Linear Regression and How to minimize cost"
 categories: ML
 tags: Tensorflow
 header:

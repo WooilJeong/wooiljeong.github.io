@@ -1,5 +1,5 @@
 ---
-title: "TF2.0 - Simple Linear Regression"
+title: "TF2.0 - 01.Simple Linear Regression"
 categories: ML
 tags: Tensorflow
 header:
