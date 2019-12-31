@@ -1,7 +1,7 @@
 ---
 title: "TF2.0 - Linear Regression and How to minimize cost"
 categories: ML
-tags: LinearRegression
+tags: Tensorflow
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
