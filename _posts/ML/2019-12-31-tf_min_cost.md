@@ -1,5 +1,5 @@
 ---
-title: "How to minimize cost in Linear Regression Model"
+title: "TF2.0 - Linear Regression and How to minimize cost"
 categories: ML
 tags: LinearRegression
 header:
