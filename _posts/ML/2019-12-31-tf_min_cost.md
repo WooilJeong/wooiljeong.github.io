@@ -100,7 +100,7 @@ Among the weights set above, when the weight is about 1, the cost is the smalles
 
 ```python
 minimum_index = cost_list.index(min(cost_list))
-optimal_W = x_range[minimum_index]
+optimal_W = W_range[minimum_index]
 optimal_cost = cost_list[minimum_index]
 
 print("Optimal W: %s" % optimal_W)
@@ -114,7 +114,7 @@ print("Optimal Cost: %s" % optimal_cost)
 
 ```python
 plt.title('Cost according to W', size=15)
-plt.plot(x_range, cost_list, color='orange')
+plt.plot(W_range, cost_list, color='orange')
 plt.axvline(x=optimal_W, color='red')
 plt.xlabel('Weights')
 plt.ylabel('Cost')
@@ -148,8 +148,8 @@ def cost_func(W, X, Y):
 
 ```python
 cost_list = []
-x_range = np.linspace(-2, 4, num=100)
-for feed_W in x_range:
+W_range = np.linspace(-2, 4, num=100)
+for feed_W in W_range:
 
     curr_cost = cost_func(feed_W, X, Y)
     cost_list.append(curr_cost)
@@ -178,7 +178,7 @@ for feed_W in x_range:
 
 ```python
 minimum_index = cost_list.index(min(cost_list))
-optimal_W = x_range[minimum_index]
+optimal_W = W_range[minimum_index]
 optimal_cost = cost_list[minimum_index]
 
 print("Optimal W: %s" % optimal_W)
@@ -192,7 +192,7 @@ print("Optimal Cost: %s" % optimal_cost.numpy())
 
 ```python
 plt.title('Cost according to W', size=15)
-plt.plot(x_range, cost_list, color='orange')
+plt.plot(W_range, cost_list, color='orange')
 plt.axvline(x=optimal_W, color='red')
 plt.xlabel('Weights')
 plt.ylabel('Cost')
