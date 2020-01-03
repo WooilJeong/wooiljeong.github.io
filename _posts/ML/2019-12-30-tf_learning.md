@@ -288,11 +288,11 @@ for i in range(1000+1):
         hypothesis = W * x_data + b
         cost = tf.reduce_mean(tf.square(hypothesis - y_temp))
 
-    # Update
-    W_grad, b_grad = tape.gradient(cost, [W, b])
-    W.assign_sub(learning_rate * W_grad)
-    b.assign_sub(learning_rate * b_grad)
-    cost_list.append(cost.numpy())
+        # Update
+        W_grad, b_grad = tape.gradient(cost, [W, b])
+        W.assign_sub(learning_rate * W_grad)
+        b.assign_sub(learning_rate * b_grad)
+        cost_list.append(cost.numpy())
 
     # Output
     if i % 200 == 0:
