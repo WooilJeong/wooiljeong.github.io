@@ -68,8 +68,8 @@ Let's make 100 intervals between -2 and 4, and look at the cost changes with the
 
 ```python
 cost_list = []
-x_range = np.linspace(-2, 4, num=100)
-for feed_W in x_range:
+W_range = np.linspace(-2, 4, num=100)
+for feed_W in W_range:
 
     curr_cost = cost_func(feed_W, X, Y)
     cost_list.append(curr_cost)
