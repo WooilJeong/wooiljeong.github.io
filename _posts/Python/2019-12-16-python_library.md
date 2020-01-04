@@ -115,7 +115,7 @@ header:
 
 ## 딥러닝 프레임워크
 
-- **TensorFlow**
+- **TensorFlow**  
 [TF2.0 - 01.Simple Linear Regression](https://wooiljeong.github.io/ml/tf_learning/)  
 [TF2.0 - 02.Linear Regression and How to minimize cost](https://wooiljeong.github.io/ml/tf_min_cost/)  
 [TF2.0 - 03.Multiple Linear Regression](https://wooiljeong.github.io/ml/tf_multi/)  
@@ -124,9 +124,9 @@ header:
 [TF2.0 - 06.Iris Data Classification](https://wooiljeong.github.io/ml/tf2_6/)  
 
 
-- **PyTorch**
+- **PyTorch**  
 
-- **Keras**
+- **Keras**  
 
 
 ## 확률 모델
