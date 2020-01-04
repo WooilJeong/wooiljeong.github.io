@@ -10,6 +10,16 @@ header:
 
 [view jupyter notebook code](https://github.com/WooilJeong/TensorFlow/blob/master/02%20Linear%20Regression%20and%20How%20to%20minimize%20cost.ipynb)
 
+### List of Tensorflow 2.0 Tutorials
+
+- [TF2.0 - 01.Simple Linear Regression](https://wooiljeong.github.io/ml/tf_learning/)
+- [TF2.0 - 02.Linear Regression and How to minimize cost](https://wooiljeong.github.io/ml/tf_min_cost/)
+- [TF2.0 - 03.Multiple Linear Regression](https://wooiljeong.github.io/ml/tf_multi/)
+- [TF2.0 - 04.Logistic Regression](https://wooiljeong.github.io/ml/tf2_4/)
+- [TF2.0 - 05.Multinomial Classification](https://wooiljeong.github.io/ml/tf2_5/)
+- [TF2.0 - 06.Iris Data Classification](https://wooiljeong.github.io/ml/tf2_6/)
+
+
 We will define a cost function in a simple linear regression model and minimize the cost value.
 
 ## Hypothesis
