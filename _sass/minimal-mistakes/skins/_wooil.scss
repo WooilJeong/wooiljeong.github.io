@@ -6,8 +6,14 @@
 
 $background-color: #ffffff !default;
 $text-color: #000000 !default;
-$muted-text-color: #4d6c9e !default;
-$primary-color: #393e46 !default;
+
+// $muted-text-color: #4d6c9e !default;
+$muted-text-color: #ff0015 !default; 
+
+// $primary-color: #393e46 !default;
+$primary-color: #ff0015 !default;
+
+
 $border-color: mix(#fff, #393e46, 75%) !default;
 $footer-background-color: $primary-color !default;
 $link-color: #393e46 !default;
