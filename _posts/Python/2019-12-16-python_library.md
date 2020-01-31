@@ -65,10 +65,10 @@ header:
 - **seaborn**
 
 - **plotly**  
-[플로틀리(Plotly) - Scatter Plot 그리기 01](https://wooiljeong.github.io/python/plotly_01/)
-[플로틀리(Plotly) - Scatter Plot 그리기 02](https://wooiljeong.github.io/python/plotly_02/)
-[플로틀리(Plotly) - Line Plot 그리기](https://wooiljeong.github.io/python/plotly_03/)
-[플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)
+[플로틀리(Plotly) - Scatter Plot 그리기 01](https://wooiljeong.github.io/python/plotly_01/)  
+[플로틀리(Plotly) - Scatter Plot 그리기 02](https://wooiljeong.github.io/python/plotly_02/)  
+[플로틀리(Plotly) - Line Plot 그리기](https://wooiljeong.github.io/python/plotly_03/)  
+[플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)  
 
 - **folium**  
 [folium - 스타벅스와 이디야 입지 시각화](https://wooiljeong.github.io/python/folium/)
