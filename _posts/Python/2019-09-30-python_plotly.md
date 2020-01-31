@@ -46,9 +46,13 @@ pip install plotly --upgrade
 
 플로틀리 패키지 설치가 완료되면, 파이썬에서 바로 사용 가능합니다. 주피터 노트북에서 실습해보도록 하겠습니다. 주피터 노트북 상에서 다음과 같이 플로틀리 패키지를 임포트하고, 개인 계정 정보를 입력해야합니다.
 
+```bash
+!pip install chart_studio
+```
+
 ```python
-import plotly
-plotly.tools.set_credentials_file(username='DemoAccount', api_key='lr1c37zw81')
+import chart_studio
+chart_studio.tools.set_credentials_file(username='DemoAccount', api_key='lr1c37zw81')
 ```
 
 위 코드를 그대로 복사하여 실행하면 안되고, ```DemoAccount```와 ```lr1c37zw81```를 플로틀리 ```계정 이름```과 [API Key](https://plot.ly/settings/api#/)로 변경해주어야 합니다.
