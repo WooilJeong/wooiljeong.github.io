@@ -17,6 +17,10 @@ header:
 
 ## 더 많은 파이썬 라이브러리 관련 정보
 
+- [플로틀리(Plotly) - Scatter Plot 그리기 01](https://wooiljeong.github.io/python/plotly_01/)
+- [플로틀리(Plotly) - Scatter Plot 그리기 02](https://wooiljeong.github.io/python/plotly_02/)
+- [플로틀리(Plotly) - Line Plot 그리기](https://wooiljeong.github.io/python/plotly_03/)
+- [플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
 <br>
@@ -231,4 +235,8 @@ help(plotly.offline.iplot)
 
 ## 더 많은 파이썬 라이브러리 관련 정보
 
+- [플로틀리(Plotly) - Scatter Plot 그리기 01](https://wooiljeong.github.io/python/plotly_01/)
+- [플로틀리(Plotly) - Scatter Plot 그리기 02](https://wooiljeong.github.io/python/plotly_02/)
+- [플로틀리(Plotly) - Line Plot 그리기](https://wooiljeong.github.io/python/plotly_03/)
+- [플로틀리(Plotly) - 파이썬 데이터 시각화](https://wooiljeong.github.io/python/python_plotly/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
