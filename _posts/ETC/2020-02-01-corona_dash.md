@@ -1,5 +1,5 @@
 ---
-title: "신종 코로나바이러스의 지역 별 진행 상황"
+title: "Chinese New Coronavirus Chart"
 categories: ETC
 tags: Analysis
 header:
