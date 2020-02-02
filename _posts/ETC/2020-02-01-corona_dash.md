@@ -7,13 +7,29 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-# Chinese New Coronavirus Chart
+## Chinese New Coronavirus Chart
 
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/7.embed"></iframe>
 
 This chart shows confirmed, deaths, and recovered of new coronaviruses. The x-axis represents the number of recovered and the y-axis represents the number of deaths. Each circle represents the area where the disease occurred in China, and the size of the circle is proportional to the size of the number of confirmed patients in that area.
 
 이 차트는 신종 코로나바이러스 확진자, 사망자 및 회복자를 표현한 것입니다. x-축은 회복자 수, y-축은 사망자 수를 의미합니다. 각각의 원은 중국 내 질병이 발생한 지역을 의미하고, 원의 크기는 확진자 수의 크기에 비례합니다.
+
+<br>
+
+## Global new coronavirus growth
+
+### World Confirmed
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/16.embed"></iframe>
+
+
+### World Deaths
+
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/18.embed"></iframe>
+
+
+<br>
 
 ## Notice
 
