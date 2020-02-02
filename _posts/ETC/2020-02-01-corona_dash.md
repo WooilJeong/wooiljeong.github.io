@@ -1,12 +1,11 @@
 ---
-title: "Chinese New Coronavirus Chart"
+title: "New Coronavirus Dashboard"
 categories: ETC
 tags: Analysis
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
-
 ## Chinese New Coronavirus Chart
 
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/7.embed"></iframe>
