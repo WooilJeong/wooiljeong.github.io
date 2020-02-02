@@ -24,7 +24,7 @@ This chart shows confirmed, deaths, and recovered of new coronaviruses. The x-ax
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/16.embed"></iframe>
 
 
-### World Deaths
+### World Deaths and Recovered
 
 <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~coronavirus/18.embed"></iframe>
 
