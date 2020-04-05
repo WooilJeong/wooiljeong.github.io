@@ -9,6 +9,8 @@ header:
 
 # Yuval Noah Harari: the world after coronavirus
 
+<br>
+
 ![png](/assets/img/post_img/2020-03-23-after_corona/img_01.jpg){: .align-center}
 
 <br>
@@ -18,6 +20,8 @@ header:
 <br>
 
 ## 유발 하라리 - 코로나바이러스 이후의 세계
+
+<br>
 
 ![png](/assets/img/post_img/2020-03-23-after_corona/img_02.jpg){: .align-center}
 
@@ -42,6 +46,8 @@ header:
 
 
 ## 피부 속 감시(Under-the-skin surveillance)
+
+<br>
 
 ![png](/assets/img/post_img/2020-03-23-after_corona/img_03.jpg){: .align-center}
 
@@ -114,6 +120,8 @@ header:
 <br>
 
 ## 우리는 글로벌 플랜이 필요하다.
+
+<br>
 
 ![png](/assets/img/post_img/2020-03-23-after_corona/img_04.png){: .align-center}
 
