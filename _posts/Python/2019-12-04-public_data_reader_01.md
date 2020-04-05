@@ -796,7 +796,7 @@ df_sum_agg = Apt.Agg(df_sum)
 ## Github 저장소의 Star를 눌러주세요!
 
 `PublicDataReader`의 [Github Repository](https://github.com/WooilJeong/PublicDataReader)의 **Star**를 눌러주세요.  
-**Star**는고독한 오픈소스 개발 및 운영에 큰 힘이 됩니다!
+**Star**는 고독한 오픈소스 개발 및 운영에 큰 힘이 됩니다!
 
 <br>
 
