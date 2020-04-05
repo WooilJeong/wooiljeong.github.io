@@ -8,16 +8,14 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-# Data Scientist & Engineer
+# Data Scientist
 
-![jpg](/assets/img/profile.jpg){: height="250px" width="250px"}
+## Career
 
-
-## Currently
-
-| Job Title | Department   | Company   | Periods           |
-| --------- | ------------ | --------- | ----------------- |
-| 연구원    | 빅데이터팀     | TWIM Corp.| 2018.04 ~ 2019.10 |
+| Job Title      | Department       | Company     | Periods           |
+| -------------- | ---------------- | ----------- | ----------------- |
+| Data Scientist | Challenge 사업본부 | LookinBody  | 2020.03 ~         |
+| Engineer       | 빅데이터팀          | TWIM        | 2018.04 ~ 2019.10 |
 
 
 ## Awards
@@ -34,9 +32,9 @@ header:
 
 | Title            | Organization       | Year |
 | ---------------- | ------------------ | ---- |
-| SQLD             | 한국데이터산업진흥원 | 2018 |
-| ADsP             | 한국데이터산업진흥원 | 2017 |
-| 사회조사분석사2급 | 한국산업인력공단     | 2017 |
+| SQLD             | 한국데이터산업진흥원     | 2018 |
+| ADsP             | 한국데이터산업진흥원     | 2017 |
+| 사회조사분석사2급    | 한국산업인력공단        | 2017 |
 
 
 ## Contribution
@@ -52,7 +50,7 @@ header:
 ## Education
 
 | Description | Organization | Year |
-| ---- | ----------- |----- |
+| ----------- | ------------ |----- |
 | 응용통계학 학사 | 단국대학교 | 2018 |
 | 광고홍보학 학사 | 단국대학교 | 2018 |
 | 경기 빅데이터 분석 전문가 과정(분석) 수료 | 경기도 | 2017 |
