@@ -766,6 +766,8 @@ df.head()
 
 `PublicDataReader`는 파이썬 오픈소스 프로젝트로 개발하고 있습니다. 크롤링 코드 작성과 같은 데이터 활용의 번거로움을 줄이고자 시작하게 되었습니다. 실제 활용시 발생하는 오류나 개선 사항 등 피드백을 남겨주시면 적극 반영하도록 하겠습니다. 또한, 이 프로젝트에 참여하고자 하시는 분들은 언제든지 연락주시면 감사하겠습니다.
 
+`PublicDataReader`의 [Github Repository](https://github.com/WooilJeong/PublicDataReader)에 Star를 눌러주세요. 고독한 오픈소스 개발의 원동력이 됩니다!
+
 **Email : wooil@kakao.com**
 
 <br>
