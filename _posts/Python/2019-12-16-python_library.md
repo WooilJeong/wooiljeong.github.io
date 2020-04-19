@@ -40,7 +40,6 @@ header:
 
 - **PublicDataReader**  
 [PublicDataReader - 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)  
-[PublicDataReader - 미세먼지 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 
 
 ## 데이터 탐색 및 전처리

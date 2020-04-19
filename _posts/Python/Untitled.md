@@ -1,88 +1,3 @@
----
-title: "PublicDataReader - 부동산 데이터 수집하기"
-categories: Python
-tags: PublicDataReader
-header:
-  overlay_image: /assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png
-  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
----
-
-# 국토교통부 아파트매매 실거래 데이터 수집하기
-
-<br>
-
-![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
-
-<br>
-
-### PublicDataReader 관련 글 목록
-
-- [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-- [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
-
-### PublicDataReader Github Repository
-
-- [PublicDataReader](https://github.com/WooilJeong/PublicDataReader)  
-
-
-## 소개
-
-**PublicDataReader**는 [공공데이터포털](https://data.go.kr)에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 2020년 04월 현재 [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do) 조회 서비스에 대한 인터페이스를 제공하고 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
-
-## 사용 가능한 서비스
-
-**기능**              | **서비스 명**
----------------- | --------------------
-pdr.AptTradeReader | 아파트매매 실거래자료 조회
-pdr.AptTradeDetailReader | 아파트매매 실거래 상세 자료 조회
-pdr.AptRentReader | 아파트 전월세 자료 조회
-pdr.AptOwnershipReader | 아파트 분양권 전매 신고 자료 조회
-pdr.OffiTradeReader | 오피스텔 매매 신고 조회
-pdr.OffiRentReader | 오피스텔 전월세 신고 조회
-pdr.RHTradeReader | 연립다세대 매매 실거래자료 조회
-pdr.RHRentReader | 연립다세대 전월세 실거래자료 조회
-pdr.DHTradeReader | 단독/다가구 매매 실거래 조회
-pdr.DHRentReader | 단독/다가구 전월세 자료 조회
-pdr.LandTradeReader | 토지 매매 신고 조회
-pdr.BizTradeReader | 상업업무용 부동산 매매 신고 자료 조회
-
-
-
-
-<br>
-
-## 배경
-
-[공공 데이터 포털](https://www.data.go.kr/)에서는 2019년 12월 4일 현재 총 3,254건에 이르는 다양한 오픈 API 서비스를 제공하고 있습니다. 저도 부동산이나 상권 분석을 할 때, 오픈 API 서비스를 이용해 데이터를 수집하여 분석에 활용하고 있습니다. 다만, 서비스를 이용하려면 `Requests`, `BeautifulSoup` 등의 파이썬 라이브러리를 통해 크롤링하는 코드를 작성해야한다는 번거로움이 있습니다.  
-
-<br>
-
-![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_01.png){: .align-center}
-
-이런 수고로움을 줄이기 위해, 단 코드 3줄(라이브러리 불러오기, API 서비스키 등록하기, 데이터 수집하기)만으로 손쉽게 공공 데이터 포털의 데이터를 `Pandas`의 `DataFrame`형태로 가져올 수 있는 라이브러리인 `PublicDataReader`를 만들어 보았습니다.  
-
-<br>
-
-그럼 지금부터 '[국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)' 중 '**아파트매매 실거래자료**' 데이터를 쉽게 수집하는 방법에 대해 소개해드리겠습니다. 아파트 전월세 자료, 오피스텔 매매 신고 조회 등 위에 소개된 서비스를 이용하는 방식도 이와 동일합니다.
-
-![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_02.jpg){: .align-center}
-
-<br>
-
-## Python 라이브러리 PublicDataReader 설치하기
-
-터미널에서 `pip`로 다음과 같이 `PublicDataReader` 를 설치합니다.
-```bash
-pip install PublicDataReader
-```
-
-`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.1 입니다.)**
-```
-pip install PublicDataReader --upgrade
-```
-
-<br>
-
 ## Open API 서비스 키 입력하기
 
 공공 데이터 포털에서 발급받은 서비스 키를 복사하여 다음과 같이 `serviceKey`에 문자열로 할당해줍니다. 오픈 API 서비스 키 발급에 관해 모르시는 분들은 구글에 '**공공 데이터 포털 Open API 사용법**'을 검색해보시면 여러 문서를 참조하실 수 있습니다. 검색 후 가장 상단에 있는 [이 블로그](https://jeong-pro.tistory.com/143)를 참조하셔도 됩니다.
@@ -101,9 +16,7 @@ print(pdr.__version__)
     - Github : https://github.com/WooilJeong/PublicDataReader
     - Blog : https://wooiljeong.github.io
     
-
-<br>
-
+    
 
 ## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
 
@@ -113,8 +26,6 @@ print(pdr.__version__)
 ```python
 serviceKey="OPEN API SERVICE KEY HERE"
 ```
-
-<br>
 
 ## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
 
@@ -126,8 +37,7 @@ AptTrade = pdr.AptTradeReader(serviceKey)
 ```
 
     >>> 서비스가 정상 작동합니다.
-
-<br>
+    
 
 ## 주소 검색을 통해 지역코드 검색하기
 
@@ -138,6 +48,7 @@ AptTrade = pdr.AptTradeReader(serviceKey)
 df_code = AptTrade.CodeFinder("분당구")
 df_code.head(1)
 ```
+
 
 
 
@@ -173,8 +84,6 @@ df_code.head(1)
 </table>
 </div>
 
-
-<br>
 
 
 ## 특정 월의 아파트매매 실거래 데이터 불러오기
@@ -284,7 +193,7 @@ df.head()
 </table>
 </div>
 
-<br>
+
 
 ## 특정 기간 동안의 아파트매매 실거래 데이터 불러오기
 
@@ -302,7 +211,7 @@ df_sum.head()
     >>> LAWD_CD : 41135 DEAL_YMD : 202003
     
 
-<br>
+
 
 
 <div>
@@ -399,7 +308,7 @@ df_sum.head()
 </table>
 </div>
 
-<br>
+
 
 ## 전체 코드 정리
 
@@ -422,7 +331,11 @@ df = AptTrade.DataReader("41135", "202003")
 df_sum = AptTrade.DataCollector("41135", "2020-01", "2020-03")
 ```
 
-<br>
+    >>> 서비스가 정상 작동합니다.
+    >>> Python Logic Error. e-mail : wooil@kakao.com
+    >>> LAWD_CD : 41135 DEAL_YMD : 202001
+    >>> LAWD_CD : 41135 DEAL_YMD : 202002
+    >>> LAWD_CD : 41135 DEAL_YMD : 202003
     
 
 ## Colab으로 테스트해보기
@@ -452,3 +365,12 @@ df_sum = AptTrade.DataCollector("41135", "2020-01", "2020-03")
 ### PublicDataReader Github Repository
 
 - [PublicDataReader](https://github.com/WooilJeong/PublicDataReader)  
+
+
+
+
+
+
+```python
+
+```
