@@ -9,7 +9,7 @@ header:
 
 <br>
 
-![png](/assets/img/common/the-system.jpeg){: .align-center}
+![png](/assets/img/common/the-system.jpg){: .align-center}
 
 <br>
 
