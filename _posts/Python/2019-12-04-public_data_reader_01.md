@@ -27,26 +27,28 @@ header:
 
 ## 소개
 
-**PublicDataReader**는 [공공데이터포털](https://data.go.kr)에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 2020년 04월 현재 [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do) 조회 서비스에 대한 인터페이스를 제공하고 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
+**PublicDataReader**는 [공공데이터포털](https://data.go.kr)에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 2020년 12월 현재 [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do) 조회 서비스에 대한 인터페이스를 제공하고 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
 
-## 사용 가능한 서비스
+## 사용 가능한 서비스(0.1.2 Version 기준)
 
-**기능**              | **서비스 명**
----------------- | --------------------
-pdr.AptTradeReader | 아파트매매 실거래자료 조회
-pdr.AptTradeDetailReader | 아파트매매 실거래 상세 자료 조회
-pdr.AptRentReader | 아파트 전월세 자료 조회
-pdr.AptOwnershipReader | 아파트 분양권 전매 신고 자료 조회
-pdr.OffiTradeReader | 오피스텔 매매 신고 조회
-pdr.OffiRentReader | 오피스텔 전월세 신고 조회
-pdr.RHTradeReader | 연립다세대 매매 실거래자료 조회
-pdr.RHRentReader | 연립다세대 전월세 실거래자료 조회
-pdr.DHTradeReader | 단독/다가구 매매 실거래 조회
-pdr.DHRentReader | 단독/다가구 전월세 자료 조회
-pdr.LandTradeReader | 토지 매매 신고 조회
-pdr.BizTradeReader | 상업업무용 부동산 매매 신고 자료 조회
+![](https://img.shields.io/badge/PublicDataReader-0.1.2-blue.svg)  
 
-
+**메서드**              | **서비스 명**
+---------------------- | --------------------
+CondeFinder | 지역코드 조회
+DataCollector | 서비스/기간 별 데이터 조회
+AptTrade | 아파트매매 실거래자료 조회
+AptTradeDetail | 아파트매매 실거래 상세 자료 조회
+AptRent | 아파트 전월세 자료 조회
+AptOwnership | 아파트 분양권전매 신고 자료 조회
+OffiTrade | 오피스텔 매매 신고 조회
+OffiRent | 오피스텔 전월세 신고 조회
+RHTrade | 연립다세대 매매 실거래자료 조회
+RHRent | 연립다세대 전월세 실거래자료 조회
+DHTrade | 단독/다가구 매매 실거래 조회
+DHRent | 단독/다가구 전월세 자료 조회
+LandTrade | 토지 매매 신고 조회
+BizTrade | 상업업무용 부동산 매매 신고 자료 조회
 
 
 <br>
@@ -76,7 +78,7 @@ pdr.BizTradeReader | 상업업무용 부동산 매매 신고 자료 조회
 pip install PublicDataReader
 ```
 
-`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.1 입니다.)**
+`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.2 입니다.)**
 ```
 pip install PublicDataReader --upgrade
 ```
@@ -94,7 +96,7 @@ print(pdr.__version__)
 ```
 
     
-    >>> PublicDataReader Version : 0.1.1
+    >>> PublicDataReader Version : 0.1.2
     
     - Author : Wooil Jeong
     - E-mail : wooil@kakao.com
@@ -118,14 +120,26 @@ serviceKey="OPEN API SERVICE KEY HERE"
 
 ## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
 
-다음과 같이 아파트매매 실거래 자료를 수집할 `AptTrade` 수집기를 만들어줍니다. 위에서 정의한 `serviceKey`를 다음과 같이 입력해줍니다.
-
+다음과 같이 아파트매매 실거래 자료를 수집할 `molit` 인스턴스를 만들어줍니다. 위에서 정의한 `serviceKey`를 다음과 같이 입력해줍니다. 국토부에서 제공하는 실거래가 조회 서비스들을 모두 정상적으로 신청 완료한 상태라면 아래와 같은 메시지를 확인할 수 있습니다.
 
 ```python
-AptTrade = pdr.AptTradeReader(serviceKey)
+# 국토교통부 실거래가 Open API 인스턴스 생성
+molit = pdr.Transaction(serviceKey)
 ```
+    >>> 아파트매매 실거래자료 조회 서비스가 정상 작동합니다.
+    >>> 아파트매매 실거래 상세 자료 조회 서비스가 정상 작동합니다.
+    >>> 아파트 전월세 자료 조회 서비스가 정상 작동합니다.
+    >>> 아파트 분양권전매 신고 자료 조회 서비스가 정상 작동합니다.
+    >>> 오피스텔 매매 신고 조회 서비스가 정상 작동합니다.
+    >>> 오피스텔 전월세 신고 조회 서비스가 정상 작동합니다.
+    >>> 연립다세대 매매 실거래자료 조회 서비스가 정상 작동합니다.
+    >>> 연립다세대 전월세 실거래자료 조회 서비스가 정상 작동합니다.
+    >>> 단독/다가구 매매 실거래 조회 서비스가 정상 작동합니다.
+    >>> 단독/다가구 전월세 자료 조회 서비스가 정상 작동합니다.
+    >>> 토지 매매 신고 조회 서비스가 정상 작동합니다.
+    >>> 상업업무용 부동산 매매 신고 자료 조회 서비스가 정상 작동합니다.
 
-    >>> 서비스가 정상 작동합니다.
+
 
 <br>
 
@@ -135,8 +149,10 @@ AptTrade = pdr.AptTradeReader(serviceKey)
 
 
 ```python
-df_code = AptTrade.CodeFinder("분당구")
-df_code.head(1)
+# 지역코드 조회
+bdongName = '분당구'
+codeResult = molit.CodeFinder(bdongName)
+codeResult.head(1)
 ```
 
 
@@ -179,11 +195,11 @@ df_code.head(1)
 
 ## 특정 월의 아파트매매 실거래 데이터 불러오기
 
-다음과 같이 `AptTrade.DataReader()`에 `지역코드`와 `계약월`을 입력해줍니다. 결과는 `Pandas`의 `DataFrame` 형태로 반환됩니다.
+다음과 같이 `molit.AptTrade()`에 `지역코드`와 `계약월`을 입력해줍니다. 결과는 `Pandas`의 `DataFrame` 형태로 반환됩니다.
 
 
 ```python
-df = AptTrade.DataReader("41135", "202004")
+df = molit.AptTrade(41135, 202004)
 df.head()
 ```
 
@@ -288,12 +304,12 @@ df.head()
 
 ## 특정 기간 동안의 아파트매매 실거래 데이터 불러오기
 
-특정 월 뿐 아니라 `AptTrade.DataCollector()`를 사용하면, 특정 기간 동안의 데이터를 한 번에 수집할 수 있습니다. `지역코드`, `시작월`, `종료월` 순으로 입력하면 됩니다. 위의 `AptTrade.DataReader()`와 같이 결과는 `Pandas`의 `DataFrame` 형태로 반환됩니다.
+`DataCollector` 메서드를 사용하면, 특정 월 뿐 아니라 특정 기간 동안의 데이터를 한 번에 조회할 수 있습니다. `서비스 메서드`,`지역코드`, `시작월`, `종료월` 순으로 입력하면 됩니다. 위의 `AptTrade` 메서드 호출 결과와 같이 `Pandas`의 `DataFrame` 형태로 반환됩니다.
 
 
 
 ```python
-df_sum = AptTrade.DataCollector("41135", "2020-01", "2020-03")
+df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 df_sum.head()
 ```
 
@@ -407,20 +423,25 @@ df_sum.head()
 ```python
 import PublicDataReader as pdr
 
-# Open API 서비스 키 초기화
+# Open API 서비스 키 설정
 serviceKey = "OPEN API SERVICE KEY HERE"
-Apt = pdr.AptTradeReader(serviceKey)
 
-# 지역코드 검색기
-df_code = AptTrade.CodeFinder("분당구")
-df_code.head(1)
+# 국토교통부 실거래가 Open API 인스턴스 생성
+molit = pdr.Transaction(serviceKey)
 
-# 특정 월 아파트매매 실거래 자료 수집기
-df = AptTrade.DataReader("41135", "202003")
+# 지역코드 조회
+bdongName = '분당구'
+codeResult = molit.CodeFinder(bdongName)
+codeResult.head(1)
 
-# 특정 기간 아파트매매 실거래 자료 수집기
-df_sum = AptTrade.DataCollector("41135", "2020-01", "2020-03")
+# 특정 월 아파트매매 실거래 자료 조회
+df = molit.AptTrade(41135, 202004)
+
+# 특정 기간 아파트매매 실거래 자료 조회
+df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 ```
+
+아파트 매매실거래 자료 조회 외에 기타 실거래 데이터를 조회하고자 할 경우에는 위 코드에서 `molit.AptTrade` 대신, 위 소개 부분에 설명된 다른 메서드로 변경하여 동일하게 사용하면 됩니다.
 
 <br>
     
