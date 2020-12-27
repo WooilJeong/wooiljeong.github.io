@@ -14,7 +14,8 @@ header:
 
 | Job Title      | Department       | Company     | Periods           |
 | -------------- | ---------------- | ----------- | ----------------- |
-| Data Scientist | Challenge 사업본부 | LookinBody  | 2020.03 ~         |
+| Data Scientist | 시스템본부 | 위대한상사  | 2020.10 ~  |
+| Data Scientist | Challenge 사업본부 | LookinBody  | 2020.03 ~ 2020.08 |
 | Engineer       | 빅데이터팀          | TWIM        | 2018.04 ~ 2019.10 |
 
 
