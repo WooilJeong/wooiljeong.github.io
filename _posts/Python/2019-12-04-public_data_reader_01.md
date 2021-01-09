@@ -18,6 +18,7 @@ header:
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
 ### PublicDataReader Github Repository
@@ -27,11 +28,31 @@ header:
 
 ## 소개
 
-**PublicDataReader**는 [공공데이터포털](https://data.go.kr)에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 2020년 12월 현재 [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do) 조회 서비스에 대한 인터페이스를 제공하고 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
+- **최신 버전**  
+![](https://img.shields.io/badge/PublicDataReader-0.1.3-blue.svg)  
 
-## 사용 가능한 서비스(0.1.2 Version 기준)
+    - 0.1.3 Version (2021-01): 
+      - 소상공인 상가업소 정보 조회 기능 추가
+      - 서울시 지하철호선별 역별 승하차 인원 정보 조회 기능 추가   
+      - 서울시 버스노선별 정류장별 시간대별 승하차 인원 정보 조회 기능 추가
+    - 0.1.2 Version (2020-12): 
+      - 국토교통부 실거래가 정보 조회 기능 전면 수정
 
-![](https://img.shields.io/badge/PublicDataReader-0.1.2-blue.svg)  
+
+- **요구 사항**  
+![](https://img.shields.io/badge/Python-3.7.4-yellow.svg) ![](https://img.shields.io/badge/Pandas-0.25.3-red.svg)
+
+**PublicDataReader**는 [공공데이터포털](https://data.go.kr), [서울 열린데이터 광장](https://data.seoul.go.kr/) 등 에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 
+
+**2021년 01월** 현재 아래 Open API 서비스를 이용하여 데이터를 Pandas DataFrame 형태로 조회할 수 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
+
+- [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)
+- [소상공인 상가업소 정보](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012005)
+- [서울시 지하철호선별 역별 승하차 인원 정보](https://data.seoul.go.kr/dataList/OA-12914/S/1/datasetView.do)
+- [서울시 버스노선별 정류장별 시간대별 승하차 인원 정보](https://data.seoul.go.kr/dataList/OA-12913/S/1/datasetView.do)
+
+
+### 국토교통부 실거래가 정보 조회 서비스
 
 **메서드**              | **서비스 명**
 ---------------------- | --------------------
@@ -50,18 +71,15 @@ DHRent | 단독/다가구 전월세 자료 조회
 LandTrade | 토지 매매 신고 조회
 BizTrade | 상업업무용 부동산 매매 신고 자료 조회
 
-
 <br>
 
 ## 배경
 
-[공공 데이터 포털](https://www.data.go.kr/)에서는 2019년 12월 4일 현재 총 3,254건에 이르는 다양한 오픈 API 서비스를 제공하고 있습니다. 저도 부동산이나 상권 분석을 할 때, 오픈 API 서비스를 이용해 데이터를 수집하여 분석에 활용하고 있습니다. 다만, 서비스를 이용하려면 `Requests`, `BeautifulSoup` 등의 파이썬 라이브러리를 통해 크롤링하는 코드를 작성해야한다는 번거로움이 있습니다.  
+[공공 데이터 포털](https://www.data.go.kr/), [서울 열린데이터 광장](https://data.seoul.go.kr/) 등의 공공기관에서는 다양한 공공 데이터 조회를 위한 오픈 API 서비스를 제공하고 있습니다. 그러나 개발자가 아닌 데이터 분석가의 입장에서 웹 서비스를 이용해 데이터를 분석하기에는 약간의 어려움이 존재합니다. 데이터 수집을 위해서는 웹 서비스와 크롤링 기술에 대한 이해가 필요합니다. PublicDataReader는 웹 관련 사전지식이 부족한 데이터 분석가라도 손 쉽게 원하는 공공 데이터를 수집하고, 분석할 수 있도록 돕기 위해 개발되었습니다. 기관에서 발급받은 서비스키만 있다면 간단하게 원하는 데이터를 조회할 수 있습니다. 단 코드 3줄(라이브러리 불러오기, API 서비스키 등록하기, 데이터 수집하기)만으로 손쉽게 공공 데이터를 `Pandas`의 `DataFrame`형태로 불러올 수 있습니다.
 
 <br>
 
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_01.png){: .align-center}
-
-이런 수고로움을 줄이기 위해, 단 코드 3줄(라이브러리 불러오기, API 서비스키 등록하기, 데이터 수집하기)만으로 손쉽게 공공 데이터 포털의 데이터를 `Pandas`의 `DataFrame`형태로 가져올 수 있는 라이브러리인 `PublicDataReader`를 만들어 보았습니다.  
 
 <br>
 
@@ -78,7 +96,7 @@ BizTrade | 상업업무용 부동산 매매 신고 자료 조회
 pip install PublicDataReader
 ```
 
-`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.2 입니다.)**
+`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.3 입니다.)**
 ```
 pip install PublicDataReader --upgrade
 ```
@@ -96,7 +114,7 @@ print(pdr.__version__)
 ```
 
     
-    >>> PublicDataReader Version : 0.1.2
+    >>> PublicDataReader Version : 0.1.3
     
     - Author : Wooil Jeong
     - E-mail : wooil@kakao.com
@@ -106,23 +124,14 @@ print(pdr.__version__)
 
 <br>
 
+## 서비스 키로 데이터 수집기 만들기
 
-## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
-
-다음과 같이 아파트매매 실거래 자료를 수집할 `AptTrade` 수집기를 만들어줍니다. 위에서 정의한 `serviceKey`를 다음과 같이 입력해줍니다.
-
+다음과 같이 발급받은 `serviceKey` 값을 이용해 아파트매매 실거래 자료를 수집할 `molit` 인스턴스를 만들어줍니다. 국토부에서 제공하는 실거래가 조회 서비스들을 모두 정상적으로 신청 완료한 상태라면 아래와 같은 메시지를 확인할 수 있습니다.
 
 ```python
+# 공공 데이터 포털에서 발급 받은 서비스 인증키
 serviceKey="OPEN API SERVICE KEY HERE"
-```
 
-<br>
-
-## 서비스 키로 아파트매매 실거래 자료 수집기 만들기
-
-다음과 같이 아파트매매 실거래 자료를 수집할 `molit` 인스턴스를 만들어줍니다. 위에서 정의한 `serviceKey`를 다음과 같이 입력해줍니다. 국토부에서 제공하는 실거래가 조회 서비스들을 모두 정상적으로 신청 완료한 상태라면 아래와 같은 메시지를 확인할 수 있습니다.
-
-```python
 # 국토교통부 실거래가 Open API 인스턴스 생성
 molit = pdr.Transaction(serviceKey)
 ```
@@ -459,7 +468,7 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 ![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
 
 
-`PublicDataReader`는 파이썬 오픈소스 프로젝트로 개발하고 있습니다. 크롤링 코드 작성과 같은 데이터 활용의 번거로움을 줄이고자 시작하게 되었습니다. 실제 활용시 발생하는 오류나 개선 사항 등 피드백을 남겨주시면 적극 반영하도록 하겠습니다. 또한, 이 프로젝트에 참여하고자 하시는 분들은 언제든지 아래 이메일 주소로 연락주시면 감사하겠습니다.
+`PublicDataReader`는 파이썬 오픈소스 프로젝트로 개발하고 있습니다. 크롤링 코드 작성과 같은 데이터 활용의 번거로움을 줄이고자 시작하게 되었습니다. 실제 활용시 발생하는 오류나 개선 사항 등 피드백을 남겨주시면 적극 반영하도록 하겠습니다. 또한, 이 프로젝트에 참여하고자 하시는 분들은 언제든지 아래 이메일 주소로 연락주시거나, [github repository](https://github.com/WooilJeong/PublicDataReader)에 Issue를 남겨주시면 감사하겠습니다.
 
 **E-mail : wooil@kakao.com**
 
@@ -468,6 +477,7 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
 ### PublicDataReader Github Repository
