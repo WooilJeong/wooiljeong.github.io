@@ -239,7 +239,7 @@ $$
 
 아래는 예제에서 DAG을 시각적으로 표현한 것이다. 그래프에서 화살표들은 순방향을 향하고 있다. 노드는 순방향에서의 각 연산의 역전파 함수를 나타낸다. 파란색 잎 노드는 잎 텐서 `a`와 `b`를 나타낸다.
 
-![image.png](https://pytorch.org/tutorials/_images/dag_autograd.png)
+![image.png](https://pytorch.org/tutorials/_images/dag_autograd.png){: .align-center}
 
 ### DAG에서의 제외
 
