@@ -179,7 +179,8 @@ print(-2*b == b.grad)
 
 
 
-$\begin{align}J
+$$
+\begin{align}J
      =
       \left(\begin{array}{cc}
       \frac{\partial \bf{y}}{\partial x_{1}} &
@@ -188,10 +189,9 @@ $\begin{align}J
       \end{array}\right)
      =
      \left(\begin{array}{ccc}
-      \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}}\\
-      \vdots & \ddots & \vdots\\
-      \frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
-      \end{array}\right)\end{align}$
+      \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{1}}{\partial x_{n}} \\ \vdots & \ddots & \vdots \\ \frac{\partial y_{m}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+      \end{array}\right)\end{align}
+$$
 
 
 
@@ -199,27 +199,25 @@ $\begin{align}J
 
 만일 $v$가 스칼라 함수의 기울기인 경우
 
-$\begin{align}l
+$$
+\begin{align}l
    =
    g\left(\vec{y}\right)
    =
-   \left(\begin{array}{ccc}\frac{\partial l}{\partial y_{1}} & \cdots & \frac{\partial l}{\partial y_{m}}\end{array}\right)^{T}\end{align}$
+   \left(\begin{array}{ccc}\frac{\partial l}{\partial y_{1}} & \cdots & \frac{\partial l}{\partial y_{m}}\end{array}\right)^{T}\end{align}
+$$
 
 연쇄 법칙(Chain Rule)에 의해 벡터-자코비안 곱은 $\vec{x}$ 각각에 대한 $l$의 기울기가 된다.
 
-$\begin{align}J^{T}\cdot \vec{v}=\left(\begin{array}{ccc}
-      \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{1}}\\
-      \vdots & \ddots & \vdots\\
-      \frac{\partial y_{1}}{\partial x_{n}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
+$$
+\begin{align}J^{T}\cdot \vec{v}=\left(\begin{array}{ccc}
+      \frac{\partial y_{1}}{\partial x_{1}} & \cdots & \frac{\partial y_{m}}{\partial x_{1}} \\ \vdots & \ddots & \vdots \\ \frac{\partial y_{1}}{\partial x_{n}} & \cdots & \frac{\partial y_{m}}{\partial x_{n}}
       \end{array}\right)\left(\begin{array}{c}
-      \frac{\partial l}{\partial y_{1}}\\
-      \vdots\\
-      \frac{\partial l}{\partial y_{m}}
+      \frac{\partial l}{\partial y_{1}} \\ \vdots \\ \frac{\partial l}{\partial y_{m}}
       \end{array}\right)=\left(\begin{array}{c}
-      \frac{\partial l}{\partial x_{1}}\\
-      \vdots\\
-      \frac{\partial l}{\partial x_{n}}
-      \end{array}\right)\end{align}$
+      \frac{\partial l}{\partial x_{1}} \\ \vdots \\ \frac{\partial l}{\partial x_{n}}
+      \end{array}\right)\end{align}
+$$
 
 
 벡터-자코비안 곱의 이러한 특성은 위 예시에서 사용한 것과 같다; `external_grad`는 $\vec{v}$를 나타난다.
