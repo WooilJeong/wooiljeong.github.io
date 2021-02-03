@@ -18,23 +18,31 @@ header:
 - [PyTorch 튜토리얼 - 03 신경망(Neural Networks)](https://wooiljeong.github.io/ml/pytorch_tutorial_03/)
 - [PyTorch 튜토리얼 - 04 분류기 학습(Training a classifier)](https://wooiljeong.github.io/ml/pytorch_tutorial_04/)
 
+<br>
+
 ## PyTorch
 
-파이토치는 다음 두 가지 목적으로 가지고 개발된 과학 계산 용 패키지.
+PyTorch는 다음 두 가지 기능이 구현된 과학 연산을 위한 패키지이다.
 
-1. NumPy 대신 GPU 및 기타 액셀러레이터 성능 사용
-2. 신경망 구현에 유용한 자동 미분 라이브러리
+1. NumPy를 대신하여 연산 시 GPU 성능을 사용
+2. 신경망 구현에 유용한 자동 미분 연산
 
-## Goal
+<br>
 
-- PyTorch의 Tensor 라이브러리 및 신경망을 고수준에서 이해.
-- 이미지 분류를 위한 소규모 신경망 학습
+## 튜토리얼 목표
+
+- PyTorch의 Tensor 라이브러리 및 신경망에 대한 이해
+- 이미지 분류를 위한 신경망 모델 학습
 
 **`Note`** torch, torchvision 설치 필요
 
-## torch.autograd 소개
+<br>
+
+## 자동 미분(torch.autograd) 소개
 
 `torch.autograd`는 신경망 학습을 지원하는 PyTorch의 자동 미분 엔진이다. 이 섹션에서는 autograd가 신경망 학습을 돕는 방법에 대한 개념적 이해를 얻을 수 있다.
+
+<br>
 
 ### 배경
 
@@ -47,6 +55,8 @@ header:
 
 **역전파(Backward Propagation)**  
 역전파 시 신경망은 추측 오류에 비례하여 파라미터를 조정한다. 출력으로부터 역방향으로 이동한다. 동시에 함수 각각에 대하여 오류의 미분값들(Gradients)을 수집한다. 그리고 경사 하강법(Gradient Descent)을 사용하여 파라미터를 최적화한다. 역전파에 대한 자세한 설명은 [3Blue1Brown](https://www.youtube.com/watch?v=tIeHLnjs5U8)의 영상을 참조하면 된다.
+
+<br>
 
 ### PyTorch에서의 사용법
 
@@ -111,6 +121,8 @@ optim.step() # Gradient Descent
 
 이상으로 신경망을 학습시키는 데 필요한 모든 것을 살펴보았다. 아래 섹션에서는 autograd의 작동 방식을 상세히 설명할 것이므로 Skip해도 무방하다.
 
+<br>
+
 ### Autograd의 미분
 
 `autograd`가 기울기들을 어떻게 수집하는지 살펴보자. 두 가지 텐서 'a'와 'b'를 `requires_grad=True`를 지정하여 만든다. 이는 모든 연산을 기록하라는 옵션입니다.
@@ -172,6 +184,7 @@ print(-2*b == b.grad)
     tensor([True, True])
     tensor([True, True])
     
+<br>
 
 ### Optional Reading - `autograd`를 이용한 벡터 연산
 
@@ -222,6 +235,8 @@ $$
 
 벡터-자코비안 곱의 이러한 특성은 위 예시에서 사용한 것과 같다; `external_grad`는 $\vec{v}$를 나타난다.
 
+<br>
+
 ### 계산 그래프(Computational Graph)
 
 개념적으로 autograd는 [함수](https://pytorch.org/docs/stable/autograd.html#torch.autograd.Function) 객체로 구성된 DAG(Directed Acyclic Graph)에 데이터(텐서) 및 실행된 모든 연산(새로운 텐서와 함께)을 기록하여 유지한다. 이 DAG에서 잎은 입력 텐서이고 뿌리는 출력 텐서이다. 이 그래프를 뿌리에서 잎까지 추적하면 연쇄 법칙(Chain Rule)을 사용하여 기울기를 자동으로 계산할 수 있다.
@@ -240,6 +255,8 @@ $$
 아래는 예제에서 DAG을 시각적으로 표현한 것이다. 그래프에서 화살표들은 순방향을 향하고 있다. 노드는 순방향에서의 각 연산의 역전파 함수를 나타낸다. 파란색 잎 노드는 잎 텐서 `a`와 `b`를 나타낸다.
 
 ![image.png](https://pytorch.org/tutorials/_images/dag_autograd.png){: .align-center}
+
+<br>
 
 ### DAG에서의 제외
 
@@ -298,6 +315,8 @@ optimizer = optim.SGD(model.fc.parameters(), lr=1e-2, momentum=0.9)
 옵티마이저에 모든 파라미터를 등록하더라도 기울기를 계산하는 (경사하강법으로 업데이트되는) 유일한 파라미터는 분류기의 가중치와 편향이다.
 
 [torch.no_grad()](https://pytorch.org/docs/stable/generated/torch.no_grad.html)에서 컨텍스트 관리자와 동일한 제외 기능을 사용할 수 있다.
+
+<br>
 
 ## 파이토치 60분 블리츠
 

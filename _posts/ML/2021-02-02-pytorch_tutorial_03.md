@@ -18,21 +18,27 @@ header:
 - [PyTorch 튜토리얼 - 03 신경망(Neural Networks)](https://wooiljeong.github.io/ml/pytorch_tutorial_03/)
 - [PyTorch 튜토리얼 - 04 분류기 학습(Training a classifier)](https://wooiljeong.github.io/ml/pytorch_tutorial_04/)
 
+<br>
+
 ## PyTorch
 
-파이토치는 다음 두 가지 목적으로 가지고 개발된 과학 계산 용 패키지.
+PyTorch는 다음 두 가지 기능이 구현된 과학 연산을 위한 패키지이다.
 
-1. NumPy 대신 GPU 및 기타 액셀러레이터 성능 사용
-2. 신경망 구현에 유용한 자동 미분 라이브러리
+1. NumPy를 대신하여 연산 시 GPU 성능을 사용
+2. 신경망 구현에 유용한 자동 미분 연산
 
-## Goal
+<br>
 
-- PyTorch의 Tensor 라이브러리 및 신경망을 고수준에서 이해.
-- 이미지 분류를 위한 소규모 신경망 학습
+## 튜토리얼 목표
+
+- PyTorch의 Tensor 라이브러리 및 신경망에 대한 이해
+- 이미지 분류를 위한 신경망 모델 학습
 
 **`Note`** torch, torchvision 설치 필요
 
-## Neural Networks
+<br>
+
+## 신경망(Neural Networks)
 
 `torch.nn` 패키지를 이용하여 신경망을 구축할 수 있다. 
 
@@ -54,6 +60,8 @@ header:
 - 기울기를 네트워크의 파라미터로 다시 전파
 - 일반적으로 간단한 업데이트 규칙을 사용하여 네트워크의 가중치를 업데이트
     - weight := weight - learning_rate * gradient
+
+<br>
 
 ### 네트워크 정의
 
@@ -164,6 +172,8 @@ out.backward(torch.randn(1, 10))
 - 손실 계산
 - 네트워크의 가중치 업데이트
 
+<br>
+
 ### 손실 함수(Loss Function)
 
 손실 함수는 (모델 출력값, 타겟 값) 입력 쌍을 가져와 모델 출력값이 타겟 값에서 얼마나 멀리 떨어져 있는지를 추정하는 값을 계산한다.
@@ -210,6 +220,7 @@ print(loss.grad_fn.next_functions[0][0].next_functions[0][0])  # ReLU
     <AddmmBackward object at 0x000001B5871A2B38>
     <AccumulateGrad object at 0x000001B5871A2A90>
     
+<br>
 
 ### 역전파(Backprop)
 
@@ -244,6 +255,8 @@ print(net.conv1.bias.grad)
 **유일하게 남은 것**  
 - 네트워크의 가중치 업데이트
 
+<br>
+
 ### 가중치 업데이트
 
 실제로 사용되는 가장 간단한 업데이트 규칙은 SGD(Stochastic Gradient Descent)이다.
@@ -277,6 +290,8 @@ loss = criterion(output, target)
 loss.backward()
 optimizer.step()    # Does the update
 ```
+
+<br>
 
 ## 파이토치 60분 블리츠
 

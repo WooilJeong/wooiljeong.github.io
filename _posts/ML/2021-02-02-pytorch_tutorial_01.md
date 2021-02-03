@@ -18,19 +18,25 @@ header:
 - [PyTorch 튜토리얼 - 03 신경망(Neural Networks)](https://wooiljeong.github.io/ml/pytorch_tutorial_03/)
 - [PyTorch 튜토리얼 - 04 분류기 학습(Training a classifier)](https://wooiljeong.github.io/ml/pytorch_tutorial_04/)
 
+<br>
+
 ## PyTorch
 
-파이토치는 다음 두 가지 목적으로 가지고 개발된 과학 계산 용 패키지.
+PyTorch는 다음 두 가지 기능이 구현된 과학 연산을 위한 패키지이다.
 
-1. NumPy 대신 GPU 및 기타 액셀러레이터 성능 사용
-2. 신경망 구현에 유용한 자동 미분 라이브러리
+1. NumPy를 대신하여 연산 시 GPU 성능을 사용
+2. 신경망 구현에 유용한 자동 미분 연산
 
-## Goal
+<br>
 
-- PyTorch의 Tensor 라이브러리 및 신경망을 고수준에서 이해.
-- 이미지 분류를 위한 소규모 신경망 학습
+## 튜토리얼 목표
+
+- PyTorch의 Tensor 라이브러리 및 신경망에 대한 이해
+- 이미지 분류를 위한 신경망 모델 학습
 
 **`Note`** torch, torchvision 설치 필요
+
+<br>
 
 ## 텐서(Tensors)
 
@@ -49,6 +55,7 @@ print(np.__version__)
     1.7.1
     1.19.2
     
+<br>
 
 ### 텐서 초기화(Tensor Initialization)
 
@@ -135,7 +142,7 @@ print(f"Zeros Tensor: \n {zeros_tensor} \n")
      tensor([[0., 0., 0.],
             [0., 0., 0.]]) 
     
-    
+<br>
 
 ### 텐서 속성(Tensor Attributes)
 
@@ -154,6 +161,7 @@ print(f"Device tensor is stored on: {tensor.device}")
     Datatype of tensor: torch.float32
     Device tensor is stored on: cpu
     
+<br>
 
 ### 텐서 연산(Tensor Operations)
 
@@ -271,6 +279,8 @@ print(tensor)
 
 **`Note`** In-place 연산은 메모리 절약에 도움이 되지만, 즉각적인 히스토리 손실로 인해 미분 계산 시 문제가 될 수 있다. 따라서 해당 연산은 비추천된다.
 
+<br>
+
 ### NumPy를 사용한 브릿지
 
 CPU 및 NumPy 배열의 텐서는 기본 메모리 위치를 공유할 수 있으며 하나를 변경하면 다른 하나도 변경된다.
@@ -322,7 +332,8 @@ print(f"n: {n}")
 
     t: tensor([2., 2., 2., 2., 2.], dtype=torch.float64)
     n: [2. 2. 2. 2. 2.]
-    
+   
+<br>
 
 ## 파이토치 60분 블리츠
 
