@@ -3,7 +3,7 @@ title: "네이버 검색어 트렌드 분석 및 시각화하기"
 categories: Python
 tags: 
 header:
-  overlay_image: /assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png
+  overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
