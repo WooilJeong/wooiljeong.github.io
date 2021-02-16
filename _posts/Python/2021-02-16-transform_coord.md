@@ -419,8 +419,3 @@ m
   src="/assets/html/folium/210216.html"
   style="width:100%; height:500px;"
 ></iframe>
-
-
-```python
-m.save("./210216.html")
-```
