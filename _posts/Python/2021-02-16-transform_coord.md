@@ -56,44 +56,6 @@ df = pd.read_csv("./sample/sample_license.csv",
                  usecols=useCols)
 ```
 
-    Skipping line 103608: ',' expected after '"'
-    Skipping line 221962: ',' expected after '"'
-    Skipping line 289727: ',' expected after '"'
-    Skipping line 332644: ',' expected after '"'
-    Skipping line 380599: ',' expected after '"'
-    Skipping line 406514: ',' expected after '"'
-    Skipping line 497058: ',' expected after '"'
-    Skipping line 520610: ',' expected after '"'
-    Skipping line 619557: ',' expected after '"'
-    Skipping line 658069: ',' expected after '"'
-    Skipping line 719874: ',' expected after '"'
-    Skipping line 728273: ',' expected after '"'
-    Skipping line 749452: ',' expected after '"'
-    Skipping line 882453: ',' expected after '"'
-    Skipping line 886672: ',' expected after '"'
-    Skipping line 1017125: ',' expected after '"'
-    Skipping line 1022182: ',' expected after '"'
-    Skipping line 1028144: ',' expected after '"'
-    Skipping line 1088567: ',' expected after '"'
-    Skipping line 1094418: ',' expected after '"'
-    Skipping line 1122688: ',' expected after '"'
-    Skipping line 1140879: ',' expected after '"'
-    Skipping line 1179152: ',' expected after '"'
-    Skipping line 1269853: ',' expected after '"'
-    Skipping line 1272028: ',' expected after '"'
-    Skipping line 1311165: ',' expected after '"'
-    Skipping line 1435344: ',' expected after '"'
-    Skipping line 1479941: ',' expected after '"'
-    Skipping line 1541567: ',' expected after '"'
-    Skipping line 1573934: ',' expected after '"'
-    Skipping line 1580159: ',' expected after '"'
-    Skipping line 1596850: ',' expected after '"'
-    Skipping line 1714531: ',' expected after '"'
-    Skipping line 1743383: ',' expected after '"'
-    Skipping line 1743487: ',' expected after '"'
-    Skipping line 1745054: ',' expected after '"'
-    Skipping line 1808980: ',' expected after '"'
-    
 
 불러온 데이터의 사이즈가 꽤 크기 때문에 서울 지역으로 범위를 좁히자. 서울 지역 내에서도 여전히 데이터 사이즈가 크므로, 100개의 음식점 정보를 랜덤 추출한 뒤 좌표계 변환을 시도해보자.
 
@@ -261,15 +223,6 @@ proj_1 = Proj(init='epsg:2097')
 proj_2 = Proj(init='epsg:4326')
 ```
 
-    C:\Users\jason\anaconda3\envs\jason\lib\site-packages\pyproj\crs\crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
-      return _prepare_from_string(" ".join(pjargs))
-    C:\Users\jason\anaconda3\envs\jason\lib\site-packages\pyproj\crs\crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
-      projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
-    C:\Users\jason\anaconda3\envs\jason\lib\site-packages\pyproj\crs\crs.py:53: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
-      return _prepare_from_string(" ".join(pjargs))
-    C:\Users\jason\anaconda3\envs\jason\lib\site-packages\pyproj\crs\crs.py:294: FutureWarning: '+init=<authority>:<code>' syntax is deprecated. '<authority>:<code>' is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
-      projstring = _prepare_from_string(" ".join((projstring, projkwargs)))
-    
 
 아래 코드를 실행하면 데이터 프레임 우측 끝에 경도, 위도 컬럼이 생성되는 것을 확인할 수 있다.
 
@@ -291,9 +244,6 @@ df['lon'] = x_list
 df['lat'] = y_list
 ```
 
-    <ipython-input-5-ad68a6fda732>:9: DeprecationWarning: This function is deprecated. See: https://pyproj4.github.io/pyproj/stable/gotchas.html#upgrading-to-pyproj-2-from-pyproj-1
-      x_, y_ = transform(proj_1, proj_2, x, y)
-    
 
 
 ```python
