@@ -471,6 +471,7 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 `PublicDataReader`는 파이썬 오픈소스 프로젝트로 개발하고 있습니다. 크롤링 코드 작성과 같은 데이터 활용의 번거로움을 줄이고자 시작하게 되었습니다. 실제 활용시 발생하는 오류나 개선 사항 등 피드백을 남겨주시면 적극 반영하도록 하겠습니다. 또한, 이 프로젝트에 참여하고자 하시는 분들은 언제든지 아래 이메일 주소로 연락주시거나, [github repository](https://github.com/WooilJeong/PublicDataReader)에 Issue를 남겨주시면 감사하겠습니다.
 
 **E-mail : wooil@kakao.com**
+**[카카오톡 오픈채팅방 링크](https://open.kakao.com/o/gFYXtP2c)**
 
 <br>
 
