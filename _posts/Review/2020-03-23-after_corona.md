@@ -15,7 +15,14 @@ header:
 
 <br>
 
-\*이 글은 Financial Times에 올라온 [Yuval Noah Harari: the world after coronavirus](https://www.ft.com/content/19d90308-6858-11ea-a3c9-1fe6fedcca75)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
+### 유발 하라리 기고문 번역 글 목록
+
+- [유발 하라리 - 코로나바이러스 이후의 세계](https://wooiljeong.github.io/review/after_corona/)
+- [유발 하라리 - Covid 1년의 교훈](https://wooiljeong.github.io/review/lessons-from-covid/)
+
+<br>
+
+\*이 글은 *2020년 3월 20일* Financial Times에 올라온 [Yuval Noah Harari: the world after coronavirus](https://www.ft.com/content/19d90308-6858-11ea-a3c9-1fe6fedcca75)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
 
 <br>
 
@@ -175,3 +182,11 @@ header:
 <br>
 
 \- 유발 노아 하라리(사피엔스, 호모 데우스, 21세기를 위한 21가지 제언 저자)
+
+<br>
+
+### 유발 하라리 기고문 번역 글 목록
+
+- [유발 하라리 - 코로나바이러스 이후의 세계](https://wooiljeong.github.io/review/after_corona/)
+- [유발 하라리 - Covid 1년의 교훈](https://wooiljeong.github.io/review/lessons-from-covid/)
+
