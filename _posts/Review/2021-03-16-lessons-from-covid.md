@@ -22,7 +22,7 @@ header:
 
 <br>
 
-\*이 글은 *2021년 2월 26일* Financial Times에 올라온 [Yuval Noah Harari: Lessons from a year of Covid | Free to read](https://www.ft.com/content/f1b30f2c-84aa-4595-84f2-7816796d6841)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
+\*이 글은 2021년 2월 26일 Financial Times에 올라온 [Yuval Noah Harari: Lessons from a year of Covid | Free to read](https://www.ft.com/content/f1b30f2c-84aa-4595-84f2-7816796d6841)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
 
 <br>
 

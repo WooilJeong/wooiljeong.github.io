@@ -22,7 +22,7 @@ header:
 
 <br>
 
-\*이 글은 *2020년 3월 20일* Financial Times에 올라온 [Yuval Noah Harari: the world after coronavirus](https://www.ft.com/content/19d90308-6858-11ea-a3c9-1fe6fedcca75)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
+\*이 글은 2020년 3월 20일 Financial Times에 올라온 [Yuval Noah Harari: the world after coronavirus](https://www.ft.com/content/19d90308-6858-11ea-a3c9-1fe6fedcca75)를 번역한 것입니다. 오역이 있을 수 있습니다. 댓글 달아주시면 피드백 반영하겠습니다.
 
 <br>
 
