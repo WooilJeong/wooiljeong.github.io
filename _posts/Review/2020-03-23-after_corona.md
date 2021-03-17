@@ -15,7 +15,7 @@ header:
 
 <br>
 
-### 유발 하라리 기고문 번역 글 목록
+## 유발 하라리 기고문 번역 글 목록
 
 - [유발 하라리 - 코로나바이러스 이후의 세계](https://wooiljeong.github.io/review/after_corona/)
 - [유발 하라리 - Covid 1년의 교훈](https://wooiljeong.github.io/review/lessons-from-covid/)
@@ -185,7 +185,7 @@ header:
 
 <br>
 
-### 유발 하라리 기고문 번역 글 목록
+## 유발 하라리 기고문 번역 글 목록
 
 - [유발 하라리 - 코로나바이러스 이후의 세계](https://wooiljeong.github.io/review/after_corona/)
 - [유발 하라리 - Covid 1년의 교훈](https://wooiljeong.github.io/review/lessons-from-covid/)
