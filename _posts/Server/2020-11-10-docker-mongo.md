@@ -69,9 +69,23 @@ docker rmi [이미지 ID]
 
 ## MongoDB 서버 구축
 
+### Dcker Hub에서 mongo 도커 이미지 pull 받기
+
+- 터미널을 실행하여 도커 허브에서 mongo 이미지를 pull
+
+```bash
+docker pull mongo
+```
+
+<br>
+
 ### mongodb 컨테이너 생성
 
 - 'docker-compose.yml' 파일 생성
+- yml 파일 내부의 `사용할 이미지` - `image`는 도커 허브에서 pull 받은 mongo 이미지 ID를 입력
+  - 터미널에서 `docker images` 입력하여 image id를 입력
+- 컨테이너 이름, 계정, 비밀번호 옵션도 임의로 지정
+- 마운트할 디렉토리도 임의 지정
 
 ```yml
 # 파일 규격 버전
