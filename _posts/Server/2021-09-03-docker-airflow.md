@@ -46,25 +46,27 @@ curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.1.3/docker-compose.y
 
 **yaml 파일에 포함된 여러 서비스**
 
-- airflow-scheduler
+- airflow-scheduler  
 스케줄러는 모든 작업과 DAG을 모니터링한 다음 종속성이 완료되면 작업 인스턴스를 트리거
-- airflow-webserver
+- airflow-webserver  
 [http://localhost:8080](http://localhost:8080)
-- airflow-worker
+- airflow-worker  
 워커는 스케줄러에 의해 주어진 작업을 실행
-- airflow-init
+- airflow-init  
 초기화 서비스
-- flower
+- flower  
 Celery 클러스터를 모니터링하고 관리하기 위한 웹 기반 도구
 [http://localhost:5555](http://localhost:5555/)
-- postgres
+- postgres  
 데이터베이스
-- redis
+- redis  
 데이터베이스, 캐시 및 메시지 브로커로 사용되는 오픈 소스(BSD 라이선스), 인메모리 데이터 구조 저장소
 
 이러한 모든 서비스를 통해 [CeleryExecutor](https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html)로 Airflow를 실행할 수 있다고 한다. 자세한 내용은 [아키텍처 개요](https://airflow.apache.org/docs/apache-airflow/stable/concepts/overview.html)를 참조하면된다고 한다. 설치 후에 찾아보기로 한다.
 
-호스트**와 컨테이너 사이의 디렉토리 마운팅**
+<br>
+
+**호스트와 컨테이너 사이의 디렉토리 마운팅**
 
 - ./dags - DAG 파일을 저장한다.
 - ./logs - 작업 실행 및 스케줄러의 로그를 저장한다.
@@ -152,7 +154,7 @@ Airflow 시작 후 세 가지 방법으로 환경에 접근할 수 있다.
 - 웹 인터페이스
 - REST API
 
-1. **CLI명령**
+**CLI명령**
 
 ```bash
 # 직접 명령
@@ -164,14 +166,14 @@ chmod +x airflow.sh
 ./airflow.sh info
 ```
 
-2. **웹 인터페이스**
+**웹 인터페이스**
 
 [http://localhost:8080/](http://172.30.1.7:8080/)
 
 - id: airflow
 - password: airflow
 
-3. **REST API**
+**REST API**
 
 ```bash
 ENDPOINT_URL="http://localhost:8080/"
