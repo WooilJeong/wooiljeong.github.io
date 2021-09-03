@@ -164,14 +164,14 @@ chmod +x airflow.sh
 ./airflow.sh info
 ```
 
-1. **웹 인터페이스**
+2. **웹 인터페이스**
 
 [http://localhost:8080/](http://172.30.1.7:8080/)
 
 - id: airflow
 - password: airflow
 
-1. **REST API**
+3. **REST API**
 
 ```bash
 ENDPOINT_URL="http://localhost:8080/"
