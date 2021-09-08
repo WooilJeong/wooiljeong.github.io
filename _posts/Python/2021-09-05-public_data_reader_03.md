@@ -86,7 +86,7 @@ header:
 
 ## 테이블 관계도
 
-![PNG](/assets/img/common/building_table_erd.png){: .align-center}
+![PNG](/assets/img/common/building_talbe_erd.png){: .align-center}
 
 <br>
 
