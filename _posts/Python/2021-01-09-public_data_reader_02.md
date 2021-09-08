@@ -18,6 +18,7 @@ header:
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
@@ -29,8 +30,10 @@ header:
 ## 소개
 
 - **최신 버전**  
-![](https://img.shields.io/badge/PublicDataReader-2021.1.9-blue.svg)  
+![](https://img.shields.io/badge/PublicDataReader-2021.4.12-blue.svg)  
 
+    - 2021.4.12 Version (2021-04):
+      - 국토교통부 건축물대장정보 서비스 추가
     - 2021.1.9 Version (2021-01): 
       - 소상공인 상가업소 정보 조회 기능 추가
       - 서울시 지하철호선별 역별 승하차 인원 정보 조회 기능 추가   
@@ -44,9 +47,10 @@ header:
 
 **PublicDataReader**는 [공공데이터포털](https://data.go.kr), [서울 열린데이터 광장](https://data.seoul.go.kr/) 등 에서 제공하는 OpenAPI 서비스를 Python으로 쉽게 이용할 수 있도록 도와주는 **데이터 수집 라이브러리**입니다. 
 
-**2021년 01월** 현재 아래 Open API 서비스를 이용하여 데이터를 Pandas DataFrame 형태로 조회할 수 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
+**2021년 04월** 현재 아래 Open API 서비스를 이용하여 데이터를 Pandas DataFrame 형태로 조회할 수 있습니다. 추후 수요가 높은 Open API 서비스에 대한 인터페이스도 지속적으로 업데이트할 예정입니다.
 
 - [국토교통부 실거래가 정보](https://www.data.go.kr/dataset/3050988/openapi.do)
+- [국토교통부 건축물대장정보 서비스](https://www.data.go.kr/data/15044713/openapi.do)
 - [소상공인 상가업소 정보](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012005)
 - [서울시 지하철호선별 역별 승하차 인원 정보](https://data.seoul.go.kr/dataList/OA-12914/S/1/datasetView.do)
 - [서울시 버스노선별 정류장별 시간대별 승하차 인원 정보](https://data.seoul.go.kr/dataList/OA-12913/S/1/datasetView.do)
@@ -95,7 +99,7 @@ smallUpjongList | 상권정보 업종 소분류 조회
 pip install PublicDataReader
 ```
 
-`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 2021.1.9 입니다.)**
+`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. 
 ```
 pip install PublicDataReader --upgrade
 ```
@@ -2415,17 +2419,6 @@ df.head()
 </table>
 </div>
 
-
-
-
-<br>
-
-## Colab으로 테스트해보기
-
-아래 링크에 접속하시면 구글 코랩 환경에서 예제 코드를 테스트해볼 수 있습니다. 
-
-[Colab Test Code](https://colab.research.google.com/drive/14AAR6dRiTubZ8rnc883GitaB5q9pnIox?usp=sharing)
-
 <br>
 
 ## Open Source Project
@@ -2443,6 +2436,7 @@ df.head()
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 

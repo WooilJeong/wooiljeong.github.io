@@ -18,6 +18,7 @@ header:
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
@@ -96,7 +97,7 @@ BizTrade | 상업업무용 부동산 매매 신고 자료 조회
 pip install PublicDataReader
 ```
 
-`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. **(글 작성 시점 기준 최신 버전은 0.1.3 입니다.)**
+`PublicDataReader`는 API기능 추가 등의 업데이트가 있을 수 있습니다. 다음과 같이 최신 버전으로 업그레이드합니다. 
 ```
 pip install PublicDataReader --upgrade
 ```
@@ -453,15 +454,6 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 아파트 매매실거래 자료 조회 외에 기타 실거래 데이터를 조회하고자 할 경우에는 위 코드에서 `molit.AptTrade` 대신, 위 소개 부분에 설명된 다른 메서드로 변경하여 동일하게 사용하면 됩니다.
 
 <br>
-    
-
-## Colab으로 테스트해보기
-
-아래 링크에 접속하시면 구글 코랩 환경에서 예제 코드를 테스트해볼 수 있습니다. 아파트 매매 실거래자료 조회 뿐만 아니라 다른 서비스들도 테스트해보실 수 있습니다.
-
-[Colab Test Code](https://disq.us/url?url=https%3A%2F%2Fdrive.google.com%2Fopen%3Fid%3D1pFtMFr_te9T_maHjee8Sd8Yq9rTrE-4F%3AUps3RW1D7_xrpDTq3k2p_YQMVXk&cuid=5671700)
-
-<br>
 
 ## Open Source Project
 
@@ -478,6 +470,7 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
