@@ -18,7 +18,7 @@ header:
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
@@ -470,7 +470,7 @@ df_sum = molit.DataCollector(molit.AptTrade, 41135, 202001, 202003)
 ### PublicDataReader 관련 글 목록
 
 - [국토교통부 부동산 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+- [국토교통부 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
 - [소상공인 진흥공단 상가업소 데이터 수집하기](https://wooiljeong.github.io/python/public_data_reader_02/)
 - [데이터 과학을 위한 파이썬 라이브러리 모음](https://wooiljeong.github.io/python/python_library/)
 
