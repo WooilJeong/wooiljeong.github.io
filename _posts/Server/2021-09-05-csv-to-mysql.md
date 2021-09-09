@@ -1,7 +1,7 @@
 ---
 title: "CSV파일을 MySQL에 적재하는 세 가지 방법 비교"
 categories: Server
-tags: Docker
+tags: Mysql
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
