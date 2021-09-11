@@ -18,6 +18,9 @@ main:
   - title: "Server"
     url: /server/
 
+  - title: "DB"
+    url: /db/
+
   - title: "Bigdata"
     url: /bigdata/
 
