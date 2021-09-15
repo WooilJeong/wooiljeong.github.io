@@ -89,13 +89,15 @@ docker pull mongo
 
 ```yml
 # 파일 규격 버전
-version: "3"
+version: "3.2"
 # 이 항목 밑에 실행하려는 컨테이너 들을 정의
 services: 
   # 서비스 명
   mongodb:
     # 사용할 이미지
-    image: ba0c2ff8d362
+    image: mongo
+    # 컨테이너 실행 시 재시작
+    restart: always
     # 컨테이너 이름 설정
     container_name: jason-mongo
     # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
@@ -108,7 +110,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: password
     volumes:
       # -v 옵션 (다렉토리 마운트 설정)
-      - D:/docker/mongodb/data/db:/data/db
+      - /data/mongodb/data/db:/data/db
 ```
 
 - yml 파일을 생성한 디렉토리에서 docker-compose 명령어 실행
