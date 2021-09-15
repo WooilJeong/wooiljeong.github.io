@@ -89,7 +89,7 @@ docker pull mongo
 
 ```yml
 # 파일 규격 버전
-version: "3.2"
+version: "3"
 # 이 항목 밑에 실행하려는 컨테이너 들을 정의
 services: 
   # 서비스 명
