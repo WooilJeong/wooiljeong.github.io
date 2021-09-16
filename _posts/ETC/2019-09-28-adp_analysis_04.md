@@ -1,6 +1,6 @@
 ---
 title: "ADP필기 - R 데이터 분석 (통계 분석) 04"
-categories: R
+categories: ETC
 tags: ADP
 header:
   overlay_image: /assets/img/wallpaper.jpg

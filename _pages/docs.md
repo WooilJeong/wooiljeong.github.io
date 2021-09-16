@@ -1,7 +1,7 @@
 ---
-title: "Web"
-layout: category-web
-permalink: /web/
+title: "Docs"
+layout: category-docs
+permalink: /docs/
 author_profile: false
 header:
   overlay_image: /assets/img/wallpaper.jpg

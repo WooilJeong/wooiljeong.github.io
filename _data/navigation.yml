@@ -9,9 +9,6 @@ main:
   - title: "Python"
     url: /python/
 
-  - title: "R"
-    url: /r/
-
   - title: "ML"
     url: /ml/
 
@@ -21,15 +18,14 @@ main:
   - title: "DB"
     url: /db/
 
-  - title: "Bigdata"
-    url: /bigdata/
-
   - title: "Review"
     url: /review/
 
+  - title: "Docs"
+    url: /docs/
+
   - title: "ETC"
     url: /etc/
-
 
 
   # - title: "Web"

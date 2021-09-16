@@ -1,6 +1,6 @@
 ---
 title: "빅데이터 처리 기술 관련 사이트 모음"
-categories: Bigdata
+categories: ETC
 tags: Reference
 header:
   overlay_image: /assets/img/wallpaper.jpg
