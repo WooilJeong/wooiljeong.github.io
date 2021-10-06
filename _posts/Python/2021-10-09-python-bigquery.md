@@ -82,7 +82,7 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 
 # 서비스 계정 키 JSON 파일 경로
-key_path = "D:/workspace/aide/notebook/setting/wooil-python-project-c84dded788b1.json"
+key_path = "./new-project.json"
 
 # Credentials 객체 생성
 credentials = service_account.Credentials.from_service_account_file(key_path)
