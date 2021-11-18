@@ -10,7 +10,7 @@ header:
 > # 요소수 중점 유통 주유소 재고현황 지도
 
 
-<iframe class="map" src="https://adblue-stock-status.herokuapp.com/" width="600" height="450" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
+<iframe class="map" src="http://15.165.95.56:5000/" width="800" height="450" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
 
 <br>
 
