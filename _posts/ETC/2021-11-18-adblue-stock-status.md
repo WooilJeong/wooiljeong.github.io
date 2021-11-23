@@ -10,7 +10,7 @@ header:
 > # 요소수 중점 유통 주유소 재고현황 지도
 
 
-<iframe class="map" src="https://www.adbluemap.ml" width="100%" height="500" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
+<iframe class="map" src="https://www.adbluemap.ml" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
 
 <br>
 
