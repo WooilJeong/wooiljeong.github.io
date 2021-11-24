@@ -1,7 +1,7 @@
 ---
 title: "요소수 중점 유통 주유소 재고현황 지도"
-categories: Python
-tags: Bigquery
+categories: ETC
+tags: Adblue
 header:
   overlay_image: /assets/img/wallpapers/adblue-main.png
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
