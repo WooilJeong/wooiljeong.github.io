@@ -9,7 +9,7 @@ header:
 
 > # 세계 각국의 공공 데이터 맵 오픈 데이터 인셉션
 
-<iframe class="map" src="https://opendatainception.io/" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
+[https://opendatainception.io/](https://opendatainception.io/)
 
 - 전 세계 각국에 있는 약 4,000여 개의 공공 데이터 제공 사이트를 지도에서 확인할 수 있다.
 
