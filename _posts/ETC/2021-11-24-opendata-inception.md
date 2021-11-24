@@ -3,7 +3,7 @@ title: "Open Data Inception - 전세계 공공 데이터 포털"
 categories: ETC
 tags: Data
 header:
-  overlay_image: /assets/img/wallpapers/adblue-main.png
+  overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
