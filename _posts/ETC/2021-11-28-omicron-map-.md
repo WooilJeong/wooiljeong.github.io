@@ -1,5 +1,5 @@
 ---
-title: "COVID19 오미크론(Omicron) 발생 현황 지도"
+title: "COVID19 변이 오미크론(Omicron) 발생 현황 지도"
 categories: ETC
 tags: Omicron
 header:
