@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "COVID19 오미크론(Omicron) 발생 현황 지도"
 categories: ETC
 tags: Omicron
 header:
@@ -7,7 +7,12 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-> # 세계 각국의 공공 데이터 맵 오픈 데이터 인셉션
+> # COVID19 오미크론(Omicron) 발생 현황 지도
 
+<iframe loading="lazy" src="https://www.google.com/maps/d/embed?mid=1lKX8ikHpKAkWCvuXn2g-CVW3OmHbN-k-" width="100%" height="480"></iframe>
 
 <br>
+
+## 출처
+
+https://bnonews.com/index.php/2021/11/omicron-tracker/
