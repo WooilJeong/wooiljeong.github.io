@@ -1,5 +1,5 @@
 ---
-title: "요소수 중점 유통 주유소 재고현황 지도"
+title: "실시간 요소수 지도 | 거점 주유소별 재고 현황"
 categories: ETC
 tags: Adblue
 header:
@@ -9,10 +9,13 @@ header:
 
 > # 요소수 중점 유통 주유소 재고현황 지도
 
-
 <iframe class="map" src="https://www.adbluemap.ml" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
 
+
+- 전국 거점 주유소 별 요소수 재고 현황을 실시간 지도에서 확인할 수 있습니다.
+
 <br>
+
 
 ## 참고
 
@@ -23,4 +26,4 @@ header:
 
 <br>
 
-![PNG](/assets/img/wallpapers/adblue.png){: .align-center}
+![PNG](/assets/img/wallpapers/adblue-main.png){: .align-center}
