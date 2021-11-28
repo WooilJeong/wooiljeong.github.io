@@ -3,7 +3,7 @@ title: "COVID19 변이 오미크론(Omicron) 발생 현황 지도"
 categories: ETC
 tags: Omicron
 header:
-  overlay_image: /assets/img/wallpaper.jpg
+  overlay_image: /assets/img/thumbnails/omicron.png
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
@@ -20,6 +20,10 @@ header:
 ## 전세계 확진자 현황
 
 <iframe loading="lazy" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5YVV_L0XY-vORaD2h6-02bz9qfU6Kb-OovbmrvnvMi5zZSvqS-PPJybf0qgSWm2BLZlU6uFEjJPW/pubhtml?gid=2049345986&amp;single=true&amp;widget=true&amp;chrome=false&amp;headers=false&amp;range=A1:D23" width="100%" height="840px" style="border:none;"></iframe>
+
+<br>
+
+[![PNG](/assets/img/thumbnails/omicron.png){: .align-center}](https://wooiljeong.github.io/etc/omicron-map/)
 
 <br>
 
