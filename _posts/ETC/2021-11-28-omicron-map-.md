@@ -23,13 +23,13 @@ header:
 
 <br>
 
-[![PNG](/assets/img/thumbnails/omicron.png){: .align-center}](https://wooiljeong.github.io/etc/omicron-map/)
-
-<br>
-
 ## 보츠와나/홍콩/남아프리카 공화국에서 VOC Omicron GR/484A(B.1.1.529) 첫 검출
 
 <iframe title="Tree" src="https://phylodynamics2.pandemicprepardness.org/SARS-CoV-2/B11529" class="mb-3" style="border: none; width: 100%; height: 600px;"></iframe>
+
+<br>
+
+[![PNG](/assets/img/thumbnails/omicron.png){: .align-center}](https://wooiljeong.github.io/etc/omicron-map/)
 
 <br>
 
