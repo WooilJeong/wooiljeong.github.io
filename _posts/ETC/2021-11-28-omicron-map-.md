@@ -19,7 +19,7 @@ header:
 
 ## 전세계 확진자 현황
 
-<iframe loading="lazy" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRi5YVV_L0XY-vORaD2h6-02bz9qfU6Kb-OovbmrvnvMi5zZSvqS-PPJybf0qgSWm2BLZlU6uFEjJPW/pubhtml?gid=2049345986&amp;single=true&amp;widget=true&amp;chrome=false&amp;headers=false&amp;range=A1:D23" width="100%" height="840px" style="border:none;"></iframe>
+<iframe loading="lazy" src="https://docs.google.com/spreadsheets/u/0/d/e/2PACX-1vRi5YVV_L0XY-vORaD2h6-02bz9qfU6Kb-OovbmrvnvMi5zZSvqS-PPJybf0qgSWm2BLZlU6uFEjJPW/pubhtml/sheet?headers=false&amp;gid=2049345986&amp;range=A1:D28" width="100%" height="840px" style="border:none;"></iframe>
 
 <br>
 
