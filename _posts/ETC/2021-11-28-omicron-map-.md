@@ -29,6 +29,8 @@ header:
 
 ## 보츠와나/홍콩/남아프리카 공화국에서 오미크론 변이 첫 검출
 
+- 좌측 메뉴의 재생(▶) 버튼을 클릭하시면 일자별 경과를 확인할 수 있습니다.
+
 <iframe title="Tree" src="https://phylodynamics2.pandemicprepardness.org/SARS-CoV-2/B11529" class="mb-3" style="border: none; width: 100%; height: 600px;"></iframe>
 
 <br>
