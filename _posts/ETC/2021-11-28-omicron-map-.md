@@ -41,5 +41,5 @@ header:
 
 ## 출처
 
-[BNO NEWS - Tracking COVID-19 variant Omicron](https://bnonews.com/index.php/2021/11/omicron-tracker/)
-[GISAID](https://www.gisaid.org/hcov19-variants/)
+- [BNO NEWS - Tracking COVID-19 variant Omicron](https://bnonews.com/index.php/2021/11/omicron-tracker/)
+- [GISAID](https://www.gisaid.org/hcov19-variants/)
