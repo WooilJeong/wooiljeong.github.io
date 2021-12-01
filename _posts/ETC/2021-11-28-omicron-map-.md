@@ -27,6 +27,13 @@ header:
 
 <br>
 
+## 보츠와나/홍콩/남아프리카 공화국에서 VOC Omicron GR/484A(B.1.1.529) 첫 검출
+
+<iframe title="Tree" src="https://phylodynamics2.pandemicprepardness.org/SARS-CoV-2/B11529" class="mb-3" style="border: none; width: 100%; height: 600px;"></iframe>
+
+<br>
+
 ## 출처
 
 [BNO NEWS - Tracking COVID-19 variant Omicron](https://bnonews.com/index.php/2021/11/omicron-tracker/)
+[GISAID](https://www.gisaid.org/hcov19-variants/)
