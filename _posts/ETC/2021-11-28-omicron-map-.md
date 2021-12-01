@@ -19,11 +19,15 @@ header:
 
 ## 전세계 확진자 현황
 
+- Location: 국가
+- Confirmed: 확진자 수
+- Probable: 의심자 수
+
 <iframe loading="lazy" src="https://docs.google.com/spreadsheets/u/0/d/e/2PACX-1vRi5YVV_L0XY-vORaD2h6-02bz9qfU6Kb-OovbmrvnvMi5zZSvqS-PPJybf0qgSWm2BLZlU6uFEjJPW/pubhtml/sheet?headers=false&amp;gid=2049345986&amp;range=A1:D28" width="100%" height="1270px" style="border:none;"></iframe>
 
 <br>
 
-## 보츠와나/홍콩/남아프리카 공화국에서 VOC Omicron GR/484A(B.1.1.529) 첫 검출
+## 보츠와나/홍콩/남아프리카 공화국에서 오미크론 변이 첫 검출
 
 <iframe title="Tree" src="https://phylodynamics2.pandemicprepardness.org/SARS-CoV-2/B11529" class="mb-3" style="border: none; width: 100%; height: 600px;"></iframe>
 
