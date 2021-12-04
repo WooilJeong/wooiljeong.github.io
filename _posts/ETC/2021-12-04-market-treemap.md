@@ -9,9 +9,9 @@ header:
 
 > # 미국 주식 맵 - Finviz
 
-<iframe src="https://fred.stlouisfed.org/graph/graph-landing.php?g=JjZN&width=670&height=475" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
+<iframe src="https://finviz.com/map.ashx?t=sec" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
 
-- [Finviz](https://fred.stlouisfed.org/graph/graph-landing.php?g=JjZN&width=670&height=475)
+- [Finviz](https://finviz.com/map.ashx?t=sec)
 
 <br>
 
