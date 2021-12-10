@@ -43,15 +43,15 @@ header:
 
 앱 콘솔 - 앱 - settings에서 OAuth 2의 Redirect URIs 부분에 다음을 입력 후 'Add' 버튼을 클릭한다.
 
-```markdown
-[https://www.dropbox.com/1/oauth2/display_token](https://www.dropbox.com/1/oauth2/display_token)
+```
+https://www.dropbox.com/1/oauth2/display_token
 ```
 
 <br>
 
 다음 문자열 끝에 있는 APPKEYHERE를 settings의 App key 값으로 대체해준다.
 
-```markdown
+```
 https://www.dropbox.com/oauth2/authorize?response_type=token&redirect_uri=https://www.dropbox.com/1/oauth2/display_token&client_id=APPKEYHERE
 ```
 
