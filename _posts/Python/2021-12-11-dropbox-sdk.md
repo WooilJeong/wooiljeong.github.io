@@ -63,6 +63,14 @@ https://www.dropbox.com/oauth2/authorize?response_type=token&redirect_uri=https:
 
 <br>
 
+위 방법을 적용해도 여전히 토큰이 만료되는 이슈가 있다면 다음을 시도해 볼 수 있다.
+
+- 'seetings' 탭의 'OAuth 2'의 'Access token expiration' 드롭다운 옵션 설정
+
+경우에 따라, 위 드롭다운 옵션이 보이지 않는 경우가 있다고 한다. 내 경우에도 해당하는 이슈이다. 이 경우 [개발자 문의](https://www.dropbox.com/developers/contact) 페이지에 앱의 인증 만료기한이 없는 장기 토큰을 발급해달라고 요청하면 된다고 한다. 아직 답장을 받지 못한 상황이어서 추후 경과를 본 후 업데이트하겠다.
+
+<br>
+
 ## 4. Python Dropbox SDK
 
 [dropbox API Python 파일 업로드 & 공유 링크 가져오기](https://junwe99.tistory.com/19)에 있는 내용을 바탕으로 아래와 같이 Python Code를 작성하여 사용하면 된다.
