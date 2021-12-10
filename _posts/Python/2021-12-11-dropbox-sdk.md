@@ -1,0 +1,99 @@
+---
+title: "Python Dropbox SDK 파일 업로드 및 다운로드 링크 반환"
+categories: Python
+tags: dropbox
+header:
+  overlay_image: /assets/img/wallpaper.jpg
+  overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
+---
+
+# 만료기한 없는 Access Token 발급받기
+
+## 배경
+
+- Python으로 Dropbox SDK를 이용하여 파일을 업로드하고, 해당 파일의 다운로드 링크를 가져오는 기능을 구현하고자 함.
+- Dropbox SDK를 사용하기 위해서는 Dropbox Developers에서 App을 만들고 파일 관련 Scopes를 설정을 한 후에 Access Token을 발급받아 이용해야 함.
+- 문제는 발급받은 Access Token은 발급 직후 4시간 후 만료되어, 재발급받아야 함. 따라서 만료기한이 없는 Access Token을 발급받아 사용해야 하는 상황.
+
+<br>
+
+## 1. Dropbox 앱 만들기
+
+[드롭박스 개발자](https://www.dropbox.com/developers/)에서 '앱 만들기'를 클릭한다.
+
+![PNG](/assets/img/post_img/2020-12/dropbox_sdk_1.png){: .align-center}
+
+<br>
+
+다음과 같이 적절히 설정해주고 앱을 만들면 된다.
+
+![PNG](/assets/img/post_img/2020-12/dropbox_sdk_2.png){: .align-center}
+
+<br>
+
+## 2. 앱 권한 설정
+
+이후 '앱 콘솔'에 들어가면 앱이 하나 생긴 것을 확인할 수 있다. 해당 앱을 클릭한다. 이후 'Permissions' 탭에서 사용할 Scopes들을 적절히 체크해준다. 
+
+![PNG](/assets/img/post_img/2020-12/dropbox_sdk_3.png){: .align-center}
+
+<br>
+
+## 3. 만료기한이 없는 Access Token 발급받기
+
+앱 콘솔 - 앱 - settings에서 OAuth 2의 Redirect URIs 부분에 다음을 입력 후 'Add' 버튼을 클릭한다.
+
+![PNG](/assets/img/post_img/2020-12/dropbox_sdk_4.png){: .align-center}
+
+<br>
+
+다음 문자열 끝에 있는 APPKEYHERE를 settings의 App key 값으로 대체해준다.
+
+```markdown
+https://www.dropbox.com/oauth2/authorize?response_type=token&redirect_uri=https://www.dropbox.com/1/oauth2/display_token&client_id=APPKEYHERE
+```
+
+<br>
+
+브라우저에서 Access Token을 원하는 계정에 로그인한 상태에서 위에서 바꿔준 URL로 접속하여 앱을 인증한다. 그러면 Dropbox의 만료기한이 없는 Access Token이 표시된 페이지로 Redirect된다.
+
+![Untitled](Python%20Dropbox%20SDK%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3%20%E1%84%85%E1%85%B5%E1%86%BC%2032f946808c86453ea3dbc8ee28800a98/Untitled%203.png)
+
+<br>
+
+## 4. Python Dropbox SDK
+
+[dropbox API Python 파일 업로드 & 공유 링크 가져오기](https://junwe99.tistory.com/19)에 있는 내용을 바탕으로 아래와 같이 Python Code를 작성하여 사용하면 된다.
+
+```bash
+pip install dropbox
+```
+
+```python
+import dropbox
+ 
+class DropBoxManager:
+    def __init__(self,token, filename,pathname):
+        self.token = token
+        self.fileName = filename
+        self.pathName = pathname
+ 
+    def UpLoadFile(self):
+        dbx = dropbox.Dropbox(self.token,timeout=900)
+        with open(self.fileName, "rb") as f:
+            dbx.files_upload(f.read(), self.pathName, mode=dropbox.files.WriteMode.overwrite)
+ 
+    def GetFileLink(self):
+        dbx = dropbox.Dropbox(self.token,timeout=900)
+        shared_URL = dbx.sharing_create_shared_link_with_settings(self.pathName).url
+        modified_URL = shared_URL[:-1] + '1'
+        return modified_URL
+```
+
+<br>
+
+## References
+
+- [드롭박스 개발자](https://www.dropbox.com/developers/)
+- [dropbox API Python 파일 업로드 & 공유 링크 가져오기](https://junwe99.tistory.com/19)
+- [만료기한이 없는 Access Token을 발급받을 수 있는 방법](https://www.dropboxforum.com/t5/Dropbox-API-Support-Feedback/Tokens-only-valid-for-4-hours-from-app-console/m-p/425358/highlight/true#M22718)
