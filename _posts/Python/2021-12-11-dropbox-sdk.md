@@ -41,6 +41,14 @@ header:
 
 ## 3. 만료기한이 없는 Access Token 발급받기
 
+Dropbox Python SDK를 다음과 같이 설치한다.
+
+```bash
+pip install dropbox
+```
+
+<br>
+
 [드롭박스 개발자 앱 콘솔](https://www.dropbox.com/developers/apps)에서 앱을 선택 후 'App key'를 복사한다. 아래 Python 코드에서 APP_KEY의 값으로 복사한 'app key'를 값으로 붙여넣는다. 이후 코드를 실행하면 링크가 출력되는데 해당 링크에 접속해 액세스 코드를 복사해 Python 입력창에 입력한다. Successfully set up client! 문구가 출력된 것을 확인한다. 
 
 ```python
@@ -78,13 +86,7 @@ print(oauth_result.refresh_token)
 <br>
 
 
-## 4. Python Dropbox SDK
-
-Dropbox Python SDK를 다음과 같이 설치한다.
-
-```bash
-pip install dropbox
-```
+## 4. Python Dropbox SDK 이용하기
 
 위에서 복사해둔 app key와 refresh token 문자열을 아래 항목에 입력하여 DropBoxManager 클래스를 만들어 적절히 사용하면 된다.
 
