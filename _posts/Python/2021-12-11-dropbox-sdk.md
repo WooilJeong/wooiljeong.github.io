@@ -41,60 +41,72 @@ header:
 
 ## 3. 만료기한이 없는 Access Token 발급받기
 
-앱 콘솔 - 앱 - settings에서 OAuth 2의 Redirect URIs 부분에 다음을 입력 후 'Add' 버튼을 클릭한다.
+[드롭박스 개발자 앱 콘솔](https://www.dropbox.com/developers/apps)에서 앱을 선택 후 'App key'를 복사한다. 아래 Python 코드에서 APP_KEY의 값으로 복사한 'app key'를 값으로 붙여넣는다. 이후 코드를 실행하면 링크가 출력되는데 해당 링크에 접속해 액세스 코드를 복사해 Python 입력창에 입력한다. Successfully set up client! 문구가 출력된 것을 확인한다. 
 
-```
-https://www.dropbox.com/1/oauth2/display_token
+```python
+import dropbox
+from dropbox import DropboxOAuth2FlowNoRedirect
+
+APP_KEY = "fyiyyb32qahe2km"
+auth_flow = DropboxOAuth2FlowNoRedirect(APP_KEY, use_pkce=True, token_access_type='offline')
+
+authorize_url = auth_flow.start()
+print("1. Go to: " + authorize_url)
+print("2. Click \"Allow\" (you might have to log in first).")
+print("3. Copy the authorization code.")
+auth_code = input("Enter the authorization code here: ").strip()
+
+try:
+    oauth_result = auth_flow.finish(auth_code)
+except Exception as e:
+    print('Error: %s' % (e,))
+    exit(1)
+
+with dropbox.Dropbox(oauth2_refresh_token=oauth_result.refresh_token, app_key=APP_KEY) as dbx:
+    dbx.users_get_current_account()
+    print("Successfully set up client!")
 ```
 
 <br>
 
-다음 문자열 끝에 있는 APPKEYHERE를 settings의 App key 값으로 대체해준다.
+다음을 실행하면 Refresh Token 문자열이 출력되는데 이 값을 복사해둔다. 
 
+```python
+print(oauth_result.refresh_token)
 ```
-https://www.dropbox.com/oauth2/authorize?response_type=token&redirect_uri=https://www.dropbox.com/1/oauth2/display_token&client_id=APPKEYHERE
-```
 
 <br>
 
-브라우저에서 Access Token을 원하는 계정에 로그인한 상태에서 위에서 바꿔준 URL로 접속하여 앱을 인증한다. 그러면 Dropbox의 만료기한이 없는 Access Token이 표시된 페이지로 Redirect된다.
-
-![PNG](/assets/img/post_img/2021-12/dropbox_sdk_4.png){: .align-center}
-
-<br>
-
-위 방법을 적용해도 여전히 토큰이 만료되는 이슈가 있다면 다음을 시도해 볼 수 있다.
-
-- 'seetings' 탭의 'OAuth 2'의 'Access token expiration' 드롭다운 옵션 설정
-
-경우에 따라, 위 드롭다운 옵션이 보이지 않는 경우가 있다고 한다. 내 경우에도 해당하는 이슈이다. 이 경우 [개발자 문의](https://www.dropbox.com/developers/contact) 페이지에 앱의 인증 만료기한이 없는 장기 토큰을 발급해달라고 요청하면 된다고 한다. 아직 답장을 받지 못한 상황이어서 추후 경과를 본 후 업데이트하겠다.
-
-<br>
 
 ## 4. Python Dropbox SDK
 
-[dropbox API Python 파일 업로드 & 공유 링크 가져오기](https://junwe99.tistory.com/19)에 있는 내용을 바탕으로 아래와 같이 Python Code를 작성하여 사용하면 된다.
+Dropbox Python SDK를 다음과 같이 설치한다.
 
 ```bash
 pip install dropbox
 ```
+
+위에서 복사해둔 app key와 refresh token 문자열을 아래 항목에 입력하여 DropBoxManager 클래스를 만들어 적절히 사용하면 된다.
 
 ```python
 import dropbox
  
 class DropBoxManager:
     def __init__(self,token, filename,pathname):
-        self.token = token
+        
+        self.appkey = "<<app key>>"
+        self.refreshtoekn = "<<refresh token>>"
+        
         self.fileName = filename
         self.pathName = pathname
  
     def UpLoadFile(self):
-        dbx = dropbox.Dropbox(self.token,timeout=900)
+        dbx = dropbox.Dropbox(oauth2_refresh_token=self.refreshtoken, app_key=self.appkey, timeout=900)
         with open(self.fileName, "rb") as f:
             dbx.files_upload(f.read(), self.pathName, mode=dropbox.files.WriteMode.overwrite)
  
     def GetFileLink(self):
-        dbx = dropbox.Dropbox(self.token,timeout=900)
+        dbx = dropbox.Dropbox(oauth2_refresh_token=self.refreshtoken, app_key=self.appkey, timeout=900)
         shared_URL = dbx.sharing_create_shared_link_with_settings(self.pathName).url
         modified_URL = shared_URL[:-1] + '1'
         return modified_URL
@@ -104,6 +116,5 @@ class DropBoxManager:
 
 ## References
 
-- [드롭박스 개발자](https://www.dropbox.com/developers/)
-- [dropbox API Python 파일 업로드 & 공유 링크 가져오기](https://junwe99.tistory.com/19)
-- [만료기한이 없는 Access Token을 발급받을 수 있는 방법](https://www.dropboxforum.com/t5/Dropbox-API-Support-Feedback/Tokens-only-valid-for-4-hours-from-app-console/m-p/425358/highlight/true#M22718)
+- [Dropbox Developers](https://www.dropbox.com/developers/)
+- [Oauth2 refresh token question - what happens when the refresh token expires?](https://www.dropboxforum.com/t5/Dropbox-API-Support-Feedback/Oauth2-refresh-token-question-what-happens-when-the-refresh/m-p/486241)
