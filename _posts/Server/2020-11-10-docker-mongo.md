@@ -121,6 +121,15 @@ docker-compose up -d
 
 <br>
 
+*도커 컨테이너 빌드 명령어를 실행했지만, 컨테이너가 실행되지 않고 exit되는 오류가 있는 경우에는 다음 명령어를 통해 로그를 확인해 볼 수 있다.
+
+```bash
+# docker container build 오류 로그 확인
+docker logs: [컨테이너 명]
+```
+
+<br>
+
 ### 컨테이너 bash 접속
 
 ```bash
