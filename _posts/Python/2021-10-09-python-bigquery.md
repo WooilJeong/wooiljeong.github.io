@@ -1,5 +1,5 @@
 ---
-title: "파이썬(Python)에서 빅쿼리(BigQuery) 데이터 불러오기"
+title: "Python 빅쿼리 데이터 불러오기"
 categories: Python
 tags: Bigquery
 header:

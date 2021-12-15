@@ -1,5 +1,5 @@
 ---
-title: "파이썬 커스텀 로거(Logger) 만들기"
+title: "Python Custom Logger 만들기"
 categories: Python
 tags: Logger
 header:
