@@ -1,5 +1,5 @@
 ---
-title: "Python 빅쿼리 데이터 불러오기"
+title: "Python BigQuery 연동하기"
 categories: Python
 tags: Bigquery
 header:
@@ -52,6 +52,7 @@ header:
 
 - 생성된 서비스 계정 클릭 후 '키' 탭 이동
 - '키 추가' - '새 키 만들기' - 키 유형 'JSON' 선택 - '만들기' 클릭
+- config 폴더 생성 후 해당 경로에 JSON 파일 다운로드
 
 <br>
 
@@ -78,11 +79,12 @@ pip install google-cloud-bigquery
 
 
 ```python
+import glob
 from google.cloud import bigquery
 from google.oauth2 import service_account
 
 # 서비스 계정 키 JSON 파일 경로
-key_path = "./new-project.json"
+key_path = glob.glob("./config/*.json")[0]
 
 # Credentials 객체 생성
 credentials = service_account.Credentials.from_service_account_file(key_path)
