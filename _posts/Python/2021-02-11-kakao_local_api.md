@@ -27,6 +27,7 @@ No | Name |	Description
 **참고**  
 
 - [PyKakao](https://github.com/WooilJeong/PyKakao)
+
 PyKakao는 akako developers에서 제공하는 로컬(Local) API를 이용할 수 있는 Python Client이다. PyKakao를 설치한 경우 아래와 같이 직접 API 클래스를 구현하지 않아도 된다.
 
 

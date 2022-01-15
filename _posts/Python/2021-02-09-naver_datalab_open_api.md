@@ -16,7 +16,9 @@ header:
 <br>
 
 **참고**  
+
 - [PyNaver](https://github.com/WooilJeong/PyNaver)
+
 PyNaver는 naver developers에서 제공하는 오픈 API를 이용할 수 있는 Python Client이다. PyNaver를 설치한 경우 아래와 같이 직접 API 클래스를 구현하지 않아도 된다.
 
 <br>
