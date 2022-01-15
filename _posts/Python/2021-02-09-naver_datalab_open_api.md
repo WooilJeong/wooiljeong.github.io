@@ -7,11 +7,17 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-> # Naver Datalab Open API
+> # 네이버 데이터랩 오픈 API 서비스
 
 네이버 데이터랩 오픈 API 서비스를 이용하면 Pandas DataFrame 형태로 검색어 트렌드 관련 데이터를 불러올 수 있다. 총 5개 주제어에 대한 검색어 그룹을 지정할 수 있고, 각 검색어 그룹은 주제어에 해당하는 최대 20개의 검색어를 배열로 설정할 수 있다. 또, PC 혹은 모바일 환경에 따른 검색어 트렌드를 확인할 수도 있다. 이 외에도 성별, 연령대 별 조건을 추가할 수 있다.
 
-[Naver Datalab Open API](https://developers.naver.com/products/datalab/)에서 Open API를 신청할 수 있다. 여기에서는 이미 신청이 완료된 상황을 가정한다.파이썬 상에서 쉽게 Open API 서비스를 활용할 수 있도록 돕는 컨트롤러를 만들어 볼 것이다. 추가적으로 불러온 데이터를 시각화해보고, `fbprophet`라이브러리를 이용해 가까운 미래의 검색어 그룹 별 트렌드를 예측해보자.
+[naver developers - 데이터랩]](https://developers.naver.com/products/service-api/datalab/datalab.md)에서 Open API를 신청할 수 있다. 여기에서는 이미 신청이 완료된 상황을 가정한다.파이썬 상에서 쉽게 Open API 서비스를 활용할 수 있도록 돕는 컨트롤러를 만들어 볼 것이다. 추가적으로 불러온 데이터를 시각화해보고, `fbprophet`라이브러리를 이용해 가까운 미래의 검색어 그룹별 트렌드를 예측해보자.
+
+<br>
+
+**참고**  
+- [PyNaver](https://github.com/WooilJeong/PyNaver)
+PyNaver는 naver developers에서 제공하는 오픈 API를 이용할 수 있는 Python Client이다. PyNaver를 설치한 경우 아래와 같이 직접 API 클래스를 구현하지 않아도 된다.
 
 <br>
 

@@ -24,6 +24,12 @@ No | Name |	Description
 
 파이썬으로 카카오 로컬 API 서비스를 쉽게 이용할 수 있도록 하기 위해 간단한 컨트롤러를 만들어보자. 먼저, API를 사용하려면 [Kakao Developers - 내 애플리케이션](https://developers.kakao.com/console/app)에서 애플리케이션을 추가해야 한다. 여기에서는 애플리케이션이 추가되었다고 가정하고 진행한다. `json`과 `requests` 모듈을 import하고 간단한 컨트롤러 클래스를 만들어보겠다. 각 메서드의 구체적인 동작 방식은 [개발 가이드](https://developers.kakao.com/docs/latest/ko/local/dev-guide)를 참조하였다.
 
+**참고**  
+
+- [PyKakao](https://github.com/WooilJeong/PyKakao)
+PyKakao는 akako developers에서 제공하는 로컬(Local) API를 이용할 수 있는 Python Client이다. PyKakao를 설치한 경우 아래와 같이 직접 API 클래스를 구현하지 않아도 된다.
+
+
 <br>
 
 ## KakaoLocalAPI 클래스 생성
