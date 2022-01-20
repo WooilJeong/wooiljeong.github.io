@@ -9,20 +9,15 @@ header:
 
 > # 요소수 중점 유통 주유소 재고현황 지도
 
-<iframe class="map" src="https://www.adbluemap.ml" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
+<!-- <iframe class="map" src="https://www.adbluemap.ml" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe> -->
+<iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/efadaa5e-156f-493e-81c4-0126718defd3/page/VvZhC" frameborder="0" style="border:0" allowfullscreen></iframe>
 
+- 출처: [전국 요소수 현황](https://datastudio.google.com/reporting/efadaa5e-156f-493e-81c4-0126718defd3/page/VvZhC)
 
-- 전국 거점 주유소 별 요소수 재고 현황을 실시간 지도에서 확인할 수 있습니다.
 
 <br>
 
-
-## 참고
-
-- 본 지도는 환경부에서 제공하고 있는 '**환경부_요소수 중점 유통 주유소 재고현황 조회서비스**'를 바탕으로 제작되었습니다. 개인 서버로 호스팅하고 있으며 언제든지 서비스가 중단될 수 있는 점 참고하시길 바랍니다.
-- 전국의 중점 유통 주유소의 요소수 재고 현황은 5분 단위로 업데이트됩니다.
-- 요소수 가격은 기본적으로 벌크 요소수 가격이며, 페트 요소수 가격은 표시된 가격과 다를 수 있습니다. 벌크 요소수가 매진 되었을 경우, 페트 요소수 가격으로 업데이트 됩니다.
-- 실제 재고 현황과 일부 차이가 있을 수 있습니다.
+*기존 개인서버로 운영하던 실시간 요소수 지도 서비스를 종료하여, 외부 서비스로 대체하여 게시합니다.
 
 <br>
 
