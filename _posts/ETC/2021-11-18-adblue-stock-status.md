@@ -10,7 +10,7 @@ header:
 > # 요소수 중점 유통 주유소 재고현황 지도
 
 <!-- <iframe class="map" src="https://www.adbluemap.ml" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe> -->
-<iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/efadaa5e-156f-493e-81c4-0126718defd3/page/VvZhC" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe class="map" src="https://datastudio.google.com/embed/reporting/efadaa5e-156f-493e-81c4-0126718defd3/page/VvZhC" width="100%" height="600" frameborder="0" style="border:0" position="relative" overflow="hidden"></iframe>
 
 - 출처: [전국 요소수 현황](https://datastudio.google.com/reporting/efadaa5e-156f-493e-81c4-0126718defd3/page/VvZhC)
 
