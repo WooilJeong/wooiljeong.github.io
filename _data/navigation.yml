@@ -9,6 +9,9 @@ main:
   - title: "Python"
     url: /python/
 
+  - title: "Go"
+    url: /go/
+
   - title: "ML"
     url: /ml/
 
