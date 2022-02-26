@@ -1787,7 +1787,7 @@ df.head(1)
 <br>
 
 **E-mail : wooil@kakao.com**  
-**[(Python) PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)**  
+**[(Python) PublicDataReader Q&A](https://open.kakao.com/o/gbt2Pl2d)**  
   - (Python) PublicDataReader 사용 관련 Q&A를 위한 카카오톡 오픈 채팅방입니다.
 
 <br>
