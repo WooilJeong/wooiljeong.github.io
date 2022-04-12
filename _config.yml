@@ -98,6 +98,7 @@ analytics:
   provider               : "google" # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          : UA-130957592-1
+    measurement_id       : G-G-X26WGRP7X1
     anonymize_ip         : true # true, false (default)
 
 
