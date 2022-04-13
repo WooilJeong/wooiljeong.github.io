@@ -73,5 +73,4 @@ image_list = list(map(lambda x: Image.open(io.BytesIO(x)), bytes_list))
 image_list[0]
 ```
 
-![Untitled](FastAPI%20-%20%2027a0d/Untitled.png)
 ![PNG](/assets/img/post_img/2022-04-13-fastapi-image/img1.png){: .align-center}
