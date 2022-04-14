@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
-
+{% raw %}
 # Folium Vworld 데이터 시각화하기
 
 Vworld 오픈API의 데이터API에서 제공하는 연속지적도 서비스를 이용하여 데이터를 Folium 지도 위에 시각화하는 방법에 대해 알아보자.
@@ -206,3 +206,4 @@ m
 - [2D 데이터API 2.0 레퍼런스](https://www.vworld.kr/dev/v4dv_2ddataguide2_s001.do)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OpenStreetMap](https://www.openstreetmap.org/#map=17/37.38512/127.11419)
+{% endraw %}

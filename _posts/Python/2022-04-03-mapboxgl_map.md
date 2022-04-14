@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
-
+{% raw %}
 # Python으로 서울 아파트 가격 지도에 시각화하기
 
 Mapboxgl을 이용하여 2021년 1월 ~ 2022년 4월 초에 거래된 서울시 아파트의 실거래가를 바탕으로 법정동별 아파트 평균평당가 및 거래량을 3D 지도에 시각화해보자.
@@ -176,3 +176,4 @@ html.close()
 
 - [Mapbox](https://www.mapbox.com/)
 - [mapboxgl-jupyter GitHub](https://github.com/mapbox/mapboxgl-jupyter)
+{% endraw %}
