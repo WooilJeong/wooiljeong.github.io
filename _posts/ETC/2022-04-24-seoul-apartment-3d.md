@@ -13,7 +13,7 @@ header:
 
 <iframe
   src="/assets/html/apartment/서울특별시.html"
-  style="width:100%; height:500px;"
+  style="width:100%; height:800px;"
 ></iframe>
 
 

@@ -13,7 +13,7 @@ header:
 
 <iframe
   src="/assets/html/apartment/충청북도.html"
-  style="width:100%; height:500px;"
+  style="width:100%; height:800px;"
 ></iframe>
 
 
