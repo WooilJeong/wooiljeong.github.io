@@ -26,8 +26,8 @@ header:
 ssh-keygen -t rsa -f [SSH KEY 파일 명] -C [GCP VM LINUX 접속 계정]
 ```
 
-- [SSH KEY 파일 명]: 저장할 SSH KEY 파일 이름. ex. “openssh”
-- [GCP VM LINUX 접속 계정]: GCP Compute Engine VM 접속 계정. ex. “user”
+- `SSH KEY 파일 명`: 저장할 SSH KEY 파일 이름. ex. “openssh”
+- `GCP VM LINUX 접속 계정`: GCP Compute Engine VM 접속 계정. ex. “user”
 
 ```powershell
 # 예시
@@ -74,9 +74,9 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDSUB85PokmC0ZNcHMRNf1TUqfVHU94UWXkwz91uJSO
 ssh -i [OPEN SSH KEY 파일 경로] [VM Linux 계정 명]@[VM 공개 IP]
 ```
 
-- [OPEN SSH KEY 파일 경로]: 위에서 생성한 OPEN SSH KEY 파일의 경로
-- [VM Linux 계정 명]: VM Linux에서 사용하는 계정 이름
-- [VM 공개 IP]: VM의 Public IP 주소
+- `OPEN SSH KEY 파일 경로`: 위에서 생성한 OPEN SSH KEY 파일의 경로
+- `VM Linux 계정 명`: VM Linux에서 사용하는 계정 이름
+- `VM 공개 IP`: VM의 Public IP 주소
 
 ```bash
 ssh -i D:\\openssh user[@34.XX.XX.](mailto:mcwooil2@34.64.114.176)XXX
