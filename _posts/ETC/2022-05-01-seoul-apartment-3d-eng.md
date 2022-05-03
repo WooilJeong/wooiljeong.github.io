@@ -16,8 +16,10 @@ header:
   style="width:100%; height:800px;"
 ></iframe>
 
+This is a visualization based on real transaction price data from the Ministry of Land, Infrastructure and Transport of the Republic of Korea. 'Pyeong', the area standard shown in the data, corresponds to 3.3m2. One unit of transaction price equals approximately 7.89 USD.
+
 *Pyeong 1 = 3.3㎡  
-*Transaction Amount 1 = 7.89$ USD  
+*Transaction Amount 1 = 7.89 USD  
 
 - This is a visualization of the latest real transaction information for each apartment complex in Seoul. Some apartment complexes may not be included. The price is the price per pyeong based on the supply area, the transaction amount is based on the transaction amount, the deposit amount for the jeonse and the monthly rent based on the converted guarantee amount. The color of apartment complexes expressed on the map indicates the price per pyeong, and the height refers to an index based on the ratio of cumulative sales, jeonse, and monthly rental transactions to the number of households per complex.
 - This data was produced based on the actual transaction price data provided by the real transaction price disclosure system of the Ministry of Land, Infrastructure and Transport, but there may be errors in the data analysis process. This material has no legal effect, so please use it for reference only. When publishing this material externally, please indicate the source.
