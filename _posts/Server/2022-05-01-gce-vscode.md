@@ -79,7 +79,7 @@ ssh -i [OPEN SSH KEY 파일 경로] [VM Linux 계정 명]@[VM 공개 IP]
 - `VM 공개 IP`: VM의 Public IP 주소
 
 ```bash
-ssh -i D:\\openssh user[@34.XX.XX.](mailto:mcwooil2@34.64.114.176)XXX
+ssh -i D:\\openssh user@34.XX.XX.XX
 ```
 
 ![PNG](/assets/img/post_img/2022-05-01-gce-vscode/Untitled4.png){: .align-center}
