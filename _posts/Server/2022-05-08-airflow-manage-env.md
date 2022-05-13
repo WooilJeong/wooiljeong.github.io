@@ -37,7 +37,7 @@ AIRFLOW_CONN_SLACK='{
 }'
 ```
 
-docker-compose.yml 파일이 위치한 경로에 .env 파일을 만들어 위와 같이 Airflow에서 사용할 Connections와 Variables 정보를 입력하면 된다. Variables의 경우 AIRFLOW_VAR_<Variable Name>과 같이 정의하면 되고, Connections의 경우 AIRFLOW_CONN_<Connection ID>와 같이 정의하면 된다. 이 때, AIRFLOW_VAR_* 이나 AIRFLOW_CONN_* 모두 대문자로 작성해야한다. DAG에서 이 값들을 참조할 때에는 *부분을 소문자로 바꿔 사용하면 된다. 예를 들어, AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT는 실제 conn_id로 참조하려면 google_cloud_default가 되는 식이다. 단, 이와 같은 방식으로 환경변수를 설정할 경우 Airflow UI에서는 해당 정보가 보이지 않는다고 한다.
+docker-compose.yml 파일이 위치한 경로에 .env 파일을 만들어 위와 같이 Airflow에서 사용할 Connections와 Variables 정보를 입력하면 된다. Variables의 경우 AIRFLOW_VAR_NAME과 같이 정의하면 되고, Connections의 경우 AIRFLOW_CONN_NAME와 같이 정의하면 된다. 이 때, AIRFLOW_VAR_* 이나 AIRFLOW_CONN_* 모두 대문자로 작성해야한다. DAG에서 이 값들을 참조할 때에는 *부분을 소문자로 바꿔 사용하면 된다. 예를 들어, AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT는 실제 conn_id로 참조하려면 google_cloud_default가 되는 식이다. 단, 이와 같은 방식으로 환경변수를 설정할 경우 Airflow UI에서는 해당 정보가 보이지 않는다고 한다.
 
 <br>
 
