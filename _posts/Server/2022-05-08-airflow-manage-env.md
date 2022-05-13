@@ -33,7 +33,7 @@ AIRFLOW_VAR_CHROMEDRIVER_PATH="/opt/airflow/chromedriver/chromedriver"
 AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT='google-cloud-platform://?extra__google_cloud_platform__key_path=/opt/airflow/dags/config/gcp.json&extra__google_cloud_platform__num_retries=5'
 AIRFLOW_CONN_SLACK='{
     "conn_type": "slack_webhook",
-    "password": "xoxb-2866350860544-2845362456132-hDEwEfc0Dgcu759ytjipnjwV"
+    "password": "keys"
 }'
 ```
 
