@@ -20,16 +20,16 @@ header:
 
 <br>
 
-## 1. Windows PowerShell로 ssh, public key 생성
+## 1. Windows 터미널에서 SSH 접속을 위한 public key 생성
 
-```powershell
+```bash
 ssh-keygen -t rsa -f [SSH KEY 파일 명] -C [GCP VM LINUX 접속 계정]
 ```
 
 - `SSH KEY 파일 명`: 저장할 SSH KEY 파일 이름. ex. “openssh”
 - `GCP VM LINUX 접속 계정`: GCP Compute Engine VM 접속 계정. ex. “user”
 
-```powershell
+```bash
 # 예시
 ssh-keygen -t rsa -f openssh -C user
 ```
@@ -95,6 +95,16 @@ ssh -i D:\\openssh user@34.XX.XX.XX
 - 아래와 같이 새 VS Code 창이 뜨는데, Linux 항목을 누르면 원격 접속이 완료된다.
 
 ![PNG](/assets/img/post_img/2022-05-01-gce-vscode/Untitled7.png){: .align-center}
+
+<br>
+
+## 이슈
+
+최근 GCP VM의 공개IP를 고정IP로 변경하여 새로 openssh 키를 설정하였는데 HOST IDENTIFICATION HAS CHANGED 오류가 발생했다. [SSH 접속시 RSA 공유키 충돌 문제 해결](https://cpuu.postype.com/post/30065)에 소개된 방법을 적용하였더니 문제가 해결되었다. 결과적으로 openssh 키 생성 전 다음을 한 번 실행해주니 해결되었다.
+
+```bash
+ssh-keygen -R [ IP or DomainName]
+```
 
 <br>
 
