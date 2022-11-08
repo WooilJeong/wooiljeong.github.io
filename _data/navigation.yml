@@ -1,0 +1,87 @@
+main:
+
+  - title: "아카이브"
+    url: /year-archive/
+  - title: "태그"
+    url: /tags/
+
+
+side:
+
+  - title: "프로그래밍"
+    children:
+    - title: "Python"
+      url: /python/
+      category: python
+    - title: "Golang"
+      url: /go/
+      category: go
+
+  - title: "클라우드"
+    children:
+    - title: "GCP"
+      url: /gcp/
+      category: gcp
+    - title: "AWS"
+      url: /aws/
+      category: aws
+
+  - title: "컨테이너"
+    children:
+    - title: "Docker"
+      url: /docker/
+      category: docker
+    - title: "Kubernetes"
+      url: /kubernetes/
+      category: kubernetes
+    - title: "Jenkins"
+      url: /jenkins/
+      category: jenkins
+    - title: "Prometheus"
+      url: /prometheus/
+      category: /prometheus/
+    - title: "Grafana"
+      url: /grafana/
+      category: /grafana/    
+
+  - title: "백엔드"
+    children:
+    - title: "FastAPI"
+      url: /fastapi/
+      category: fastapi
+    - title: "Airflow"
+      url: /airflow/
+      category: airflow
+    - title: "Server"
+      url: /server/
+      category: server
+    - title: "SQL"
+      url: /sql/
+      category: sql
+
+  - title: "데이터과학"
+    children:
+    - title: "PyTorch"
+      url: /pytorch/
+      category: pytorch
+    - title: "Tensorflow"
+      url: /tensorflow/
+      category: tensorflow
+    - title: "머신러닝"
+      url: /ml/
+      category: ml
+
+  - title: "금융"
+    children:
+    - title: "퀀트"
+      url: /quant/
+      category: quant
+
+  - title: "미분류"
+    children:
+    - title: "리뷰"
+      url: /review/
+      category: review
+    - title: "기타"
+      url: /etc/
+      category: etc
