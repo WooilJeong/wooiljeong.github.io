@@ -113,7 +113,7 @@ Windows 10에서 아래 버전의 Chrome을 사용하고 있으므로 그에 맞
 
 - 버전 107.0.5304.107(공식 빌드) (64비트)
 
-```bash
+```python
 import io
 import folium
 from PIL import Image
