@@ -17,6 +17,10 @@ leaflet.js 기반으로 지도를 시각화해주는 파이썬 라이브러리�
 ![PNG](/assets/img/post_img/2022-11-12-review-folium/0.png){: .align-center}
 
 
+최근 배포된 [folium v0.14.0 릴리즈 노트](https://github.com/python-visualization/folium/releases/tag/v0.14.0)의 Minor improvements에 나도 언급이 되었다. 약간의 도움이라도 되었다니 다행이다.
+
+![PNG](/assets/img/post_img/2022-11-12-review-folium/v0.14.0.png){: .align-center}
+
 <br>
 
 ## 지도를 이미지로 저장하고 싶은데 잘 안 된다
@@ -94,8 +98,6 @@ img = Image.open(io.BytesIO(img_data))
 <br>
 
 ## (피드백2) 드라이버 객체를 입력받도록 변경했어
-
-코드 부담은 줄이고 모든 브라우저를 사용할 수 있게 바꿨어
 
 얼마간 시간이 지난뒤 다시 리뷰어에게 피드백을 받았다. 아예 `driver` 항목 하나만 추가하여, 이 값이 None이면 기존 로직대로 firefox 브라우저 기반의 웹드라이버를 구동시키도록 수정하였다. firefox가 아닌 다른 브라우저 기반의 웹드라이버를 사용하기 위해서는 `driver` 항목에 메서드 밖에서 생성한 웹드라이버 객체 자체를 입력받도록 변경한 것이다. 이렇게 하면 사용자가 자신이 사용하는 브라우저에 맞는 selenium 웹드라이버 객체를 만들고 해당 객체만 넘겨주기만 하면 된다. 결과적으로 생각하면 정말 간단하지만 처음부터 이런 접근을 하지 못했던 것이 오히려 놀라웠다. 코드의 부담은 줄이고 selenium이 지원하는 모든 브라우저를 사용할 수 있게 되었다.
 
