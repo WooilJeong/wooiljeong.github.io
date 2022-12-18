@@ -105,10 +105,10 @@ img = Image.open(io.BytesIO(img_data))
 
 ## 테스트를 해보자
 
-현재 변경된 소스코드는 folium의 main 브랜치에 merge되었지만, 정식 버전이 배포되진 않은 상태이므로 GitHub 저장소에 공개된 개발 버전의 folium을 설치했다.
+현재 변경된 소스코드는 folium v0.14.0 버전에 반영되었으므로, 이전 버전을 사용하고 있을 경우 아래와 같이 업그레이드를 한다.
 
 ```bash
-pip install git+https://github.com/python-visualization/folium.git
+pip install folium --upgrade
 ```
 
 Windows 10에서 아래 버전의 Chrome을 사용하고 있으므로 그에 맞는 웹드라이버를 `C:/chromedriver/chromedriver.exe` 와 같이 다운로드 받았다.
