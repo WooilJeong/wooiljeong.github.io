@@ -1,5 +1,5 @@
 ---
-title: Python으로 주민등록인구 데이터 조회하기
+title: PublicDataReader - 주민등록인구 데이터 조회하기
 categories: python
 tags: PublicDataReader
 header:
@@ -7,9 +7,23 @@ header:
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-## Python으로 주민등록인구 데이터 조회하기
+## 파이썬으로 주민등록인구 데이터 조회하기
 
 Python 라이브러리 PublicDataReader를 이용하면 최신 지역별 주민등록인구 데이터를 쉽게 가져올 수 있다. 해당 데이터는 국가통계포털(KOSIS) 웹 사이트에 접속해 직접 조회할 수도 있지만, KOSIS 공유서비스 Open API를 이용해서도 조회할 수 있다. PublicDataReader는 KOSIS 공유서비스 Open API의 데이터 조회 기능을 포함하고 있어, 이를 활용하면 원하는 데이터를 쉽게 찾고 조회할 수 있다. KOSIS 공유서비스 Open API 신청 방법과 PublicDataReader에서 제공하는 KOSIS 공유서비스 Open API의 모든 기능을 살펴보려면 [Python으로 KOSIS 데이터 조회하기](https://wooiljeong.github.io/python/pdr-kosis/)를 참고하면 된다. 여기서는 주민등록인구 데이터를 조회하는 방법을 다루기로 한다.
+
+<br>
+
+## 설치하기
+
+- 운영체제(OS)에 따라 아래 중 하나를 선택한다.
+    - Windows: CMD(명령 프롬프트) 실행
+    - Mac: Terminal(터미널) 실행
+
+아래 Shell 명령어를 입력 후 실행한다.
+
+```bash
+pip install PublicDataReader --upgrade
+```
 
 <br>
 
@@ -1260,6 +1274,7 @@ pv
 ## 참고
 
 - [Python으로 KOSIS 데이터 조회하기](https://wooiljeong.github.io/python/pdr-kosis/)
-- [PublicDataReader GitHub 저장소](https://github.com/WooilJeong/PublicDataReader)
 - [KOSIS 국가통계포털 Open API 가이드](https://kosis.kr/serviceInfo/openAPIGuide.do)
 - [KOSIS 공유서비스](https://kosis.kr/openapi/index/index.jsp)
+- [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
+- [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
