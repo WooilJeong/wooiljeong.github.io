@@ -54,6 +54,9 @@ PyKakao 라이브러리로 카카오 API를 사용하기 위해서는 [Kakao Dev
 4. 팝업 창에서 **활성화** 버튼 클릭
 5. 카카오 로그인 화면 하단의 **Redirect URI 등록** 버튼 클릭
 6. 팝업 창에서 **Redirect URI** 항목에 로컬 주소인 'https://localhost:5000' 입력 후 **저장** 버튼 클릭
+7. 내비게이션 메뉴에서 **카카오 로그인** 하위의 **동의항목**을 클릭
+8. 페이지 하단의 접근권한 이동 후 카카오톡 메시지 전송의 설정 클릭
+9. 동의 단계를 이용 중 동의로 선택하고 동의 목적 작성 후 저장 버튼 클릭
 
 <br>
 
@@ -80,7 +83,7 @@ api = Message(service_key = "REST API 키")
 카카오 메시지 API를 이용하려면 액세스 토큰이 필요합니다. 액세스 토큰을 생성하려면 인증코드가 필요합니다. 아래와 같이 `api.get_url_for_generating_code` 메서드를 실행하여 얻은 카카오 인증코드 발급 URL을 출력합니다. 웹 브라우저를 이용해 출력된 URL에 접속합니다.
 
 ```python
-auth_url = api.get_url_for_generatiing_code()
+auth_url = api.get_url_for_generating_code()
 print(auth_url)
 ```
 
