@@ -9,6 +9,8 @@ header:
 
 ## 파이썬으로 미분양주택현황 데이터 조회하기
 
+![PNG](https://github.com/WooilJeong/PublicDataReader/blob/main/assets/img/logo.png?raw=true)
+
 Python 라이브러리 PublicDataReader를 이용하면 최신 지역별 주민등록인구 데이터를 쉽게 가져올 수 있다. 해당 데이터는 국가통계포털(KOSIS) 웹 사이트에 접속해 직접 조회할 수도 있지만, KOSIS 공유서비스 Open API를 이용해서도 조회할 수 있다. PublicDataReader는 KOSIS 공유서비스 Open API의 데이터 조회 기능을 포함하고 있어, 이를 활용하면 원하는 데이터를 쉽게 찾고 조회할 수 있다. KOSIS 공유서비스 Open API 신청 방법과 PublicDataReader에서 제공하는 KOSIS 공유서비스 Open API의 모든 기능을 살펴보려면 [Python으로 KOSIS 데이터 조회하기](https://wooiljeong.github.io/python/pdr-kosis/)를 참고하면 된다. 여기서는 '미분양주택현황(시도/시/군/구)' 데이터를 조회하는 방법을 다루기로 한다.
 
 <br>

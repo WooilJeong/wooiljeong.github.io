@@ -11,7 +11,7 @@ header:
 
 <br>
 
-![PNG](/assets/img/post_img/2019-12-04-public_data_reader_01/img_logo.png){: .align-center}
+![PNG](https://github.com/WooilJeong/PublicDataReader/blob/main/assets/img/logo.png?raw=true)
 
 <br>
 
