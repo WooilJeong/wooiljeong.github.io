@@ -11,7 +11,7 @@ header:
 
 ![PNG](https://github.com/WooilJeong/PublicDataReader/blob/main/assets/img/logo.png?raw=true)
 
-파이썬 [**PublicDataReader**](https://github.com/WooilJeong/PublicDataReader) 라이브러리릉 이용하면 [KB부동산 데이터허브](https://data.kbland.kr/)에서 제공하는 **주택가격동향조사** 데이터를 쉽게 조회할 수 있습니다. 인증키 발급 과정이 필요한 Open API와 달리 별도의 API 인증키가 필요하지 않습니다.
+파이썬 [**PublicDataReader**](https://github.com/WooilJeong/PublicDataReader) 라이브러리를 이용하면 [KB부동산 데이터허브](https://data.kbland.kr/)에서 제공하는 **주택가격동향조사** 데이터를 쉽게 조회할 수 있습니다. 인증키 발급 과정이 필요한 Open API와 달리 별도의 API 인증키가 필요하지 않습니다.
 
 <br>
 
