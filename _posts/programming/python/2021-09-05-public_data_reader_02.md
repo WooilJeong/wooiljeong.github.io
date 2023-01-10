@@ -13,29 +13,25 @@ header:
 
 ![PNG](https://github.com/WooilJeong/PublicDataReader/blob/main/assets/img/logo.png?raw=true)
 
+파이썬 [PublicDataReader](https://github.com/WooilJeong/PublicDataReader) 라이브러리를 이용하면 **공공데이터포털**에서 제공하는 **소상공인진흥공단 상가업소** 데이터를 쉽게 조회할 수 있습니다. 
+
 <br>
 
-### 참고 
-- **[GitHub](https://github.com/WooilJeong/PublicDataReader)**  
+## PublicDataReader
 
-- **사용설명서**  
-  - [(블로그) 부동산 실거래가 조회하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-  - [(블로그) 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
-  - [(블로그) 상가업소 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리는 공공데이터포털과 국가통계포털(KOSIS)과 같이 Open API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있도록 도와줍니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리해줍니다. 또한, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화해줍니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
 
-- **실습**  
-  - [Colab에서 PublicDataReader 실행하기](https://colab.research.google.com/drive/1fgT0D_tP-JyglobtDFfYQ6wQXfWWujIV?usp=sharing)  
-
-- **문의**  
-  - **이메일**: wooil@kakao.com  
-  - **카카오톡 오픈채팅방**: [(Python) PublicDataReader Q&A](https://open.kakao.com/o/gbt2Pl2d)  
-
+- [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
+- [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
 
 <br>
 
 ### 소상공인 상가업소 정보 조회 서비스
 
-- [소상공인 상가업소 정보](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012005)
+PublicDataReader를 통해 공공데이터포털에서 제공하는 Open API 서비스를 정상적으로 이용하려면 아래 서비스 신청 페이지 링크에 접속 후 서비스 이용 신청을 해야 합니다. 서비스 신청을 완료하면 Open API를 사용할 수 있는 서비스 키가 발급됩니다. 서비스 제공 기관에 따라 서비스 키 발급 후 약 1~2일이 지난 후 접근 권한이 부여될 수 있습니다. 충분한 시간이 지난 후에도 접근 권한이 부여되지 않는다면 서비스 제공처에 문의하는 것을 권장합니다.
+
+- [소상공인 상가업소 정보 조회 서비스 신청 페이지](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15012005)
+
 
 | **서비스명**               | **카테고리명** |
 | -------------------------- | -------------- |
@@ -59,53 +55,42 @@ header:
 
 <br>
 
-## Python 라이브러리 PublicDataReader 설치하기
 
-터미널에서 `pip`로 다음과 같이 `PublicDataReader`의 최신버전을 설치합니다.
+## PublicDataReader 설치하기
+
+1. 운영체제(OS)에 따라 아래 중 하나를 선택합니다.
+
+- Windows: CMD(명령 프롬프트) 실행
+- Mac: Terminal(터미널) 실행
+
+2. 아래 Shell 명령어를 입력 후 실행합니다.
 
 ```bash
-pip install --upgrade PublicDataReader
+pip install PublicDataReader --upgrade
 ```
 
 <br>
 
 
-## 설치한 라이브러리를 임포트하고 관련 정보 확인하기
+## 오픈 API 서비스 키 입력하기
+
+**공공데이터포털**에서 발급받은 **서비스 키**를 복사하여 다음과 같이 `serviceKey` 변수에 할당합니다. 오픈 API 서비스 키 발급 방법에 대해 궁금하신 분들은 구글에 '**공공데이터포털 오픈 API 사용법**'을 검색하시면 여러 문서들을 참조할 수 있습니다.
 
 ```python
-# 1. 라이브러리 임포트하기
-import PublicDataReader as pdr
-print(pdr.__version__)
-
-```
-
-    1.0.0
-   
-<br>
-
-## OpenAPI 서비스 키 입력하기
-
-공공 데이터 포털에서 발급받은 서비스 키를 복사하여 다음과 같이 `serviceKey`에 문자열로 할당해줍니다. OpenAPI 서비스 키 발급 방법에 대해 궁금하신 분들은 구글에 '**공공 데이터 포털 Open API 사용법**'을 검색하시면 여러 문서들을 참조하실 수 있습니다. 검색 후 가장 상단에 있는 [이 블로그](https://jeong-pro.tistory.com/143)를 참조하셔도 됩니다.
-
-
-<br>
-
-```python
-# 2. 공공 데이터 포털 OpenAPI 서비스 인증키 입력하기
-serviceKey = "공공 데이터 포털에서 발급받은 서비스 키"
+serviceKey = "공공데이터포털에서 발급받은 서비스 키"
 ```
 
 <br>
 
 ## 데이터 조회 세션 만들기
 
-다음과 같이 발급받은 `serviceKey` 값을 이용해 부동산 실거래가 데이터를 조회할 `si` 세션을 만들어줍니다. `debug`의 값을 `True`로 입력하면 아래와 같은 메시지를 확인할 수 있습니다. 메시지 출력을 원치 않는 경우 `False`를 입력하면 됩니다. 본 라이브러리를 정상적으로 이용하기 위해서는 소상공인 상가업소 정보 조회 서비스에 대한 OpenAPI 활용신청을 반드시 완료해야합니다.
+다음과 같이 발급받은 `serviceKey` 값을 이용해 부동산 실거래가 데이터를 조회할 `si` 세션을 만들어줍니다. 본 라이브러리를 정상적으로 이용하기 위해서는 소상공인 상가업소 정보 조회 서비스에 대한 OpenAPI 활용신청을 반드시 완료해야합니다.
 
 
 ```python
-# 3. 소상공인 상가업소 정보 조회 OpenAPI 인스턴스 생성하기
-# debug: True이면 모든 메시지 출력, False이면 오류 메시지만 출력 (기본값: False)
-si = pdr.StoreInfo(serviceKey, debug=True)
+# 소상공인 상가업소 정보 조회 OpenAPI 인스턴스 생성하기
+from PublicDataReader import StoreInfo
+si = StoreInfo(serviceKey)
 ```
 
 <br>
