@@ -13,134 +13,102 @@ header:
 
 ![PNG](https://github.com/WooilJeong/PublicDataReader/blob/main/assets/img/logo.png?raw=true)
 
+
+파이썬 [PublicDataReader](https://github.com/WooilJeong/PublicDataReader) 라이브러리를 이용하면 **공공데이터포털**에서 제공하는 **국토교통부 부동산 실거래가** 데이터를 쉽게 조회할 수 있습니다. 
+
 <br>
 
-### 참고 
-- **[GitHub](https://github.com/WooilJeong/PublicDataReader)**  
+## PublicDataReader
 
-- **사용설명서**  
-  - [(블로그) 부동산 실거래가 조회하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-  - [(블로그) 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
-  - [(블로그) 상가업소 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
+PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리는 공공데이터포털과 국가통계포털(KOSIS)과 같이 Open API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있도록 도와줍니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리해줍니다. 또한, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화해줍니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
 
-- **실습**  
-  - [Colab에서 PublicDataReader 실행하기](https://colab.research.google.com/drive/1fgT0D_tP-JyglobtDFfYQ6wQXfWWujIV?usp=sharing)  
-
-- **문의**  
-  - **이메일**: wooil@kakao.com  
-  - **카카오톡 오픈채팅방**: [(Python) PublicDataReader Q&A](https://open.kakao.com/o/gbt2Pl2d)  
+- [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
+- [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
 
 <br>
 
 ## 국토교통부 실거래가 정보 조회 서비스
 
-- [국토교통부_아파트매매 실거래 상세 자료](https://www.data.go.kr/data/15057511/openapi.do)  
-- [국토교통부_아파트 전월세 자료](https://www.data.go.kr/data/15058017/openapi.do)
-- [국토교통부_아파트 분양권전매 신고 자료](https://www.data.go.kr/data/15056782/openapi.do)
-- [국토교통부_오피스텔 매매 신고 조회 서비스](https://www.data.go.kr/data/15058452/openapi.do)
-- [국토교통부_오피스텔 전월세 신고 조회 서비스](https://www.data.go.kr/data/15059249/openapi.do)
-- [국토교통부_연립다세대 매매 실거래자료](https://www.data.go.kr/data/15058038/openapi.do)
-- [국토교통부_연립다세대 전월세 자료](https://www.data.go.kr/data/15058016/openapi.do)
-- [국토교통부_단독/다가구 매매 실거래 자료](https://www.data.go.kr/data/15058022/openapi.do)
-- [국토교통부_단독/다가구 전월세 자료](https://www.data.go.kr/data/15058352/openapi.do)
-- [국토교통부_토지 매매 신고 조회 서비스](https://www.data.go.kr/data/15056649/openapi.do)
-- [국토교통부_상업업무용 부동산 매매 신고 자료](https://www.data.go.kr/data/15057267/openapi.do)
-- [국토교통부_공장 및 창고 등 부동산 매매 신고 자료 조회 서비스](https://www.data.go.kr/data/15100574/openapi.do)
+PublicDataReader를 통해 공공데이터포털에서 제공하는 Open API 서비스를 정상적으로 이용하려면 아래 표에서 사용할 서비스명 링크에 접속 후 서비스 이용 신청을 해야 합니다. 서비스 신청을 완료하면 Open API를 사용할 수 있는 서비스 키가 발급됩니다. 서비스 제공 기관에 따라 서비스 키 발급 후 약 1~2일이 지난 후 접근 권한이 부여될 수 있습니다. 충분한 시간이 지난 후에도 접근 권한이 부여되지 않는다면 서비스 제공처에 문의하는 것을 권장합니다.
 
+<div align="center">
 
-| **서비스명**                          | **상품유형** | **거래유형** |
+| **서비스명**                          | **부동산 유형** | **거래 유형** |
 | ------------------------------------- | ------------ | ------------ |
-| 아파트매매 실거래 상세 자료 조회      | 아파트       | 매매         |
-| 아파트 전월세 자료 조회               | 아파트       | 전월세       |
-| 아파트 분양권전매 신고 자료 조회      | 분양입주권   | 매매         |
-| 오피스텔 매매 신고 조회               | 오피스텔     | 매매         |
-| 오피스텔 전월세 신고 조회             | 오피스텔     | 전월세       |
-| 연립다세대 매매 실거래자료 조회       | 연립다세대   | 매매         |
-| 연립다세대 전월세 실거래자료 조회     | 연립다세대   | 전월세       |
-| 단독/다가구 매매 실거래 조회          | 단독다가구   | 매매         |
-| 단독/다가구 전월세 자료 조회          | 단독다가구   | 전월세       |
-| 토지 매매 신고 조회                   | 토지         | 매매         |
-| 상업업무용 부동산 매매 신고 자료 조회 | 상업업무용   | 매매         |
-| 공장 및 창고 등 부동산 매매 신고 자료 조회 | 공장창고등   | 매매         |
+| [아파트매매 실거래 상세 자료 조회](https://www.data.go.kr/data/15057511/openapi.do)      | 아파트       | 매매         |
+| [아파트 전월세 자료 조회](https://www.data.go.kr/data/15058017/openapi.do)               | 아파트       | 전월세       |
+| [아파트 분양권전매 신고 자료 조회](https://www.data.go.kr/data/15056782/openapi.do)      | 분양입주권   | 매매         |
+| [오피스텔 매매 신고 조회](https://www.data.go.kr/data/15058452/openapi.do)               | 오피스텔     | 매매         |
+| [오피스텔 전월세 신고 조회](https://www.data.go.kr/data/15059249/openapi.do)             | 오피스텔     | 전월세       |
+| [연립다세대 매매 실거래자료 조회](https://www.data.go.kr/data/15058038/openapi.do)       | 연립다세대   | 매매         |
+| [연립다세대 전월세 실거래자료 조회](https://www.data.go.kr/data/15058016/openapi.do)     | 연립다세대   | 전월세       |
+| [단독/다가구 매매 실거래 조회](https://www.data.go.kr/data/15058022/openapi.do)          | 단독다가구   | 매매         |
+| [단독/다가구 전월세 자료 조회](https://www.data.go.kr/data/15058352/openapi.do)          | 단독다가구   | 전월세       |
+| [토지 매매 신고 조회](https://www.data.go.kr/data/15056649/openapi.do)                   | 토지         | 매매         |
+| [상업업무용 부동산 매매 신고 자료 조회](https://www.data.go.kr/data/15057267/openapi.do) | 상업업무용   | 매매         |
+| [공장 및 창고 등 부동산 매매 신고 자료 조회](https://www.data.go.kr/data/15100574/openapi.do) | 공장창고등   | 매매         |
+
+</div>
 
 <br>
 
-## Python 라이브러리 PublicDataReader 설치하기
+## PublicDataReader 설치하기
 
-터미널에서 `pip`로 다음과 같이 `PublicDataReader`의 최신버전을 설치합니다.
+1. 운영체제(OS)에 따라 아래 중 하나를 선택합니다.
+
+- Windows: CMD(명령 프롬프트) 실행
+- Mac: Terminal(터미널) 실행
+
+2. 아래 Shell 명령어를 입력 후 실행합니다.
 
 ```bash
-pip install --upgrade PublicDataReader
+pip install PublicDataReader --upgrade
+```
+<br>
+
+## 오픈 API 서비스 키 입력하기
+
+**공공데이터포털**에서 발급받은 **서비스 키**를 복사하여 다음과 같이 `service_key` 변수에 할당합니다. 오픈 API 서비스 키 발급 방법에 대해 궁금하신 분들은 구글에 '**공공데이터포털 오픈 API 사용법**'을 검색하시면 여러 문서들을 참조할 수 있습니다.
+
+```python
+service_key = "공공데이터포털에서 발급받은 서비스 키"
 ```
 
 <br>
 
+## 국토교통부 실거래가 조회 API 인스턴스 정의하기
 
-## 설치한 라이브러리를 임포트하고 관련 정보 확인하기
+PublicDataReader 라이브러리에서 `TransactionPrice`라는 클래스를 가져와 `api` 라는 실거래가 조회 API 인스턴스를 생성합니다. 이 때, `service_key` 값을 인자로 입력합니다.
 
 ```python
-# 1. 라이브러리 임포트하기
+from PublicDataReader import TransactionPrice
+api = TransactionPrice(service_key)
+```
+
+<br>
+
+## 시군구코드 조회하기
+
+부동산 실거래가를 조회하려면 조회할 부동산이 속해 있는 시군구 정보를 알아야 합니다. 예를 들어, 경기도 성남시 분당구에 있는 아파트 매매 실거래가를 조회한다고 가정하면, 분당구에 해당하는 시군구코드 정보를 알아야 합니다. 아래 코드는 PublicDataReader 라이브러리를 사용하여 분당구와 일치하는 행을 찾는 작업을 수행합니다. 
+
+1. 먼저 PublicDataReader 라이브러리를 가져와 pdr라는 별칭으로 사용 할 수 있도록 합니다.
+2. '분당구'라는 이름을 가진 변수 sigungu_name을 선언합니다.
+3. pdr.code_bdong()를 실행 하면 관련된 정보를 데이터프레임 형식으로 가져옵니다.
+4. code라는 변수에 데이터프레임을 저장 합니다.
+5. loc를 사용하여 특정 조건에 해당하는 행만 선택합니다.
+- a. (code['시군구명'].str.contains(sigungu_name, na=False)) : '시군구명'열에서 "분당구"라는 문자열을 포함하는 행을 선택합니다.
+- b. (code['읍면동명'].isna()) : '읍면동명'열이 NaN값인 행만 선택합니다.
+6. 결과로 위에서 선택한 조건을 만족하는 행만 표시됩니다.
+
+조회 결과를 살펴보면 분당구에 해당하는 시군구코드는 41135라는 것을 알 수 있습니다.
+
+```python
 import PublicDataReader as pdr
-print(pdr.__version__)
-```
-
-    1.0.0
-   
-<br>
-
-## OpenAPI 서비스 키 입력하기
-
-공공 데이터 포털에서 발급받은 서비스 키를 복사하여 다음과 같이 `serviceKey`에 문자열로 할당해줍니다. OpenAPI 서비스 키 발급 방법에 대해 궁금하신 분들은 구글에 '**공공 데이터 포털 Open API 사용법**'을 검색하시면 여러 문서들을 참조하실 수 있습니다. 검색 후 가장 상단에 있는 [이 블로그](https://jeong-pro.tistory.com/143)를 참조하셔도 됩니다.
-
-
-<br>
-
-```python
-# 2. 공공 데이터 포털 OpenAPI 서비스 인증키 입력하기
-serviceKey = "공공 데이터 포털에서 발급받은 서비스 키"
-```
-
-<br>
-
-## 데이터 조회 세션 만들기
-
-다음과 같이 발급받은 `serviceKey` 값을 이용해 부동산 실거래가 데이터를 조회할 `ts` 세션을 만들어줍니다. `debug`의 값을 `True`로 입력하면 아래와 같은 메시지를 확인할 수 있습니다. 메시지 출력을 원치 않는 경우 `False`를 입력하면 됩니다. 본 라이브러리를 정상적으로 이용하기 위해서는 국토교통부 실거래가 정보 조회 서비스에 대한 OpenAPI 활용신청을 반드시 완료해야합니다.
-
-
-```python
-# 3. 국토교통부 실거래가 정보 조회 OpenAPI 세션 정의하기
-# debug: True이면 모든 메시지 출력, False이면 오류 메시지만 출력 (기본값: False)
-ts = pdr.Transaction(serviceKey, debug=True)
-```
-
-    [INFO] 아파트 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 아파트 전월세 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 오피스텔 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 오피스텔 전월세 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 단독다가구 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 단독다가구 전월세 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 연립다세대 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 연립다세대 전월세 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 상업업무용 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 토지 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    [INFO] 분양입주권 매매 조회 서비스 정상 - (00) NORMAL SERVICE.
-    
-
-<br>
-
-## 지역코드 검색하기
-
-아래와 같이 `PublicDataReader`의 `code_bdong()` 메서드를 호출하면 전국의 지역코드를 `DataFrame` 형태로 확인할 수 있습니다.
-
-```python
-# 4. 지역코드(시군구코드) 검색하기
-sigunguName = "분당구"                                  # 시군구코드: 41135
+sigungu_name = "분당구"
 code = pdr.code_bdong()
-code.loc[(code['시군구명'].str.contains(sigunguName, na=False)) &
+code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
          (code['읍면동명'].isna())]
 ```
-
-
 
 
 <div>
@@ -174,7 +142,7 @@ code.loc[(code['시군구명'].str.contains(sigunguName, na=False)) &
   </thead>
   <tbody>
     <tr>
-      <th>5133</th>
+      <th>5152</th>
       <td>41</td>
       <td>경기도</td>
       <td>41135</td>
@@ -189,23 +157,22 @@ code.loc[(code['시군구명'].str.contains(sigunguName, na=False)) &
 </table>
 </div>
 
+<br>
 
 ## 부동산 실거래가 조회하기
 
-`prod`에 부동산 상품 종류를, `trans`에 부동산 거래 유형을 각각 입력하고, `sigunguCode`와 `yearMonth`에 지역코드와 년월 정보를 입력합니다. 이후 위에서 정의한 데이터 조회 세션인 `ts`의 `read_data` 메서드를 호출하여 실거래가를 `DataFrame` 형태로 조회합니다.
+'아파트매매 실거래 상세 자료 조회' 서비스 신청을 완료했다고 가정하고, 아파트 매매 실거래가를 조회합니다. api.get_data 메서드를 호출하여 데이터를 조회할 수 있습니다. 메서드의 인자들 중 property_type은 부동산 유형을 의미합니다. 여기에 '아파트'라고 입력합니다. trade_type은 거래 유형을 의미합니다. 여기에 '매매'라고 입력합니다. sigungu_code는 시군구코드를 의미합니다. 여기에 '41135'를 입력합니다. year_month는 조회년월을 의미합니다. 여기에 2022년 12월을 뜻하는 '202212'를 입력합니다. 메서드 호출 결과를 df 변수에 할당합니다.
 
 ```python
-# 5. 지역, 월 별 데이터 프레임 만들기
-prod="아파트"                                           # 부동산 상품 종류 (ex. 아파트, 오피스텔, 단독다가구 등)
-trans="매매"                                            # 부동산 거래 유형 (ex. 매매, 전월세)
-sigunguCode="41135"
-yearMonth="202101"
-
-df = ts.read_data(prod, trans, sigunguCode, yearMonth)
-df.head()
+# 특정 년월 자료만 조회하기
+df = api.get_data(
+    property_type="아파트",
+    trade_type="매매",
+    sigungu_code="41135",
+    year_month="202212",
+    )
+df.tail()
 ```
-
-
 
 
 <div>
@@ -236,14 +203,7 @@ df.head()
       <th>전용면적</th>
       <th>년</th>
       <th>월</th>
-      <th>일</th>
-      <th>거래금액</th>
-      <th>도로명건물본번호코드</th>
-      <th>도로명건물부번호코드</th>
-      <th>도로명시군구코드</th>
-      <th>도로명일련번호코드</th>
-      <th>도로명지상지하코드</th>
-      <th>도로명코드</th>
+      <th>...</th>
       <th>법정동본번코드</th>
       <th>법정동부번코드</th>
       <th>법정동시군구코드</th>
@@ -258,198 +218,146 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>33</th>
       <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>38</td>
-      <td>샛별마을(우방)</td>
-      <td>1994</td>
-      <td>8</td>
-      <td>84.99</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>7</td>
-      <td>135,000</td>
-      <td>00181</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0038</td>
+      <td>미금로22번길</td>
+      <td>구미동</td>
+      <td>212</td>
+      <td>무지개(12단지)(주공뜨란체)</td>
+      <td>1995</td>
+      <td>9</td>
+      <td>49.360</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0212</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11400</td>
       <td>1</td>
-      <td>41135-21</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-187</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>34</th>
       <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>38</td>
-      <td>샛별마을(우방)</td>
-      <td>1994</td>
-      <td>4</td>
-      <td>84.99</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>8</td>
-      <td>132,500</td>
-      <td>00181</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0038</td>
+      <td>산운로</td>
+      <td>운중동</td>
+      <td>956</td>
+      <td>산운마을8단지(부영사랑으로)</td>
+      <td>2008</td>
+      <td>11</td>
+      <td>59.612</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0956</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-21</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-434</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구, 경기 용인기흥구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>35</th>
       <td>41135</td>
-      <td>장안로41번길</td>
-      <td>분당동</td>
-      <td>66</td>
-      <td>장안타운(건영)</td>
-      <td>1993</td>
+      <td>판교원로82번길</td>
+      <td>운중동</td>
+      <td>918</td>
+      <td>산운마을13단지(태영)</td>
+      <td>2010</td>
       <td>17</td>
-      <td>162.85</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>8</td>
-      <td>129,000</td>
-      <td>00013</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>4340380</td>
-      <td>0066</td>
+      <td>84.720</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0918</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-32</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-477</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>36</th>
       <td>41135</td>
-      <td>분당로</td>
-      <td>분당동</td>
-      <td>34</td>
-      <td>샛별마을(라이프)</td>
-      <td>1992</td>
-      <td>6</td>
-      <td>126.415</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>22</td>
-      <td>153,000</td>
-      <td>00190</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180026</td>
-      <td>0034</td>
+      <td>판교원로</td>
+      <td>운중동</td>
+      <td>922</td>
+      <td>산운마을11단지(판교포레라움)</td>
+      <td>2009</td>
+      <td>5</td>
+      <td>59.900</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0922</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-19</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-466</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>22.12.20</td>
+      <td>O</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>37</th>
       <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>39</td>
-      <td>샛별마을(삼부)</td>
-      <td>1992</td>
-      <td>6</td>
-      <td>69.96</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>23</td>
-      <td>107,000</td>
-      <td>00201</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0039</td>
+      <td>판교원로</td>
+      <td>운중동</td>
+      <td>922</td>
+      <td>산운마을11단지(판교포레라움)</td>
+      <td>2009</td>
+      <td>5</td>
+      <td>59.900</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0922</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-20</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-466</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 28 columns</p>
 </div>
-
 
 <br>
 
-## 특정 기간 동안의 실거래가를 조회하기
 
-`prod`에 부동산 상품 종류를, `trans`에 부동산 거래 유형을 각각 입력하고, `sigunguCode`에 지역코드를 입력합니다. 이어서 `startYearMonth`와 `endYearMonth`에 조회 시작년월 및 조회 종료년월을 입력합니다. 이후 위에서 정의한 데이터 조회 세션인 `ts`의 `collect_data` 메서드를 호출하여 특정 기간 동안의 실거래가를 `DataFrame` 형태로 조회합니다.
+특정 조회년월이 아니라 특정 기간에 해당하는 데이터를 조회하려면 year_month 인자 대신 start_year_month와 end_year_month 인자를 이용하면 됩니다. 예를 들어, start_year_month에 '202212'를 입력하고, end_year_month에 '202301'을 입력한 후에 메서드를 실행하면 2022년 12월 부터 2023년 1월 까지 모든 실거래가 데이터를 조회합니다.
 
 ```python
-# 6. 지역, 기간 별 데이터 프레임 만들기
-prod="아파트"                                           # 부동산 상품 종류 (ex. 아파트, 오피스텔, 단독다가구 등)
-trans="매매"                                            # 부동산 거래 유형 (ex. 매매, 전월세)
-sigunguCode="41135"
-startYearMonth="202101"
-endYearMonth="202111"
-
-df = ts.collect_data(prod, trans, sigunguCode, startYearMonth, endYearMonth)
-df.head()
+# 특정 기간 자료 조회하기
+df = api.get_data(
+    property_type="아파트",
+    trade_type="매매",
+    sigungu_code="41135",
+    start_year_month="202212",
+    end_year_month="202301",
+    )
+df.tail()
 ```
-
-    [INFO] 아파트 매매 202101 조회 시작
-    [INFO] 아파트 매매 202102 조회 시작
-    [INFO] 아파트 매매 202103 조회 시작
-    [INFO] 아파트 매매 202104 조회 시작
-    [INFO] 아파트 매매 202105 조회 시작
-    [INFO] 아파트 매매 202106 조회 시작
-    [INFO] 아파트 매매 202107 조회 시작
-    [INFO] 아파트 매매 202108 조회 시작
-    [INFO] 아파트 매매 202109 조회 시작
-    [INFO] 아파트 매매 202110 조회 시작
-    [INFO] 아파트 매매 202111 조회 시작
-    
-
-
-
 
 <div>
 <style scoped>
@@ -479,14 +387,7 @@ df.head()
       <th>전용면적</th>
       <th>년</th>
       <th>월</th>
-      <th>일</th>
-      <th>거래금액</th>
-      <th>도로명건물본번호코드</th>
-      <th>도로명건물부번호코드</th>
-      <th>도로명시군구코드</th>
-      <th>도로명일련번호코드</th>
-      <th>도로명지상지하코드</th>
-      <th>도로명코드</th>
+      <th>...</th>
       <th>법정동본번코드</th>
       <th>법정동부번코드</th>
       <th>법정동시군구코드</th>
@@ -501,259 +402,173 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>35</th>
       <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>38</td>
-      <td>샛별마을(우방)</td>
-      <td>1994</td>
-      <td>8</td>
-      <td>84.99</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>7</td>
-      <td>135,000</td>
-      <td>00181</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0038</td>
-      <td>0000</td>
-      <td>41135</td>
-      <td>10100</td>
-      <td>1</td>
-      <td>41135-21</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>38</td>
-      <td>샛별마을(우방)</td>
-      <td>1994</td>
-      <td>4</td>
-      <td>84.99</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>8</td>
-      <td>132,500</td>
-      <td>00181</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0038</td>
-      <td>0000</td>
-      <td>41135</td>
-      <td>10100</td>
-      <td>1</td>
-      <td>41135-21</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>41135</td>
-      <td>장안로41번길</td>
-      <td>분당동</td>
-      <td>66</td>
-      <td>장안타운(건영)</td>
-      <td>1993</td>
+      <td>판교원로82번길</td>
+      <td>운중동</td>
+      <td>918</td>
+      <td>산운마을13단지(태영)</td>
+      <td>2010</td>
       <td>17</td>
-      <td>162.85</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>8</td>
-      <td>129,000</td>
-      <td>00013</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>4340380</td>
-      <td>0066</td>
+      <td>84.72</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0918</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-32</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-477</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>36</th>
       <td>41135</td>
-      <td>분당로</td>
-      <td>분당동</td>
-      <td>34</td>
-      <td>샛별마을(라이프)</td>
-      <td>1992</td>
-      <td>6</td>
-      <td>126.415</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>22</td>
-      <td>153,000</td>
-      <td>00190</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180026</td>
-      <td>0034</td>
+      <td>판교원로</td>
+      <td>운중동</td>
+      <td>922</td>
+      <td>산운마을11단지(판교포레라움)</td>
+      <td>2009</td>
+      <td>5</td>
+      <td>59.90</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0922</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-19</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-466</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>22.12.20</td>
+      <td>O</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>37</th>
       <td>41135</td>
-      <td>수내로</td>
-      <td>분당동</td>
-      <td>39</td>
-      <td>샛별마을(삼부)</td>
-      <td>1992</td>
-      <td>6</td>
-      <td>69.96</td>
-      <td>2021</td>
-      <td>1</td>
-      <td>23</td>
-      <td>107,000</td>
-      <td>00201</td>
-      <td>00000</td>
-      <td>41135</td>
-      <td>01</td>
-      <td>0</td>
-      <td>3180039</td>
-      <td>0039</td>
+      <td>판교원로</td>
+      <td>운중동</td>
+      <td>922</td>
+      <td>산운마을11단지(판교포레라움)</td>
+      <td>2009</td>
+      <td>5</td>
+      <td>59.90</td>
+      <td>2022</td>
+      <td>12</td>
+      <td>...</td>
+      <td>0922</td>
       <td>0000</td>
       <td>41135</td>
-      <td>10100</td>
+      <td>11500</td>
       <td>1</td>
-      <td>41135-20</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>41135-466</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>41135</td>
+      <td>서현로</td>
+      <td>이매동</td>
+      <td>124</td>
+      <td>이매촌(한신)</td>
+      <td>1992</td>
+      <td>10</td>
+      <td>50.10</td>
+      <td>2023</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0124</td>
+      <td>0000</td>
+      <td>41135</td>
+      <td>10600</td>
+      <td>1</td>
+      <td>41135-97</td>
+      <td>직거래</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>41135</td>
+      <td>미금로</td>
+      <td>구미동</td>
+      <td>220</td>
+      <td>무지개(4단지)(주공)</td>
+      <td>1995</td>
+      <td>16</td>
+      <td>59.98</td>
+      <td>2023</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0220</td>
+      <td>0000</td>
+      <td>41135</td>
+      <td>11400</td>
+      <td>1</td>
+      <td>41135-220</td>
+      <td>중개거래</td>
+      <td>경기 성남분당구</td>
+      <td>None</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>
+<p>5 rows × 28 columns</p>
 </div>
-
-
-<br>
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>법정동명</th>
-      <th>법정구코드</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>경기도 성남시 분당구</td>
-      <td>41135</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 
 <br>
 
 
 ## 전체 코드 정리
 
+전체 코드를 정리하면 다음과 같습니다.
 
 ```python
-# 1. 라이브러리 임포트하기
+# 서비스키 할당하기
+service_key = "공공데이터포털에서 발급받은 서비스 키"
+
+# 데이터 조회 인스턴스 만들기
+from PublicDataReader import TransactionPrice
+api = TransactionPrice(service_key)
+
+# 시군구코드 조회하기
 import PublicDataReader as pdr
-print(pdr.__version__)
-
-# 2. 공공 데이터 포털 OpenAPI 서비스 인증키 입력하기
-serviceKey = "공공 데이터 포털에서 발급받은 서비스 키"
-
-# 3. 국토교통부 실거래가 정보 조회 OpenAPI 세션 정의하기
-# debug: True이면 모든 메시지 출력, False이면 오류 메시지만 출력 (기본값: False)
-ts = pdr.Transaction(serviceKey, debug=True)
-
-# 4. 지역코드(시군구코드) 검색하기
-sigunguName = "분당구"                                  # 시군구코드: 41135
+sigungu_name = "분당구"
 code = pdr.code_bdong()
-code.loc[(code['시군구명'].str.contains(sigunguName, na=False)) &
+code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
          (code['읍면동명'].isna())]
 
-# 5. 지역, 월 별 데이터 프레임 만들기
-prod="아파트"                                           # 부동산 상품 종류 (ex. 아파트, 오피스텔, 단독다가구 등)
-trans="매매"                                            # 부동산 거래 유형 (ex. 매매, 전월세)
-sigunguCode="41135"
-yearMonth="202101"
+# 특정 년월 자료만 조회하기
+df = api.get_data(
+    property_type="아파트",
+    trade_type="매매",
+    sigungu_code="41135",
+    year_month="202212",
+    )
 
-df = ts.read_data(prod, trans, sigunguCode, yearMonth)
-df.head()
-
-# 6. 지역, 기간 별 데이터 프레임 만들기
-prod="아파트"                                           # 부동산 상품 종류 (ex. 아파트, 오피스텔, 단독다가구 등)
-trans="매매"                                            # 부동산 거래 유형 (ex. 매매, 전월세)
-sigunguCode="41135"
-startYearMonth="202101"
-endYearMonth="202111"
-
-df = ts.collect_data(prod, trans, sigunguCode, startYearMonth, endYearMonth)
-df.head()
+# 특정 기간 자료 조회하기
+df = api.get_data(
+    property_type="아파트",
+    trade_type="매매",
+    sigungu_code="41135",
+    start_year_month="202212",
+    end_year_month="202301",
+    )
 ```
 
 <br>
 
-### 참고 
-- **[GitHub](https://github.com/WooilJeong/PublicDataReader)**  
+### 참고
 
-- **사용설명서**  
-  - [(블로그) 부동산 실거래가 조회하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-  - [(블로그) 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
-  - [(블로그) 상가업소 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
-
-- **실습**  
-  - [Colab에서 PublicDataReader 실행하기](https://colab.research.google.com/drive/1fgT0D_tP-JyglobtDFfYQ6wQXfWWujIV?usp=sharing)  
-
-- **문의**  
-  - **이메일**: wooil@kakao.com  
-  - **카카오톡 오픈채팅방**: [(Python) PublicDataReader Q&A](https://open.kakao.com/o/gbt2Pl2d)  
+- [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
+- [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
