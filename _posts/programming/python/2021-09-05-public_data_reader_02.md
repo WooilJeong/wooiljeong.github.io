@@ -77,7 +77,7 @@ pip install PublicDataReader --upgrade
 **공공데이터포털**에서 발급받은 **서비스 키**를 복사하여 다음과 같이 `serviceKey` 변수에 할당합니다. 오픈 API 서비스 키 발급 방법에 대해 궁금하신 분들은 구글에 '**공공데이터포털 오픈 API 사용법**'을 검색하시면 여러 문서들을 참조할 수 있습니다.
 
 ```python
-serviceKey = "공공데이터포털에서 발급받은 서비스 키"
+service_key = "공공데이터포털에서 발급받은 서비스 키"
 ```
 
 <br>
@@ -88,23 +88,26 @@ serviceKey = "공공데이터포털에서 발급받은 서비스 키"
 
 
 ```python
-# 소상공인 상가업소 정보 조회 OpenAPI 인스턴스 생성하기
-from PublicDataReader import StoreInfo
-si = StoreInfo(serviceKey)
+# 상가업소 정보 조회 클래스 임포트하기
+from PublicDataReader import SmallShop
+
+# 데이터 조회 API 인스턴스 만들기
+api = SmallShop(service_key)
 ```
 
 <br>
 
+## 데이터 조회하기
+
+- 지정 상권조회
+
+
 ```python
-# 4. 데이터프레임으로 자료 조회하기
-
-# 4-1. 지정상권
-category = "지정상권"
-
-key = "9174"
-
-df = si.read_data(category=category, key=key)
-df.head(1)
+df = api.get_data(
+    service_name = "지정상권",
+    key = "9301",
+)
+df.tail(1)
 ```
 
 
@@ -143,15 +146,81 @@ df.head(1)
   <tbody>
     <tr>
       <th>0</th>
-      <td>9174</td>
-      <td>인사동</td>
+      <td>9301</td>
+      <td>압구정 로데오거리_1</td>
       <td>11</td>
       <td>서울특별시</td>
-      <td>11110</td>
-      <td>종로구</td>
-      <td>226875</td>
+      <td>11680</td>
+      <td>강남구</td>
+      <td>193739</td>
+      <td>19</td>
+      <td>MULTIPOLYGON (((127.04700219001 37.52446081421...</td>
+      <td>2021-06-30</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+- 반경내 상권조회
+
+
+```python
+df = api.get_data(
+    service_name = "반경상권",
+    cx = 127.042325940821,
+    cy = 37.5272105674053,
+    radius = 500,
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상권번호</th>
+      <th>상권명</th>
+      <th>시도코드</th>
+      <th>시도명</th>
+      <th>시군구코드</th>
+      <th>시군구명</th>
+      <th>면적</th>
+      <th>좌표개수</th>
+      <th>좌표값</th>
+      <th>데이터기준일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>9316</td>
+      <td>청담사거리_1</td>
+      <td>11</td>
+      <td>서울특별시</td>
+      <td>11680</td>
+      <td>강남구</td>
+      <td>20169</td>
       <td>21</td>
-      <td>MULTIPOLYGON (((126.986059148338 37.5765234907...</td>
+      <td>MULTIPOLYGON (((127.045624467128 37.5237563085...</td>
       <td>2021-06-30</td>
     </tr>
   </tbody>
@@ -160,17 +229,18 @@ df.head(1)
 
 
 
+- 사각형내 상권조회
+
 
 ```python
-# 4-2. 반경상권
-category = "반경상권"
-
-radius = 500
-cx = 127.03641615737838
-cy = 37.50059843782878
-
-df = si.read_data(category=category, radius=radius, cx=cx, cy=cy)
-df.head(1)
+df = api.get_data(
+    service_name = "사각형상권",
+    minx = 127.0327683531071,
+    miny = 37.495967935149146,
+    maxx = 127.04268179746694,
+    maxy = 37.502402894207286
+)
+df.tail(1)
 ```
 
 
@@ -208,16 +278,16 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>9368</td>
-      <td>강남역_5</td>
+      <th>2</th>
+      <td>9308</td>
+      <td>역삼역_2</td>
       <td>11</td>
       <td>서울특별시</td>
       <td>11680</td>
       <td>강남구</td>
-      <td>146972</td>
-      <td>53</td>
-      <td>MULTIPOLYGON (((127.032936062846 37.5068531522...</td>
+      <td>51935</td>
+      <td>32</td>
+      <td>MULTIPOLYGON (((127.042493260333 37.5022663760...</td>
       <td>2021-06-30</td>
     </tr>
   </tbody>
@@ -226,18 +296,16 @@ df.head(1)
 
 
 
+- 행정구역 단위 상권조회
+
 
 ```python
-# 4-3. 사각형상권
-category = "사각형상권"
-
-minx = 127.0327683531071
-miny = 37.495967935149146
-maxx = 127.04268179746694
-maxy = 37.502402894207286
-
-df = si.read_data(category=category, minx=minx, miny=miny, maxx=maxx, maxy=maxy)
-df.head(1)
+df = api.get_data(
+    service_name = "행정구역상권",
+    divId = 'adongCd',
+    key = '1168058000'
+)
+df.tail(1)
 ```
 
 
@@ -275,82 +343,16 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>9368</td>
-      <td>강남역_5</td>
+      <th>2</th>
+      <td>9323</td>
+      <td>포스코사거리_2</td>
       <td>11</td>
       <td>서울특별시</td>
       <td>11680</td>
       <td>강남구</td>
-      <td>146972</td>
-      <td>53</td>
-      <td>MULTIPOLYGON (((127.032936062846 37.5068531522...</td>
-      <td>2021-06-30</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-## 상가업소 정보 조회하기
-
-
-```python
-# 4-4. 행정구역상권
-category = "행정구역상권"
-
-divId = 'adongCd'
-key = '1168058000'
-
-df = si.read_data(category=category,divId=divId, key=key)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상권번호</th>
-      <th>상권명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>면적</th>
-      <th>좌표개수</th>
-      <th>좌표값</th>
-      <th>데이터기준일자</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9290</td>
-      <td>삼성역_3</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>74618</td>
-      <td>13</td>
-      <td>MULTIPOLYGON (((127.065749573729 37.5141311587...</td>
+      <td>79514</td>
+      <td>34</td>
+      <td>MULTIPOLYGON (((127.053620405866 37.5128036692...</td>
       <td>2021-06-30</td>
     </tr>
   </tbody>
@@ -359,15 +361,16 @@ df.head(1)
 
 
 
+- 단일 상가업소 조회
+
 
 ```python
-# 4-5. 단일상가
-category = "단일상가"
-
-key = '11757465'
-
-df = si.read_data(category=category, key=key)
-df.head(1)
+df = api.get_data(
+    service_name = "단일상가",
+    divId = 'adongCd',
+    key = '11757465'
+)
+df.tail(1)
 ```
 
 
@@ -401,25 +404,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -445,51 +430,34 @@ df.head(1)
       <td>Q12A01</td>
       <td>커피전문점/카페/다방</td>
       <td>I56220</td>
-      <td>비알콜 음료점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11650</td>
-      <td>서초구</td>
-      <td>1165062100</td>
-      <td>방배4동</td>
-      <td>1165010100</td>
-      <td>방배동</td>
-      <td>1165010100108120002</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>812</td>
-      <td>2</td>
-      <td>서울특별시 서초구 방배동 812-2</td>
-      <td>116503121010</td>
-      <td>서울특별시 서초구 방배로</td>
-      <td>211</td>
-      <td></td>
+      <td>...</td>
       <td>1165010100108120002009897</td>
-      <td></td>
-      <td>서울특별시 서초구 방배로 211</td>
-      <td>137060</td>
+      <td>None</td>
+      <td>서울특별시 서초구 방배로 211, (방배동)</td>
+      <td>137832</td>
       <td>06562</td>
-      <td></td>
+      <td>None</td>
       <td>1</td>
-      <td></td>
+      <td>None</td>
       <td>126.99050928001</td>
       <td>37.4919441682448</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 건물단위 상가업소 조회
+
 
 ```python
-# 4-6. 건물상가
-category = "건물상가"
-
-key = '1168011000104940000004966'
-
-df = si.read_data(category=category, key=key)
-df.head(1)
+df = api.get_data(
+    service_name = "건물상가",
+    key = '1168011000104940000004966'
+)
+df.tail(1)
 ```
 
 
@@ -523,25 +491,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -556,63 +506,45 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>11802586</td>
-      <td>브루클린더버거조인트</td>
-      <td>갤러리아점</td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q07</td>
-      <td>패스트푸드</td>
-      <td>Q07A04</td>
-      <td>패스트푸드</td>
-      <td>I56199</td>
-      <td>그외 기타 음식점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168054500</td>
-      <td>압구정동</td>
-      <td>1168011000</td>
-      <td>압구정동</td>
-      <td>1168011000104940000</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>494</td>
-      <td></td>
-      <td>서울특별시 강남구 압구정동 494</td>
-      <td>116803122007</td>
-      <td>서울특별시 강남구 압구정로</td>
-      <td>343</td>
-      <td></td>
+      <th>82</th>
+      <td>28508108</td>
+      <td>아모레퍼시픽백화점갤러리아압구정</td>
+      <td>None</td>
+      <td>D</td>
+      <td>소매</td>
+      <td>D16</td>
+      <td>화장품소매</td>
+      <td>D16A01</td>
+      <td>화장품판매점</td>
+      <td>G47813</td>
+      <td>...</td>
       <td>1168011000104940000004966</td>
       <td>갤러리아백화점</td>
-      <td>서울특별시 강남구 압구정로 343</td>
+      <td>서울특별시 강남구 압구정로 343, (압구정동)</td>
       <td>135902</td>
       <td>06008</td>
-      <td></td>
-      <td>5</td>
-      <td></td>
+      <td>None</td>
+      <td>1</td>
+      <td>None</td>
       <td>127.04008070443</td>
       <td>37.5284986430328</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 지번단위 상가업소 조회
+
 
 ```python
-# 4-7. 지번상가
-category = "지번상가"
-
-key = '1165010100108120002'
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
+df = api.get_data(
+    service_name = "지번상가",
+    key = '1165010100108120002'
+)
+df.tail(1)
 ```
 
 
@@ -646,25 +578,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -679,64 +593,47 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>11757465</td>
-      <td>스타벅스</td>
-      <td>방배점</td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q12</td>
-      <td>커피점/카페</td>
-      <td>Q12A01</td>
-      <td>커피전문점/카페/다방</td>
-      <td>I56220</td>
-      <td>비알콜 음료점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11650</td>
-      <td>서초구</td>
-      <td>1165062100</td>
-      <td>방배4동</td>
-      <td>1165010100</td>
-      <td>방배동</td>
-      <td>1165010100108120002</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>812</td>
-      <td>2</td>
-      <td>서울특별시 서초구 방배동 812-2</td>
-      <td>116503121010</td>
-      <td>서울특별시 서초구 방배로</td>
-      <td>211</td>
-      <td></td>
+      <th>1</th>
+      <td>17875647</td>
+      <td>키무브필라테스스튜디오</td>
+      <td>None</td>
+      <td>N</td>
+      <td>관광/여가/오락</td>
+      <td>N05</td>
+      <td>요가/단전/마사지</td>
+      <td>N05A01</td>
+      <td>요가/단식</td>
+      <td>S96129</td>
+      <td>...</td>
       <td>1165010100108120002009897</td>
-      <td></td>
-      <td>서울특별시 서초구 방배로 211</td>
-      <td>137060</td>
+      <td>None</td>
+      <td>서울특별시 서초구 방배로 211, (방배동)</td>
+      <td>137832</td>
       <td>06562</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td>126.99050928001</td>
-      <td>37.4919441682448</td>
+      <td>None</td>
+      <td>5</td>
+      <td>None</td>
+      <td>126.990621865291</td>
+      <td>37.4919811723816</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 행정동 단위 상가업소 조회
+
 
 ```python
-# 4-8. 행정동상가
-category = "행정동상가"
-
-divId = 'adongCd'
-key = '1168064000'
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, divId=divId, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
+df = api.get_data(
+    service_name = "행정동상가",
+    divId = 'adongCd',
+    key = '1168064000',
+    indsLclsCd = 'Q'
+)
+df.tail(1)
 ```
 
 
@@ -770,25 +667,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -803,507 +682,10 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>10395773</td>
-      <td>김가네</td>
-      <td>르네상스점</td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q04</td>
-      <td>분식</td>
-      <td>Q04A01</td>
-      <td>라면김밥분식</td>
-      <td>I56194</td>
-      <td>분식 및 김밥 전문점</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168064000</td>
-      <td>역삼1동</td>
-      <td>1168010100</td>
-      <td>역삼동</td>
-      <td>1168010100107000000</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>700</td>
-      <td></td>
-      <td>서울특별시 강남구 역삼동 700</td>
-      <td>116803005086</td>
-      <td>서울특별시 강남구 언주로</td>
-      <td>520</td>
-      <td></td>
-      <td>1168010100107000001022298</td>
-      <td></td>
-      <td>서울특별시 강남구 언주로 520</td>
-      <td>135080</td>
-      <td>06147</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td>127.042045125528</td>
-      <td>37.5049340266371</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-9. 상권상가
-category = "상권상가"
-
-key = '9368'
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상가업소번호</th>
-      <th>상호명</th>
-      <th>지점명</th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>상권업종중분류코드</th>
-      <th>상권업종중분류명</th>
-      <th>상권업종소분류코드</th>
-      <th>상권업종소분류명</th>
-      <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
-      <th>건물관리번호</th>
-      <th>건물명</th>
-      <th>도로명주소</th>
-      <th>구우편번호</th>
-      <th>신우편번호</th>
-      <th>동정보</th>
-      <th>층정보</th>
-      <th>호정보</th>
-      <th>경도</th>
-      <th>위도</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>11913254</td>
-      <td>에스엠커피</td>
-      <td></td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q12</td>
-      <td>커피점/카페</td>
-      <td>Q12A01</td>
-      <td>커피전문점/카페/다방</td>
-      <td>I56220</td>
-      <td>비알콜 음료점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168064000</td>
-      <td>역삼1동</td>
-      <td>1168010100</td>
-      <td>역삼동</td>
-      <td>1168010100106370019</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>637</td>
-      <td>19</td>
-      <td>서울특별시 강남구 역삼동 637-19</td>
-      <td>116804166718</td>
-      <td>서울특별시 강남구 테헤란로13길</td>
-      <td>16</td>
-      <td></td>
-      <td>1168010100106370019023581</td>
-      <td></td>
-      <td>서울특별시 강남구 테헤란로13길 16</td>
-      <td>135080</td>
-      <td>06131</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td>127.032327172938</td>
-      <td>37.5007369962584</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-10. 반경상가
-category = "반경상가"
-
-radius = '500'
-cx = 127.03641615737838
-cy = 37.50059843782878
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, radius=radius, cx=cx, cy=cy, indsLclsCd=indsLclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상가업소번호</th>
-      <th>상호명</th>
-      <th>지점명</th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>상권업종중분류코드</th>
-      <th>상권업종중분류명</th>
-      <th>상권업종소분류코드</th>
-      <th>상권업종소분류명</th>
-      <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
-      <th>건물관리번호</th>
-      <th>건물명</th>
-      <th>도로명주소</th>
-      <th>구우편번호</th>
-      <th>신우편번호</th>
-      <th>동정보</th>
-      <th>층정보</th>
-      <th>호정보</th>
-      <th>경도</th>
-      <th>위도</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10445804</td>
-      <td>이바디</td>
-      <td></td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q01</td>
-      <td>한식</td>
-      <td>Q01A01</td>
-      <td>한식/백반/한정식</td>
-      <td>I56111</td>
-      <td>한식 음식점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168064000</td>
-      <td>역삼1동</td>
-      <td>1168010100</td>
-      <td>역삼동</td>
-      <td>1168010100107470010</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>747</td>
-      <td>10</td>
-      <td>서울특별시 강남구 역삼동 747-10</td>
-      <td>116804166195</td>
-      <td>서울특별시 강남구 논현로75길</td>
-      <td>13</td>
-      <td></td>
-      <td>1168010100107470010024760</td>
-      <td></td>
-      <td>서울특별시 강남구 논현로75길 13</td>
-      <td>135080</td>
-      <td>06247</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>127.03771175216</td>
-      <td>37.4962396611819</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-11. 사각형상가
-category = "사각형상가"
-
-minx = 127.0327683531071
-miny = 37.495967935149146
-maxx = 127.04268179746694
-maxy = 37.502402894207286
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, minx=minx, miny=miny, maxx=maxx, maxy=maxy, indsLclsCd=indsLclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상가업소번호</th>
-      <th>상호명</th>
-      <th>지점명</th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>상권업종중분류코드</th>
-      <th>상권업종중분류명</th>
-      <th>상권업종소분류코드</th>
-      <th>상권업종소분류명</th>
-      <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
-      <th>건물관리번호</th>
-      <th>건물명</th>
-      <th>도로명주소</th>
-      <th>구우편번호</th>
-      <th>신우편번호</th>
-      <th>동정보</th>
-      <th>층정보</th>
-      <th>호정보</th>
-      <th>경도</th>
-      <th>위도</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10445804</td>
-      <td>이바디</td>
-      <td></td>
-      <td>Q</td>
-      <td>음식</td>
-      <td>Q01</td>
-      <td>한식</td>
-      <td>Q01A01</td>
-      <td>한식/백반/한정식</td>
-      <td>I56111</td>
-      <td>한식 음식점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168064000</td>
-      <td>역삼1동</td>
-      <td>1168010100</td>
-      <td>역삼동</td>
-      <td>1168010100107470010</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>747</td>
-      <td>10</td>
-      <td>서울특별시 강남구 역삼동 747-10</td>
-      <td>116804166195</td>
-      <td>서울특별시 강남구 논현로75길</td>
-      <td>13</td>
-      <td></td>
-      <td>1168010100107470010024760</td>
-      <td></td>
-      <td>서울특별시 강남구 논현로75길 13</td>
-      <td>135080</td>
-      <td>06247</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>127.03771175216</td>
-      <td>37.4962396611819</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-12. 다각형상가
-category = "다각형상가"
-
-key = 'POLYGON((127.02355609555755 37.504264372557095, 127.02496157306963 37.50590702991155, 127.0270858825753 37.50486867039889, 127.02628121988377 37.503489842823114))'
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상가업소번호</th>
-      <th>상호명</th>
-      <th>지점명</th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>상권업종중분류코드</th>
-      <th>상권업종중분류명</th>
-      <th>상권업종소분류코드</th>
-      <th>상권업종소분류명</th>
-      <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
-      <th>건물관리번호</th>
-      <th>건물명</th>
-      <th>도로명주소</th>
-      <th>구우편번호</th>
-      <th>신우편번호</th>
-      <th>동정보</th>
-      <th>층정보</th>
-      <th>호정보</th>
-      <th>경도</th>
-      <th>위도</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>11766922</td>
+      <th>999</th>
+      <td>17078682</td>
       <td>투썸플레이스</td>
-      <td>신논현역점</td>
+      <td>강남역KR타워점</td>
       <td>Q</td>
       <td>음식</td>
       <td>Q12</td>
@@ -1311,52 +693,35 @@ df.head(1)
       <td>Q12A01</td>
       <td>커피전문점/카페/다방</td>
       <td>I56220</td>
-      <td>비알콜 음료점업</td>
-      <td>11</td>
-      <td>서울특별시</td>
-      <td>11680</td>
-      <td>강남구</td>
-      <td>1168052100</td>
-      <td>논현1동</td>
-      <td>1168010800</td>
-      <td>논현동</td>
-      <td>1168010800102000007</td>
-      <td>1</td>
-      <td>대지</td>
-      <td>200</td>
-      <td>7</td>
-      <td>서울특별시 강남구 논현동 200-7</td>
-      <td>116802102001</td>
-      <td>서울특별시 강남구 강남대로</td>
-      <td>476</td>
-      <td></td>
-      <td>1168010800102000007000001</td>
-      <td>URBANHIVE</td>
-      <td>서울특별시 강남구 강남대로 476</td>
-      <td>135010</td>
-      <td>06120</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td>127.024774692428</td>
-      <td>37.5049008315565</td>
+      <td>...</td>
+      <td>1168010100108250026024506</td>
+      <td>None</td>
+      <td>서울특별시 강남구 강남대로84길 13, (역삼동)</td>
+      <td>135934</td>
+      <td>06232</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>127.029572455617</td>
+      <td>37.4968668925481</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 상권내 상가업소 조회
+
 
 ```python
-# 4-13. 업종별상가
-category = "업종별상가"
-
-divId = 'indsLclsCd'
-key = 'Q'
-
-df = si.read_data(category=category, divId=divId, key=key)
-df.head(1)
+df = api.get_data(
+    service_name = "상권상가",
+    key = '9368',
+    indsLclsCd = 'Q'
+)
+df.tail(1)
 ```
 
 
@@ -1390,25 +755,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -1423,63 +770,48 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>10000982</td>
-      <td>이웃사촌</td>
-      <td></td>
+      <th>188</th>
+      <td>9136408</td>
+      <td>KFC역삼점</td>
+      <td>역삼점</td>
       <td>Q</td>
       <td>음식</td>
-      <td>Q01</td>
-      <td>한식</td>
-      <td>Q01A01</td>
-      <td>한식/백반/한정식</td>
-      <td>I56111</td>
-      <td>한식 음식점업</td>
-      <td>45</td>
-      <td>전라북도</td>
-      <td>45111</td>
-      <td>전주시 완산구</td>
-      <td>4511170200</td>
-      <td>삼천2동</td>
-      <td>4511113700</td>
-      <td>삼천동1가</td>
-      <td>4511113700106950005</td>
+      <td>Q05</td>
+      <td>닭/오리요리</td>
+      <td>Q05A08</td>
+      <td>후라이드/양념치킨</td>
+      <td>I56193</td>
+      <td>...</td>
+      <td>1168010100106420010026120</td>
+      <td>송암II빌딩</td>
+      <td>서울특별시 강남구 논현로 509, (역삼동)</td>
+      <td>135910</td>
+      <td>06132</td>
+      <td>None</td>
       <td>1</td>
-      <td>대지</td>
-      <td>695</td>
-      <td>5</td>
-      <td>전라북도 전주시 완산구 삼천동1가 695-5</td>
-      <td>451114598396</td>
-      <td>전라북도 전주시 완산구 하거마1길</td>
-      <td>32</td>
-      <td></td>
-      <td>4511113700106950005025264</td>
-      <td></td>
-      <td>전라북도 전주시 완산구 하거마1길 32</td>
-      <td>560812</td>
-      <td>55088</td>
-      <td></td>
-      <td>1</td>
-      <td></td>
-      <td>127.117866794928</td>
-      <td>35.7930153087836</td>
+      <td>None</td>
+      <td>127.036078078957</td>
+      <td>37.5019210138113</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 반경내 상가업소 조회
+
 
 ```python
-# 4-14. 수정일자상가
-category = "수정일자상가"
-
-key = '20200101'
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
+df = api.get_data(
+    service_name = "반경상가",
+    radius = '500',
+    cx = 127.03641615737838,
+    cy = 37.50059843782878,
+    indsLclsCd = 'Q'
+)
+df.tail(1)
 ```
 
 
@@ -1513,25 +845,7 @@ df.head(1)
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
       <th>표준산업분류코드</th>
-      <th>표준산업분류명</th>
-      <th>시도코드</th>
-      <th>시도명</th>
-      <th>시군구코드</th>
-      <th>시군구명</th>
-      <th>행정동코드</th>
-      <th>행정동명</th>
-      <th>법정동코드</th>
-      <th>법정동명</th>
-      <th>PNU코드</th>
-      <th>대지구분코드</th>
-      <th>대지구분명</th>
-      <th>지번본번지</th>
-      <th>지번부번지</th>
-      <th>지번주소</th>
-      <th>도로명코드</th>
-      <th>도로명</th>
-      <th>건물본번지</th>
-      <th>건물부번지</th>
+      <th>...</th>
       <th>건물관리번호</th>
       <th>건물명</th>
       <th>도로명주소</th>
@@ -1546,60 +860,49 @@ df.head(1)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>16390214</td>
-      <td>IN:SSABar</td>
-      <td></td>
+      <th>847</th>
+      <td>9136408</td>
+      <td>KFC역삼점</td>
+      <td>역삼점</td>
       <td>Q</td>
       <td>음식</td>
-      <td>Q09</td>
-      <td>유흥주점</td>
-      <td>Q09A01</td>
-      <td>호프/맥주</td>
-      <td>I56219</td>
-      <td>기타 주점업</td>
-      <td>46</td>
-      <td>전라남도</td>
-      <td>46130</td>
-      <td>여수시</td>
-      <td>4613078000</td>
-      <td>쌍봉동</td>
-      <td>4613012800</td>
-      <td>학동</td>
-      <td>4613012800100940005</td>
+      <td>Q05</td>
+      <td>닭/오리요리</td>
+      <td>Q05A08</td>
+      <td>후라이드/양념치킨</td>
+      <td>I56193</td>
+      <td>...</td>
+      <td>1168010100106420010026120</td>
+      <td>송암II빌딩</td>
+      <td>서울특별시 강남구 논현로 509, (역삼동)</td>
+      <td>135910</td>
+      <td>06132</td>
+      <td>None</td>
       <td>1</td>
-      <td>대지</td>
-      <td>94</td>
-      <td>5</td>
-      <td>전라남도 여수시 학동 94-5</td>
-      <td>461304646589</td>
-      <td>전라남도 여수시 시청동3길</td>
-      <td>20</td>
-      <td></td>
-      <td>4613012800100940005034312</td>
-      <td></td>
-      <td>전라남도 여수시 시청동3길 20</td>
-      <td>555809</td>
-      <td>59689</td>
-      <td></td>
-      <td>2</td>
-      <td></td>
-      <td>127.665098299541</td>
-      <td>34.7585551004235</td>
+      <td>None</td>
+      <td>127.036078078957</td>
+      <td>37.5019210138113</td>
     </tr>
   </tbody>
 </table>
+<p>1 rows × 39 columns</p>
 </div>
 
 
 
+- 사각형내 상가업소 조회
+
 
 ```python
-# 4-15. 업종대분류
-category = "업종대분류"
-
-df = si.read_data(category=category, key=key)
-df.head(1)
+df = api.get_data(
+    service_name = "사각형상가",
+    minx = 127.0327683531071,
+    miny = 37.495967935149146,
+    maxx = 127.04268179746694,
+    maxy = 37.502402894207286,
+    indsLclsCd = 'Q'
+)
+df.tail(1)
 ```
 
 
@@ -1623,129 +926,366 @@ df.head(1)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>데이터기준일자</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>A</td>
-      <td>1차산업</td>
-      <td>2015-12-17</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-16. 업종중분류
-category = "업종중분류"
-
-indsLclsCd = 'Q'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>상권업종대분류코드</th>
-      <th>상권업종대분류명</th>
-      <th>상권업종중분류코드</th>
-      <th>상권업종중분류명</th>
-      <th>데이터기준일자</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Q</td>
-      <td>보건</td>
-      <td>Q14</td>
-      <td>기타음식업</td>
-      <td>2015-12-17</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-# 4-17. 업종소분류
-category = "업종소분류"
-
-indsLclsCd = 'Q'
-indsMclsCd = 'Q01'
-
-df = si.read_data(category=category, key=key, indsLclsCd=indsLclsCd, indsMclsCd=indsMclsCd)
-df.head(1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
+      <th>상가업소번호</th>
+      <th>상호명</th>
+      <th>지점명</th>
       <th>상권업종대분류코드</th>
       <th>상권업종대분류명</th>
       <th>상권업종중분류코드</th>
       <th>상권업종중분류명</th>
       <th>상권업종소분류코드</th>
       <th>상권업종소분류명</th>
-      <th>데이터기준일자</th>
+      <th>표준산업분류코드</th>
+      <th>...</th>
+      <th>건물관리번호</th>
+      <th>건물명</th>
+      <th>도로명주소</th>
+      <th>구우편번호</th>
+      <th>신우편번호</th>
+      <th>동정보</th>
+      <th>층정보</th>
+      <th>호정보</th>
+      <th>경도</th>
+      <th>위도</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>579</th>
+      <td>9136408</td>
+      <td>KFC역삼점</td>
+      <td>역삼점</td>
+      <td>Q</td>
+      <td>음식</td>
+      <td>Q05</td>
+      <td>닭/오리요리</td>
+      <td>Q05A08</td>
+      <td>후라이드/양념치킨</td>
+      <td>I56193</td>
+      <td>...</td>
+      <td>1168010100106420010026120</td>
+      <td>송암II빌딩</td>
+      <td>서울특별시 강남구 논현로 509, (역삼동)</td>
+      <td>135910</td>
+      <td>06132</td>
+      <td>None</td>
+      <td>1</td>
+      <td>None</td>
+      <td>127.036078078957</td>
+      <td>37.5019210138113</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 39 columns</p>
+</div>
+
+
+
+- 다각형내 상가업소 조회
+
+
+```python
+df = api.get_data(
+    service_name = "다각형상가",
+    key = 'POLYGON((127.02355609555755 37.504264372557095, 127.02496157306963 37.50590702991155, 127.0270858825753 37.50486867039889, 127.02628121988377 37.503489842823114))',
+    indsLclsCd = 'Q'
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상가업소번호</th>
+      <th>상호명</th>
+      <th>지점명</th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>상권업종중분류코드</th>
+      <th>상권업종중분류명</th>
+      <th>상권업종소분류코드</th>
+      <th>상권업종소분류명</th>
+      <th>표준산업분류코드</th>
+      <th>...</th>
+      <th>건물관리번호</th>
+      <th>건물명</th>
+      <th>도로명주소</th>
+      <th>구우편번호</th>
+      <th>신우편번호</th>
+      <th>동정보</th>
+      <th>층정보</th>
+      <th>호정보</th>
+      <th>경도</th>
+      <th>위도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>47</th>
+      <td>26260692</td>
+      <td>신마포갈매기</td>
+      <td>신논현역점</td>
       <td>Q</td>
       <td>음식</td>
       <td>Q01</td>
       <td>한식</td>
       <td>Q01A02</td>
       <td>갈비/삼겹살</td>
+      <td>I56111</td>
+      <td>...</td>
+      <td>1168010100108100000022737</td>
+      <td>None</td>
+      <td>서울특별시 강남구 강남대로110길 12, (역삼동)</td>
+      <td>135931</td>
+      <td>06123</td>
+      <td>None</td>
+      <td>2</td>
+      <td>None</td>
+      <td>127.025806325949</td>
+      <td>37.5038461003511</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 39 columns</p>
+</div>
+
+
+
+- 업종별 상가업소 조회
+
+
+```python
+df = api.get_data(
+    service_name = "업종별상가",
+    divId = 'indsLclsCd',
+    key = 'Q'
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상가업소번호</th>
+      <th>상호명</th>
+      <th>지점명</th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>상권업종중분류코드</th>
+      <th>상권업종중분류명</th>
+      <th>상권업종소분류코드</th>
+      <th>상권업종소분류명</th>
+      <th>표준산업분류코드</th>
+      <th>...</th>
+      <th>건물관리번호</th>
+      <th>건물명</th>
+      <th>도로명주소</th>
+      <th>구우편번호</th>
+      <th>신우편번호</th>
+      <th>동정보</th>
+      <th>층정보</th>
+      <th>호정보</th>
+      <th>경도</th>
+      <th>위도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>999</th>
+      <td>11181582</td>
+      <td>내수한우마을</td>
+      <td>None</td>
+      <td>Q</td>
+      <td>음식</td>
+      <td>Q01</td>
+      <td>한식</td>
+      <td>Q01A01</td>
+      <td>한식/백반/한정식</td>
+      <td>I56111</td>
+      <td>...</td>
+      <td>4371025041001700005054390</td>
+      <td>None</td>
+      <td>충청북도 청주시 청원구 내수읍 청암로 111, (학평리)</td>
+      <td>363934</td>
+      <td>28146</td>
+      <td>None</td>
+      <td>1</td>
+      <td>None</td>
+      <td>127.542578061469</td>
+      <td>36.7252477746175</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 39 columns</p>
+</div>
+
+
+
+- 수정일자기준 상가업소 조회
+
+
+```python
+df = api.get_data(
+    service_name = "수정일자상가",
+    key = '20200101',
+    indsLclsCd = 'Q'
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상가업소번호</th>
+      <th>상호명</th>
+      <th>지점명</th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>상권업종중분류코드</th>
+      <th>상권업종중분류명</th>
+      <th>상권업종소분류코드</th>
+      <th>상권업종소분류명</th>
+      <th>표준산업분류코드</th>
+      <th>...</th>
+      <th>건물명</th>
+      <th>도로명주소</th>
+      <th>구우편번호</th>
+      <th>신우편번호</th>
+      <th>동정보</th>
+      <th>층정보</th>
+      <th>호정보</th>
+      <th>경도</th>
+      <th>위도</th>
+      <th>chgGb</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>25852182</td>
+      <td>그랜드테이블</td>
+      <td>None</td>
+      <td>Q</td>
+      <td>음식</td>
+      <td>Q06</td>
+      <td>양식</td>
+      <td>Q06A05</td>
+      <td>패밀리레스토랑</td>
+      <td>I56114</td>
+      <td>...</td>
+      <td>해운대그랜드호텔</td>
+      <td>부산광역시 해운대구 해운대해변로 217, (우동)</td>
+      <td>612821</td>
+      <td>48093</td>
+      <td>None</td>
+      <td>1</td>
+      <td>None</td>
+      <td>129.155174224526</td>
+      <td>35.1591175731937</td>
+      <td>U</td>
+    </tr>
+  </tbody>
+</table>
+<p>1 rows × 40 columns</p>
+</div>
+
+
+
+- 상권정보업종 대분류 조회
+
+
+```python
+df = api.get_data(
+    service_name = "업종대분류",
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>데이터기준일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>41</th>
+      <td>R</td>
+      <td>학문/교육</td>
       <td>2015-12-17</td>
     </tr>
   </tbody>
@@ -1754,28 +1294,122 @@ df.head(1)
 
 
 
+- 상권정보업종 중분류 조회
+
+
+```python
+df = api.get_data(
+    service_name = "업종중분류",
+    indsLclsCd = 'Q'
+)
+df.tail(1)
+```
 
 
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>상권업종중분류코드</th>
+      <th>상권업종중분류명</th>
+      <th>데이터기준일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>31</th>
+      <td>Q</td>
+      <td>음식</td>
+      <td>Q01</td>
+      <td>한식</td>
+      <td>2015-12-17</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+- 상권정보업종 소분류 조회
+
+
+```python
+df = api.get_data(
+    service_name = "업종소분류",
+    indsLclsCd = 'Q',
+    indsMclsCd = 'Q01'
+)
+df.tail(1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>상권업종대분류코드</th>
+      <th>상권업종대분류명</th>
+      <th>상권업종중분류코드</th>
+      <th>상권업종중분류명</th>
+      <th>상권업종소분류코드</th>
+      <th>상권업종소분류명</th>
+      <th>데이터기준일자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20</th>
+      <td>Q</td>
+      <td>음식</td>
+      <td>Q01</td>
+      <td>한식</td>
+      <td>Q01A18</td>
+      <td>황태전문</td>
+      <td>2015-12-17</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
 <br>
 
-### 참고 
-- **[GitHub](https://github.com/WooilJeong/PublicDataReader)**  
+### 참고
 
-- **사용설명서**  
-  - [(블로그) 부동산 실거래가 조회하기](https://wooiljeong.github.io/python/public_data_reader_01/)
-  - [(블로그) 건축물대장 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_03/)
-  - [(블로그) 상가업소 데이터 조회하기](https://wooiljeong.github.io/python/public_data_reader_02/)
-
-- **실습**  
-  - [Colab에서 PublicDataReader 실행하기](https://colab.research.google.com/drive/1fgT0D_tP-JyglobtDFfYQ6wQXfWWujIV?usp=sharing)  
-
-- **문의**  
-  - **이메일**: wooil@kakao.com  
-  - **카카오톡 오픈채팅방**: [(Python) PublicDataReader Q&A](https://open.kakao.com/o/gbt2Pl2d)  
-
+- [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
+- [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
