@@ -3,7 +3,7 @@ title: "PublicDataReader - 부동산 실거래가 조회하기"
 categories: python
 tags: PublicDataReader
 header:
-  overlay_image: /assets/img/wallpaper.jpg
+  overlay_image: /assets/img/logo/PublicDataReader.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 

@@ -3,7 +3,7 @@ title: "PyKakao - Python으로 카카오톡 메시지 API 사용하기"
 categories: python
 tags: PyKakao
 header:
-  overlay_image: /assets/img/wallpaper.jpg
+  overlay_image: /assets/img/logo/PyKakao.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
