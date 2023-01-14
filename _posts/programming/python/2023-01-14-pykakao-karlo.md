@@ -97,7 +97,6 @@ img.save("./original.png")
 <div align="center">
     <figure>
       <img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat.png?raw=true" width="350" /><br>
-      <figcaption align = "center"><b>이미지 생성 결과</b></figcaption>
     </figure>
 </div>
 
@@ -129,9 +128,20 @@ result = api.string_to_image(response.get("images")[0].get("image"), mode = 'RGB
 
 <div align="center">
 
-원본 이미지 | 변환된 이미지 
-:---------:|:-----------------:
-<img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat.png?raw=true" width="350" /> | <img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat_transformed.png?raw=true" width="350" />
+<table>
+<thead>
+<tr>
+<th style="text-align:center">원본 이미지</th>
+<th style="text-align:center">변환된 이미지 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat.png?raw=true" width="250" /></td>
+<td style="text-align:center"><img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat_transformed.png?raw=true" width="250" /></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
@@ -168,9 +178,22 @@ result = api.string_to_image(response.get("images")[0].get("image"), mode = 'RGB
 
 <div align="center">
 
-원본 이미지 | 마스킹한 이미지 | 편집된 이미지
-:---------:|:-----------------:|:---------------------:
-<img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat.png?raw=true" width="350" /> | <img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_mask.png?raw=true" width="350" /> | <img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_inpaint.png?raw=true" width="350" />
+<table>
+<thead>
+<tr>
+<th style="text-align:center">원본 이미지</th>
+<th style="text-align:center">마스킹한 이미지</th>
+<th style="text-align:center">편집된 이미지</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_cat.png?raw=true" width="350" /></td>
+<td style="text-align:center"><img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_mask.png?raw=true" width="350" /></td>
+<td style="text-align:center"><img src="https://github.com/WooilJeong/PyKakao/blob/main/assets/img/example_karlo_inpaint.png?raw=true" width="350" /></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
