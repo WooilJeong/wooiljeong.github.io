@@ -57,8 +57,72 @@ df = api.get_data(
     "KOSIS통합검색",
     searchNm="시군구 미분양"
 )
-df.head()
+df.head(1)
 ```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>기관ID</th>
+      <th>기관명</th>
+      <th>통계표ID</th>
+      <th>통계표명</th>
+      <th>조사ID</th>
+      <th>조사명</th>
+      <th>KOSIS목록구분</th>
+      <th>KOSIS통계표위치</th>
+      <th>통계표위치</th>
+      <th>통계표주요내용</th>
+      <th>수록기간시작일</th>
+      <th>수록기간종료일</th>
+      <th>통계표주석</th>
+      <th>추천통계표여부</th>
+      <th>KOSIS목록URL</th>
+      <th>KOSIS통계표URL</th>
+      <th>검색결과건수</th>
+      <th>검색어명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>116</td>
+      <td>국토교통부</td>
+      <td>DT_MLTM_5328</td>
+      <td>공사완료후 미분양현황</td>
+      <td>1998033</td>
+      <td>미분양주택현황보고</td>
+      <td>MT_ZTITLE</td>
+      <td>주거 &gt; 미분양주택현황보고</td>
+      <td>I1 &gt; I1_2</td>
+      <td>구분 시군구 부문 규모 울산 대전 전남 경기 충남 세종 경남 제주 전국 광주 강원 ...</td>
+      <td>2007</td>
+      <td>2022</td>
+      <td>자료 : 국토교통부 주택토지실 주택정책관 주택정책과</td>
+      <td>N</td>
+      <td>https://kosis.kr/statisticsList/statisticsList...</td>
+      <td>http://kosis.kr/statHtml/statHtml.do?orgId=116...</td>
+      <td>251</td>
+      <td>시군구 미분양</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 <br>
 

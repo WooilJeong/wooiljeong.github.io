@@ -56,10 +56,8 @@ df = api.get_data(
     "KOSIS통합검색",
     searchNm="읍면동 주민등록 인구"
 )
-df.head()
+df.head(1)
 ```
-
-
 
 
 <div>
@@ -119,90 +117,6 @@ df.head()
       <td>N</td>
       <td>https://kosis.kr/statisticsList/statisticsList...</td>
       <td>http://kosis.kr/statHtml/statHtml.do?orgId=101...</td>
-      <td>573</td>
-      <td>읍면동 주민등록 인구</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>101</td>
-      <td>통계청</td>
-      <td>INH_1IN1503_01</td>
-      <td>인구총조사 인구(시도/시/군/구)</td>
-      <td>1962001</td>
-      <td>인구총조사</td>
-      <td>MT_GTITLE01</td>
-      <td>주제별 &gt; 인구</td>
-      <td>101</td>
-      <td>행정구역별(읍면동) 총인구(명) 면부 동대문구 노원구 마포구 양천구 읍부 남구 연제...</td>
-      <td>2015</td>
-      <td>2021</td>
-      <td>■ 자료제공처: 통계청 통계정책과 □ 참고사항 - 주민등록에 의한 인구와는 차이가 ...</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=101...</td>
-      <td>573</td>
-      <td>읍면동 주민등록 인구</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>101</td>
-      <td>행정안전부</td>
-      <td>DT_1B04005</td>
-      <td>행정구역(읍면동)별/5세별 주민등록인구</td>
-      <td>2008001</td>
-      <td>주민등록인구현황</td>
-      <td>MT_ZTITLE</td>
-      <td>인구 &gt; 주민등록인구현황</td>
-      <td>A &gt; A_7</td>
-      <td>행정구역(동읍면)별 5세별 인구 남 여 여주읍오학출장소 월배1동 종고동 연등동 광무...</td>
-      <td>1992</td>
-      <td>2010</td>
-      <td>행정안전부 02-2100-3825(전국 주민등록인구현황) 주민등록에 의한 집계(연말...</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=101...</td>
-      <td>573</td>
-      <td>읍면동 주민등록 인구</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>101</td>
-      <td>서울특별시</td>
-      <td>INH_1B04005_11</td>
-      <td>서울특별시(읍면동)별/5세별 주민등록인구</td>
-      <td>MT_OTITLE13</td>
-      <td>시도통계</td>
-      <td>MT_ZTITLE</td>
-      <td>지역통계 &gt; 인구 및 사회(사회조사 외) &gt; 서울특별시 &gt; 주민등록인구통계</td>
-      <td>V &gt; V_3 &gt; V_3_201 &gt; 201_20103</td>
-      <td>행정구역(동읍면)별 5세별 여 남 인구 숭인1동 을지로3・4・5가동 청구동 신당5동...</td>
-      <td>1992</td>
-      <td>2010</td>
-      <td>DT_1B04005 (행정구역(읍면동)별/5세별 주민등록인구(2011년~))에서 서...</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=101...</td>
-      <td>573</td>
-      <td>읍면동 주민등록 인구</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>617</td>
-      <td>경기도 평택시</td>
-      <td>DT_61701_B000016</td>
-      <td>주민등록 세대 및 인구</td>
-      <td>MT_OTITLE12</td>
-      <td>시군구기본통계</td>
-      <td>MT_ZTITLE</td>
-      <td>지역통계 &gt; 지자체 기본통계 &gt; 경기도 &gt; 경기도평택시기본통계 &gt; 인구</td>
-      <td>V &gt; V_1 &gt; V_1_210 &gt; 210_210A_617_61701 &gt; 210_2...</td>
-      <td>읍면동별 세대및인구현황별 주민등록 세대 및 인구 고덕면 신평동 비전1동 팽성읍 청북...</td>
-      <td>2013</td>
-      <td>2020</td>
-      <td>자료 : 민원행정과</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=617...</td>
       <td>573</td>
       <td>읍면동 주민등록 인구</td>
     </tr>
