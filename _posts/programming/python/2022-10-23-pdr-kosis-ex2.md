@@ -31,213 +31,51 @@ pip install PublicDataReader --upgrade
 
 ## 라이브러리 임포트하기
 
-위에서 설치한 PublicDataReader를 임포트한 후 발급받은 KOSIS 공유서비스 Open API 사용자 인증키를 apiKey의 값으로 할당한다.
+앞에서 설치한 **PublicDataReader**에서 **Kosis** 클래스를 임포트한다. KOSIS 공유서비스에서 발급받은 오픈 API 사용자 인증키 정보를 **service_key** 변수에 할당한다. Kosis의 인자료 service_key를 입력하여 데이터 조회 인스턴스 **api**를 만든다.
+
 
 
 ```python
-import PublicDataReader as pdr
-print(pdr.__version__)
+from PublicDataReader import Kosis
 
 # KOSIS 공유서비스 Open API 사용자 인증키
-apiKey = "사용자 인증키"
-```
+service_key = "사용자 인증키"
 
-    1.0.2
-    
+# 인스턴스 생성하기
+api = Kosis(service_key)
+```
 
 <br>
 
 ## 조회할 데이터 찾기
 
-`Kosis`를 이용해 **KOSIS 통합검색** 기능을 사용할 수 있는 인스턴스인 `kosis_search`를 만든다. `searchNm`에는 조회할 데이터를 찾기 위한 키워드를 입력한다. `get_data`에 의해 반환된 데이터프레임에서 조회할 데이터를 찾아 **기관코드**인 **`ORG_ID`** 와 **통계표ID**인 **`TBL_ID`** 값을 확인한다.  **'미분양주택현황(시도/시/군/구)'** 데이터의 **기관코드**는 **101**이고, **통계표ID**는 **DT_1YL202001E** 이므로 이 값들을 데이터 조회 시 사용하기 위해 복사해둔다.
+api.get_data() 메서드의 첫 번째 인자로 'KOSIS통합검색'을 지정한다. `searchNm`에는 조회할 데이터를 찾기 위한 키워드를 입력한다. 반환된 데이터프레임에서 조회할 데이터를 찾아 **기관ID(ORG_ID)**와 **통계표ID(TBL_ID)** 값을 확인한다.  **'미분양주택현황(시도/시/군/구)'** 데이터의 **기관ID**는 **101**이고, **통계표ID**는 **DT_1YL202001E** 이므로 이 값들을 데이터를 조회할 때 사용한다. 참고로 api.get_data() 메서드에 translate=False 옵션을 지정하면 영문 컬럼명으로 데이터를 조회할 수 있다. 이 인자의 기본값은 True이므로 국문 컬럼명으로 조회한다.
 
 
 ```python
-# KOSIS 공유서비스 Open API 인스턴스 생성
-serviceName = "KOSIS통합검색"
-kosis_search = pdr.Kosis(apiKey, serviceName)
-
-# 파라미터
-searchNm = "시군구 미분양"
-
-# 데이터 조회
-df = kosis_search.get_data(searchNm=searchNm)
+df = api.get_data(
+    "KOSIS통합검색",
+    searchNm="시군구 미분양"
+)
 df.head()
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ORG_ID</th>
-      <th>ORG_NM</th>
-      <th>TBL_ID</th>
-      <th>TBL_NM</th>
-      <th>STAT_ID</th>
-      <th>STAT_NM</th>
-      <th>VW_CD</th>
-      <th>MT_ATITLE</th>
-      <th>FULL_PATH_ID</th>
-      <th>CONTENTS</th>
-      <th>STRT_PRD_DE</th>
-      <th>END_PRD_DE</th>
-      <th>ITEM03</th>
-      <th>REC_TBL_SE</th>
-      <th>TBL_VIEW_URL</th>
-      <th>LINK_URL</th>
-      <th>STAT_DB_CNT</th>
-      <th>QUERY</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>116</td>
-      <td>국토교통부</td>
-      <td>DT_MLTM_2082</td>
-      <td>시 군 구별 미분양현황</td>
-      <td>1998033</td>
-      <td>미분양주택현황보고</td>
-      <td>MT_ZTITLE</td>
-      <td>주거 &gt; 미분양주택현황보고</td>
-      <td>I1 &gt; I1_2</td>
-      <td>구분 시군구 총계 전국 서울 부산 대구 인천 광주 대전 울산 경기 강원 충북 충남 ...</td>
-      <td>2000</td>
-      <td>2022</td>
-      <td>자료 : 국토교통부 주택토지실 주택정책관 주택정책과</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=116...</td>
-      <td>244</td>
-      <td>시군구 미분양</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>116</td>
-      <td>국토교통부</td>
-      <td>DT_MLTM_5328</td>
-      <td>공사완료후 미분양현황</td>
-      <td>1998033</td>
-      <td>미분양주택현황보고</td>
-      <td>MT_ZTITLE</td>
-      <td>주거 &gt; 미분양주택현황보고</td>
-      <td>I1 &gt; I1_2</td>
-      <td>구분 시군구 부문 규모 전국 서울 부산 대구 인천 광주 대전 울산 경기 세종 강원 ...</td>
-      <td>2007</td>
-      <td>2022</td>
-      <td>자료 : 국토교통부 주택토지실 주택정책관 주택정책과</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=116...</td>
-      <td>244</td>
-      <td>시군구 미분양</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>101</td>
-      <td>국토교통부</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>1998033</td>
-      <td>미분양주택현황보고</td>
-      <td>MT_GTITLE01</td>
-      <td>주제별 &gt; 주거와 교통</td>
-      <td>107</td>
-      <td>구분 시군구 총계 전국 서울 부산 대구 인천 광주 대전 울산 경기 강원 충북 충남 ...</td>
-      <td>2000</td>
-      <td>2022</td>
-      <td>■ 자료제공처: 통계청 통계정책과 ■자료원출처: 국토교통부(미분양주택현황보고) ■자...</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=101...</td>
-      <td>244</td>
-      <td>시군구 미분양</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>408</td>
-      <td>한국부동산원</td>
-      <td>DT_408_2006_S0039</td>
-      <td>주택거래현황_년도별 세부항목</td>
-      <td>2007409</td>
-      <td>부동산거래현황</td>
-      <td>MT_ZTITLE</td>
-      <td>국토이용 &gt; 부동산거래현황 &gt; 주택거래현황</td>
-      <td>I2 &gt; I2_2 &gt; 408_31503_005</td>
-      <td>... 합천군 (구)제주 (구)제주시 (구)서귀포시 (구)북제주군 (구)남제주군 제...</td>
-      <td>2006</td>
-      <td>2021</td>
-      <td>동호수 : 당월 거래량은 일반건축물과 집합건축물이 함께 거래된 수치이며, 일반건축물...</td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=408...</td>
-      <td>244</td>
-      <td>시군구 미분양</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>408</td>
-      <td>한국부동산원</td>
-      <td>DT_408_2006_S0069</td>
-      <td>토지매매거래현황_년도별 세부항목</td>
-      <td>2007409</td>
-      <td>부동산거래현황</td>
-      <td>MT_ZTITLE</td>
-      <td>국토이용 &gt; 부동산거래현황 &gt; 토지매매거래현황</td>
-      <td>I2 &gt; I2_2 &gt; 315_31503_90</td>
-      <td>... 녹지지역 개발제한구역 용도미지정 관리지역 농림지역 자연환경보전지역 지목 전 ...</td>
-      <td>2019</td>
-      <td>2021</td>
-      <td></td>
-      <td>N</td>
-      <td>https://kosis.kr/statisticsList/statisticsList...</td>
-      <td>http://kosis.kr/statHtml/statHtml.do?orgId=408...</td>
-      <td>244</td>
-      <td>시군구 미분양</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 <br>
 
 ## 데이터 수록 주기와 시점 확인
 
-`Kosis`를 이용해 **통계표 설명** 기능을 사용할 수 있는 인스턴스인 `kosis_desc`를 만든다. 상세기능 detailServiceName의 값으로 '자료갱신일'을 입력하고, 위에서 복사해둔 기관코드 orgId와 통계표ID tblId의 값들을 `get_data`의 인자로 입력하여 데이터 수록 주기와 시점을 확인한다. 수록주기(PRD_SE) 별 최근 수록시점(PRD_DE) 값을 조회하면 수록주기는 월 기준이며, 2000년 12월 ~ 2022년 8월 데이터가 수록되어 있는 것을 알 수 있다.
+api.get_data() 메서드의 첫 번째 인자로 '통계표설명'을 지정한다. 통계표설명의 경우 상세기능도 추가적으로 지정해야 한다. 두 번째 인자로 '자료갱신일'을 입력하고, 위에서 복사해둔 기관ID와 통계표ID의 값들을 api.get_data()의 인자로 입력해 데이터 수록주기와 수록시점을 확인한다. 수록주기(PRD_SE) 별 최근 수록시점(PRD_DE) 값을 조회하면 수록주기는 월 기준이며, 2000년 12월 ~ 2022년 11월 데이터가 수록되어 있는 것을 알 수 있다.
 
 
 ```python
-# KOSIS OPEN API 인스턴스 생성
-serviceName = "통계표설명"
-kosis_desc = pdr.Kosis(apiKey, serviceName)
+df = api.get_data(
+    "통계표설명",
+    "자료갱신일",
+    orgId="101",
+    tblId="DT_1YL202001E"
+)
 
-# 파라미터
-detailServiceName = "자료갱신일"
-orgId = "101"
-tblId = "DT_1YL202001E"
-
-# 데이터 조회
-df = kosis_desc.get_data(orgId=orgId, tblId=tblId, detailServiceName=detailServiceName)
-df.groupby(by=['PRD_SE']).agg({"PRD_DE": ["min", "max"]})
+df.groupby(by=['수록주기']).agg({"수록시점": ["min", "max"]})
 ```
 
 
@@ -265,7 +103,7 @@ df.groupby(by=['PRD_SE']).agg({"PRD_DE": ["min", "max"]})
   <thead>
     <tr>
       <th></th>
-      <th colspan="2" halign="left">PRD_DE</th>
+      <th colspan="2" halign="left">수록시점</th>
     </tr>
     <tr>
       <th></th>
@@ -273,7 +111,7 @@ df.groupby(by=['PRD_SE']).agg({"PRD_DE": ["min", "max"]})
       <th>max</th>
     </tr>
     <tr>
-      <th>PRD_SE</th>
+      <th>수록주기</th>
       <th></th>
       <th></th>
     </tr>
@@ -282,7 +120,7 @@ df.groupby(by=['PRD_SE']).agg({"PRD_DE": ["min", "max"]})
     <tr>
       <th>월</th>
       <td>200012</td>
-      <td>202208</td>
+      <td>202211</td>
     </tr>
   </tbody>
 </table>
@@ -294,24 +132,17 @@ df.groupby(by=['PRD_SE']).agg({"PRD_DE": ["min", "max"]})
 
 ## 데이터 항목 및 분류 확인하기
 
-`Kosis`를 이용해 **통계표 설명** 기능을 사용할 수 있는 인스턴스인 `kosis_desc`를 만든다. 상세기능 detailServiceName의 값으로 '분류항목'을 입력하고, 이번에도 기관코드와 통계표ID를 `get_data`의 인자로 입력해 결과를 확인한다. **`OBJ_ID`** 는 분류ID로 이 값이 'ITEM' 이면 항목을 뜻하고, ITM_ID 값을 통계자료 조회 시 itmId 값으로 입력한다. **`OBJ_ID`** 값이 `ITEM` 이 아니고, **`OBJ_ID_SN`** 값에 숫자가 입력되어 있는 경우 이는 분류를 뜻하고, **`OBJ_ID_SN`** 의 숫자 값이 분류 수준을 뜻한다. 예를 들어, **`OBJ_ID`** 값이 A이고, **`OBJ_ID_SN`** 값이 1이라면, ITM_ID 값을 통계자료 조회 시 objL1의 값으로 입력한다. 
+api.get_data() 메서드의 첫 번째 인자로 '통계표설명'을 지정한다. 두 번째 인자로 '분류항목'을 입력하고, 이번에도 기관ID와 통계표ID를 api.get_data()의 인자로 입력해 결과를 확인한다. 분류ID의 값이 'ITEM' 이면 항목을 뜻하고 이 때, 분류값ID의 값을 통계자료 조회 시 itmId의 값으로 입력한다. 분류ID 값이 `ITEM` 이 아니고, 분류값순번 값에 숫자가 입력되어 있는 경우 이는 분류를 뜻하고, 분류값순번의 숫자 값이 분류 수준을 뜻한다. 예를 들어, 분류ID 값이 A이고, 분류값순번 값이 1이라면, 분류ID 값을 통계자료 조회 시 objL1의 값으로 입력한다. 
 
 
 ```python
-# 파라미터
-detailServiceName = "분류항목"
-orgId = "101"
-tblId = "DT_1YL202001E"
-
-# 데이터 조회
-item = kosis_desc.get_data(orgId=orgId, tblId=tblId, detailServiceName=detailServiceName)
-```
-
-다음은 항목 리스트이다. '미분양현황' 하나만 선택 가능하다. ITM_ID 값인 13103871087T1를 복사해둔다.
-
-
-```python
-item.loc[item["OBJ_ID_SN"].isna()]
+item = api.get_data(
+    "통계표설명",
+    "분류항목",
+    orgId="101",
+    tblId="DT_1YL202001E",
+)
+item.head()
 ```
 
 
@@ -335,29 +166,77 @@ item.loc[item["OBJ_ID_SN"].isna()]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ITM_NM</th>
-      <th>TBL_ID</th>
-      <th>ITM_NM_ENG</th>
-      <th>ITM_ID</th>
-      <th>OBJ_NM</th>
-      <th>OBJ_NM_ENG</th>
-      <th>ORG_ID</th>
-      <th>OBJ_ID</th>
-      <th>OBJ_ID_SN</th>
+      <th>기관ID</th>
+      <th>통계표ID</th>
+      <th>분류ID</th>
+      <th>분류명</th>
+      <th>분류영문명</th>
+      <th>분류값ID</th>
+      <th>분류값명</th>
+      <th>분류값영문명</th>
+      <th>분류값순번</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>미분양현황</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
+      <td>ITEM</td>
       <td>항목</td>
       <td>Item code list</td>
-      <td>101</td>
-      <td>ITEM</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
       <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>101</td>
+      <td>DT_1YL202001E</td>
+      <td>13101871087A</td>
+      <td>구분</td>
+      <td>SiGunGu</td>
+      <td>13102871087A.0001</td>
+      <td>총계</td>
+      <td>Total</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>101</td>
+      <td>DT_1YL202001E</td>
+      <td>13101871087A</td>
+      <td>구분</td>
+      <td>SiGunGu</td>
+      <td>13102871087A.0002</td>
+      <td>전국</td>
+      <td>Whole Country</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>101</td>
+      <td>DT_1YL202001E</td>
+      <td>13101871087A</td>
+      <td>구분</td>
+      <td>SiGunGu</td>
+      <td>13102871087A.0003</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>101</td>
+      <td>DT_1YL202001E</td>
+      <td>13101871087A</td>
+      <td>구분</td>
+      <td>SiGunGu</td>
+      <td>13102871087A.0004</td>
+      <td>부산</td>
+      <td>Busan</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -365,11 +244,11 @@ item.loc[item["OBJ_ID_SN"].isna()]
 
 
 
-다음은 분류1 리스트이다. 분류1은 구분을 뜻하며 전국, 서울, 부산, 대구 등 여러 시도 단위 지역 기준들이 존재한다. 전체 선택할 것이므로 별도로 ITM_ID를 복사하지 않아도 된다.
+항목을 조회한 결과를 살펴보면 '미분양현황' 하나만 선택 가능하다. 분류값ID의 값인 13103871087T1를 복사해둔다.
 
 
 ```python
-item.loc[item["OBJ_ID_SN"]=="1"]
+item.loc[item["분류값순번"].isna()]
 ```
 
 
@@ -393,244 +272,302 @@ item.loc[item["OBJ_ID_SN"]=="1"]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ITM_NM</th>
-      <th>TBL_ID</th>
-      <th>ITM_NM_ENG</th>
-      <th>ITM_ID</th>
-      <th>OBJ_NM</th>
-      <th>OBJ_NM_ENG</th>
-      <th>ORG_ID</th>
-      <th>OBJ_ID</th>
-      <th>OBJ_ID_SN</th>
+      <th>기관ID</th>
+      <th>통계표ID</th>
+      <th>분류ID</th>
+      <th>분류명</th>
+      <th>분류영문명</th>
+      <th>분류값ID</th>
+      <th>분류값명</th>
+      <th>분류값영문명</th>
+      <th>분류값순번</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>DT_1YL202001E</td>
+      <td>ITEM</td>
+      <td>항목</td>
+      <td>Item code list</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+다음은 분류1의 조회 결과다. 분류1은 구분을 뜻하며 전국, 서울, 부산, 대구 등 여러 시도 단위 지역 기준들이 존재한다. 전체 선택할 것이므로 별도로  분류값ID(ITM_ID)를 복사하지 않아도 된다.
+
+
+```python
+item.loc[item["분류값순번"]=="1"]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>기관ID</th>
+      <th>통계표ID</th>
+      <th>분류ID</th>
+      <th>분류명</th>
+      <th>분류영문명</th>
+      <th>분류값ID</th>
+      <th>분류값명</th>
+      <th>분류값영문명</th>
+      <th>분류값순번</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
-      <td>총계</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Total</td>
-      <td>13102871087A.0001</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0001</td>
+      <td>총계</td>
+      <td>Total</td>
       <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>전국</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Whole Country</td>
-      <td>13102871087A.0002</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0002</td>
+      <td>전국</td>
+      <td>Whole Country</td>
       <td>1</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>서울</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seoul</td>
-      <td>13102871087A.0003</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0003</td>
+      <td>서울</td>
+      <td>Seoul</td>
       <td>1</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>부산</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Busan</td>
-      <td>13102871087A.0004</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0004</td>
+      <td>부산</td>
+      <td>Busan</td>
       <td>1</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>대구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Daegu</td>
-      <td>13102871087A.0005</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0005</td>
+      <td>대구</td>
+      <td>Daegu</td>
       <td>1</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>인천</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Incheon</td>
-      <td>13102871087A.0006</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0006</td>
+      <td>인천</td>
+      <td>Incheon</td>
       <td>1</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>광주</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gwangju</td>
-      <td>13102871087A.0007</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0007</td>
+      <td>광주</td>
+      <td>Gwangju</td>
       <td>1</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>대전</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Daejeon</td>
-      <td>13102871087A.0008</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0008</td>
+      <td>대전</td>
+      <td>Daejeon</td>
       <td>1</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>울산</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Ulsan</td>
-      <td>13102871087A.0009</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0009</td>
+      <td>울산</td>
+      <td>Ulsan</td>
       <td>1</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>세종</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sejong</td>
-      <td>13102871087A.0019</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0019</td>
+      <td>세종</td>
+      <td>Sejong</td>
       <td>1</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>경기</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeonggi</td>
-      <td>13102871087A.0010</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0010</td>
+      <td>경기</td>
+      <td>Gyeonggi</td>
       <td>1</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>강원</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gangwon-do</td>
-      <td>13102871087A.0011</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0011</td>
+      <td>강원</td>
+      <td>Gangwon-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>충북</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Chungcheongbuk-do</td>
-      <td>13102871087A.0012</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0012</td>
+      <td>충북</td>
+      <td>Chungcheongbuk-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>충남</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Chungcheongnam-do</td>
-      <td>13102871087A.0013</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0013</td>
+      <td>충남</td>
+      <td>Chungcheongnam-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>전북</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeollabuk-do</td>
-      <td>13102871087A.0014</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0014</td>
+      <td>전북</td>
+      <td>Jeollabuk-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>전남</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeollanam-do</td>
-      <td>13102871087A.0015</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0015</td>
+      <td>전남</td>
+      <td>Jeollanam-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>경북</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeongsangbuk-do</td>
-      <td>13102871087A.0016</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0016</td>
+      <td>경북</td>
+      <td>Gyeongsangbuk-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>경남</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeongsangnam-do</td>
-      <td>13102871087A.0017</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0017</td>
+      <td>경남</td>
+      <td>Gyeongsangnam-do</td>
       <td>1</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>제주</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeju</td>
-      <td>13102871087A.0018</td>
+      <td>13101871087A</td>
       <td>구분</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087A</td>
+      <td>13102871087A.0018</td>
+      <td>제주</td>
+      <td>Jeju</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -639,11 +576,11 @@ item.loc[item["OBJ_ID_SN"]=="1"]
 
 
 
-다음은 분류2 리스트이다. 분류2는 시군구를 뜻하며 종로구, 강남구 등 여러 시군구 단위 지역 기준들이 존재한다. 분류1에서와 마찬가지로 전체 선택하기로 한다. ITM_ID를 따로 복사하지 않아도 된다.
+다음은 분류2의 조회 결과다. 분류2는 시군구를 뜻하며 종로구, 강남구 등 여러 시군구 단위 지역 기준들이 존재한다. 분류1에서와 마찬가지로 전체 선택하기로 한다.  분류값ID(ITM_ID)를 따로 복사하지 않아도 된다.
 
 
 ```python
-item.loc[item["OBJ_ID_SN"]=="2"]
+item.loc[item["분류값순번"]=="2"]
 ```
 
 
@@ -667,2620 +604,2620 @@ item.loc[item["OBJ_ID_SN"]=="2"]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>ITM_NM</th>
-      <th>TBL_ID</th>
-      <th>ITM_NM_ENG</th>
-      <th>ITM_ID</th>
-      <th>OBJ_NM</th>
-      <th>OBJ_NM_ENG</th>
-      <th>ORG_ID</th>
-      <th>OBJ_ID</th>
-      <th>OBJ_ID_SN</th>
+      <th>기관ID</th>
+      <th>통계표ID</th>
+      <th>분류ID</th>
+      <th>분류명</th>
+      <th>분류영문명</th>
+      <th>분류값ID</th>
+      <th>분류값명</th>
+      <th>분류값영문명</th>
+      <th>분류값순번</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>20</th>
-      <td>총계</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0001</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0001</td>
+      <td>총계</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>계</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0002</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0002</td>
+      <td>계</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>소계</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sub Total</td>
-      <td>13102871087B.0003</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0003</td>
+      <td>소계</td>
+      <td>Sub Total</td>
       <td>2</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>종로구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jongno-gu</td>
-      <td>13102871087B.0004</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0004</td>
+      <td>종로구</td>
+      <td>Jongno-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>강남구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0005</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0005</td>
+      <td>강남구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>중구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0006</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0006</td>
+      <td>중구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>강동구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0007</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0007</td>
+      <td>강동구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>용산구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0008</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0008</td>
+      <td>용산구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>강북구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gangbuk-gu</td>
-      <td>13102871087B.0009</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0009</td>
+      <td>강북구</td>
+      <td>Gangbuk-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>성동구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seongdong-gu</td>
-      <td>13102871087B.0010</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0010</td>
+      <td>성동구</td>
+      <td>Seongdong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>강서구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0011</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0011</td>
+      <td>강서구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>광진구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0012</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0012</td>
+      <td>광진구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>동대문구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dongdaemun-gu</td>
-      <td>13102871087B.0013</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0013</td>
+      <td>동대문구</td>
+      <td>Dongdaemun-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>관악구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gwanak-gu</td>
-      <td>13102871087B.0014</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0014</td>
+      <td>관악구</td>
+      <td>Gwanak-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>중랑구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jungnang-gu</td>
-      <td>13102871087B.0015</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0015</td>
+      <td>중랑구</td>
+      <td>Jungnang-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>성북구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seongbuk-gu</td>
-      <td>13102871087B.0016</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0016</td>
+      <td>성북구</td>
+      <td>Seongbuk-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>구로구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Guro-gu</td>
-      <td>13102871087B.0017</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0017</td>
+      <td>구로구</td>
+      <td>Guro-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>금천구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Geumcheon-gu</td>
-      <td>13102871087B.0018</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0018</td>
+      <td>금천구</td>
+      <td>Geumcheon-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>노원구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Nowon-gu</td>
-      <td>13102871087B.0019</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0019</td>
+      <td>노원구</td>
+      <td>Nowon-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>도봉구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dobong-gu</td>
-      <td>13102871087B.0020</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0020</td>
+      <td>도봉구</td>
+      <td>Dobong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>은평구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Eunpyeong-gu</td>
-      <td>13102871087B.0021</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0021</td>
+      <td>은평구</td>
+      <td>Eunpyeong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>서대문구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seodaemun-gu</td>
-      <td>13102871087B.0022</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0022</td>
+      <td>서대문구</td>
+      <td>Seodaemun-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>동작구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dongjak-gu</td>
-      <td>13102871087B.0023</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0023</td>
+      <td>동작구</td>
+      <td>Dongjak-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>마포구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Mapo-gu</td>
-      <td>13102871087B.0024</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0024</td>
+      <td>마포구</td>
+      <td>Mapo-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>양천구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yangcheon-gu</td>
-      <td>13102871087B.0025</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0025</td>
+      <td>양천구</td>
+      <td>Yangcheon-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>45</th>
-      <td>서초구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seocho-gu</td>
-      <td>13102871087B.0026</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0026</td>
+      <td>서초구</td>
+      <td>Seocho-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>46</th>
-      <td>영등포구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongdeungpo-gu</td>
-      <td>13102871087B.0027</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0027</td>
+      <td>영등포구</td>
+      <td>Yeongdeungpo-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>47</th>
-      <td>송파구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Songpa-gu</td>
-      <td>13102871087B.0028</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0028</td>
+      <td>송파구</td>
+      <td>Songpa-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>48</th>
-      <td>서구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seo-gu</td>
-      <td>13102871087B.0029</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0029</td>
+      <td>서구</td>
+      <td>Seo-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>49</th>
-      <td>동구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0030</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0030</td>
+      <td>동구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>50</th>
-      <td>금정구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0031</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0031</td>
+      <td>금정구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>51</th>
-      <td>영도구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0032</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0032</td>
+      <td>영도구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>52</th>
-      <td>기장군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0033</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0033</td>
+      <td>기장군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>53</th>
-      <td>남구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Nam-gu</td>
-      <td>13102871087B.0034</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0034</td>
+      <td>남구</td>
+      <td>Nam-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>54</th>
-      <td>부산진구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Busanjin-gu</td>
-      <td>13102871087B.0035</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0035</td>
+      <td>부산진구</td>
+      <td>Busanjin-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>55</th>
-      <td>동래구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dongnae-gu</td>
-      <td>13102871087B.0036</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0036</td>
+      <td>동래구</td>
+      <td>Dongnae-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>56</th>
-      <td>북구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Buk-gu</td>
-      <td>13102871087B.0037</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0037</td>
+      <td>북구</td>
+      <td>Buk-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>57</th>
-      <td>해운대구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Haeundae-gu</td>
-      <td>13102871087B.0038</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0038</td>
+      <td>해운대구</td>
+      <td>Haeundae-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>58</th>
-      <td>사상구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0039</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0039</td>
+      <td>사상구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>59</th>
-      <td>사하구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0040</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0040</td>
+      <td>사하구</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>60</th>
-      <td>연제구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeonje-gu</td>
-      <td>13102871087B.0041</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0041</td>
+      <td>연제구</td>
+      <td>Yeonje-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>61</th>
-      <td>수영구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Suyeong-gu</td>
-      <td>13102871087B.0042</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0042</td>
+      <td>수영구</td>
+      <td>Suyeong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>62</th>
-      <td>수성구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Suseong-gu</td>
-      <td>13102871087B.0043</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0043</td>
+      <td>수성구</td>
+      <td>Suseong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>63</th>
-      <td>달서구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dalseo-gu</td>
-      <td>13102871087B.0044</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0044</td>
+      <td>달서구</td>
+      <td>Dalseo-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>64</th>
-      <td>달성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Dalseong-gun</td>
-      <td>13102871087B.0045</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0045</td>
+      <td>달성군</td>
+      <td>Dalseong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>65</th>
-      <td>남동구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Namdong-gu</td>
-      <td>13102871087B.0046</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0046</td>
+      <td>남동구</td>
+      <td>Namdong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>66</th>
-      <td>연수구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeonsu-gu</td>
-      <td>13102871087B.0047</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0047</td>
+      <td>연수구</td>
+      <td>Yeonsu-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>67</th>
-      <td>미추홀구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Michuhol-gu</td>
-      <td>13102871087B.0048</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0048</td>
+      <td>미추홀구</td>
+      <td>Michuhol-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>68</th>
-      <td>부평구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Bupyeong-gu</td>
-      <td>13102871087B.0049</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0049</td>
+      <td>부평구</td>
+      <td>Bupyeong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>69</th>
-      <td>계양구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeyang-gu</td>
-      <td>13102871087B.0050</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0050</td>
+      <td>계양구</td>
+      <td>Gyeyang-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>70</th>
-      <td>강화군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Ganghwa-gun</td>
-      <td>13102871087B.0051</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0051</td>
+      <td>강화군</td>
+      <td>Ganghwa-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>71</th>
-      <td>옹진군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Ongjin-gun</td>
-      <td>13102871087B.0052</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0052</td>
+      <td>옹진군</td>
+      <td>Ongjin-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>72</th>
-      <td>광산구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gwangsan-gu</td>
-      <td>13102871087B.0053</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0053</td>
+      <td>광산구</td>
+      <td>Gwangsan-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>73</th>
-      <td>유성구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yuseong-gu</td>
-      <td>13102871087B.0054</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0054</td>
+      <td>유성구</td>
+      <td>Yuseong-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>74</th>
-      <td>대덕구</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Daedeok-gu</td>
-      <td>13102871087B.0055</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0055</td>
+      <td>대덕구</td>
+      <td>Daedeok-gu</td>
       <td>2</td>
     </tr>
     <tr>
       <th>75</th>
-      <td>울주군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Ulju-gun</td>
-      <td>13102871087B.0056</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0056</td>
+      <td>울주군</td>
+      <td>Ulju-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>76</th>
-      <td>수원시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Suwon-si</td>
-      <td>13102871087B.0057</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0057</td>
+      <td>수원시</td>
+      <td>Suwon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>77</th>
-      <td>세종시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0058</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0058</td>
+      <td>세종시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>78</th>
-      <td>가평군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gapyeong-gun</td>
-      <td>13102871087B.0059</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0059</td>
+      <td>가평군</td>
+      <td>Gapyeong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>79</th>
-      <td>성남시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0060</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0060</td>
+      <td>성남시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>80</th>
-      <td>고양시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0061</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0061</td>
+      <td>고양시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>81</th>
-      <td>의정부시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0062</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0062</td>
+      <td>의정부시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>82</th>
-      <td>과천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0063</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0063</td>
+      <td>과천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>83</th>
-      <td>안양시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0064</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0064</td>
+      <td>안양시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>84</th>
-      <td>광명시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gwangmyeong-si</td>
-      <td>13102871087B.0065</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0065</td>
+      <td>광명시</td>
+      <td>Gwangmyeong-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>85</th>
-      <td>부천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0066</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0066</td>
+      <td>부천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>86</th>
-      <td>광주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0067</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0067</td>
+      <td>광주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>87</th>
-      <td>구리시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Guri-si</td>
-      <td>13102871087B.0068</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0068</td>
+      <td>구리시</td>
+      <td>Guri-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>88</th>
-      <td>평택시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0069</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0069</td>
+      <td>평택시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>89</th>
-      <td>동두천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0070</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0070</td>
+      <td>동두천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>90</th>
-      <td>군포시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0071</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0071</td>
+      <td>군포시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>91</th>
-      <td>김포시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0072</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0072</td>
+      <td>김포시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>92</th>
-      <td>안산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0073</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0073</td>
+      <td>안산시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>93</th>
-      <td>남양주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0074</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0074</td>
+      <td>남양주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>94</th>
-      <td>시흥시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0075</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0075</td>
+      <td>시흥시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>95</th>
-      <td>오산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0076</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0076</td>
+      <td>오산시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>안성시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0077</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0077</td>
+      <td>안성시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>의왕시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0078</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0078</td>
+      <td>의왕시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>하남시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0079</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0079</td>
+      <td>하남시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>양주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0080</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0080</td>
+      <td>양주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>100</th>
-      <td>양평군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0081</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0081</td>
+      <td>양평군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>101</th>
-      <td>용인시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0082</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0082</td>
+      <td>용인시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>102</th>
-      <td>여주군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeoju-gun</td>
-      <td>13102871087B.0083</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0083</td>
+      <td>여주군</td>
+      <td>Yeoju-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>103</th>
-      <td>파주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0084</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0084</td>
+      <td>파주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>104</th>
-      <td>이천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0085</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0085</td>
+      <td>이천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>105</th>
-      <td>연천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0086</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0086</td>
+      <td>연천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>106</th>
-      <td>여주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0087</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0087</td>
+      <td>여주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>107</th>
-      <td>화성시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0088</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0088</td>
+      <td>화성시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>108</th>
-      <td>포천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0089</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0089</td>
+      <td>포천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>109</th>
-      <td>춘천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0090</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0090</td>
+      <td>춘천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>110</th>
-      <td>원주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0091</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0091</td>
+      <td>원주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>111</th>
-      <td>강릉시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0092</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0092</td>
+      <td>강릉시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>112</th>
-      <td>동해시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0093</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0093</td>
+      <td>동해시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>113</th>
-      <td>태백시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0094</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0094</td>
+      <td>태백시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>114</th>
-      <td>속초시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0095</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0095</td>
+      <td>속초시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>115</th>
-      <td>삼척시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0096</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0096</td>
+      <td>삼척시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>116</th>
-      <td>홍천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0097</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0097</td>
+      <td>홍천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>117</th>
-      <td>횡성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0098</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0098</td>
+      <td>횡성군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>118</th>
-      <td>영월군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0099</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0099</td>
+      <td>영월군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>119</th>
-      <td>평창군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0100</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0100</td>
+      <td>평창군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>120</th>
-      <td>정선군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0101</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0101</td>
+      <td>정선군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>121</th>
-      <td>철원군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0102</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0102</td>
+      <td>철원군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>122</th>
-      <td>화천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0103</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0103</td>
+      <td>화천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>123</th>
-      <td>양구군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0104</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0104</td>
+      <td>양구군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>124</th>
-      <td>인제군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0105</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0105</td>
+      <td>인제군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>125</th>
-      <td>고성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0106</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0106</td>
+      <td>고성군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>126</th>
-      <td>양양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0107</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0107</td>
+      <td>양양군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>127</th>
-      <td>청주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0108</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0108</td>
+      <td>청주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>128</th>
-      <td>괴산군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0109</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0109</td>
+      <td>괴산군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>129</th>
-      <td>충주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0110</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0110</td>
+      <td>충주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>130</th>
-      <td>단양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Danyang-gun</td>
-      <td>13102871087B.0111</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0111</td>
+      <td>단양군</td>
+      <td>Danyang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>131</th>
-      <td>제천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0112</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0112</td>
+      <td>제천시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>132</th>
-      <td>보은군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0113</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0113</td>
+      <td>보은군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>133</th>
-      <td>청원군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0114</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0114</td>
+      <td>청원군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>134</th>
-      <td>옥천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0115</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0115</td>
+      <td>옥천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>135</th>
-      <td>영동군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0116</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0116</td>
+      <td>영동군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>136</th>
-      <td>증평군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0117</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0117</td>
+      <td>증평군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>137</th>
-      <td>음성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0118</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0118</td>
+      <td>음성군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>138</th>
-      <td>진천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0119</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0119</td>
+      <td>진천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>139</th>
-      <td>천안시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0120</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0120</td>
+      <td>천안시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>140</th>
-      <td>공주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0121</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0121</td>
+      <td>공주시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>141</th>
-      <td>보령시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0122</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0122</td>
+      <td>보령시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>142</th>
-      <td>계룡시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0123</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0123</td>
+      <td>계룡시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>143</th>
-      <td>아산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0124</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0124</td>
+      <td>아산시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>144</th>
-      <td>금산군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0125</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0125</td>
+      <td>금산군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>145</th>
-      <td>서산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0126</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0126</td>
+      <td>서산시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>146</th>
-      <td>논산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0127</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0127</td>
+      <td>논산시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>147</th>
-      <td>당진시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0128</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0128</td>
+      <td>당진시</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>148</th>
-      <td>부여군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0129</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0129</td>
+      <td>부여군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>149</th>
-      <td>연기군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0130</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0130</td>
+      <td>연기군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>150</th>
-      <td>서천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0131</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0131</td>
+      <td>서천군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>151</th>
-      <td>청양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0132</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0132</td>
+      <td>청양군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>152</th>
-      <td>홍성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0133</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0133</td>
+      <td>홍성군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>153</th>
-      <td>예산군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0134</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0134</td>
+      <td>예산군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>154</th>
-      <td>태안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0135</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0135</td>
+      <td>태안군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>155</th>
-      <td>당진군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>NaN</td>
-      <td>13102871087B.0136</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0136</td>
+      <td>당진군</td>
+      <td>NaN</td>
       <td>2</td>
     </tr>
     <tr>
       <th>156</th>
-      <td>전주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeonju-si</td>
-      <td>13102871087B.0137</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0137</td>
+      <td>전주시</td>
+      <td>Jeonju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>157</th>
-      <td>조치원읍</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jochiwon-eup</td>
-      <td>13102871087B.0138</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0138</td>
+      <td>조치원읍</td>
+      <td>Jochiwon-eup</td>
       <td>2</td>
     </tr>
     <tr>
       <th>158</th>
-      <td>군산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gunsan-si</td>
-      <td>13102871087B.0139</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0139</td>
+      <td>군산시</td>
+      <td>Gunsan-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>159</th>
-      <td>익산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Iksan-si</td>
-      <td>13102871087B.0140</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0140</td>
+      <td>익산시</td>
+      <td>Iksan-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>160</th>
-      <td>정읍시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeongeup-si</td>
-      <td>13102871087B.0141</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0141</td>
+      <td>정읍시</td>
+      <td>Jeongeup-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>161</th>
-      <td>남원시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Namwon-si</td>
-      <td>13102871087B.0142</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0142</td>
+      <td>남원시</td>
+      <td>Namwon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>162</th>
-      <td>김제시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gimje-si</td>
-      <td>13102871087B.0143</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0143</td>
+      <td>김제시</td>
+      <td>Gimje-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>163</th>
-      <td>완주군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Wanju-gun</td>
-      <td>13102871087B.0144</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0144</td>
+      <td>완주군</td>
+      <td>Wanju-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>164</th>
-      <td>진안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jinan-gun</td>
-      <td>13102871087B.0145</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0145</td>
+      <td>진안군</td>
+      <td>Jinan-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>165</th>
-      <td>무주군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Muju-gun</td>
-      <td>13102871087B.0146</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0146</td>
+      <td>무주군</td>
+      <td>Muju-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>166</th>
-      <td>장수군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jangsu-gun</td>
-      <td>13102871087B.0147</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0147</td>
+      <td>장수군</td>
+      <td>Jangsu-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>167</th>
-      <td>임실군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Imsil-gun</td>
-      <td>13102871087B.0148</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0148</td>
+      <td>임실군</td>
+      <td>Imsil-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>168</th>
-      <td>순창군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sunchang-gun</td>
-      <td>13102871087B.0149</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0149</td>
+      <td>순창군</td>
+      <td>Sunchang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>169</th>
-      <td>고창군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gochang-gun</td>
-      <td>13102871087B.0150</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0150</td>
+      <td>고창군</td>
+      <td>Gochang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>170</th>
-      <td>부안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Buan-gun</td>
-      <td>13102871087B.0151</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0151</td>
+      <td>부안군</td>
+      <td>Buan-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>171</th>
-      <td>목포시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Mokpo-si</td>
-      <td>13102871087B.0152</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0152</td>
+      <td>목포시</td>
+      <td>Mokpo-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>172</th>
-      <td>여수시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeosu-si</td>
-      <td>13102871087B.0153</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0153</td>
+      <td>여수시</td>
+      <td>Yeosu-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>173</th>
-      <td>순천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Suncheon-si</td>
-      <td>13102871087B.0154</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0154</td>
+      <td>순천시</td>
+      <td>Suncheon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>174</th>
-      <td>나주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Naju-si</td>
-      <td>13102871087B.0155</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0155</td>
+      <td>나주시</td>
+      <td>Naju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>175</th>
-      <td>광양시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gwangyang-si</td>
-      <td>13102871087B.0156</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0156</td>
+      <td>광양시</td>
+      <td>Gwangyang-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>176</th>
-      <td>담양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Damyang-gun</td>
-      <td>13102871087B.0157</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0157</td>
+      <td>담양군</td>
+      <td>Damyang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>177</th>
-      <td>곡성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gokseong-gun</td>
-      <td>13102871087B.0158</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0158</td>
+      <td>곡성군</td>
+      <td>Gokseong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>178</th>
-      <td>구례군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gurye-gun</td>
-      <td>13102871087B.0159</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0159</td>
+      <td>구례군</td>
+      <td>Gurye-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>179</th>
-      <td>고흥군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Goheung-gun</td>
-      <td>13102871087B.0160</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0160</td>
+      <td>고흥군</td>
+      <td>Goheung-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>180</th>
-      <td>보성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Boseong-gun</td>
-      <td>13102871087B.0161</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0161</td>
+      <td>보성군</td>
+      <td>Boseong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>181</th>
-      <td>화순군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Hwasun-gun</td>
-      <td>13102871087B.0162</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0162</td>
+      <td>화순군</td>
+      <td>Hwasun-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>182</th>
-      <td>장흥군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jangheung-gun</td>
-      <td>13102871087B.0163</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0163</td>
+      <td>장흥군</td>
+      <td>Jangheung-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>183</th>
-      <td>강진군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gangjin-gun</td>
-      <td>13102871087B.0164</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0164</td>
+      <td>강진군</td>
+      <td>Gangjin-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>184</th>
-      <td>해남군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Haenam-gun</td>
-      <td>13102871087B.0165</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0165</td>
+      <td>해남군</td>
+      <td>Haenam-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>185</th>
-      <td>영암군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongam-gun</td>
-      <td>13102871087B.0166</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0166</td>
+      <td>영암군</td>
+      <td>Yeongam-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>186</th>
-      <td>무안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Muan-gun</td>
-      <td>13102871087B.0167</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0167</td>
+      <td>무안군</td>
+      <td>Muan-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>187</th>
-      <td>함평군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Hampyeong-gun</td>
-      <td>13102871087B.0168</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0168</td>
+      <td>함평군</td>
+      <td>Hampyeong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>188</th>
-      <td>영광군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeonggwang-gun</td>
-      <td>13102871087B.0169</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0169</td>
+      <td>영광군</td>
+      <td>Yeonggwang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>189</th>
-      <td>장성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jangseong-gun</td>
-      <td>13102871087B.0170</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0170</td>
+      <td>장성군</td>
+      <td>Jangseong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>190</th>
-      <td>완도군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Wando-gun</td>
-      <td>13102871087B.0171</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0171</td>
+      <td>완도군</td>
+      <td>Wando-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>191</th>
-      <td>진도군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jindo-gun</td>
-      <td>13102871087B.0172</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0172</td>
+      <td>진도군</td>
+      <td>Jindo-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>192</th>
-      <td>신안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sinan-gun</td>
-      <td>13102871087B.0173</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0173</td>
+      <td>신안군</td>
+      <td>Sinan-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>193</th>
-      <td>포항시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Pohang-si</td>
-      <td>13102871087B.0174</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0174</td>
+      <td>포항시</td>
+      <td>Pohang-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>194</th>
-      <td>경주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeongju-si</td>
-      <td>13102871087B.0175</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0175</td>
+      <td>경주시</td>
+      <td>Gyeongju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>195</th>
-      <td>김천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gimcheon-si</td>
-      <td>13102871087B.0176</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0176</td>
+      <td>김천시</td>
+      <td>Gimcheon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>196</th>
-      <td>안동시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Andong-si</td>
-      <td>13102871087B.0177</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0177</td>
+      <td>안동시</td>
+      <td>Andong-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>197</th>
-      <td>구미시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gumi-si</td>
-      <td>13102871087B.0178</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0178</td>
+      <td>구미시</td>
+      <td>Gumi-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>198</th>
-      <td>영주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongju-si</td>
-      <td>13102871087B.0179</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0179</td>
+      <td>영주시</td>
+      <td>Yeongju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>199</th>
-      <td>영천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongcheon-si</td>
-      <td>13102871087B.0180</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0180</td>
+      <td>영천시</td>
+      <td>Yeongcheon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>200</th>
-      <td>상주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sangju-si</td>
-      <td>13102871087B.0181</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0181</td>
+      <td>상주시</td>
+      <td>Sangju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>201</th>
-      <td>문경시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Mungyeong-si</td>
-      <td>13102871087B.0182</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0182</td>
+      <td>문경시</td>
+      <td>Mungyeong-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>202</th>
-      <td>경산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gyeongsan-si</td>
-      <td>13102871087B.0183</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0183</td>
+      <td>경산시</td>
+      <td>Gyeongsan-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>203</th>
-      <td>군위군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gunwi-gun</td>
-      <td>13102871087B.0184</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0184</td>
+      <td>군위군</td>
+      <td>Gunwi-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>204</th>
-      <td>의성군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Uiseong-gun</td>
-      <td>13102871087B.0185</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0185</td>
+      <td>의성군</td>
+      <td>Uiseong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>205</th>
-      <td>청송군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Cheongsong-gun</td>
-      <td>13102871087B.0186</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0186</td>
+      <td>청송군</td>
+      <td>Cheongsong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>206</th>
-      <td>영양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongyang-gun</td>
-      <td>13102871087B.0187</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0187</td>
+      <td>영양군</td>
+      <td>Yeongyang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>207</th>
-      <td>영덕군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yeongdeok-gun</td>
-      <td>13102871087B.0188</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0188</td>
+      <td>영덕군</td>
+      <td>Yeongdeok-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>208</th>
-      <td>청도군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Cheongdo-gun</td>
-      <td>13102871087B.0189</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0189</td>
+      <td>청도군</td>
+      <td>Cheongdo-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>209</th>
-      <td>고령군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Goryeong-gun</td>
-      <td>13102871087B.0190</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0190</td>
+      <td>고령군</td>
+      <td>Goryeong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>210</th>
-      <td>성주군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seongju-gun</td>
-      <td>13102871087B.0191</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0191</td>
+      <td>성주군</td>
+      <td>Seongju-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>211</th>
-      <td>칠곡군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Chilgok-gun</td>
-      <td>13102871087B.0192</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0192</td>
+      <td>칠곡군</td>
+      <td>Chilgok-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>212</th>
-      <td>예천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yecheon-gun</td>
-      <td>13102871087B.0193</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0193</td>
+      <td>예천군</td>
+      <td>Yecheon-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>213</th>
-      <td>봉화군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Bonghwa-gun</td>
-      <td>13102871087B.0194</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0194</td>
+      <td>봉화군</td>
+      <td>Bonghwa-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>214</th>
-      <td>울진군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Uljin-gun</td>
-      <td>13102871087B.0195</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0195</td>
+      <td>울진군</td>
+      <td>Uljin-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>215</th>
-      <td>울릉군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Ulleung-gun</td>
-      <td>13102871087B.0196</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0196</td>
+      <td>울릉군</td>
+      <td>Ulleung-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>216</th>
-      <td>창원시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Changwon-si</td>
-      <td>13102871087B.0197</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0197</td>
+      <td>창원시</td>
+      <td>Changwon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>217</th>
-      <td>진주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jinju-si</td>
-      <td>13102871087B.0198</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0198</td>
+      <td>진주시</td>
+      <td>Jinju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>218</th>
-      <td>마산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Masan-si</td>
-      <td>13102871087B.0199</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0199</td>
+      <td>마산시</td>
+      <td>Masan-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>219</th>
-      <td>통영시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Tongyeong-si</td>
-      <td>13102871087B.0200</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0200</td>
+      <td>통영시</td>
+      <td>Tongyeong-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>220</th>
-      <td>사천시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sacheon-si</td>
-      <td>13102871087B.0201</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0201</td>
+      <td>사천시</td>
+      <td>Sacheon-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>221</th>
-      <td>진해시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jinhae-si</td>
-      <td>13102871087B.0202</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0202</td>
+      <td>진해시</td>
+      <td>Jinhae-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>222</th>
-      <td>김해시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Gimhae-si</td>
-      <td>13102871087B.0203</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0203</td>
+      <td>김해시</td>
+      <td>Gimhae-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>223</th>
-      <td>밀양시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Miryang-si</td>
-      <td>13102871087B.0204</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0204</td>
+      <td>밀양시</td>
+      <td>Miryang-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>224</th>
-      <td>거제시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Geoje-si</td>
-      <td>13102871087B.0205</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0205</td>
+      <td>거제시</td>
+      <td>Geoje-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>225</th>
-      <td>양산시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Yangsan-si</td>
-      <td>13102871087B.0206</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0206</td>
+      <td>양산시</td>
+      <td>Yangsan-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>226</th>
-      <td>의령군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Uiryeong-gun</td>
-      <td>13102871087B.0207</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0207</td>
+      <td>의령군</td>
+      <td>Uiryeong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>227</th>
-      <td>함안군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Haman-gun</td>
-      <td>13102871087B.0208</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0208</td>
+      <td>함안군</td>
+      <td>Haman-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>228</th>
-      <td>창녕군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Changnyeong-gun</td>
-      <td>13102871087B.0209</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0209</td>
+      <td>창녕군</td>
+      <td>Changnyeong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>229</th>
-      <td>남해군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Namhae-gun</td>
-      <td>13102871087B.0210</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0210</td>
+      <td>남해군</td>
+      <td>Namhae-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>230</th>
-      <td>하동군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Hadong-gun</td>
-      <td>13102871087B.0211</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0211</td>
+      <td>하동군</td>
+      <td>Hadong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>231</th>
-      <td>산청군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Sancheong-gun</td>
-      <td>13102871087B.0212</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0212</td>
+      <td>산청군</td>
+      <td>Sancheong-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>232</th>
-      <td>함양군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Hamyang-gun</td>
-      <td>13102871087B.0213</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0213</td>
+      <td>함양군</td>
+      <td>Hamyang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>233</th>
-      <td>거창군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Geochang-gun</td>
-      <td>13102871087B.0214</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0214</td>
+      <td>거창군</td>
+      <td>Geochang-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>234</th>
-      <td>합천군</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Hapcheon-gun</td>
-      <td>13102871087B.0215</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0215</td>
+      <td>합천군</td>
+      <td>Hapcheon-gun</td>
       <td>2</td>
     </tr>
     <tr>
       <th>235</th>
-      <td>제주시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Jeju-si</td>
-      <td>13102871087B.0216</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0216</td>
+      <td>제주시</td>
+      <td>Jeju-si</td>
       <td>2</td>
     </tr>
     <tr>
       <th>236</th>
-      <td>서귀포시</td>
+      <td>101</td>
       <td>DT_1YL202001E</td>
-      <td>Seogwipo-si</td>
-      <td>13102871087B.0217</td>
+      <td>13101871087B</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>101</td>
-      <td>13101871087B</td>
+      <td>13102871087B.0217</td>
+      <td>서귀포시</td>
+      <td>Seogwipo-si</td>
       <td>2</td>
     </tr>
   </tbody>
@@ -3293,26 +3230,21 @@ item.loc[item["OBJ_ID_SN"]=="2"]
 
 ## 통계표 조회하기
 
-`Kosis`를 이용해 **통계자료** 기능을 사용할 수 있는 인스턴스인 `kosis_data`를 만든다. **`미분양현황_종합`** 통계표를 조회를 위해 위에서 복사해둔 값들을 순서대로 `get_data`의 인자로 입력해준다. itmId의 값으로 선택 항목을 직접 나열해도 되지만 전체 선택 시 'ALL'이라는 값을 입력하면 된다.
+api.get_data() 메서드의 첫 번째 인자로 '통계자료'를 지정한다. **`미분양현황_종합`** 통계표를 조회를 위해 위에서 복사해둔 값들을 순서대로 api.get_data()의 인자로 입력한다. itmId의 값으로 선택 항목을 직접 나열해도 되지만 전체 선택 시 'ALL'이라는 값을 입력하면 된다.
 
 
 ```python
-# KOSIS OPEN API 인스턴스 생성
-serviceName = "통계자료"
-kosis_data = pdr.Kosis(apiKey, serviceName)
-
-# 파라미터
-orgId = "101"              # 기관코드
-tblId = "DT_1YL202001E"    # 통계표ID
-objL1 = "ALL"              # 분류1 - 전체 선택
-objL2 = "ALL"              # 분류2 - 전체 선택
-itmId = "ALL"              # 항목 - 전체 선택
-prdSe = "M"                # 수록주기 - `1개월 주기` 선택
-startPrdDe = "202201"      # 시작수록시점 (YYYYMM)
-endPrdDe = "202208"        # 종료수록시점 (YYYYMM)
-
-# 데이터 조회
-df = kosis_data.get_data(orgId=orgId, tblId=tblId, objL1=objL1, objL2=objL2, itmId=itmId, prdSe=prdSe, startPrdDe=startPrdDe, endPrdDe=endPrdDe)
+df = api.get_data(
+    "통계자료",
+    orgId="101",
+    tblId="DT_1YL202001E",
+    objL1="ALL",
+    objL2="ALL",
+    itmId="ALL",
+    prdSe="M",
+    startPrdDe="202205",
+    endPrdDe="202211",
+)
 df.head()
 ```
 
@@ -3337,149 +3269,149 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>TBL_NM</th>
-      <th>PRD_DE</th>
-      <th>TBL_ID</th>
-      <th>ITM_NM</th>
-      <th>ITM_NM_ENG</th>
-      <th>ITM_ID</th>
-      <th>UNIT_NM</th>
-      <th>ORG_ID</th>
-      <th>UNIT_NM_ENG</th>
-      <th>C1_OBJ_NM</th>
-      <th>C1_OBJ_NM_ENG</th>
-      <th>C2_OBJ_NM</th>
-      <th>C2_OBJ_NM_ENG</th>
-      <th>DT</th>
-      <th>PRD_SE</th>
-      <th>C2</th>
-      <th>C1</th>
-      <th>C1_NM</th>
-      <th>C2_NM</th>
-      <th>C1_NM_ENG</th>
-      <th>C2_NM_ENG</th>
+      <th>기관ID</th>
+      <th>통계표ID</th>
+      <th>통계표명</th>
+      <th>분류명1</th>
+      <th>분류영문명1</th>
+      <th>분류값명1</th>
+      <th>분류값영문명1</th>
+      <th>분류값ID1</th>
+      <th>분류명2</th>
+      <th>분류영문명2</th>
+      <th>분류값명2</th>
+      <th>분류값영문명2</th>
+      <th>분류값ID2</th>
+      <th>항목ID</th>
+      <th>항목명</th>
+      <th>항목영문명</th>
+      <th>단위명</th>
+      <th>단위영문명</th>
+      <th>수록주기</th>
+      <th>수록시점</th>
+      <th>수치값</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>202201</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양현황</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
-      <td>호</td>
       <td>101</td>
-      <td>House</td>
+      <td>DT_1YL202001E</td>
+      <td>미분양주택현황(시도/시/군/구)</td>
       <td>구분</td>
       <td>SiGunGu</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>13102871087A.0003</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>47</td>
-      <td>M</td>
-      <td>13102871087B.0002</td>
-      <td>13102871087A.0003</td>
-      <td>서울</td>
       <td>계</td>
-      <td>Seoul</td>
       <td>NaN</td>
+      <td>13102871087B.0002</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>호</td>
+      <td>House</td>
+      <td>M</td>
+      <td>202205</td>
+      <td>688</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>202202</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양현황</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
-      <td>호</td>
       <td>101</td>
-      <td>House</td>
+      <td>DT_1YL202001E</td>
+      <td>미분양주택현황(시도/시/군/구)</td>
       <td>구분</td>
       <td>SiGunGu</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>13102871087A.0003</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>47</td>
-      <td>M</td>
-      <td>13102871087B.0002</td>
-      <td>13102871087A.0003</td>
-      <td>서울</td>
       <td>계</td>
-      <td>Seoul</td>
       <td>NaN</td>
+      <td>13102871087B.0002</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>호</td>
+      <td>House</td>
+      <td>M</td>
+      <td>202206</td>
+      <td>719</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>202203</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양현황</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
-      <td>호</td>
       <td>101</td>
-      <td>House</td>
+      <td>DT_1YL202001E</td>
+      <td>미분양주택현황(시도/시/군/구)</td>
       <td>구분</td>
       <td>SiGunGu</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>13102871087A.0003</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>180</td>
-      <td>M</td>
-      <td>13102871087B.0002</td>
-      <td>13102871087A.0003</td>
-      <td>서울</td>
       <td>계</td>
-      <td>Seoul</td>
       <td>NaN</td>
+      <td>13102871087B.0002</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>호</td>
+      <td>House</td>
+      <td>M</td>
+      <td>202207</td>
+      <td>592</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>202204</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양현황</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
-      <td>호</td>
       <td>101</td>
-      <td>House</td>
+      <td>DT_1YL202001E</td>
+      <td>미분양주택현황(시도/시/군/구)</td>
       <td>구분</td>
       <td>SiGunGu</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>13102871087A.0003</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>360</td>
-      <td>M</td>
-      <td>13102871087B.0002</td>
-      <td>13102871087A.0003</td>
-      <td>서울</td>
       <td>계</td>
-      <td>Seoul</td>
       <td>NaN</td>
+      <td>13102871087B.0002</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>호</td>
+      <td>House</td>
+      <td>M</td>
+      <td>202208</td>
+      <td>610</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>미분양주택현황(시도/시/군/구)</td>
-      <td>202205</td>
-      <td>DT_1YL202001E</td>
-      <td>미분양현황</td>
-      <td>Unsold Housing</td>
-      <td>13103871087T1</td>
-      <td>호</td>
       <td>101</td>
-      <td>House</td>
+      <td>DT_1YL202001E</td>
+      <td>미분양주택현황(시도/시/군/구)</td>
       <td>구분</td>
       <td>SiGunGu</td>
+      <td>서울</td>
+      <td>Seoul</td>
+      <td>13102871087A.0003</td>
       <td>시군구</td>
       <td>SiGunGu</td>
-      <td>688</td>
-      <td>M</td>
-      <td>13102871087B.0002</td>
-      <td>13102871087A.0003</td>
-      <td>서울</td>
       <td>계</td>
-      <td>Seoul</td>
       <td>NaN</td>
+      <td>13102871087B.0002</td>
+      <td>13103871087T1</td>
+      <td>미분양현황</td>
+      <td>Unsold Housing</td>
+      <td>호</td>
+      <td>House</td>
+      <td>M</td>
+      <td>202209</td>
+      <td>719</td>
     </tr>
   </tbody>
 </table>
@@ -3495,35 +3427,19 @@ df.head()
 
 
 ```python
-target = df.loc[df['C2_NM']=='계']
-target['PRD_DE'] = pd.to_datetime(target['PRD_DE'], format="%Y%m")
-target['DT'] = pd.to_numeric(target['DT'])
-pv = target.pivot(index=["PRD_DE"], columns=["C1_NM","C2_NM"], values="DT")
+target = df.loc[df['분류값명2']=='계']
+target['수록시점'] = pd.to_datetime(target['수록시점'], format="%Y%m")
+target['수치값'] = pd.to_numeric(target['수치값'])
+pv = target.pivot(index=["수록시점"], columns=["분류값명1","분류값명2"], values="수치값")
 newCols = list(map(lambda x: x[0]+"_"+x[1], pv.columns))
 pv.columns = newCols
 pv = pv.reset_index()
-pv['PRD_DE'] = pd.to_datetime(pv['PRD_DE'], format="%Y%m")
+pv['수록시점'] = pd.to_datetime(pv['수록시점'], format="%Y%m")
 for col in pv.columns[1:]:
     pv[col] = pd.to_numeric(pv[col])
-pv = pv.set_index("PRD_DE")
+pv = pv.set_index("수록시점")
 pv
 ```
-
-    C:\Users\wooil\AppData\Local\Temp\ipykernel_3856\2902302586.py:2: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      target['PRD_DE'] = pd.to_datetime(target['PRD_DE'], format="%Y%m")
-    C:\Users\wooil\AppData\Local\Temp\ipykernel_3856\2902302586.py:3: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-      target['DT'] = pd.to_numeric(target['DT'])
-    
-
-
 
 
 <div>
@@ -3563,7 +3479,7 @@ pv
       <th>세종_계</th>
     </tr>
     <tr>
-      <th>PRD_DE</th>
+      <th>수록시점</th>
       <th></th>
       <th></th>
       <th></th>
@@ -3584,86 +3500,6 @@ pv
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>2022-01-01</th>
-      <td>47</td>
-      <td>921</td>
-      <td>3678</td>
-      <td>423</td>
-      <td>6</td>
-      <td>423</td>
-      <td>395</td>
-      <td>855</td>
-      <td>1566</td>
-      <td>292</td>
-      <td>1383</td>
-      <td>178</td>
-      <td>2219</td>
-      <td>5227</td>
-      <td>3124</td>
-      <td>969</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>2022-02-01</th>
-      <td>47</td>
-      <td>1028</td>
-      <td>4561</td>
-      <td>409</td>
-      <td>5</td>
-      <td>477</td>
-      <td>395</td>
-      <td>1862</td>
-      <td>1498</td>
-      <td>879</td>
-      <td>1587</td>
-      <td>131</td>
-      <td>2250</td>
-      <td>6552</td>
-      <td>2661</td>
-      <td>897</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>2022-03-01</th>
-      <td>180</td>
-      <td>1013</td>
-      <td>6572</td>
-      <td>532</td>
-      <td>2</td>
-      <td>469</td>
-      <td>395</td>
-      <td>2209</td>
-      <td>1363</td>
-      <td>1056</td>
-      <td>1532</td>
-      <td>116</td>
-      <td>2410</td>
-      <td>6519</td>
-      <td>2702</td>
-      <td>891</td>
-      <td>13</td>
-    </tr>
-    <tr>
-      <th>2022-04-01</th>
-      <td>360</td>
-      <td>1003</td>
-      <td>6827</td>
-      <td>464</td>
-      <td>2</td>
-      <td>463</td>
-      <td>361</td>
-      <td>2146</td>
-      <td>1308</td>
-      <td>1057</td>
-      <td>1502</td>
-      <td>117</td>
-      <td>2371</td>
-      <td>5938</td>
-      <td>2286</td>
-      <td>962</td>
-      <td>13</td>
-    </tr>
     <tr>
       <th>2022-05-01</th>
       <td>688</td>
@@ -3744,11 +3580,69 @@ pv
       <td>1213</td>
       <td>8</td>
     </tr>
+    <tr>
+      <th>2022-09-01</th>
+      <td>719</td>
+      <td>1973</td>
+      <td>10539</td>
+      <td>1541</td>
+      <td>163</td>
+      <td>1430</td>
+      <td>1426</td>
+      <td>5553</td>
+      <td>1262</td>
+      <td>1107</td>
+      <td>2418</td>
+      <td>621</td>
+      <td>2627</td>
+      <td>6520</td>
+      <td>2401</td>
+      <td>1299</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2022-10-01</th>
+      <td>866</td>
+      <td>2514</td>
+      <td>10830</td>
+      <td>1666</td>
+      <td>161</td>
+      <td>1374</td>
+      <td>1414</td>
+      <td>5080</td>
+      <td>2287</td>
+      <td>1732</td>
+      <td>2840</td>
+      <td>1383</td>
+      <td>2797</td>
+      <td>6369</td>
+      <td>4176</td>
+      <td>1722</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2022-11-01</th>
+      <td>865</td>
+      <td>2574</td>
+      <td>11700</td>
+      <td>2471</td>
+      <td>161</td>
+      <td>1853</td>
+      <td>2999</td>
+      <td>7037</td>
+      <td>2365</td>
+      <td>2632</td>
+      <td>5046</td>
+      <td>1951</td>
+      <td>2925</td>
+      <td>7667</td>
+      <td>4076</td>
+      <td>1699</td>
+      <td>6</td>
+    </tr>
   </tbody>
 </table>
 </div>
-
-
 
 <br>
 
@@ -3759,14 +3653,14 @@ pv
 import plotly.express as px
 
 fig = px.line(target, 
-              x="PRD_DE", 
-              y="DT", 
-              color='C1_NM_ENG')
+              x="수록시점", 
+              y="수치값", 
+              color='분류값영문명1')
 fig
 ```
 
 <iframe
-  src="/assets/html/plotly/viz_unsold_housing.html"
+  src="/assets/html/plotly/viz_unsold_housing_kor.html"
   style="width:100%; height:500px;"
 ></iframe>
 
