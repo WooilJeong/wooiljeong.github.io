@@ -93,19 +93,6 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -147,7 +134,7 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
 
 ### 입력 명세
 
-<div align="center">
+
 
 | 항목명         | 설명                                                                                                                              | 데이터 타입   | 샘플 데이터   | 항목구분   |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:--------------|:--------------|:-----------|
@@ -156,13 +143,12 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
 | verbose      | 데이터 조회 진행 상황 메시지 출력 여부<br>(출력: True, 미출력: False)<br>※ 기본값: False                                          | Boolean       | False         | 선택       |
 | wait_time    | API 추가 요청 시 대기 시간(초)<br>(30초: 30)<br>※ 기본값: 30                                                                      | Integer       | 30            | 선택       |
 
-</div>
 
 <br>
 
 ### 출력 명세
 
-<div align="center">
+
 
 | 항목명(국문)     | 항목명(영문)        | 항목설명                              | 샘플데이터         |
 | ----------- | -------------- | --------------------------------- | ------------- |
@@ -182,7 +168,6 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
 | 축척구분명       | ladFrtlScNm    | 코드 정보                             | 0.458333333   |
 | 데이터기준일자     | lastUpdtDt     | 데이터 작성 기준일자                       | 2015-11-12    |
 
-</div>
 
 ```python
 from PublicDataReader import LandForestLedger
