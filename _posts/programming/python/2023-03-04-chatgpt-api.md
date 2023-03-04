@@ -3,7 +3,7 @@ title: "ChatGPT API Python 사용법 (feat.DALL-E, Karlo)"
 categories: python
 tags: ChatGPT, PyKakao, DALL-E, OpenAI
 header:
-  overlay_image: /assets/img/logo/PublicDataReader.jpg
+  overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
