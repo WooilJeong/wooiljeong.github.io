@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT API Python 사용법 (feat.DALL-E, Karlo)"
 categories: python
-tags: ChatGPT, PyKakao, DALL-E, OpenAI
+tags: ChatGPT,PyKakao,DALLE,OpenAI
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
@@ -117,7 +117,7 @@ openai 라이브러리를 불러와 ChatGPT API를 사용하는 방법을 알아
 import openai
 
 # 발급받은 API 키 설정
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "오픈AI에서 발급받은 인증키"
 
 # openai API 키 인증
 openai.api_key = OPENAI_API_KEY
@@ -194,7 +194,7 @@ PyKakao 라이브러리를 불러와 Karlo API를 사용하는 방법을 알아�
 from PyKakao import Karlo
 
 # 발급받은 API 키 설정
-KAKAO_API_KEY = "4518aedfd6cd5c6d99a2d2c66ee4e2db"
+KAKAO_API_KEY = "카카오 디벨로퍼스에서 발급받은 인증키"
 
 # Karlo API 인스턴스 생성
 karlo = Karlo(service_key = KAKAO_API_KEY)
@@ -253,8 +253,8 @@ import openai
 from PyKakao import Karlo
 
 # 발급받은 API 키 설정
-OPENAI_API_KEY = "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"
-KAKAO_API_KEY = "4518aedfd6cd5c6d99a2d2c66ee4e2db"
+OPENAI_API_KEY = "오픈AI에서 발급받은 인증키"
+KAKAO_API_KEY = "카카오 디벨로퍼스에서 발급받은 인증키"
 
 # openai API 키 인증
 openai.api_key = OPENAI_API_KEY
