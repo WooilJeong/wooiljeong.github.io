@@ -32,13 +32,13 @@ header:
 
 ### Karlo가 그린 그림
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="80%" .align-center}
 
 <br>
 
 ### DALL-E가 그린 그림
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="80%" .align-center}
 
 <br>
 
@@ -80,16 +80,16 @@ pip install PyKakao
 
 [오픈AI 플랫폼](https://platform.openai.com/)에 접속해 회원가입 후 로그인합니다. 화면 우측 상단의 '프로필' -'View API Keys'를 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex1.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex1.png){: width="80%" .align-center}
 
 'Create new secret key' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex2.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex2.png){: width="80%" .align-center}
 
 
 초록색 '복사' 버튼을 클릭해 인증키를 복사하고 'OK' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex3.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex3.png){: width="80%" .align-center}
 
 
 <br>
@@ -230,7 +230,7 @@ img
 
 
     
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img1.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img1.png){: width="80%" .align-center}
     
 
 
@@ -438,7 +438,7 @@ img
 
 
     
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="80%" .align-center}
     
 
 
@@ -466,7 +466,7 @@ img = Image.open(BytesIO(res.content))
 img
 ```
     
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="80%" .align-center}
 
 
 <br>
