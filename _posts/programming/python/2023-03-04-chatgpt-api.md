@@ -1,7 +1,7 @@
 ---
 title: "ChatGPT API Python 사용법 (feat.DALL-E, Karlo)"
 categories: python
-tags: ChatGPT,PyKakao,DALLE,OpenAI
+tags: ChatGPT PyKakao DALLE OpenAI
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
@@ -9,36 +9,45 @@ header:
 
 # ChatGPT API Python 사용법 (feat.DALL-E, Karlo)
 
-파이썬으로 쉽게 챗GPT API를 사용할 수 있습니다. 먼저, 챗GPT API의 사용법을 간단히 알아보고, 이미지 생성을 위해 필요한 프롬프트를 자동으로 작성하는 방법을 설명합니다. 이렇게 작성한 프롬프트를 활용하여 DALL-E와 Karlo API를 사용하여 이미지를 생성하는 방법도 다뤄보겠습니다.
+파이썬으로 쉽게 챗GPT API(ChatCompletions)를 사용할 수 있습니다. 먼저, 챗GPT API의 사용법을 간단히 알아보고, 이미지 생성을 위해 필요한 프롬프트를 자동으로 작성하는 방법을 설명합니다. 이렇게 작성한 프롬프트를 활용하여 DALL-E와 Karlo API를 사용하여 이미지를 생성하는 방법도 다뤄보겠습니다.
 
 
 <br>
 
-## ChatGPT가 묘사하고 Karlo, DALL-E가 그린 그림
+## 화성에 살게 된다면 거주지는 어떤 모습일까?
 
-> ### "화성에 동물이 살았었다면 어떤 모습이었을지 묘사해주세요."
-
+인간이 화성에 정착해 살게 된다면 어떤 집에 살게 될지 궁금하다면, 이제 아래와 같이 AI에게 간단한 요청만 하면 되는 시대가 되었습니다. 상상을 확장하고 구체화하는 것이 너무나 쉬운 일이 되었습니다. 간단한 요청만으로 AI의 상상을 시각화한 결과를 살펴보겠습니다. (기획: 정우일, 글: ChatGPT, 그림: Karlo, DALL-E)
 
 <br>
 
-### ChatGPT의 묘사
+> ### "인간이 화성에 정착한다면 건축물의 모습은 어떤 모습일지 자유롭게 상상해서 외형을 묘사해주세요."
+
+<br>
+
+### ChatGPT의 나름 이유있는(?) 상상
 
 
-화성에 동물이 살았다면, 그들은 높은 산까지 올라갈 수 있는 긴 다리와 끝없이 넓은 광활한 평원을 달릴 수 있는 빠른 속도를 지닌 몸체를 가졌을 것입니다. 그들은 빨간 모래 위에 깃들어 앉거나 선명한 청록색 바위의 기세로 서있는 모습이 특징적일 것입니다. 어떤 종류의 동물이었는지에 따라 꼬리에서 뾰족한 가시들이나 확대된 눈이나 귀, 멋진 뿔들 등의 특징을 가지고 있을 수 있습니다. 당신이 상상할 수 있는 어떠한 형태의 화성 동물이더라도, 화성에 존재하는 풍경과 잘 어울렸을 것입니다.
+화성에 정착한다면 건축물은 지구와는 달리 매우 다른 환경에 적응해야 합니다. 그러므로 건축물의 외형도 많이 달라질 것으로 예상됩니다.
 
-좀 더 구체적인 묘사를 드리자면,화성에 서식하는 동물 중 하나는 몸무게가 가벼운 편의 동물입니다. 그들은 높은 산에서 수평면까지 내려다볼 수 있는 능력을 가진 길고 가늘게 뻗은 다리를 가지고 있습니다. 그들의 발바닥에는 거친 질감의 부드러운 구강(쿠션)이 있어, 길고 다리를 뻗어 높은 땅에서 뛰어내리더라도 충격을 흡수할 수 있습니다. 그들은 깡통 모양의 몸통, 뾰족하고 긴 꼬리, 그리고 뿔 같은 뾰족한 귀를 가지고 있습니다. 눈은 크고 확대되어 있으며, 대부분의 시야를 커버하기 위해 동공이 높이 위치해 있습니다. 그들은 높은 산봉우리에 얹혀 살고 있으며 재래식 옹이로 구멍을 뚫어 해당 구멍 안에서 살거나 다른 동물과 함께 논다. 그들의 몸은 흰색과 청록색, 갈색, 검은색 등의 색상으로 뒤얽히며, 청록색이 강조되는 경향이 있습니다.
+첫째로 먼지와 폭풍우 등의 기상 조건을 고려해야 합니다. 건축물은 외부 영향과 교감하지 않고 방어할 수 있어야 합니다. 그렇기 때문에 건물의 외벽은 얇아서는 안 됩니다. **원통형**이나 **구형** 등을 생각할 수 있으며, 일반적인 적출이 아닌 설정을 고려할 수 있습니다.
+
+둘째로, 화성에서의 에너지 문제를 해결해야 합니다. 한강의 수력 발전소처럼 대규모인 경우는 건축적 인프라로 신경 써야 합니다. 또한, 화성은 자외선이 강하므로 건축물은 **자외선 차단 렌즈**가 필요할 것입니다. 따라서 건축물은 자외선 차단재를 사용하여 철저하게 보호할 필요가 있습니다.
+
+마지막으로, 필요한 다른 물질을 도입하기 위해 건축물에는 방사선 방어 대책이 필요합니다. 이를 위해 건축물 내부에 **목재나 금속 등의 장치**를 사용하여 방사능을 차단할 수 있습니다.
+
+이러한 고려 사항을 고려하여, 화성에는 고대 시대의 전통적인 건축양식이 아닌 전처기 건축이 출현할 것으로 예상됩니다. 그러므로 건축물은 간결하면서도 기능적으로 구성될 것으로 보입니다.
 
 <br>
 
 ### Karlo가 그린 그림
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="90%" .align-center}
 
 <br>
 
 ### DALL-E가 그린 그림
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="90%" .align-center}
 
 <br>
 
@@ -80,16 +89,16 @@ pip install PyKakao
 
 [오픈AI 플랫폼](https://platform.openai.com/)에 접속해 회원가입 후 로그인합니다. 화면 우측 상단의 '프로필' -'View API Keys'를 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex1.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex1.png){: width="90%" .align-center}
 
 'Create new secret key' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex2.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex2.png){: width="90%" .align-center}
 
 
 초록색 '복사' 버튼을 클릭해 인증키를 복사하고 'OK' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex3.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/ex3.png){: width="90%" .align-center}
 
 
 <br>
@@ -230,7 +239,7 @@ img
 
 
     
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img1.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img1.png){: width="90%" .align-center}
     
 
 
@@ -239,7 +248,7 @@ img
 
 ## ChatGPT X Karlo X DALL-E 이미지 생성하기
 
-챗GPT API를 이용해 이미지 생성에 필요한 프롬프트를 자동으로 작성하고, 이 프롬프트를 카카오의 Karlo와 오픈AI의 DALL-E에게 입력해 그림을 그리는 방법을 살펴보겠습니다.
+앞에서 API를 다루는 방법에 대해 알아보았습니다. 그럼 ChatGPT, Karlo, DALL-E를 모두 활용해서 AI의 상상을 시각화하는 방법에 대해 알아보겠습니다. 이 과정에서 사람은 그저 궁금한 걸 묘사해달라고 하기만 하면 됩니다.
 
 <br>
 
@@ -254,7 +263,7 @@ from PyKakao import Karlo
 
 # 발급받은 API 키 설정
 OPENAI_API_KEY = "오픈AI에서 발급받은 인증키"
-KAKAO_API_KEY = "카카오 디벨로퍼스에서 발급받은 인증키"
+KAKAO_API_KEY = "카카오에서 발급받은 인증키"
 
 # openai API 키 인증
 openai.api_key = OPENAI_API_KEY
@@ -268,19 +277,25 @@ model = "gpt-3.5-turbo"
 
 <br>
 
-### 챗GPT에게 묘사 요청하기
+### 챗GPT에게 상상해달라고 요청하기
 
-system 메시지로 assistant가 창의적인 묘사를 도와주도록 지시합니다. 그리고 묘사를 요청하는 질의를 작성합니다. 챗GPT API를 호출한 첫 번째 결과를 'answer'에 할당합니다. 이 값은 뒤에서 assistant의 메시지로 할당합니다.
+'query'에 궁금한 점을 묘사해달라는 요청을 작성해 할당합니다. ChatGPT API의 시스템 메시지를 작성해 어시스턴트가 묘사를 잘하는 역할이라고 설정합니다. API를 호출한 결과를 다음 과정에서 사용할 것이므로 결과를 'answer'에 할당합니다.
 
 
 ```python
 # 질문 작성하기
-query = "화성에 동물이 살았었다면 어떤 모습이었을지 묘사해주세요."
+query = "인간이 화성에 정착한다면 건축물의 모습은 어떤 모습일지 자유롭게 상상해서 외형을 묘사해주세요."
 
 # 메시지 설정하기
 messages = [
-        {"role": "system", "content": "You are an assistant who helps with a rich imagination. You respond with visual descriptions, not abstract ones."},
-        {"role": "user", "content": query}
+    {
+        "role": "system",
+        "content": "You are a helpful assistant who is good at detailing."
+    },
+    {
+        "role": "user",
+        "content": query
+    }
 ]
 
 # ChatGPT API 호출하기
@@ -289,40 +304,43 @@ response = openai.ChatCompletion.create(
     messages=messages
 )
 answer = response['choices'][0]['message']['content']
-answer
+print(answer)
 ```
 
-
-
-
-    '화성에 동물이 살았다면, 그들은 높은 산까지 올라갈 수 있는 긴 다리와 끝없이 넓은 광활한 평원을 달릴 수 있는 빠른 속도를 지닌 몸체를 가졌을 것입니다. 그들은 빨간 모래 위에 깃들어 앉거나 선명한 청록색 바위의 기세로 서있는 모습이 특징적일 것입니다. 어떤 종류의 동물이었는지에 따라 꼬리에서 뾰족한 가시들이나 확대된 눈이나 귀, 멋진 뿔들 등의 특징을 가지고 있을 수 있습니다. 당신이 상상할 수 있는 어떠한 형태의 화성 동물이더라도, 화성에 존재하는 풍경과 잘 어울렸을 것입니다.'
-
-
+    화성에 정착한다면 건축물은 지구와는 달리 매우 다른 환경에 적응해야 합니다. 그러므로 건축물의 외형도 많이 달라질 것으로 예상됩니다.
+    
+    첫째로 먼지와 폭풍우 등의 기상 조건을 고려해야 합니다. 건축물은 외부 영향과 교감하지 않고 방어할 수 있어야 합니다. 그렇기 때문에 건물의 외벽은 얇아서는 안 됩니다. 원통형이나 구형 등을 생각할 수 있으며, 일반적인 적출이 아닌 설정을 고려할 수 있습니다.
+    
+    둘째로, 화성에서의 에너지 문제를 해결해야 합니다. 한강의 수력 발전소처럼 대규모인 경우는 건축적 인프라로 신경 써야 합니다. 또한, 화성은 자외선이 강하므로 건축물은 자외선 차단 렌즈가 필요할 것입니다. 따라서 건축물은 자외선 차단재를 사용하여 철저하게 보호할 필요가 있습니다.
+    
+    마지막으로, 필요한 다른 물질을 도입하기 위해 건축물에는 방사선 방어 대책이 필요합니다. 이를 위해 건축물 내부에 목재나 금속 등의 장치를 사용하여 방사능을 차단할 수 있습니다.
+    
+    이러한 고려 사항을 고려하여, 화성에는 고대 시대의 전통적인 건축양식이 아닌 전처기 건축이 출현할 것으로 예상됩니다. 그러므로 건축물은 간결하면서도 기능적으로 구성될 것으로 보입니다.
+    
 
 <br>
 
-### 묘사 구체화 요청하기
+### 더 구체적인 묘사를 요청하기
 
-앞에서 챗GPT가 응답한 결과를 다시 assistant의 메시지로 할당합니다. 그리고 더 구체적인 묘사를 요청하는 메시지를 추가합니다. 챗GPT API 응답 결과를 이번에는 'answer2'에 할당합니다. 
+앞에서 ChatGPT가 응답한 결과 'answer'를 어시스턴트 메시지로 추가합니다. 이렇게 하면 API 요청 시 ChatGPT가 이전에 자신이 응답한 결과를 알 수 있어 대화의 흐름을 유지할 수 있습니다. 이번에는 사용자 메시지로 외형 묘사를 더 자세히 해달라고 작성합니다. 이번에도 마찬가지로 결과를 'answer2'에 할당합니다.
 
 
 ```python
-# ChatGPT 답변 메시지 추가
+# 이전 어시스턴트 응답 메시지 추가
 messages.append(
     {
-    "role": "assistant",
-    "content": answer,
-    }
+        "role": "assistant",
+        "content": answer
+    },
 )
 
 # 사용자 메시지 추가
 messages.append(
     {
-    "role": "user",
-    "content": "그 동물의 외형을 더 구체적으로 묘사해주세요.",
-    },
+        "role": "user", 
+        "content": "위 내용을 바탕으로 외형적인 모습을 더 자세히 상상해서 묘사해주세요."
+    }
 )
-
 
 # ChatGPT API 호출하기
 response = openai.ChatCompletion.create(
@@ -330,40 +348,47 @@ response = openai.ChatCompletion.create(
     messages=messages
 )
 answer2 = response['choices'][0]['message']['content']
-answer2
+print(answer2)
 ```
 
-
-
-
-    '좀 더 구체적인 묘사를 드리자면,\n\n화성에 서식하는 동물 중 하나는 몸무게가 가벼운 편의 동물입니다. 그들은 높은 산에서 수평면까지 내려다볼 수 있는 능력을 가진 길고 가늘게 뻗은 다리를 가지고 있습니다. 그들의 발바닥에는 거친 질감의 부드러운 구강(쿠션)이 있어, 길고 다리를 뻗어 높은 땅에서 뛰어내리더라도 충격을 흡수할 수 있습니다. 그들은 깡통 모양의 몸통, 뾰족하고 긴 꼬리, 그리고 뿔 같은 뾰족한 귀를 가지고 있습니다. 눈은 크고 확대되어 있으며, 대부분의 시야를 커버하기 위해 동공이 높이 위치해 있습니다. 그들은 높은 산봉우리에 얹혀 살고 있으며 재래식 옹이로 구멍을 뚫어 해당 구멍 안에서 살거나 다른 동물과 함께 논다. 그들의 몸은 흰색과 청록색, 갈색, 검은색 등의 색상으로 뒤얽히며, 청록색이 강조되는 경향이 있습니다.'
-
-
+    화성에 정착한다면 건축물은 지구와는 달리 매우 다른 환경에 적응해야 합니다. 그러므로 건축물의 외형도 많이 달라질 것으로 예상됩니다.
+    
+    화성에서의 기상 조건은 지구와는 크게 다릅니다. 먼지와 폭풍우 등의 자연 현상이 매우 많고 강하기 때문에 건축물은 외부 영향과 교감하지 않고 방어할 수 있어야 합니다. 따라서 건물의 외벽은 매우 튼튼하면서도 엄청난 내구성과 경량을 가진 철재로 만들어질 것입니다. 건물의 형태는 원통형이나 구형 등으로 균형을 유지할 수 있도록 설계될 것입니다.
+    
+    화성에서의 에너지 문제를 해결하기 위해서 건축물은 대규모인 경우 천공 태양광 패널로 구성될 수 있습니다. 이를 통해 건물 내부 전기를 공급할 수 있고 자외선 차단을 위한 창문은 자외선 차단재를 사용하여 철저하게 보호될 것입니다.
+    
+    또한, 건물 내부는 방사능을 차단하는 장치로 보호될 것입니다. 이를 위해서 건축물 내부에는 목재나 금속 등으로 된 장치와 방사능 차단재가 사용될 것입니다. 따라서 건물 외부 벽면도 완전한 방사능 차단 재질로 만들어질 것입니다.
+    
+    화성 건축물은 화성의 환경적 특성 상 간결하면서도 기능적인 구조의 건물이 될 것입니다. 굴착 방식으로 만들어질 수도 있고, 외부와 내부를 잘 분리해 단단한 기반 위에 건축할 수도 있을 것입니다. 이 같은 구조들은 화성 정착에 필수적인 역할을 할 것입니다.
+    
 
 <br>
 
-### 영문으로 번역 요청하기
+### 영어 번역 요청하기
 
-더 구체화된 응답을 이번에는 영문으로 번역 요청합니다. 이 경우에도 앞의 응답 결과인 'answer2'를 assistant의 메시지로 설정합니다.
+이번에는 앞의 응답결과를 영어로 번역해달라고 요청합니다. 메시지를 새로 구성해 시스템 메시지로 어시스턴트의 역할을 번역을 잘하는 역할로 설정합니다. 출력 결과는 'answer3'에 할당합니다.
 
 
 ```python
-# ChatGPT 답변 메시지 추가
-messages.append(
+# 새 메시지 구성
+messages = [
     {
-    "role": "assistant",
-    "content": answer2,
+        "role": "system",
+        "content": "You are a helpful assistant who is good at translating."
+    },
+    {
+        "role": "assistant",
+        "content": answer2
     }
-)
+]
 
 # 사용자 메시지 추가
 messages.append(
     {
-    "role": "user",
-    "content": "위 문장을 영문으로 번역해주세요.",
-    },
+        "role": "user", 
+        "content": "영어로 번역해주세요."
+    }
 )
-
 
 # ChatGPT API 호출하기
 response = openai.ChatCompletion.create(
@@ -371,30 +396,47 @@ response = openai.ChatCompletion.create(
     messages=messages
 )
 answer3 = response['choices'][0]['message']['content']
-answer3
+print(answer3)
 ```
 
-
-
-
-    'To provide a more concrete description, an animal that lived on Mars would have had long, slender legs capable of scaling high mountains and running across vast, wide-open plains at impressive speeds. They would have been characterized by their ability to perch atop red sand dunes or stand with the power of sharp teal-colored rocks. Depending on the particular species, they might have had spiky protrusions along their tails or enlarged eyes, ears, or splendid horns. Whatever form the Martian animal may take in your imagination, it would have fit in well with the surrounding scenery.'
-
-
+    If settling on Mars, buildings will need to adapt to a very different environment compared to Earth. Therefore, the appearance of buildings is expected to be quite different.
+    
+    The weather conditions on Mars are vastly different from those on Earth. Natural phenomena such as dust storms and gusts are very frequent and strong, so buildings need to be able to withstand external influences and defend against them. Therefore, the exterior walls of buildings will be made of very sturdy and lightweight steel with great durability. The shape of the building will be designed to maintain balance, such as cylindrical or spherical.
+    
+    To address the energy problem on Mars, buildings may be composed of large-scale perforated solar panels. Thus, interior electricity can be supplied, and windows for ultraviolet ray protection will be thoroughly protected by using ultraviolet-blocking agents.
+    
+    In addition, the building's interior will be protected by a device that blocks radiation. To accomplish this, devices made of materials such as wood or metal and radiation-blocking agents will be used inside the building. Therefore, the exterior walls of the building will also be made of completely radiation-blocking materials.
+    
+    Mars buildings will be functional structures designed to be concise and functional given Martian environmental characteristics. They can be made by excavation or built on a sturdy foundation, well-separating the exterior and interior. Such structures will play a crucial role in the settlement of Mars.
+    
 
 <br>
 
 ### 이미지 생성을 위한 프롬프트 작성 요청하기
 
-이번에는 영문 요약 결과를 바탕으로 이미지 생성에 적합한 형태의 프롬프트 작성을 요청합니다. 묘사를 돕는 assistant가 필요한 것이 아니라 이번엔 이미지 생성을 위한 프롬프트 작성을 위한 assistant가 필요한 것이므로 시스템 메시지를 적절히 변경해줍니다. 
+영어로 번역된 결과를 바탕으로 이미지 생성 AI 사용 시 필요한 프롬프트 문장을 작성합니다. 새 메시지를 구성하고, 시스템 메시지로 이미지 생성을 위해 프롬프트를 생성하는 걸 잘하는 역할을 어시스턴트에게 부여합니다. 그리고 사용자 메시지로 프롬프트를 작성해달라는 내용을 작성합니다. 이 결과를 'answer4'에 할당합니다.
 
 
 ```python
-# 메시지 설정하기
+# 새 메시지 구성
 messages = [
-    {"role": "system", "content": "You are a capable assistant that helps generate prompts for image creation."},
-    {"role": "assistant", "content": answer3},
-    {"role": "user", "content": "Please write a prompt sentence suitable for generating images based on the information provided."}
+    {
+        "role": "system",
+        "content": "You are an assistant who is good at creating prompts for image creation."
+    },
+    {
+        "role": "assistant",
+        "content": answer3
+    }
 ]
+
+# 사용자 메시지 추가
+messages.append(
+    {
+        "role": "user", 
+        "content": "Condense up to 4 outward description to focus on nouns and adjectives separated by ,"
+    }
+)
 
 # ChatGPT API 호출하기
 response = openai.ChatCompletion.create(
@@ -402,29 +444,39 @@ response = openai.ChatCompletion.create(
     messages=messages
 )
 answer4 = response['choices'][0]['message']['content']
-answer4
+print(answer4)
 ```
 
+    Sturdy, lightweight, steel walls. Cylindrical or spherical shape. Large-scale perforated solar panels. Radiation-blocking interior devices.
+    
+
+<br>
+
+### 프롬프트 완성하기
+
+프롬프트에 스타일을 추가하면 더 고품질의 이미지를 얻을 수 있습니다. 앞에서 추출한 키워드들과 이미지를 꾸며주는 파라미터를 적절히 섞어 'prompt'에 할당합니다. 뒤에서 이 값을 Karlo와 DALL-E API의 인자로 입력합니다.
 
 
+```python
+# 이미지 생성을 위한 프롬프트
+params = ", concept art, realistic lighting, ultra-detailed, 8K, photorealism, digital art"
+prompt = f"Futuristic mars villages, {answer4}{params}"
+print(prompt)
+```
 
-    'Create an image of an otherworldly, agile creature with long limbs and unique physical attributes that would enable it to move swiftly and gracefully amidst the otherworldly landscape of the Martian terrain.'
-
-
+    Futuristic mars villages, Sturdy, lightweight, steel walls. Cylindrical or spherical shape. Large-scale perforated solar panels. Radiation-blocking interior devices., concept art, realistic lighting, ultra-detailed, 8K, photorealism, digital art
+    
 
 <br>
 
 ### Karlo에게 이미지 생성 요청하기
 
-앞에서 생성한 이미지 생성을 위한 프롬프트 결과인 'answer4' 값을 karlo api에 전달해 이미지 생성을 요청합니다.
+앞에서 생성한 이미지 생성을 위한 프롬프트 결과인 'prompt' 값을 karlo api에 전달해 이미지 생성을 요청합니다.
 
 
 ```python
-# 프롬프트에 사용할 제시어
-text = answer4
-
 # 이미지 생성하기 REST API 호출
-img_dict = karlo.text_to_image(text, 1)
+img_dict = karlo.text_to_image(prompt, 1)
 
 # 생성된 이미지 정보
 img_str = img_dict.get("images")[0].get('image')
@@ -438,7 +490,7 @@ img
 
 
     
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="80%" .align-center}
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img2.png){: width="90%" .align-center}
     
 
 
@@ -456,7 +508,7 @@ from PIL import Image
 from io import BytesIO
 
 response = openai.Image.create(
-  prompt=answer4,
+  prompt=prompt,
   n=1,
   size="1024x1024"
 )
@@ -465,9 +517,10 @@ res = requests.get(image_url)
 img = Image.open(BytesIO(res.content))
 img
 ```
-    
-![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="80%" .align-center}
 
+    
+![PNG](/assets/img/post_img/2023-03-04-chatgpt-api/img3.png){: width="90%" .align-center}
+    
 
 <br>
 
@@ -478,3 +531,6 @@ img
 - [GitHub 저장소 - Chat2Image Creator](https://github.com/kairess/Chat2Image-Creator)
 - [PyKakao - Python으로 카카오 Karlo API 사용하기](https://wooiljeong.github.io/python/pykakao-karlo/)
 - [빵형의 개발도상국 - 자신의 상상을 그림으로 그리는 인공지능 - ChatGPT API 사용법](https://www.youtube.com/watch?v=sLgYJIpqUJg)
+- [Top 50 Text-to-Image Prompts for AI Art Generators Midjourney and DALL-E
+AI Wiki](https://mpost.io/top-50-text-to-image-prompts-for-ai-art-generators-midjourney-and-dall-e/)
+- [50 Best DALL.E 2 Architecture Prompts](https://decentralizedcreator.com/best-dall-e-2-architecture-prompts/)
