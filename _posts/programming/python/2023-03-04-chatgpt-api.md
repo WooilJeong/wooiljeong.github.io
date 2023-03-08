@@ -53,7 +53,12 @@ header:
 
 ## ChatGPT API란?
 
-챗GPT(ChatGPT) API는 2023년 3월에 출시된 오픈AI의 새로운 서비스입니다. 이 API를 사용하면 챗GPT를 앱이나 제품에 쉽게 통합할 수 있습니다. 물론 여전히 [챗GPT 애플리케이션](https://chat.openai.com/chat)에 직접 접속해서도 사용할 수 있습니다. 
+[챗GPT(ChatGPT) API](https://platform.openai.com/docs/guides/chat)는 2023년 3월에 출시된 오픈AI의 새로운 서비스입니다. 이 API를 사용하면 챗GPT를 앱이나 제품에 쉽게 통합할 수 있습니다. 물론 여전히 [챗GPT 애플리케이션](https://chat.openai.com/chat)에 직접 접속해서도 사용할 수 있습니다. 다만, API 사용은 유료이며, 대화에 사용된 토큰(Tokens)의 크기(1,000토큰 당 $0.002(약 3원))에 따라 과금됩니다.
+
+- [API 사용요금](https://openai.com/pricing)
+    - Model: gpt-3.5-turbo
+    - Usage: $0.002 / 1K tokens
+
 
 <br>
 
