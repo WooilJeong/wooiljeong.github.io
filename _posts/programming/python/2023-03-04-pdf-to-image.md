@@ -42,21 +42,21 @@ PDF_FILE_PATH = "./data/sample.pdf"
 
 윈도우 환경에서는 윈도우용 poppler를 빌드하거나 다운로드해야 합니다. 가장 최신 버전을 사용하는 것을 권장합니다. [@oschwartz10612 version](https://github.com/oschwartz10612/poppler-windows/releases/)에 접속 후 '**Release-23.01.0-0.zip**'를 클릭해 다운로드합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-pdf_to_image/1.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/1.png){: .align-center}
 
 다운로드한 파일('Release-23.01.0-0.zip')을 C드라이브 하위에 압축해제('C:\poppler-23.01.0')합니다. 
 
 그 다음 윈도우 키를 누르고 '시스템 환경 변수 편집'을 검색 후 실행합니다. '시스템 속성' 창이 열리면 '고급' 탭에서 '환경 변수' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-pdf_to_image/2.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/2.png){: .align-center}
 
 사용자 변수에서 'Path' 항목을 찾아 클릭 후 '편집' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-pdf_to_image/3.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/3.png){: .align-center}
 
 '새로 만들기' 버튼을 클릭 후 'C:\poppler-23.01.0\Library\bin'를 입력후 '확인' 버튼을 클릭합니다.
 
-![PNG](/assets/img/post_img/2023-03-04-pdf_to_image/4.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/4.png){: .align-center}
 
 poppler 설치와 설정이 끝났다면 명령 프롬프트(CMD)를 열어 다음 명령어를 입력해 pdf2image를 설치합니다.
 
@@ -103,7 +103,7 @@ for i, page in enumerate(pages):
     page.save(f"./data/{str(i)}.jpg", "JPEG")
 ```
 
-![PNG](/assets/img/post_img/2023-03-04-pdf_to_image/5.png){: .align-center}
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/5.png){: .align-center}
 
 <br>
 
