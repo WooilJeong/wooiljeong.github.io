@@ -33,7 +33,6 @@ PDF_FILE_PATH = "./data/sample.pdf"
     - [GitHub-pdf2image](https://github.com/Belval/pdf2image)
     - [PyPI-pdf2image](https://pypi.org/project/pdf2image/1.16.3/)
     - [Docs-pdf2image](https://pdf2image.readthedocs.io/en/latest/index.html)
-    
 
 
 <br>
