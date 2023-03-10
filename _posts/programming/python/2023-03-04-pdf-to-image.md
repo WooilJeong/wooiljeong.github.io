@@ -22,7 +22,7 @@ header:
 
 ```python
 # 예제 PDF 파일 경로
-PDF_FILE_PATH = "./data/sample.pdf"Windows
+PDF_FILE_PATH = "./data/sample.pdf"
 ```
 
 <br>
