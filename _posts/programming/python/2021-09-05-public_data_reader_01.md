@@ -122,7 +122,7 @@ import PublicDataReader as pdr
 sigungu_name = "분당구"
 code = pdr.code_bdong()
 code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
-         (code['읍면동명'].isna())]
+         (code['읍면동명']=='')]
 ```
 
 
@@ -561,7 +561,7 @@ import PublicDataReader as pdr
 sigungu_name = "분당구"
 code = pdr.code_bdong()
 code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
-         (code['읍면동명'].isna())]
+         (code['읍면동명']=='')]
 
 # 특정 년월 자료만 조회하기
 df = api.get_data(
