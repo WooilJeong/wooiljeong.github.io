@@ -167,9 +167,9 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
       <td>성남시 분당구</td>
       <td>4113511000</td>
       <td>백현동</td>
-      <td>NaN</td>
+      <td></td>
       <td>19930115</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
   </tbody>
 </table>

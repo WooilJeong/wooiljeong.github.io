@@ -112,7 +112,7 @@ api = TransactionPrice(service_key)
 4. code라는 변수에 데이터프레임을 저장 합니다.
 5. loc를 사용하여 특정 조건에 해당하는 행만 선택합니다.
 - a. (code['시군구명'].str.contains(sigungu_name, na=False)) : '시군구명'열에서 "분당구"라는 문자열을 포함하는 행을 선택합니다.
-- b. (code['읍면동명'].isna()) : '읍면동명'열이 NaN값인 행만 선택합니다.
+- b. (code['읍면동명']=='') : '읍면동명'열이 빈 값인 행만 선택합니다.
 6. 결과로 위에서 선택한 조건을 만족하는 행만 표시됩니다.
 
 조회 결과를 살펴보면 분당구에 해당하는 시군구코드는 41135라는 것을 알 수 있습니다.
@@ -163,10 +163,10 @@ code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
       <td>41135</td>
       <td>성남시 분당구</td>
       <td>4113500000</td>
-      <td>NaN</td>
-      <td>NaN</td>
+      <td></td>
+      <td></td>
       <td>19910916</td>
-      <td>NaN</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
