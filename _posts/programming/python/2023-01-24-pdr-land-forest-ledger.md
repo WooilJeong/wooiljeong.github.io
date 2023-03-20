@@ -497,7 +497,7 @@ api.get_data(pnu_code=pnu_code)
 
 <br>
 
-### 참고
+## 참고
 
 - [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
 - [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
