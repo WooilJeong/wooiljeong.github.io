@@ -1,15 +1,15 @@
 ---
 title: "Python으로 PDF를 이미지로 변환하기(pdf to image)"
 categories: python
-tags: pdf pdf2image
+tags: pdf pymupdf pdf2image
 header:
   overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-# 파이썬으로 PDF파일을 이미지 파일(JPG)로 변환하는 방법
+# 파이썬으로 PDF파일을 이미지 파일(JPG, PNG)로 변환하는 방법
 
-파이썬으로 PDF 파일을 JPG와 같은 이미지 파일로 변환하는 방법에 대해 알아보겠습니다. pdf2image 라이브러리를 이용하면 PDf를 쉽게 이미지로 변환할 수 있습니다.
+파이썬으로 PDF 파일을 JPG이나 PNG와 같은 이미지 파일로 변환하는 방법에 대해 알아보겠습니다. PyMuPDF, pdf2image와 같은 라이브러리를 사용하면 PDF 파일을 쉽게 이미지 파일로 변환할 수 있습니다.
 
 <br>
 
@@ -24,6 +24,34 @@ header:
 # 예제 PDF 파일 경로
 PDF_FILE_PATH = "./data/sample.pdf"
 ```
+
+<br>
+
+## PyMuPDF 설치하기
+
+- 관련 사이트
+  - [GitHub - PyMuPDF](https://github.com/pymupdf/PyMuPDF)
+  - [PyPI - PyMuPDF](https://pypi.org/project/PyMuPDF/)
+  - [Docs - PyMuPDF](https://pymupdf.readthedocs.io/en/latest/)
+- 설치
+```bash
+pip install PyMuPDF
+```
+
+<br>
+
+## PyMuPDF로 PDF를 PNG로 변환하기
+
+```python
+import fitz
+path = "./data/sample.pdf"
+doc = fitz.open(path)
+for i, page in enumerate(doc):
+    img = page.get_pixmap()
+    img.save(f"./data/{i}.png")
+```
+
+![PNG](/assets/img/post_img/2023-03-04-pdf-to-image/6.png){: .align-center}
 
 <br>
 
