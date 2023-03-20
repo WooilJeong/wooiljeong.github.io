@@ -44,8 +44,7 @@ pip install PyMuPDF
 
 ```python
 import fitz
-path = "./data/sample.pdf"
-doc = fitz.open(path)
+doc = fitz.open(PDF_FILE_PATH)
 for i, page in enumerate(doc):
     img = page.get_pixmap()
     img.save(f"./data/{i}.png")
