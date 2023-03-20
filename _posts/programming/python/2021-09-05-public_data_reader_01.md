@@ -20,7 +20,7 @@ header:
 
 ## PublicDataReader
 
-PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리는 공공데이터포털과 국가통계포털(KOSIS)과 같이 Open API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있도록 도와줍니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리해줍니다. 또한, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화해줍니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
+PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리로 공공데이터포털과 국가통계포털(KOSIS)과 같이 오픈 API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있습니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리할 수 있고, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화할 수 있습니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
 
 - [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
 - [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
@@ -111,7 +111,7 @@ api = TransactionPrice(service_key)
 3. pdr.code_bdong()를 실행 하면 관련된 정보를 데이터프레임 형식으로 가져옵니다.
 4. code라는 변수에 데이터프레임을 저장 합니다.
 5. loc를 사용하여 특정 조건에 해당하는 행만 선택합니다.
-- a. (code['시군구명'].str.contains(sigungu_name, na=False)) : '시군구명'열에서 "분당구"라는 문자열을 포함하는 행을 선택합니다.
+- a. (code['시군구명'].str.contains(sigungu_name)) : '시군구명'열에서 "분당구"라는 문자열을 포함하는 행을 선택합니다.
 - b. (code['읍면동명']=='') : '읍면동명'열이 빈 값인 행만 선택합니다.
 6. 결과로 위에서 선택한 조건을 만족하는 행만 표시됩니다.
 
@@ -121,7 +121,7 @@ api = TransactionPrice(service_key)
 import PublicDataReader as pdr
 sigungu_name = "분당구"
 code = pdr.code_bdong()
-code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
+code.loc[(code['시군구명'].str.contains(sigungu_name)) &
          (code['읍면동명']=='')]
 ```
 
@@ -560,7 +560,7 @@ api = TransactionPrice(service_key)
 import PublicDataReader as pdr
 sigungu_name = "분당구"
 code = pdr.code_bdong()
-code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
+code.loc[(code['시군구명'].str.contains(sigungu_name)) &
          (code['읍면동명']=='')]
 
 # 특정 년월 자료만 조회하기

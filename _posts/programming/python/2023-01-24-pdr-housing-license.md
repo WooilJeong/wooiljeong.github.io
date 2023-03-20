@@ -19,7 +19,7 @@ header:
 
 ## PublicDataReader
 
-PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리는 공공데이터포털과 국가통계포털(KOSIS)과 같이 Open API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있도록 도와줍니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리해줍니다. 또한, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화해줍니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
+PublicDataReader는 공공 데이터를 자동으로 조회할 수 있는 파이썬 라이브러리입니다. 이 라이브러리로 공공데이터포털과 국가통계포털(KOSIS)과 같이 오픈 API 서비스로 제공하는 공공 데이터를 쉽게 조회할 수 있습니다. 인증키가 필요한 공공 데이터는 인증키를 사용하여 조회할 수 있고, 인증키가 필요하지 않은 데이터는 별도의 인증 절차 없이 조회할 수 있습니다. PublicDataReader를 이용하면 일반적인 공공 데이터 조회 과정에서 필요한 API 명세 찾기, 요청 작성, 반환된 데이터 정리 과정을 자동으로 처리할 수 있고, 웹에 공개된 데이터를 조회할 때도 데이터 수집과 가공 과정을 자동화할 수 있습니다. 이를 통해 코드 작성이 간결해지고 공공 데이터 조회 작업이 편리해집니다.
 
 - [PublicDataReader 깃허브 저장소](https://github.com/WooilJeong/PublicDataReader)
 - [PublicDataReader 사용자 모임](https://open.kakao.com/o/gbt2Pl2d)
@@ -115,7 +115,7 @@ api = HousingLicense(service_key)
 1. 먼저 PublicDataReader 라이브러리를 가져와 pdr라는 별칭으로 사용 할 수 있도록 합니다.
 2. 'sigungu_name = "분당구" bdong_name = "백현동" 이 부분에서 검색할 시군구와 읍면동을 변수에 저장합니다.
 3. code = pdr.code_bdong() code라는 변수에 pdr의 code_bdong() 함수를 실행하여 그 결과값을 저장합니다. 이 함수는 시군구와 읍면동에 해당하는 코드를 포함하는 데이터프레임을 반환합니다.
-4. code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) & (code['읍면동명']==bdong_name)] 이 부분에서는 시군구명열에서 '분당구'를 포함하는 행과 읍면동명열에서 '백현동'인 행을 검색하는 검색식을 작성합니다.
+4. code.loc[(code['시군구명'].str.contains(sigungu_name)) & (code['읍면동명']==bdong_name)] 이 부분에서는 시군구명열에서 '분당구'를 포함하는 행과 읍면동명열에서 '백현동'인 행을 검색하는 검색식을 작성합니다.
 
 조회 결과를 살펴보면 분당구에 해당하는 시군구코드는 41135이고, 백현동에 해당하는 법정동코드는 4113511000인 것을 알 수 있습니다. 법정동코드 10자리 중 처음 5자리는 시군구코드와 같고, 이후 5자리는 읍면동코드를 의미합니다. 주택인허가 조회 시 시군구코드와 법정동코드를 사용하는데, 이때 사용되는 법정동코드는 5자리 읍면동코드입니다. 즉, 주택인허가 조회 시 사용할 시군구코드는 41135이고, 법정동코드는 11000이 됩니다.
 
@@ -124,7 +124,7 @@ import PublicDataReader as pdr
 sigungu_name = "분당구"
 bdong_name = "백현동"
 code = pdr.code_bdong()
-code.loc[(code['시군구명'].str.contains(sigungu_name, na=False)) &
+code.loc[(code['시군구명'].str.contains(sigungu_name)) &
          (code['읍면동명']==bdong_name)]
 ```
 
