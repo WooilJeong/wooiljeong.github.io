@@ -3,19 +3,17 @@ title: "애드센스 카카오뱅크 결제수단 등록방법 (SWIFT코드변�
 categories: etc
 tags: adsense kakaobank
 header:
-  overlay_image: /assets/img/logo/PublicDataReader.jpg
+  overlay_image: /assets/img/wallpaper.jpg
   overlay_filter: 0.2 # same as adding an opacity of 0.5 to a black background
 ---
 
-## 카카오뱅크의 SWIFT 코드변경
+## 카카오뱅크의 SWIFT 코드 변경에 따른 안내
 
-2023년 3월 29일부터 카카오뱅크 'SWIFT 코드'가 변경된다고 한다. 기존에 애드센스 결제계좌로 카카오뱅크를 이용 중이라면, 새로운 정보로 카카오뱅크 계좌를 등록해야 애드센스 지급금을 정상적으로 수령할 수 있다고 한다.
+2023년 3월 29일부터 카카오뱅크의 'SWIFT 코드'가 변경되었습니다. 기존에 애드센스 결제계좌로 카카오뱅크를 이용 중이신 분들은, 새로운 정보로 카카오뱅크 계좌를 등록해야 애드센스 지급금을 정상적으로 수령할 수 있다고 합니다.
 
 ![PNG](/assets/img/post_img/2023-04-06-adsense-kakao-bank/1.png){: .align-center}
 
-
 ![PNG](/assets/img/post_img/2023-04-06-adsense-kakao-bank/2.png){: .align-center}
-
 
 <br>
 
@@ -27,16 +25,13 @@ header:
 
 ![PNG](/assets/img/post_img/2023-04-06-adsense-kakao-bank/3.png){: .align-center}
 
-
 <br>
 
 ### 결제 수단 관리 선택
 
 지급받을 방법에서 [결제 수단 관리] 옵션을 선택합니다.
 
-
 ![PNG](/assets/img/post_img/2023-04-06-adsense-kakao-bank/4.png){: .align-center}
-
 
 <br>
 
@@ -45,7 +40,6 @@ header:
 결제 수단에서 [결제 수단 추가] 옵션을 클릭합니다.
 
 ![PNG](/assets/img/post_img/2023-04-06-adsense-kakao-bank/5.png){: .align-center}
-
 
 <br>
 
