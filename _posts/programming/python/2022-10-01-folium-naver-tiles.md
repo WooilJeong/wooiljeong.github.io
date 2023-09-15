@@ -49,7 +49,7 @@ zoom_size = 15
 
 ```python
 # 네이버지도 타일 설정
-tiles = "https://map.pstatic.net/nrb/styles/basic/1663918673/{z}/{x}/{y}@2x.png?mt=bg.ol.sw"
+tiles = "https://map.pstatic.net/nrb/styles/basic/1694139974/{z}/{x}/{y}.png?mt=bg.ol.ts.lko"
 # 속성 설정
 attr = "Naver"
 # 지도 객체 생성
@@ -73,7 +73,7 @@ m
 
 ```python
 # 네이버지도 타일 설정
-tiles = "https://map.pstatic.net/nrb/styles/satellite/1663918673/{z}/{x}/{y}@2x.png?mt=bg.ol.sw"
+tiles = "https://map.pstatic.net/nrb/styles/satellite/1694139974/{z}/{x}/{y}.png?mt=bg.ol.ts.lko"
 # 속성 설정
 attr = "Naver"
 # 지도 객체 생성
@@ -97,7 +97,7 @@ m
 
 ```python
 # 네이버지도 타일 설정
-tiles = "https://map.pstatic.net/nrb/styles/terrain/1663918673/{z}/{x}/{y}@2x.png?mt=bg.ol.sw"
+tiles = "https://map.pstatic.net/nrb/styles/terrain/1694139974/{z}/{x}/{y}.png?mt=bg.ol.ts.lko"
 # 속성 설정
 attr = "Naver"
 # 지도 객체 생성
@@ -122,7 +122,7 @@ m
 
 ```python
 # 네이버지도 타일 설정
-tiles = "https://map.pstatic.net/nrb/styles/basic/1663918673/{z}/{x}/{y}@2x.png?mt=bg.ol.sw.lp"
+tiles = "https://map.pstatic.net/nrb/styles/basic/1694139974/{z}/{x}/{y}.png?mt=bg.ol.sw.lp"
 # 속성 설정
 attr = "Naver"
 # 지도 객체 생성
