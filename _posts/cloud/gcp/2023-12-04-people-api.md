@@ -161,6 +161,108 @@ main()
 
 <br>
 
+# 전체 연락처 정보를 판다스 데이터프레임으로 조회하기
+
+위 방법으로 구글 주소록의 연락처 정보를 조회하면 JSON 형식 즉, 파이썬에서는 딕셔너리 형식의 데이터로 조회가 된다. 일부 항목을 보기 좋게 판다스 데이터프레임 형식으로 변환하려면 아래와 같이 수행하면 된다. 우선 전체 데이터를 조회한다.
+
+```python
+person_fields_list = [
+    'addresses',
+    'ageRanges',
+    'biographies',
+    'birthdays',
+    'calendarUrls',
+    'clientData',
+    'coverPhotos',
+    'emailAddresses',
+    'events',
+    'externalIds',
+    'genders',
+    'imClients',
+    'interests',
+    'locales',
+    'locations',
+    'memberships',
+    'metadata',
+    'miscKeywords',
+    'names',
+    'nicknames',
+    'occupations',
+    'organizations',
+    'phoneNumbers',
+    'photos',
+    'relations',
+    'sipAddresses',
+    'skills',
+    'urls',
+    'userDefined',
+]
+
+person_fields_str = ",".join(person_fields_list)
+
+SCOPES = ["https://www.googleapis.com/auth/contacts.readonly"]
+pageSize = 2000
+
+# 구글 계정의 토큰 값으로 인증 정보 만들기
+creds = Credentials.from_authorized_user_file("./token.json", SCOPES)
+service = build("people", "v1", credentials=creds)
+
+# 모든 페이지의 연락처 정보 수집하는 함수
+def get_all_connections(service, pageSize):
+    data = []
+    nextPageToken = None
+
+    while True:
+        results = service.people().connections().list(
+            resourceName='people/me',
+            pageSize=pageSize,
+            personFields=person_fields_str,
+            pageToken=nextPageToken
+        ).execute()
+
+        connections = results.get('connections', [])
+        data.extend(connections)
+
+        nextPageToken = results.get('nextPageToken', None)
+        if not nextPageToken:
+            break
+
+    return data
+
+data = get_all_connections(service, pageSize)
+print(f"조회 결과 수: {len(data):,}개")
+```
+
+전체 연락처 정보가 data 변수에 딕셔너리 형식으로 저장되는데, 아래와 같이 이 값을 데이터프레임으로 변환할 수 있다.
+
+```python
+# 데이터 프레임으로 변환
+def create_dataframe(data):
+    # 데이터를 추출하고 정리하는 함수
+    def extract_info(person):
+        name = person.get("names", [{}])[0].get("displayName", "")
+        email = person.get("emailAddresses", [{}])[0].get("value", "")
+        phone = person.get("phoneNumbers", [{}])[0].get("value", "")
+        organization = person.get("organizations", [{}])[0].get("name", "")
+        title = person.get("organizations", [{}])[0].get("title", "")
+        return {
+            "Name": name,
+            "Email": email,
+            "Phone": phone,
+            "Organization": organization,
+            "Title": title
+        }
+
+    # 데이터 프레임 생성
+    df = pd.DataFrame([extract_info(person) for person in data])
+    return df
+
+# 데이터 프레임 생성
+df = create_dataframe(data)
+```
+
+<br>
+
 # 참고
 
 - [People API Document](https://developers.google.com/people/quickstart/python?hl=ko)
