@@ -218,6 +218,8 @@ API.send_message_to_me(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/1.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 리스트 메시지 전송
@@ -302,6 +304,8 @@ API.send_message_to_me(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/2.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 위치 메시지 전송
@@ -344,6 +348,9 @@ API.send_message_to_me(
     buttons=buttons,
     )
 ```
+
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/3.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 커머스 메시지 전송
@@ -401,6 +408,8 @@ API.send_message_to_me(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/4.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 텍스트 메시지 전송
@@ -424,6 +433,8 @@ API.send_message_to_me(
     button_title=button_title,
 )
 ```
+
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/5.jpg){: width="50%" .align-center}
 
 <br>
 
@@ -524,6 +535,8 @@ API.send_message_to_friend(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/1.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 리스트 메시지 전송
@@ -614,6 +627,8 @@ API.send_message_to_friend(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/2.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 위치 메시지 전송
@@ -662,6 +677,8 @@ API.send_message_to_friend(
     buttons=buttons,
     )
 ```
+
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/3.jpg){: width="50%" .align-center}
 
 <br>
 
@@ -726,6 +743,8 @@ API.send_message_to_friend(
     )
 ```
 
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/4.jpg){: width="50%" .align-center}
+
 <br>
 
 ### 텍스트 메시지 전송
@@ -755,6 +774,8 @@ API.send_message_to_friend(
     button_title=button_title,
 )
 ```
+
+![PNG](/assets/img/post_img/2022-12-18-pykakao-message/5.jpg){: width="50%" .align-center}
 
 <br>
 
