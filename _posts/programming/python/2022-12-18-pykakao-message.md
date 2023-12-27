@@ -67,28 +67,31 @@ PyKakao 라이브러리로 카카오 API를 사용하기 위해서는 [Kakao Dev
 
 ## 카카오톡 메시지 API 사용하기
 
-메시지 API는 사용자가 카카오톡 친구에게 카카오톡 메시지를 보내는 기능을 제공합니다. PyKakao의 최신 버전에서는 '나에게 보내기' 기능만 이용할 수 있습니다.
+메시지 API는 사용자가 카카오톡 친구에게 카카오톡 메시지를 보내는 기능을 제공합니다. PyKakao의 최신 버전에서는 '나에게 보내기'와 '친구에게 보내기' 기능을 이용할 수 있습니다.
 
 [자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api)
 
+## API 사용 설정하기
+
+메시지 API를 사용하기 전에 설정해야 하는 사항들에 대해 알아보겠습니다.
 
 ### 카카오 메시지 API 클래스 임포트하기
 
-PyKakao 라이브러리의 `Message` 클래스를 임포트합니다. `Message`의 인자로 위에서 발급받은 '**REST API 키**'를 입력하여 `api` 인스턴스를 생성합니다.
+PyKakao 라이브러리의 `Message` 클래스를 임포트합니다. `Message`의 인자로 위에서 발급받은 '**REST API 키**'를 입력하여 `API` 인스턴스를 생성합니다.
 
 ```python
 from PyKakao import Message
-api = Message(service_key = "REST API 키")
+API = Message(service_key = "REST API 키")
 ```
 
 <br>
 
 ### 카카오 인증코드 발급 URL 생성
 
-카카오 메시지 API를 이용하려면 액세스 토큰이 필요합니다. 액세스 토큰을 생성하려면 인증코드가 필요합니다. 아래와 같이 `api.get_url_for_generating_code` 메서드를 실행하여 얻은 카카오 인증코드 발급 URL을 출력합니다. 웹 브라우저를 이용해 출력된 URL에 접속합니다.
+카카오 메시지 API를 이용하려면 액세스 토큰이 필요합니다. 액세스 토큰을 생성하려면 인증코드가 필요합니다. 아래와 같이 `API.get_url_for_generating_code` 메서드를 실행하여 얻은 카카오 인증코드 발급 URL을 출력합니다. 웹 브라우저를 이용해 출력된 URL에 접속합니다.
 
 ```python
-auth_url = api.get_url_for_generating_code()
+auth_url = API.get_url_for_generating_code()
 print(auth_url)
 ```
 
@@ -106,10 +109,10 @@ url = ""
 
 ### 위 URL로 액세스 토큰 추출
 
-`api.get_access_token_by_redirected_url` 메서드의 인자로 위 `url`을 입력하면 액세스 코드를 얻을 수 있습니다. 액세스 코드의 값을 아래와 같이 `access_token`에 할당합니다.
+`API.get_access_token_by_redirected_url` 메서드의 인자로 위 `url`을 입력하면 액세스 코드를 얻을 수 있습니다. 액세스 코드의 값을 아래와 같이 `access_token`에 할당합니다.
 
 ```python
-access_token = api.get_access_token_by_redirected_url(url)
+access_token = API.get_access_token_by_redirected_url(url)
 ```
 
 <br>
@@ -119,16 +122,22 @@ access_token = api.get_access_token_by_redirected_url(url)
 위에서 추출한 액세스 코드를 아래와 같이 설정합니다.
 
 ```python
-api.set_access_token(access_token)
+API.set_access_token(access_token)
 ```
 
 <br>
 
-### 피드 메시지 전송
+## 1. 나에게 보내기 API 사용하기
 
 [자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-me)
 
+### 피드 메시지 전송
+
 ```python
+# 메시지 유형 - 피드
+message_type = "feed"
+
+# 파라미터
 content = {
             "title": "오늘의 디저트",
             "description": "아메리카노, 빵, 케익",
@@ -200,16 +209,24 @@ buttons = [
             }
         ]
 
-api.send_feed(content=content, item_content=item_content, social=social, buttons=buttons)
+API.send_message_to_me(
+    message_type=message_type,
+    content=content, 
+    item_content=item_content, 
+    social=social, 
+    buttons=buttons
+    )
 ```
 
 <br>
 
 ### 리스트 메시지 전송
 
-[자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-me)
-
 ```python
+# 메시지 유형 - 리스트
+message_type = "list"
+
+# 파라미터
 header_title = "WEEKELY MAGAZINE"
 header_link = {
             "web_url": "http://www.daum.net",
@@ -276,16 +293,24 @@ buttons = [
         ]
 
 
-api.send_list(header_title=header_title, header_link=header_link, contents=contents, buttons=buttons)
+API.send_message_to_me(
+    message_type=message_type,
+    header_title=header_title, 
+    header_link=header_link, 
+    contents=contents, 
+    buttons=buttons,
+    )
 ```
 
 <br>
 
 ### 위치 메시지 전송
 
-[자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-me)
-
 ```python
+# 메시지 유형 - 위치
+message_type = "location"
+
+# 파라미터
 address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 7층"
 address_title = "카카오 판교오피스"
 content = {
@@ -311,15 +336,23 @@ buttons = [
                 }
             ]
 
-api.send_location(address=address, address_title=address_title, content=content, buttons=buttons)
+API.send_message_to_me(
+    message_type=message_type,
+    address=address, 
+    address_title=address_title, 
+    content=content, 
+    buttons=buttons,
+    )
 ```
 <br>
 
 ### 커머스 메시지 전송
 
-[자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-me)
-
 ```python
+# 메시지 유형 - 커머스
+message_type = "commerce"
+
+# 파라미터
 content = {
             "title": "Ivory long dress (4 Color)",
             "image_url": "https://mud-kage.kakao.com/dn/RY8ZN/btqgOGzITp3/uCM1x2xu7GNfr7NS9QvEs0/kakaolink40_original.png",
@@ -339,7 +372,7 @@ commerce = {
             "discount_rate": 30
         }
 
-button = [
+buttons = [
             {
                 "title": "구매하기",
                 "link": {
@@ -360,23 +393,367 @@ button = [
             }
         ]
 
-api.send_commerce(content=content, commerce=commerce, button=button)
+API.send_message_to_me(
+    message_type=message_type,
+    content=content, 
+    commerce=commerce, 
+    buttons=buttons,
+    )
 ```
-<br>
 
+<br>
 
 ### 텍스트 메시지 전송
 
-[자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-me)
-
 ```python
+# 메시지 유형 - 텍스트
+message_type = "text"
+
+# 파라미터
 text = "텍스트 영역입니다. 최대 200자 표시 가능합니다."
 link = {
             "web_url": "https://developers.kakao.com",
             "mobile_web_url": "https://developers.kakao.com"
         }
 button_title = "바로 확인"
-api.send_text(text=text, link={}, button_title=button_title)
+
+API.send_message_to_me(
+    message_type=message_type, 
+    text=text,
+    link=link,
+    button_title=button_title,
+)
+```
+
+<br>
+
+## 2. 친구에게 보내기 API 사용하기
+
+[자세히 보기](https://developers.kakao.com/docs/latest/ko/message/rest-api#default-template-msg-friend)
+
+### 피드 메시지 전송
+
+```python
+# 메시지 유형 - 피드
+message_type = "feed"
+
+# UUID 목록
+receiver_uuids = [
+    "수신자 UUID",
+]
+
+# 파라미터
+content = {
+            "title": "오늘의 디저트",
+            "description": "아메리카노, 빵, 케익",
+            "image_url": "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+            "image_width": 640,
+            "image_height": 640,
+            "link": {
+                "web_url": "http://www.daum.net",
+                "mobile_web_url": "http://m.daum.net",
+                "android_execution_params": "contentId=100",
+                "ios_execution_params": "contentId=100"
+            }
+        }
+
+item_content = {
+            "profile_text" :"Kakao",
+            "profile_image_url" :"https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+            "title_image_url" : "https://mud-kage.kakao.com/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png",
+            "title_image_text" :"Cheese cake",
+            "title_image_category" : "Cake",
+            "items" : [
+                {
+                    "item" :"Cake1",
+                    "item_op" : "1000원"
+                },
+                {
+                    "item" :"Cake2",
+                    "item_op" : "2000원"
+                },
+                {
+                    "item" :"Cake3",
+                    "item_op" : "3000원"
+                },
+                {
+                    "item" :"Cake4",
+                    "item_op" : "4000원"
+                },
+                {
+                    "item" :"Cake5",
+                    "item_op" : "5000원"
+                }
+            ],
+            "sum" :"Total",
+            "sum_op" : "15000원"
+        }
+
+social = {
+            "like_count": 100,
+            "comment_count": 200,
+            "shared_count": 300,
+            "view_count": 400,
+            "subscriber_count": 500
+        }
+
+buttons = [
+            {
+                "title": "웹으로 이동",
+                "link": {
+                    "web_url": "http://www.daum.net",
+                    "mobile_web_url": "http://m.daum.net"
+                }
+            },
+            {
+                "title": "앱으로 이동",
+                "link": {
+                    "android_execution_params": "contentId=100",
+                    "ios_execution_params": "contentId=100"
+                }
+            }
+        ]
+
+API.send_message_to_friend(
+    message_type=message_type,
+    receiver_uuids=receiver_uuids,
+    content=content, 
+    item_content=item_content, 
+    social=social, 
+    buttons=buttons
+    )
+```
+
+<br>
+
+### 리스트 메시지 전송
+
+```python
+# 메시지 유형 - 리스트
+message_type = "list"
+
+# UUID 목록
+receiver_uuids = [
+    "수신자 UUID",
+]
+
+# 파라미터
+header_title = "WEEKELY MAGAZINE"
+header_link = {
+            "web_url": "http://www.daum.net",
+            "mobile_web_url": "http://m.daum.net",
+            "android_execution_params": "main",
+            "ios_execution_params": "main"
+        }
+contents = [
+            {
+                "title": "자전거 라이더를 위한 공간",
+                "description": "매거진",
+                "image_url": "https://mud-kage.kakao.com/dn/QNvGY/btqfD0SKT9m/k4KUlb1m0dKPHxGV8WbIK1/openlink_640x640s.jpg",
+                "image_width": 640,
+                "image_height": 640,
+                "link": {
+                    "web_url": "http://www.daum.net/contents/1",
+                    "mobile_web_url": "http://m.daum.net/contents/1",
+                    "android_execution_params": "/contents/1",
+                    "ios_execution_params": "/contents/1"
+                }
+            },
+            {
+                "title": "비쥬얼이 끝내주는 오레오 카푸치노",
+                "description": "매거진",
+                "image_url": "https://mud-kage.kakao.com/dn/boVWEm/btqfFGlOpJB/mKsq9z6U2Xpms3NztZgiD1/openlink_640x640s.jpg",
+                "image_width": 640,
+                "image_height": 640,
+                "link": {
+                    "web_url": "http://www.daum.net/contents/2",
+                    "mobile_web_url": "http://m.daum.net/contents/2",
+                    "android_execution_params": "/contents/2",
+                    "ios_execution_params": "/contents/2"
+                }
+            },
+            {
+                "title": "감성이 가득한 분위기",
+                "description": "매거진",
+                "image_url": "https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg",
+                "image_width": 640,
+                "image_height": 640,
+                "link": {
+                    "web_url": "http://www.daum.net/contents/3",
+                    "mobile_web_url": "http://m.daum.net/contents/3",
+                    "android_execution_params": "/contents/3",
+                    "ios_execution_params": "/contents/3"
+                }
+            }
+        ]
+buttons = [
+            {
+                "title": "웹으로 이동",
+                "link": {
+                    "web_url": "http://www.daum.net",
+                    "mobile_web_url": "http://m.daum.net"
+                }
+            },
+            {
+                "title": "앱으로 이동",
+                "link": {
+                    "android_execution_params": "main",
+                    "ios_execution_params": "main"
+                }
+            }
+        ]
+
+
+API.send_message_to_friend(
+    message_type=message_type,
+    receiver_uuids=receiver_uuids,
+    header_title=header_title, 
+    header_link=header_link, 
+    contents=contents, 
+    buttons=buttons,
+    )
+```
+
+<br>
+
+### 위치 메시지 전송
+
+```python
+# 메시지 유형 - 위치
+message_type = "location"
+
+# UUID 목록
+receiver_uuids = [
+    "수신자 UUID",
+]
+
+# 파라미터
+address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 7층"
+address_title = "카카오 판교오피스"
+content = {
+                "title": "카카오 판교오피스",
+                "description": "카카오 판교오피스 위치입니다.",
+                "image_url": "https://mud-kage.kakao.com/dn/drTdbB/bWYf06POFPf/owUHIt7K7NoGD0hrzFLeW0/kakaolink40_original.png",
+                "image_width": 800,
+                "image_height": 800,
+                "link": {
+                    "web_url": "https://developers.kakao.com",
+                    "mobile_web_url": "https://developers.kakao.com/mobile",
+                    "android_execution_params": "platform=android",
+                    "ios_execution_params": "platform=ios"
+                }
+            }
+buttons = [
+                {
+                    "title": "웹으로 보기",
+                    "link": {
+                        "web_url": "https://developers.kakao.com",
+                        "mobile_web_url": "https://developers.kakao.com/mobile"
+                    }
+                }
+            ]
+
+API.send_message_to_friend(
+    message_type=message_type,
+    receiver_uuids=receiver_uuids,
+    address=address, 
+    address_title=address_title, 
+    content=content, 
+    buttons=buttons,
+    )
+```
+
+<br>
+
+### 커머스 메시지 전송
+
+```python
+# 메시지 유형 - 커머스
+message_type = "commerce"
+
+# UUID 목록
+receiver_uuids = [
+    "수신자 UUID",
+]
+
+# 파라미터
+content = {
+            "title": "Ivory long dress (4 Color)",
+            "image_url": "https://mud-kage.kakao.com/dn/RY8ZN/btqgOGzITp3/uCM1x2xu7GNfr7NS9QvEs0/kakaolink40_original.png",
+            "image_width": 640,
+            "image_height": 640,
+            "link": {
+                "web_url": "https://style.kakao.com/main/women/contentId=100",
+                "mobile_web_url": "https://style.kakao.com/main/women/contentId=100",
+                "android_execution_params": "contentId=100",
+                "ios_execution_params": "contentId=100"
+            }
+        }
+
+commerce = {
+            "regular_price": 208800,
+            "discount_price": 146160,
+            "discount_rate": 30
+        }
+
+buttons = [
+            {
+                "title": "구매하기",
+                "link": {
+                    "web_url": "https://style.kakao.com/main/women/contentId=100/buy",
+                    "mobile_web_url": "https://style.kakao.com/main/women/contentId=100/buy",
+                    "android_execution_params": "contentId=100&buy=true",
+                    "ios_execution_params": "contentId=100&buy=true"
+                }
+            },
+            {
+                "title": "공유하기",
+                "link": {
+                    "web_url": "https://style.kakao.com/main/women/contentId=100/share",
+                    "mobile_web_url": "https://style.kakao.com/main/women/contentId=100/share",
+                    "android_execution_params": "contentId=100&share=true",
+                    "ios_execution_params": "contentId=100&share=true"
+                }
+            }
+        ]
+
+API.send_message_to_friend(
+    message_type=message_type,
+    receiver_uuids=receiver_uuids,
+    content=content, 
+    commerce=commerce, 
+    buttons=buttons,
+    )
+```
+
+<br>
+
+### 텍스트 메시지 전송
+
+```python
+# 메시지 유형 - 텍스트
+message_type = "text"
+
+# UUID 목록
+receiver_uuids = [
+    "수신자 UUID",
+]
+
+# 파라미터
+text = "텍스트 영역입니다. 최대 200자 표시 가능합니다."
+link = {
+            "web_url": "https://developers.kakao.com",
+            "mobile_web_url": "https://developers.kakao.com"
+        }
+button_title = "바로 확인"
+
+API.send_message_to_friend(
+    message_type=message_type, 
+    receiver_uuids=receiver_uuids,
+    text=text,
+    link=link,
+    button_title=button_title,
+)
 ```
 
 <br>
