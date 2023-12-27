@@ -1,5 +1,5 @@
 ---
-title: "PyKakao - Python으로 카카오톡 메시지 API 사용하기"
+title: "PyKakao - 파이썬으로 카카오톡 메시지 보내기"
 categories: python
 tags: PyKakao
 header:
