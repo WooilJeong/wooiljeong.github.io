@@ -117,9 +117,9 @@ sudo docker-compose up -d
 
 방화벽 공개 설정이 정상적으로 되어 있다면, 웹 브라우저에서 아래 URL에 접속하면 각 컨테이너의 UI를 확인할 수 있다.
 
-- Apache Spark: http://<Public IP>:7070
-- Apache Zeppelin: http://<Public IP>:8081
-- Jupyterlab: http://<Public IP>:8888
+- Apache Spark: http://Public IP:7070
+- Apache Zeppelin: http://Public IP:8081
+- Jupyterlab: http://Public IP:8888
 
 ### Spark 예시
 
