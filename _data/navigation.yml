@@ -8,16 +8,22 @@ main:
 
 side:
 
-  - title: "프로그래밍"
+  - title: "Programming"
     children:
     - title: "Python"
       url: /python/
       category: python
-    - title: "Golang"
+    - title: "Go"
       url: /go/
       category: go
+    - title: "Dart"
+      url: /dart/
+      category: dart
+    - title: "JavaScript"
+      url: /javascript/
+      category: javascript
 
-  - title: "클라우드"
+  - title: "Cloud Computing"
     children:
     - title: "GCP"
       url: /gcp/
@@ -26,7 +32,7 @@ side:
       url: /aws/
       category: aws
 
-  - title: "컨테이너"
+  - title: "Data Engineering"
     children:
     - title: "Docker"
       url: /docker/
@@ -34,24 +40,24 @@ side:
     - title: "Kubernetes"
       url: /kubernetes/
       category: kubernetes
-    - title: "Jenkins"
-      url: /jenkins/
-      category: jenkins
-    - title: "Prometheus"
-      url: /prometheus/
-      category: /prometheus/
-    - title: "Grafana"
-      url: /grafana/
-      category: /grafana/    
+    - title: "Airflow"
+      url: /airflow/
+      category: airflow
+    - title: "Spark"
+      url: /spark/
+      category: spark
+    - title: "Kafka"
+      url: /kafka/
+      category: kafka
+    - title: "Superset"
+      url: /superset/
+      category: superset
 
-  - title: "백엔드"
+  - title: "Back-End"
     children:
     - title: "FastAPI"
       url: /fastapi/
       category: fastapi
-    - title: "Airflow"
-      url: /airflow/
-      category: airflow
     - title: "Server"
       url: /server/
       category: server
@@ -59,7 +65,7 @@ side:
       url: /sql/
       category: sql
 
-  - title: "데이터과학"
+  - title: "Data Science"
     children:
     - title: "PyTorch"
       url: /pytorch/
@@ -67,21 +73,21 @@ side:
     - title: "Tensorflow"
       url: /tensorflow/
       category: tensorflow
-    - title: "머신러닝"
+    - title: "ML"
       url: /ml/
       category: ml
 
-  - title: "금융"
+  - title: "Finance"
     children:
-    - title: "퀀트"
+    - title: "Quant"
       url: /quant/
       category: quant
 
-  - title: "미분류"
+  - title: "ETC"
     children:
-    - title: "리뷰"
+    - title: "Review"
       url: /review/
       category: review
-    - title: "기타"
+    - title: "etc"
       url: /etc/
       category: etc
