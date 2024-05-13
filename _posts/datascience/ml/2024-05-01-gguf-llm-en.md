@@ -63,11 +63,11 @@ If you have a custom LLM model downloaded from Huggingface, etc. that is not an 
 ```yaml
 FROM Meta-Llama-3-8B-Instruct.Q8_0.gguf
 
-TEMPLATE """{{- if .System }}
-<s>{{ .System }}</s>
-{{- end }}
+TEMPLATE """{{{{- if .System }}}}
+<s>{{{{ .System }}}}</s>
+{{{{- end }}}}
 <s>Human:
-{{ .Prompt }}</s>
+{{{{ .Prompt }}}}</s>
 <s>Assistant:
 """
 
