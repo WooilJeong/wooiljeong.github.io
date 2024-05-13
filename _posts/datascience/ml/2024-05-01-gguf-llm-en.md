@@ -61,13 +61,14 @@ If you have a custom LLM model downloaded from Huggingface, etc. that is not an 
 - Create a Modelfile file in the same path as the GGUF file
 
 ```yaml
+{% raw %}
 FROM Meta-Llama-3-8B-Instruct.Q8_0.gguf
 
-TEMPLATE """{{{{- if .System }}}}
-<s>{{{{ .System }}}}</s>
-{{{{- end }}}}
+TEMPLATE """{{- if .System }}
+<s>{{ .System }}</s>
+{{- end }}
 <s>Human:
-{{{{ .Prompt }}}}</s>
+{{ .Prompt }}</s>
 <s>Assistant:
 """
 
@@ -78,6 +79,7 @@ PARAMETER num_predict 3000
 PARAMETER num_ctx 4096
 PARAMETER stop <s>
 PARAMETER stop </s>
+{% endraw %}
 ```
 
 <br>
